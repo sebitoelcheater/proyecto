@@ -4,3 +4,5 @@ con cambios
 Oye esteban, hay que usar el trabajo que han realizado otros, como tu mismo has dicho, no hay para que inventar la rueda de nuevo. 
 
 Ya ahorita si hice un cambio a esto :)...
+
+MODIFICACION....HOLA ESTOY TRABAJANDO EN UN MODELO DE DB en MYSQL PARA EL PROYECTO.... YA TENGO UNA IDEA CONTUNDENTE... CUANDO LA TENGA BIEN REDACTADA SE LAS MANDO :)
