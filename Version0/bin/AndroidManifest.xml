@@ -12,8 +12,42 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Principal"
+            android:name=".ActividadPrincipal"
             android:label="@string/title_activity_principal" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActividadQueMuestraMensaje"
+            android:label="@string/title_activity_actividad_que_muestra_mensaje" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.version0.Principal" />
+        </activity>
+        <activity
+            android:name=".ActividadConfiguracion"
+            android:label="@string/title_activity_actividad_configuracion" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActividadHorario"
+            android:label="@string/title_activity_actividad_horario" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActividadNotas"
+            android:label="@string/title_activity_actividad_notas" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
