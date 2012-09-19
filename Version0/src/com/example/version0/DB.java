@@ -5,7 +5,7 @@
 // *Leer el HORARIO (devolver un String)
 // *Leer las notas del Ramo
 // *Agregar una nueva Nota
-
+/*
 
 package com.example.version0;
 
@@ -71,4 +71,4 @@ public void onCreate(SQLiteDatabase db) {
 	  InsertDepts(db);  
 	 }
 
-}
+}*/
