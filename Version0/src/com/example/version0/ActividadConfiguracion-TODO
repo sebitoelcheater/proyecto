@@ -33,5 +33,9 @@ Por lo tanto, lo que queda por hacer, en orden creo que sería:
 	* Recupera la ID del ramo del Intent
 	* Recupera la info de la base de datos y coloca los valores actuales en los campos de Horario y Nombre de Ramo
 	* El Botón modifica en la Base de Datos
+
+
+ARIEL : ESTOY DE ACUEDO EN PROSEGUIR ASI... en cuanto al horario creo que nuestra aplicacion podría configurar segun el numero de modulos semanales, es decir , que el usuario le diga a la aplicacion
+cuantos moodulos semanales tiene... ademas cada modulos puede ser guardado con una hora de inicio, una hora de fin y un dia de la semana
 	
 	
