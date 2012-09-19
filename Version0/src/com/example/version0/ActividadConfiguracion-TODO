@@ -1,0 +1,37 @@
+Sea TODO: To Do = Por Hacer
+
+A continuación escribiré la idea que tengo de la parte de la Configuración, para después
+listar las cosas que quedan por hacer:
+
+Opino que la ActividadCnfiguracion sea una activity que listee los ramos, 
+con un boton a cada lado para editar el ramo, y un boton al final para agregar un nuevo ramo
+
+Esta actividad, por lo tanto lleva a dos actividades:
+
+1) Actividad de Edición
+2) Actividad para Crear nuevo Ramo.
+
+Estas dos actividades serán muy parecidas. La diferencia es que el de edición
+recupera los valores de la base de datos y los coloca en los campos, mientras que la actividad
+de Crear Ramo pone los campos en blanco.
+
+Atte, Esteban.
+
+Por lo tanto, lo que queda por hacer, en orden creo que sería:
+1) Programar la ActividadConfiguración. La pega se separa en:
+	* Programar un método para que listee los Ramos
+	* Que muestre en una lista los ramos con un botón de Editar al lado de cada ramo
+	* Que los botones le envíen la ID de Ramo a editar a la Actividad "ActividadEdicionRamo"
+	* Mostrar un Botón que lleve a la actividad "ActividadNuevoRamo"
+2) Programar la ActividadNuevoRamo.
+	* Muestra los campos necesarios para configurar un nuevo ramo que son:
+		- Nombre Ramo
+		- Horario (aquí necesito más ideas, porque no se me ocurre por ahora como ingresar el Horario)
+	* Muestra Botón que guarda todo esto en la Base de Datos.
+3) Programar la ActividadEdicionRamo
+	En realidad hay que tener el paso 2 para hacer esto, ya quese usa el mismo layout y hace:
+	* Recupera la ID del ramo del Intent
+	* Recupera la info de la base de datos y coloca los valores actuales en los campos de Horario y Nombre de Ramo
+	* El Botón modifica en la Base de Datos
+	
+	
