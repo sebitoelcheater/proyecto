@@ -8,6 +8,11 @@
     <string name="horario">Horario</string>
     <string name="calificaciones">Calificaciones</string>
     <string name="configuraci_n_de_ramos">Configuración de Ramos</string>
+    <string name="ej_horario">Ej: 2.5;2.6;5.1</string>
+    <string name="no_mod_sem">Numero de Modulos Semanales</string>
+    <string name="guardar">Guardar</string>
+    <string name="nombre_ramo">Nombre Ramo</string>
+    <string name="numero_notas">Numero de Notas</string>
     <string name="button_send">Envíalo!</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_actividad_que_muestra_mensaje">ActividadQueMuestraMensaje</string>
@@ -17,5 +22,6 @@
     <string name="title_activity_actividad_configuracion">ActividadConfiguracion</string>
     <string name="title_activity_actividad_horario">ActividadHorario</string>
     <string name="title_activity_actividad_notas">ActividadNotas</string>
+    <string name="title_activity_ramos_inscritos">Ramos Inscritos</string>
 
 </resources>
