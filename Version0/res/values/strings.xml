@@ -17,5 +17,7 @@
     <string name="title_activity_actividad_configuracion">ActividadConfiguracion</string>
     <string name="title_activity_actividad_horario">ActividadHorario</string>
     <string name="title_activity_actividad_notas">ActividadNotas</string>
+    <string name="nombre_ramo">Nombre Ramo</string>
+    <string name="nombre_ramo_con_otro_nombre">Nombre Ramo con otro Nombre</string>
 
 </resources>

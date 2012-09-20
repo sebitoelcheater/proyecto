@@ -1,15 +1,58 @@
 package com.example.version0;
 
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class ActividadConfiguracion extends Activity {
+public class ActividadConfiguracion extends ListActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        
         setContentView(R.layout.activity_actividad_configuracion);
+        
+        //Por ahora trabajaremos con un array de Ramos definidos.
+        //Pero debería ser una lista con Ramos e ID's
+        String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3"};
+        
+        //Ahora le damos los ids de las views que se deben ir llenando,
+        //en este caso la de los nombres de los ramos
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+    			this,
+    			R.layout.lista_ramos,
+    			R.id.textoNombreRamo,
+    			array_ramos);
+        
+        
+        this.setListAdapter(adapter);
+        
+       // getListView().setTextFilterEnabled(textFilterEnabled)
+
+ 
+	/*
+        
+        
+         
+               
+        
+        
+        ListView listView = (ListView) findViewById(android.R.id.list);
+
+        
+        
+        
+        
+       
+
+        // Ahora le asigna los valores a la lista
+        listView.setAdapter(adapter); */
+
+        
     }
 
     @Override
@@ -17,4 +60,8 @@ public class ActividadConfiguracion extends Activity {
         getMenuInflater().inflate(R.menu.activity_actividad_configuracion, menu);
         return true;
     }
+    
+    
+    
+   
 }
