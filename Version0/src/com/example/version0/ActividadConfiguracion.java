@@ -17,19 +17,12 @@ public class ActividadConfiguracion extends ListActivity {
         
         //Por ahora trabajaremos con un array de Ramos definidos.
         //Pero debería ser una lista con Ramos e ID's
-        String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3"};
+        String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3","...Crear Nuevo Ramo"};
         
         //Ahora le damos los ids de las views que se deben ir llenando,
         //en este caso la de los nombres de los ramos
         
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-    			this,
-    			R.layout.lista_ramos,
-    			R.id.textoNombreRamo,
-    			array_ramos);
-        
-        
-        this.setListAdapter(adapter);
+       this.setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array_ramos));
         
        // getListView().setTextFilterEnabled(textFilterEnabled)
 
