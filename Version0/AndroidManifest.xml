@@ -54,7 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+        <!--  <activity
             android:name=".DatosDelRamo"
             android:label="@string/title_activity_datos_del_ramo" >
             <intent-filter>
@@ -71,7 +71,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>-->
     </application>
 
 </manifest>
