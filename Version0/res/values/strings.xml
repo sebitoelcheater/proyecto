@@ -19,5 +19,9 @@
     <string name="title_activity_actividad_notas">ActividadNotas</string>
     <string name="nombre_ramo">Nombre Ramo</string>
     <string name="nombre_ramo_con_otro_nombre">Nombre Ramo con otro Nombre</string>
+    <string name="title_activity_datos_del_ramo">DatosDelRamo</string>
+    <string name="title_activity_actividad_datos_del_ramo">ActividadDatosDelRamo</string>
+    <string name="title_activity_actividad_ramos">ActividadRamos</string>
+    
 
 </resources>

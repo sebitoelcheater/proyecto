@@ -50,7 +50,7 @@ en ese tutorial. Se los recomiendo -->
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="bottom"
 	        android:layout_weight="1"	       
-	        android:onClick="verConfiguracion"
+	        android:onClick="verRamos"
 	        android:text="@string/boton_configurar" />
 	     <!-- el onClick ejecuta el método (en este caso verConfiguracion) que está 
 	        en el archivo .java -->
