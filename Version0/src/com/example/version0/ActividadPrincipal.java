@@ -40,7 +40,7 @@ public class ActividadPrincipal extends Activity {
     	startActivity(intent);
     }
     public void verConfiguracion (View view) {
-    	Intent intent = new Intent(this,ActividadConfiguracion.class);
+    	Intent intent = new Intent(this,ActividadRamos.class);
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);
