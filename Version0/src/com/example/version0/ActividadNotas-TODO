@@ -1,2 +1,10 @@
 Como en el acuerdo que llegamos, cree un TODO de la
 ActividadNotas para informar como proseguire con ello
+
+Idea 1 :
+	Intentare hacer esto con el modelo simple que planteo
+	Esteban en su momento, es decir una sola activity para
+	ver y agregar notas...
+	La implementacion que hare sera con una lista expandible
+	donde el nivel 0 de la lista sera el nombre dle ramo, y 
+	el nivel uno la nota
