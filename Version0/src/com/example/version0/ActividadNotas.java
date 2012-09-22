@@ -61,7 +61,7 @@ public class ActividadNotas extends ExpandableListActivity{
                 new String[] { "CLAVE","CLAVE2" },
                 new int[] { android.R.id.text1, android.R.id.text2 },
                 childData,
-                android.R.layout.simple_expandable_list_item_2,
+                R.layout.nombre_nota,
                 new String[] { "CLAVE","CLAVE2" },
                 new int[] { android.R.id.text1, android.R.id.text2 }
                 )); 
@@ -113,8 +113,6 @@ public class ActividadNotas extends ExpandableListActivity{
                 new int[] { android.R.id.text1, android.R.id.text2 }
                 )); 
     	*/
-    	EditText editor = new EditText(null);
-    	//Dialog cambio = new AlertDialog(this,5);
     	return true;
     }
 }
