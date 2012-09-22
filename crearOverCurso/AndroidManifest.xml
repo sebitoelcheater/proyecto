@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name="crearCurso"></activity>
+        <activity android:name="mostrarCursos"></activity>
     </application>
 
 </manifest>
