@@ -14,8 +14,8 @@ public class ActividadRamos extends ListActivity {
         
         
         setContentView(R.layout.activity_actividad_ramos);
+    
         
-       
         
         //Por ahora trabajaremos con un array de Ramos definidos.
         //Pero debería ser una lista con Ramos e ID's
@@ -33,8 +33,9 @@ public class ActividadRamos extends ListActivity {
         
         this.setListAdapter(adapter);
         
-       /* */
     }
+    
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,6 +88,5 @@ public class ActividadRamos extends ListActivity {
     	
     	startActivity(intent);
     }
-<<<<<<< HEAD
 }*/
 
