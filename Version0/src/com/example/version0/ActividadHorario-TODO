@@ -6,3 +6,9 @@ Idea 1 :
 	que sea un Spinner con los dias de la Semana con un 
 	boton "Ver", donde se podrá	ver el horario de un 
 	determinado dia mas abajo, mostrado en un ListView
+	
+Idea 1 Finalizada :
+	Bueno, ya termine lla interfaz de usuario del horario
+	... no esta muy chula, pero servira para la version 0,
+	y esta listo para conectarse con una evental DB(tiene la
+	estructura)
