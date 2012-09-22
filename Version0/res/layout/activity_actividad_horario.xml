@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <DatePicker
-        android:id="@+id/datePicker1"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Visualizador De Horario"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
+        android:layout_below="@+id/textView1" />
 
     <Button
         android:id="@+id/button1"
@@ -17,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/datePicker1"
+        android:layout_below="@+id/spinner1"
         android:text="Ver Horario" />
 
     <ListView

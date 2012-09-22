@@ -1,2 +1,8 @@
 Como en el acuerdo que llegamos, cree un TODO de la
 ActividadHorario para informar como proseguire con ello
+
+Idea 1 :
+	La primera idea que tengo para mostrar el horario es
+	que sea un Spinner con los dias de la Semana con un 
+	boton "Ver", donde se podrá	ver el horario de un 
+	determinado dia mas abajo, mostrado en un ListView
