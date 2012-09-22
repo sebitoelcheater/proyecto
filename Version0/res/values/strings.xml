@@ -21,7 +21,10 @@
     <string name="nombre_ramo_con_otro_nombre">Nombre Ramo con otro Nombre</string>
     <string name="title_activity_datos_del_ramo">DatosDelRamo</string>
     <string name="title_activity_actividad_datos_del_ramo">ActividadDatosDelRamo</string>
+<<<<<<< HEAD
     <string name="title_activity_actividad_ramos">ActividadRamos</string>
     
+=======
+>>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
 
 </resources>

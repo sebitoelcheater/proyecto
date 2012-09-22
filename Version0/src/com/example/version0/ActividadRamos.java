@@ -1,5 +1,6 @@
 package com.example.version0;
 
+<<<<<<< HEAD
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -54,6 +55,10 @@ public class ActividadRamos extends ListActivity {
 /*package com.example.version0;
 
 import android.os.Bundle;
+=======
+import android.os.Bundle;
+import android.app.Activity;
+>>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
@@ -83,4 +88,8 @@ public class ActividadRamos extends ListActivity {
     	
     	startActivity(intent);
     }
+<<<<<<< HEAD
 }*/
+=======
+}
+>>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
