@@ -56,14 +56,35 @@ Ariel: Genial, Esteban... aun no cacho como subir archivos al repositorio remoto
 	
 Ariel: Ok, ya aprendi como agregar archivos, de hecho agregue una nueva actividad
 
-Ariel: Esteban mira lo que hice :)... cree toda una interfaz grafica para la configuracion... solo me falta conectar las activitys.... si te gusta y proseguimos, yo me puedo encargar de conectar las activitys
-	mira.... te explico un poco... mi idea es que la primera activity que se muestren los ramos que ya tenga el usuario en una lista y en el ultimo registro de la lista vaya la opcion de crear un nuevo ramo.... 
-	...al apretar cualquiera de estos botones de la lista te manda a la activity de datos del ramo... la cual muestra los datos del ramo(puse unos de ejemplo)... la diferencia entre entrar a crear un nuevo ramo
-	aparte de la programacion interna(que ahi esta la verdadera diferencia)... es que cuando entras a editar ya estan los datos puestos y todos los botones desabilitados(que se podrian habilitar para poder editar),
-	mientras que cuando creas estan los registros vacios y son editables :).... bueno dentro de los campos de los datos del ramo, hay una lista que tiene a los modulos asociados al ramo y al final de ella una opcion
-	para agregar un nuevo modulo... estos registros de la lista enganchan con otra activity llamada datosModulo, donde se ven editan o crean modulos asciados al ramo en cuestion(de la misma forma antes explicada)
+Ariel: Esteban mira lo que hice :)... cree toda una interfaz grafica 
+para la configuracion... solo me falta conectar las activitys.... 
+si te gusta y proseguimos, yo me puedo encargar de conectar las activitys
+	mira.... te explico un poco... mi idea es que la primera activity
+	 que se muestren los ramos que ya tenga el usuario en una lista 
+	 y en el ultimo registro de la lista vaya la opcion de crear 
+	 un nuevo ramo.... 
+	...al apretar cualquiera de estos botones de la lista te manda 
+	a la activity de datos del ramo... la cual muestra los datos del 
+	ramo(puse unos de ejemplo)... la diferencia entre entrar a crear un
+	 nuevo ramo
+	aparte de la programacion interna(que ahi esta la verdadera diferencia
+... es que cuando entras a editar ya estan los datos puestos y todos los 
+botones desabilitados(que se podrian habilitar para poder editar),
+	mientras que cuando creas estan los registros vacios y son editables :)
+	.... bueno dentro de los campos de los datos del ramo, 
+	hay una lista que tiene a los modulos asociados al ramo y al 
+	final de ella una opcion
+	para agregar un nuevo modulo... 
+	estos registros de la lista enganchan con otra activity 
+	llamada datosModulo, donde se ven editan o crean modulos 
+	asciados al ramo en cuestion(de la misma forma antes explicada)
 	
-	Bueno.... basicamente esto.... creo que es una bonita manera grafica para la version0... ojala te guste, y como te digo, si es asi podria seguir con la parte que falta(conectar las activitys y otras cosas de programacion)
+	Bueno.... basicamente esto.... creo que es una bonita
+	 manera grafica para la version0... ojala te guste,
+	  y como te digo, si es asi podria seguir con la parte 
+	  que falta(conectar las activitys y otras cosas de programacion)
 	si es que estas de acuerdo claro :)
 	
-	Espero tu respuesta por este medio... mañana me conectare en la mañana temprano y luego estare en la tarde noche :) salu2
+	Espero tu respuesta por este medio... 
+	maï¿½ana me conectare en la maï¿½ana temprano 
+	y luego estare en la tarde noche :) salu2

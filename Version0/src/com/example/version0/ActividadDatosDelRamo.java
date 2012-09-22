@@ -33,10 +33,9 @@ public class ActividadDatosDelRamo extends Activity implements OnItemClickListen
         return true;
     }
 
-<<<<<<< HEAD
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
     
@@ -48,8 +47,6 @@ public class ActividadDatosDelRamo extends Activity implements OnItemClickListen
 	}
 
     
-=======
->>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
@@ -57,9 +54,6 @@ public class ActividadDatosDelRamo extends Activity implements OnItemClickListen
 		Intent intent = new Intent(this,ActividadDatosModulo.class);
 		startActivity(intent);
 	}
-<<<<<<< HEAD
 	
 	*/
-=======
->>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
 }

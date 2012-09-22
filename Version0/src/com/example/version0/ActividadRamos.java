@@ -1,6 +1,5 @@
 package com.example.version0;
 
-<<<<<<< HEAD
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -90,6 +89,4 @@ public class ActividadRamos extends ListActivity {
     }
 <<<<<<< HEAD
 }*/
-=======
-}
->>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
+

@@ -39,11 +39,7 @@ public class ActividadPrincipal extends Activity {
     	
     	startActivity(intent);
     }
-<<<<<<< HEAD
     public void verRamos (View view) {
-=======
-    public void verConfiguracion (View view) {
->>>>>>> 4e43b3c81ae3a05e45de4581750413f563ee385f
     	Intent intent = new Intent(this,ActividadRamos.class);
     	
     	//Necesario para la comunicación entre Activities
