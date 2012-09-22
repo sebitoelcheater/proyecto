@@ -1,8 +1,10 @@
 package com.example.version0;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -43,6 +45,13 @@ public class ActividadRamos extends ListActivity {
         return true;
     }
     
+    
+    protected void onListItemClick (ListView l, View v, int position, long id)
+    {
+    	Intent intent = new Intent(this,ActividadDatosDelRamo.class);
+    	startActivity(intent);
+    	
+    }
     
     
    
