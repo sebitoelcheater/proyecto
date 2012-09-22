@@ -27,6 +27,10 @@ public class MainActivity extends Activity {
     public void lanzar(View view) {
         Intent i = new Intent(this, crearCurso.class );
         startActivity(i);
-  }
+    }
+    public void mostrar(View view){
+        Intent i = new Intent(this, mostrarCursos.class );
+        startActivity(i);
+    }
     
 }
