@@ -54,7 +54,6 @@ public class ActividadNotas extends ExpandableListActivity{
             } while (c.moveToNext());
         }
         db.close();
-        
         configurarListaExpansiva();
         
         
@@ -104,11 +103,11 @@ public class ActividadNotas extends ExpandableListActivity{
 		// TODO Auto-generated method stub
     	groupData = new ArrayList<Map<String,String>>();
     	childData = new ArrayList<List<Map<String, String>>>();
-    	for(int i=0; i<array_ramos.size(); ++i)
+    	for(int i=0; i<10; ++i)
          {
          	 Map<String, String> curGroupMap = new HashMap<String, String>();
               groupData.add(curGroupMap);
-              curGroupMap.put("CLAVE", (String) array_ramos.get(i));
+              curGroupMap.put("CLAVE", "Ramo " + i);
               //curGroupMap.put("CLAVE2", "EsteGrupoEsCLAVE2");
               
               List<Map<String, String>> children = new ArrayList<Map<String, String>>();
