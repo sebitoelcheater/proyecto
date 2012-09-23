@@ -1,7 +1,10 @@
 package com.example.version0;
 
+import java.util.ArrayList;
+
 import android.app.ListActivity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -10,6 +13,10 @@ import android.widget.ListView;
 
 public class ActividadRamos extends ListActivity {
 
+    public String DisplayRecord(Cursor c)
+    {
+    	return c.getString(1);  
+    } 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +28,22 @@ public class ActividadRamos extends ListActivity {
         
         //Por ahora trabajaremos con un array de Ramos definidos.
         //Pero debería ser una lista con Ramos e ID's
-        String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3"};
+        //String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3"};
+        AdapterCursos db = new AdapterCursos(this);
+        
+        ArrayList array_ramos = new ArrayList();
+        
+        db.open();
+        Cursor c = db.getAllRecords();
+        
+        if (c.moveToFirst())
+        {
+            do {          
+                String curso = DisplayRecord(c);
+                array_ramos.add(curso);
+            } while (c.moveToNext());
+        }
+        db.close();
         
         //Ahora le damos los ids de las views que se deben ir llenando,
         //en este caso la de los nombres de los ramos
