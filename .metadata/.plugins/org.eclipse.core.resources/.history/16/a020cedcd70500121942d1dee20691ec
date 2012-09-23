@@ -123,7 +123,7 @@ public class ActividadNotas extends ExpandableListActivity{
               for (int j = 0; j <= i; j++) {
                   Map<String, String> curChildMap = new HashMap<String, String>();
                   children.add(curChildMap);
-                  curChildMap.put("CLAVE", "7");
+                  curChildMap.put("CLAVE", "MODULO " + j);
           }
               childData.add(children);
          }
