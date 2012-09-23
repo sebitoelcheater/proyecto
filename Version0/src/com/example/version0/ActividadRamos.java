@@ -13,10 +13,6 @@ import android.widget.ListView;
 
 public class ActividadRamos extends ListActivity {
 
-    public String DisplayRecord(Cursor c)
-    {
-    	return c.getString(1);  
-    } 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +28,7 @@ public class ActividadRamos extends ListActivity {
         AdapterCursos db = new AdapterCursos(this);
         
         ArrayList array_ramos = new ArrayList();
+        ArrayList array_idcursos = new ArrayList();
         
         db.open();
         Cursor c = db.getAllRecords();
@@ -39,8 +36,10 @@ public class ActividadRamos extends ListActivity {
         if (c.moveToFirst())
         {
             do {          
-                String curso = DisplayRecord(c);
+                String curso = c.getString(1);
+                String idcurso = c.getString(0);
                 array_ramos.add(curso);
+                array_idcursos.add(idcurso);
             } while (c.moveToNext());
         }
         db.close();
