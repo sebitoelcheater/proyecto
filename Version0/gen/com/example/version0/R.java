@@ -39,10 +39,11 @@ public final class R {
         public static final int activity_actividad_principal=0x7f030005;
         public static final int activity_actividad_que_muestra_mensaje=0x7f030006;
         public static final int activity_actividad_ramos=0x7f030007;
-        public static final int activity_nota_nombre_ramo=0x7f030008;
-        public static final int lista_ramos=0x7f030009;
-        public static final int nombre_nota=0x7f03000a;
-        public static final int nuevo_ramo=0x7f03000b;
+        public static final int activity_dialogo=0x7f030008;
+        public static final int activity_nota_nombre_ramo=0x7f030009;
+        public static final int lista_ramos=0x7f03000a;
+        public static final int nombre_nota=0x7f03000b;
+        public static final int nuevo_ramo=0x7f03000c;
     }
     public static final class menu {
         public static final int activity_actividad_configuracion=0x7f060000;
@@ -53,8 +54,9 @@ public final class R {
         public static final int activity_actividad_que_muestra_mensaje=0x7f060005;
         public static final int activity_actividad_ramos=0x7f060006;
         public static final int activity_datos_del_ramo=0x7f060007;
-        public static final int activity_nota_nombre_ramo=0x7f060008;
-        public static final int activity_principal=0x7f060009;
+        public static final int activity_dialogo=0x7f060008;
+        public static final int activity_nota_nombre_ramo=0x7f060009;
+        public static final int activity_principal=0x7f06000a;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -79,6 +81,7 @@ public final class R {
         public static final int title_activity_actividad_que_muestra_mensaje=0x7f04000a;
         public static final int title_activity_actividad_ramos=0x7f040015;
         public static final int title_activity_datos_del_ramo=0x7f040013;
+        public static final int title_activity_dialogo=0x7f040018;
         public static final int title_activity_nota_nombre_ramo=0x7f040016;
         public static final int title_activity_principal=0x7f040003;
     }

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//import com.example.dialog.R;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -98,7 +100,7 @@ public class ActividadNotas extends ExpandableListActivity{
                 new String[] { "CLAVE","CLAVE2" },
                 new int[] { android.R.id.text1, android.R.id.text2 },
                 childData,
-                R.layout.nombre_nota,
+                android.R.layout.simple_expandable_list_item_2,
                 new String[] { "CLAVE","CLAVE2" },
                 new int[] { android.R.id.text1, android.R.id.text2 }
                 )); 
@@ -137,19 +139,18 @@ public class ActividadNotas extends ExpandableListActivity{
     
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id)
     {
-    	/*configurarListaExpansiva();
-    	setListAdapter(new SimpleExpandableListAdapter(
-                this,
-                groupData,
-                android.R.layout.simple_expandable_list_item_1,
-                new String[] { "CLAVE","CLAVE2" },
-                new int[] { android.R.id.text1, android.R.id.text2 },
-                childData,
-                android.R.layout.simple_expandable_list_item_2,
-                new String[] { "CLAVE","CLAVE2" },
-                new int[] { android.R.id.text1, android.R.id.text2 }
-                )); 
-    	*/
+    	showDialog(1);
     	return true;
     }
+    
+    protected Dialog onCreateDialog(int id) {
+    	
+    	Dialog d = new Dialog(this);
+		d.setContentView(R.layout.activity_dialogo);
+		d.setTitle("Editor Nota");
+		
+		
+		
+		return d;
+	}
 }
