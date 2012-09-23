@@ -23,5 +23,6 @@
     <string name="title_activity_actividad_datos_del_ramo">ActividadDatosDelRamo</string>
     <string name="title_activity_actividad_ramos">ActividadRamos</string>
     <string name="title_activity_nota_nombre_ramo">NotaNombreRamo</string>
+    <string name="edittextNombredelRamo">Nombre del Ramo</string>
 
 </resources>

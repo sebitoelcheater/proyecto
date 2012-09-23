@@ -53,6 +53,12 @@ public class ActividadRamos extends ListActivity {
     	
     }
     
+    public void configurarnuevoramo(View view)
+    {
+        Intent i = new Intent(this, nuevoRamo.class );
+        startActivity(i);
+    }
+    
     
    
 }
