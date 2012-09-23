@@ -10,6 +10,7 @@ import android.util.Log;
 
 public class AdapterNotas {
     public static final String KEY_ROWID = "id";
+    public static final String KEY_ID_RAMO = "id_ramo";
     public static final String KEY_NOMBRE = "nombre";
     public static final String KEY_DUEDATE = "duedate";
     public static final String KEY_VALOR = "valor";
@@ -22,8 +23,7 @@ public class AdapterNotas {
     private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_CREATE =
-        "create table if not exists Notas (id integer primary key autoincrement, "
-        + "nombre VARCHAR not null, duedate date, valor VARCHAR, clase VARCHAR, id_usuario integer);";
+        "create table if not exists Notas (id integer primary key autoincrement, id_ramo integer, nombre VARCHAR not null, duedate date, valor VARCHAR, clase VARCHAR, id_usuario integer);";
         
     private final Context context;    
 
@@ -77,9 +77,10 @@ public class AdapterNotas {
     }
     
     //---insert a record into the database---
-    public long insertRecord(String nombre, String duedate, String valor, String clase) 
+    public long insertRecord(String id_ramo, String nombre, String duedate, String valor, String clase) 
     {
         ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_ID_RAMO, id_ramo);
         initialValues.put(KEY_NOMBRE, nombre);
         initialValues.put(KEY_DUEDATE, duedate);
         initialValues.put(KEY_VALOR, valor);
@@ -97,15 +98,15 @@ public class AdapterNotas {
     //---retrieves all the records---
     public Cursor getAllRecords() 
     {
-        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_NOMBRE,
+        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_ID_RAMO, KEY_NOMBRE,
                 KEY_DUEDATE, KEY_VALOR, KEY_CLASE, KEY_ID_USUARIO}, null, null, null, null, null);
     }
 
-    //---retrieves a psarticular record---
+    //---retrieves a particular record---
     public Cursor getRecord(long rowId) throws SQLException 
     {
         Cursor mCursor =
-                db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+                db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID, KEY_ID_RAMO,
                 KEY_NOMBRE, KEY_DUEDATE, KEY_VALOR, KEY_CLASE, KEY_ID_USUARIO}, 
                 KEY_ROWID + "=" + rowId, null, null, null, null, null);
         if (mCursor != null) {
@@ -113,11 +114,24 @@ public class AdapterNotas {
         }
         return mCursor;
     }
+    
+    public Cursor getNotas(String idramo) throws SQLException 
+    {
+
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE, new String[] {KEY_VALOR}, 
+                KEY_ID_RAMO + "=" + idramo, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
 
     //---updates a record---
-    public boolean updateRecord(long rowId, String nombre, String duedate, String valor, String clase, String id_usuario) 
+    public boolean updateRecord(long rowId, String id_ramo, String nombre, String duedate, String valor, String clase, String id_usuario) 
     {
         ContentValues args = new ContentValues();
+        args.put(KEY_ID_RAMO, id_ramo);
         args.put(KEY_NOMBRE, nombre);
         args.put(KEY_DUEDATE, duedate);
         args.put(KEY_VALOR, valor);

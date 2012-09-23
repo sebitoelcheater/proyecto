@@ -103,6 +103,7 @@ public class AdapterCursos {
         }
         return mCursor;
     }
+    
 
     //---updates a record---
     public boolean updateRecord(long rowId, String title, String duedate, String course, String notes) 

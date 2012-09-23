@@ -20,18 +20,19 @@ import android.widget.SimpleExpandableListAdapter;
 
 
 public class ActividadNotas extends ExpandableListActivity{
-	
-    public String DisplayRecord(Cursor c)
-    {
-    	return c.getString(1);  
-    } 
+
     
-    public AdapterCursos db = new AdapterCursos(this);
+    public AdapterCursos dbramos = new AdapterCursos(this);
+    public AdapterNotas dbnotas = new AdapterNotas(this);
     ArrayList array_ramos;
+	ArrayList array_notas;
 	
+    
 	ArrayList<Map<String,String>> groupData;
     List<List<Map<String, String>>> childData ;
-    int [] [] notas;
+    
+    
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,23 +41,28 @@ public class ActividadNotas extends ExpandableListActivity{
         //Este Es un poco de codigo para generar la lista expandible
         
         //ESTA ITERACION VA SEGUN EL NUMERO Y NOMBRE DEL LOS RAMOS EXTRAIDOS DE DB
-        notas = null;
         array_ramos = new ArrayList();
+        array_notas = new ArrayList();
         
-        db.open();
-        Cursor c = db.getAllRecords();
+        dbramos.open();
+        dbnotas.open();
+        Cursor c = dbramos.getAllRecords();
         
         if (c.moveToFirst())
         {
-            do {          
-                String curso = DisplayRecord(c);
+            do {
+                String curso = c.getString(1);
+                String idramo = c.getString(0);
+                Cursor notas = dbnotas.getNotas(idramo);
+                array_notas.add(notas);
                 array_ramos.add(curso);
             } while (c.moveToNext());
         }
-        db.close();
+        dbramos.close();
+        dbnotas.close();
+        
         
         configurarListaExpansiva();
-        
         
         
         
