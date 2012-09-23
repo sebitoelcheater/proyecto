@@ -52,9 +52,9 @@ public class ActividadNotas extends ExpandableListActivity{
         {
             do {
                 String curso = c.getString(1);
-                String idramo = c.getString(0);
-                Cursor notas = dbnotas.getNotas(idramo);
-                array_notas.add(notas);
+                //String idramo = c.getString(0);
+                //Cursor notas = dbnotas.getNotas(idramo);
+                //array_notas.add(notas);
                 array_ramos.add(curso);
             } while (c.moveToNext());
         }
