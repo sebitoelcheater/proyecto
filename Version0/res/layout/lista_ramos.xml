@@ -17,8 +17,10 @@
 	        <!-- Boton para Editar el Ramo -->
 
 	        <Button
+	            android:id="@+id/botonEditarRamo"	            
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Editar" />
+	            android:text="Editar"
+	            android:onClick="configurarnuevoramo" />
 	        
 	    </LinearLayout>
