@@ -60,7 +60,7 @@ public class ActividadPrincipal extends Activity {
     }
     
     public void verNotas (View view) {
-    	Intent intent = new Intent(this,ActividadNotas.class);
+    	Intent intent = new Intent(this,ActividadNotas2.class);
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);

@@ -8,3 +8,6 @@ Idea 1 :
 	La implementacion que hare sera con una lista expandible
 	donde el nivel 0 de la lista sera el nombre dle ramo, y 
 	el nivel uno la nota
+	
+Nueva modificacion... ahora tengo lista la actividad de notas y es editable... aun le faltan algunos aspects de control de datos
+pero esta funcional y lista para conectarse con las notas de la base de datos :)

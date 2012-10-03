@@ -530,3 +530,68 @@ Contains: Could not delete: C:\Users\Hp\Documents\proyecto\DIALOGPRUEBA\libs.
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2012-09-23 20:31:42.976
 !MESSAGE Warning: Ignoring name conflict in resource file for name menu_settings
+!SESSION 2012-09-28 19:31:28.010 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-09-28 19:31:39.815
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 4 4 2012-09-28 19:31:49.150
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+!SESSION 2012-10-01 13:48:03.223 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 4 4 2012-10-01 13:48:32.099
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+!SESSION 2012-10-01 19:42:18.286 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 4 4 2012-10-01 19:48:02.297
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+!SESSION 2012-10-02 22:56:40.910 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 4 4 2012-10-02 22:57:55.833
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-02 23:10:17.230
+!MESSAGE Warning: Ignoring name conflict in resource file for name hello_world
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-02 23:10:17.231
+!MESSAGE Warning: Ignoring name conflict in resource file for name menu_settings
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-02 23:10:21.016
+!MESSAGE Warning: Ignoring name conflict in resource file for name hello_world
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-02 23:10:21.017
+!MESSAGE Warning: Ignoring name conflict in resource file for name menu_settings
+!SESSION 2012-10-02 23:29:24.053 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 4 4 2012-10-02 23:29:44.559
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset

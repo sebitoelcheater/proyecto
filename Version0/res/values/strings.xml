@@ -26,5 +26,6 @@
     <string name="edittextNombredelRamo">Nombre del Ramo</string>
     <string name="title_activity_dialogo">Dialogo</string>
     <string name="title_activity_actividad_ramos2">ActividadRamos2</string>
+    <string name="title_activity_actividad_notas2">ActividadNotas2</string>
 
 </resources>
