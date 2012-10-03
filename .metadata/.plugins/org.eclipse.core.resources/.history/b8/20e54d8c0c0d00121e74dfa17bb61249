@@ -220,7 +220,7 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
 		
 	}
 
-	private void actualizar() {//En Verdad aqui se deberia actualizar la base de datos y volver a cargar los datos(con los campos de ...Editando :))
+	private void actualizar() {//En Verdad aqui se deberia actualizar la base de datos y volver a cargar los datos
 		// TODO Auto-generated method stub
 		ExpandableListView l = (ExpandableListView) findViewById(R.id.expandableListView1);
 		miExpandableAdapter adaptador = new miExpandableAdapter(this, cursos, notas);
