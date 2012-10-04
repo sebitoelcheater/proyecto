@@ -30,85 +30,47 @@
         <activity
             android:name=".ActividadConfiguracion"
             android:label="@string/title_activity_actividad_configuracion" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ActividadHorario"
             android:label="@string/title_activity_actividad_horario" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ActividadNotas"
             android:label="@string/title_activity_actividad_notas" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+          
         </activity>
         <activity
             android:name=".ActividadRamos"
             android:label="@string/title_activity_actividad_ramos" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name=".ActividadDatosDelRamo"
             android:label="@string/title_activity_actividad_datos_del_ramo" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name=".NotaNombreRamo"
             android:label="@string/title_activity_nota_nombre_ramo" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity android:name="nuevoRamo" >
         </activity>
         <activity
             android:name=".Dialogo"
             android:label="@string/title_activity_dialogo" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           
         </activity>
         <activity
             android:name=".ActividadRamos2"
             android:label="@string/title_activity_actividad_ramos2" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           
         </activity>
         <activity
             android:name=".ActividadNotas2"
             android:label="@string/title_activity_actividad_notas2" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           
         </activity>
     </application>
 

@@ -3,4 +3,5 @@
 <fullyQualifiedTypeName name="android.app.ExpandableListActivity"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>
