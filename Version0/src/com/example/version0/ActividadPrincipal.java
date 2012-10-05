@@ -23,6 +23,7 @@ public class ActividadPrincipal extends Activity {
     }
     
     //Metodo ejecutado al presionar el boton de "Envíalo!".
+   /*
     public void enviarMensaje (View view) {
     	Intent intent = new Intent(this,ActividadQueMuestraMensaje.class);
     	
@@ -38,7 +39,7 @@ public class ActividadPrincipal extends Activity {
     	intent.putExtra(MENSAJE_EXTRA, texto);
     	
     	startActivity(intent);
-    }
+    }*/
     public void verRamos (View view) {
     	Intent intent = new Intent(this,ActividadRamos.class);
     	
@@ -61,6 +62,16 @@ public class ActividadPrincipal extends Activity {
     
     public void verNotas (View view) {
     	Intent intent = new Intent(this,ActividadNotas2.class);
+    	
+    	//Necesario para la comunicación entre Activities
+    	intent.putExtra(MENSAJE_EXTRA,true);
+    		
+    	
+    	startActivity(intent);
+    }
+    
+    public void verFormularioFeedback (View view) {
+    	Intent intent = new Intent(this,ActividadFeedback.class);
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);

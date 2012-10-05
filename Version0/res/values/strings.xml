@@ -5,6 +5,7 @@
     <string name="menu_settings">Configuración </string>
     <string name="title_activity_principal">Principal</string>
     <string name="pagina_principal_">Pagina Principal!</string>
+    <string name="boton_feedback">Da tu Feedback!</string>
     <string name="horario">Horario</string>
     <string name="calificaciones">Calificaciones</string>
     <string name="configuraci_n_de_ramos">Configuración de Ramos</string>
@@ -27,5 +28,6 @@
     <string name="title_activity_dialogo">Dialogo</string>
     <string name="title_activity_actividad_ramos2">ActividadRamos2</string>
     <string name="title_activity_actividad_notas2">ActividadNotas2</string>
+    <string name="title_activity_actividad_feedback">ActividadFeedback</string>
 
 </resources>

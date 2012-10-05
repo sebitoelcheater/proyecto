@@ -38,39 +38,41 @@
         <activity
             android:name=".ActividadNotas"
             android:label="@string/title_activity_actividad_notas" >
-          
         </activity>
         <activity
             android:name=".ActividadRamos"
             android:label="@string/title_activity_actividad_ramos" >
-            
         </activity>
         <activity
             android:name=".ActividadDatosDelRamo"
             android:label="@string/title_activity_actividad_datos_del_ramo" >
-            
         </activity>
         <activity
             android:name=".NotaNombreRamo"
             android:label="@string/title_activity_nota_nombre_ramo" >
-            
         </activity>
         <activity android:name="nuevoRamo" >
         </activity>
         <activity
             android:name=".Dialogo"
             android:label="@string/title_activity_dialogo" >
-           
         </activity>
         <activity
             android:name=".ActividadRamos2"
             android:label="@string/title_activity_actividad_ramos2" >
-           
         </activity>
         <activity
             android:name=".ActividadNotas2"
             android:label="@string/title_activity_actividad_notas2" >
-           
+        </activity>
+        <activity
+            android:name=".ActividadFeedback"
+            android:label="@string/title_activity_actividad_feedback" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

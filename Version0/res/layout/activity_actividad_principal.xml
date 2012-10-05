@@ -18,7 +18,6 @@ en ese tutorial. Se los recomiendo -->
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <!-- Pone un Campo de Texto, ver tutorial para más detalles -->
 
         <EditText
             android:id="@+id/edit_message"
@@ -27,7 +26,6 @@ en ese tutorial. Se los recomiendo -->
             android:layout_weight="1"
             android:hint="@string/edit_message" />
 
-        <!-- El botón ejecuta la clase enviarMensaje que está en Principal.java -->
 
 	    <Button
 	        android:layout_width="wrap_content"
@@ -45,6 +43,14 @@ en ese tutorial. Se los recomiendo -->
         android:layout_gravity="center_vertical"
         android:orientation="vertical" >
     
+          <Button
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="bottom"
+	        android:layout_weight="1"	       
+	        android:onClick="verFormularioFeedback"
+	        android:text="@string/boton_feedback" />
+          
 	    <Button
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
