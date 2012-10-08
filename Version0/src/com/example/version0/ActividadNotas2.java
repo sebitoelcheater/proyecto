@@ -21,26 +21,34 @@ import android.widget.Toast;
 
 public class ActividadNotas2 extends Activity implements ExpandableListView.OnChildClickListener, OnClickListener {
 
-    private ArrayList<String> cursos;
+    private Controlador controlador;
+    
+	private ArrayList<String> cursos;
     private ArrayList<ArrayList<ArrayList<String>>> notas;
     public Dialog d;
     public EditText nota;
     public int cursoEditando;
     public int notaEditando;
     
-    public AdapterCursos dbramos = new AdapterCursos(this);
+    //public AdapterCursos dbramos = new AdapterCursos(this); AHORA SE USA EL CONTROLADOR
     public AdapterNotas dbnotas = new AdapterNotas(this);
-	@Override
+	
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_notas2);
-        
+        //Cargando el objeto controlador
+        Bundle b = getIntent().getExtras();
+		controlador = b.getParcelable("CONTROLADOR");
+        //Cargando el objeto controlador
         ExpandableListView l = (ExpandableListView) findViewById(R.id.expandableListView1);
  
         cargarDatos();
  
+        //miExpandableAdapter adaptador = new miExpandableAdapter(this, cursos, notas);
         miExpandableAdapter adaptador = new miExpandableAdapter(this, cursos, notas);
-		
+        
+        
         l.setAdapter(adaptador);
         l.setOnChildClickListener(this);
     }
@@ -135,10 +143,11 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
 
     private void cargarDatos() {
     	
-    		cursos= new ArrayList<String>();
-        	notas= new ArrayList<ArrayList<ArrayList<String>>>();
-        	
-        	dbramos.open();
+    		cursos= controlador.getNombreCursos();
+        	/* AHORA LO HACE EL CONTROLADOR
+    		cursos = new ArrayList<String>();
+    		
+    		dbramos.open();
             dbnotas.open();
             Cursor c = dbramos.getAllRecords();
             
@@ -154,9 +163,9 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
             }
             dbramos.close();
             dbnotas.close();
+           */
             
-            
-        	
+            notas= new ArrayList<ArrayList<ArrayList<String>>>();
         	for(int i = 0; i< cursos.size();++i)//No olvidar conectar esto con la base de datos
             {
             	notas.add(new ArrayList<ArrayList<String>>());
