@@ -10,7 +10,7 @@ import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-//AGREGANDO FUNCINALIDADES REALES AL CONTROLADOR....
+
 public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTEXT PARA TODAS LAS ACTIVITYS....
 {
 
