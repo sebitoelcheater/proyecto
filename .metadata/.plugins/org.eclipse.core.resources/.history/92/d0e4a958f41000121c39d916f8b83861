@@ -57,7 +57,7 @@ en ese tutorial. Se los recomiendo
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="bottom"
-	        android:onClick="enviarComentario"
+	        android:onClick="verFormularioFeedback"
 	        android:text="@string/boton_feedback" />
           
 	    
