@@ -30,16 +30,16 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
 	
 	public ArrayList<String> getNombreCursos()
 	{
-		//return new ArrayList<String>(nombreDeCursos);
+		return new ArrayList<String>(nombreDeCursos);
 		
-		
+		/*
 		ArrayList<String> nombreDeCursos= new ArrayList<String>();
 		for(Curso c: cursos)
 		{
 			nombreDeCursos.add(c.getNombre());
 		}
 		return nombreDeCursos;  
-		
+		 */
 	}
 	
 	
@@ -50,39 +50,13 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
 	//METODO EN DESUSO
 	public void nuevaActividad(Context context)
 	{
-		//nombreDeCursos = new ArrayList<String>();
-		cursos = new ArrayList<Curso>();
-		//PROGRAMAR EL CARGADOR DE CURSOS SEGUN LA BASE DE DATOS
-		cargarCursos(context);
-		//cargarRamos(context);
+		nombreDeCursos = new ArrayList<String>();
+		cargarRamos(context);
 	}
 	//METODO EN DESUSO
 	
 	
 	
-	private void cargarCursos(Context context) {
-		// TODO Auto-generated method stub
-		AdapterCursos dbramos = new AdapterCursos(context);
-		dbramos.open();
-        Cursor c = dbramos.getAllRecords();
-        
-        if (c.moveToFirst())
-        {
-            do {
-                String nombreDeCurso = c.getString(1);
-                String idramo = c.getString(0);
-                
-                Curso curso = new Curso(context,idramo);
-                curso.setNombre(nombreDeCurso);
-                //Cursor notas = dbnotas.getNotas(idramo);
-                //array_notas.add(notas);
-                cursos.add(curso);
-            } while (c.moveToNext());
-        }
-        dbramos.close();
-	}
-
-	/*
 	private void cargarRamos(Context context) {
 		// TODO Auto-generated method stub
 		AdapterCursos dbramos = new AdapterCursos(context);
@@ -100,15 +74,15 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
             } while (c.moveToNext());
         }
         dbramos.close();
-	}*/
+	}
 
 
 
      
 	private void readFromParcel(Parcel in) {
 		 
-		cursos = new ArrayList<Curso>();
-		in.readList(cursos,Curso.class.getClassLoader());
+		nombreDeCursos = new ArrayList<String>();
+		in.readList(nombreDeCursos,String.class.getClassLoader());
 		
 	}
 
@@ -119,7 +93,7 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
 
 	public void writeToParcel(Parcel dest, int flags) {
 		// TODO Auto-generated method stub
-		dest.writeList(cursos);
+		dest.writeList(nombreDeCursos);
 		
 	}
 	

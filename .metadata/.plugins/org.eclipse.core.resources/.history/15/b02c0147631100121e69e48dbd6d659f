@@ -9,6 +9,3 @@ objeto implementando la interfaz Parcelable.... por ahora la he implementado en 
 notas ya esta usando el controlador basico...
 
 SIGUIENTE PASO : CONTRUIR EL OBJETO CONTROLADOR COMPLETO(YA LO TENGO DISEÑADO EN PAPEL)
-
-AVANCE : He implementado el controlador ahora como un conjunto de objetos Curso
-SIGUIENTE PASO : MODELAR EL OBJETO CURSO TOTALMENTE

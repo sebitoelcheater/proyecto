@@ -73,7 +73,6 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
                 String idramo = c.getString(0);
                 
                 Curso curso = new Curso(context,idramo);
-                curso.setNombre(nombreDeCurso);
                 //Cursor notas = dbnotas.getNotas(idramo);
                 //array_notas.add(notas);
                 cursos.add(curso);
@@ -119,7 +118,7 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
 
 	public void writeToParcel(Parcel dest, int flags) {
 		// TODO Auto-generated method stub
-		dest.writeList(cursos);
+		dest.writeList(nombreDeCursos);
 		
 	}
 	
