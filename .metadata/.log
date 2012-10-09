@@ -1252,3 +1252,13 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY org.eclipse.ui 4 4 2012-10-08 21:40:16.227
 !MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+!SESSION 2012-10-09 06:27:24.697 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 4 4 2012-10-09 06:28:17.139
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
