@@ -40,7 +40,6 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
         //Cargando el objeto controlador
         Bundle b = getIntent().getExtras();
 		controlador = b.getParcelable("CONTROLADOR");
-		controlador.nuevaActividad(this);
         //Cargando el objeto controlador
         ExpandableListView l = (ExpandableListView) findViewById(R.id.expandableListView1);
  

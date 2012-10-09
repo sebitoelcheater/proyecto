@@ -26,8 +26,7 @@ public class ActividadHorario extends Activity implements OnClickListener{
         
         Bundle b = getIntent().getExtras();
 		controlador = b.getParcelable("CONTROLADOR");
-		controlador.nuevaActividad(this);
-		
+        
 		Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
        
