@@ -15,6 +15,8 @@ import android.widget.Spinner;
 
 public class ActividadHorario extends Activity implements OnClickListener{
 	
+	private Controlador controlador;
+	
 	String []diasDeLaSemana = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
     ArrayList<String> array_modulos = new ArrayList<String>();
 	@Override
@@ -22,7 +24,10 @@ public class ActividadHorario extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario);
         
-        Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
+        Bundle b = getIntent().getExtras();
+		controlador = b.getParcelable("CONTROLADOR");
+        
+		Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
        
         
@@ -53,9 +58,6 @@ public class ActividadHorario extends Activity implements OnClickListener{
 
 	private void generaModulos(int selectedItemPosition) {
 		// TODO Auto-generated method stub
-		array_modulos = new ArrayList<String>();
-		//Aca se supone que va la coneccion con la DB
-		for(int i = 0 ; i<=selectedItemPosition; ++i)
-			array_modulos.add("Modulo"+(i+1));
+		array_modulos = controlador.getListaDeModuloSegunDia(this, selectedItemPosition);
 	}
 }

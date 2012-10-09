@@ -13,36 +13,25 @@ import android.widget.ListView;
 
 public class ActividadRamos extends ListActivity {
 
+	private Controlador controlador;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         
         setContentView(R.layout.activity_actividad_ramos);
-    
-        
-        
+        Bundle b = getIntent().getExtras();
+		controlador = b.getParcelable("CONTROLADOR");
+        controlador.nuevaActividad(this); //HACER ESTO EN TODAS LAS ACTIVIDADES?
         //Por ahora trabajaremos con un array de Ramos definidos.
         //Pero debería ser una lista con Ramos e ID's
         //String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3"};
         AdapterCursos db = new AdapterCursos(this);
         
-        ArrayList array_ramos = new ArrayList();
-        ArrayList array_idcursos = new ArrayList();
+        ArrayList array_ramos = controlador.getNombreCursos();
+        ArrayList array_idcursos = controlador.getIdCursos();
         
-        db.open();
-        Cursor c = db.getAllRecords();
         
-        if (c.moveToFirst())
-        {
-            do {          
-                String curso = c.getString(1);
-                String idcurso = c.getString(0);
-                array_ramos.add(curso);
-                array_idcursos.add(idcurso);
-            } while (c.moveToNext());
-        }
-        db.close();
         
         //Ahora le damos los ids de las views que se deben ir llenando,
         //en este caso la de los nombres de los ramos
@@ -70,6 +59,9 @@ public class ActividadRamos extends ListActivity {
     protected void onListItemClick (ListView l, View v, int position, long id)
     {
     	Intent intent = new Intent(this,ActividadDatosDelRamo.class);
+
+    	intent.putExtra("CONTROLADOR", controlador);	
+    	
     	startActivity(intent);
     	
     }
@@ -77,7 +69,9 @@ public class ActividadRamos extends ListActivity {
     public void configurarnuevoramo(View view)
     {
         Intent i = new Intent(this, nuevoRamo.class );
-        startActivity(i);
+        i.putExtra("CONTROLADOR", controlador);	
+    	
+    	startActivity(i);
     }
     
     

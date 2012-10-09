@@ -25,19 +25,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class nuevoRamo extends Activity {
+	private Controlador controlador;
+    
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nuevo_ramo);
+        Bundle b = getIntent().getExtras();
+		controlador = b.getParcelable("CONTROLADOR");
+        
     }
 	
 	public void crear(View view)
 	{
-		AdapterCursos db = new AdapterCursos(this);
+		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
-		db.open();        
-	    db.insertRecord(nameTxt.getText().toString());        
-	    db.close();
+		Curso c = new Curso(this,""+(controlador.getNumeroDeCursos()+1)); 
+	    c.setNombre(nameTxt.getText().toString());
+	    controlador.addNuevoCurso(this, c);
 	    
 	    finish();
 	}

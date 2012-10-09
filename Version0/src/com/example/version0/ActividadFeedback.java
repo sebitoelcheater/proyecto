@@ -13,10 +13,13 @@ import android.widget.Spinner;
 public class ActividadFeedback extends Activity {
 	 private ArrayList<String> cursos;
 	 public AdapterCursos dbramos = new AdapterCursos(this);
+	 private Controlador controlador;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_feedback);
+        Bundle b = getIntent().getExtras();
+		controlador = b.getParcelable("CONTROLADOR");
         cargarDatos();
         
         
@@ -31,25 +34,8 @@ public class ActividadFeedback extends Activity {
     }
     private void cargarDatos() {
     	
-		cursos= new ArrayList<String>();
-    	
-    	dbramos.open();
-        Cursor c = dbramos.getAllRecords();
-        
-        if (c.moveToFirst())
-        {
-            do {
-                String curso = c.getString(1);
-                //String idramo = c.getString(0);
-                //Cursor notas = dbnotas.getNotas(idramo);
-                //array_notas.add(notas);
-                cursos.add(curso);
-            } while (c.moveToNext());
-        }
-        dbramos.close();
-            	
-    
-}
+		cursos= controlador.getNombreCursos();
+    }
     
     public void enviarComentario(View view)
     {}
