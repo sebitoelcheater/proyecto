@@ -23,39 +23,16 @@ public class Modulo implements Parcelable
 	
 	
 
-	
+	private void nuevaActividad(Context context) { //¿CONEXION DB?
+		// TODO Auto-generated method stub
+		
+	}
 
 
 
 	public Modulo(Parcel in)
 	{
 		readFromParcel(in);
-	}
-	
-	public void setNombre(String nombre)
-	{
-		this.nombre=nombre;
-	}
-	public void setHoraInicio(String horaInicio)
-	{
-		this.horaInicio = horaInicio;
-	}
-	public void setHoraFin(String horaFin)
-	{
-		this.horaFin = horaFin;
-	}
-	
-	public String getNombre()
-	{
-		return nombre;
-	}
-	public String getHoraInicio()
-	{
-		return horaInicio;
-	}
-	public String getHoraFin()
-	{
-		return horaFin;
 	}
 	
 	private void readFromParcel(Parcel in) {
@@ -66,10 +43,7 @@ public class Modulo implements Parcelable
 		
 	}
 
-	private void nuevaActividad(Context context) { //¿CONEXION DB?
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	public int describeContents() {
 		// TODO Auto-generated method stub

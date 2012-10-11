@@ -44,20 +44,6 @@ public class Modulo implements Parcelable
 	{
 		this.horaFin = horaFin;
 	}
-	
-	public String getNombre()
-	{
-		return nombre;
-	}
-	public String getHoraInicio()
-	{
-		return horaInicio;
-	}
-	public String getHoraFin()
-	{
-		return horaFin;
-	}
-	
 	private void readFromParcel(Parcel in) {
 		// TODO Auto-generated method stub
 		nombre = in.readString();
