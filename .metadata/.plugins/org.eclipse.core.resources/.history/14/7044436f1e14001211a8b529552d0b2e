@@ -9,7 +9,6 @@ import android.os.Parcelable;
 public class Modulo implements Parcelable 
 
 {
-	private int dia;
 	private String horaInicio;
 	private String horaFin;
 	private String nombre;
@@ -19,7 +18,6 @@ public class Modulo implements Parcelable
 		this.nombre = "";
 		this.horaInicio="";
 		this.horaFin="";
-		this.dia = -1;
 		nuevaActividad(context);
 	}
 	
@@ -34,10 +32,6 @@ public class Modulo implements Parcelable
 		readFromParcel(in);
 	}
 	
-	public void setDia(int dia)
-	{
-		this.dia= dia;
-	}
 	public void setNombre(String nombre)
 	{
 		this.nombre=nombre;
@@ -51,10 +45,6 @@ public class Modulo implements Parcelable
 		this.horaFin = horaFin;
 	}
 	
-	public int getDia()
-	{
-		return dia;
-	}
 	public String getNombre()
 	{
 		return nombre;
@@ -73,7 +63,6 @@ public class Modulo implements Parcelable
 		nombre = in.readString();
 		horaInicio = in.readString();
 		horaFin = in.readString();
-		dia = in.readInt();
 		
 	}
 
@@ -92,7 +81,6 @@ public class Modulo implements Parcelable
 		dest.writeString(nombre);
 		dest.writeString(horaInicio);
 		dest.writeString(horaFin);
-		dest.writeInt(dia);
 	}
 	
 	public static final Parcelable.Creator CREATOR =

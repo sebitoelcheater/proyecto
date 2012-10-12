@@ -117,14 +117,9 @@ public class Curso implements Parcelable {
 		
 	}
 	
-	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
+	private void cargarModulos(Context context) {
 		// TODO Auto-generated method stub
-		for(int i=0; i<3;++i)
-		{
-			Modulo m = new Modulo(context);
-			m.setDia((Integer.parseInt(id)%4));//CUIDADO!
-			horario.add(m);
-		}
+		for
 	}
 
 
@@ -150,7 +145,6 @@ public class Curso implements Parcelable {
 		dest.writeString(id);
 		dest.writeString(nombre);
 		dest.writeList(notas);
-		dest.writeList(horario);
 	}
 	private void readFromParcel(Parcel in) {
 		// TODO Auto-generated method stub
@@ -158,8 +152,6 @@ public class Curso implements Parcelable {
 		nombre = in.readString();
 		notas = new ArrayList<Integer>();
 		in.readList(notas,Integer.class.getClassLoader());
-		horario = new ArrayList<Modulo>();
-		in.readList(horario,Modulo.class.getClassLoader());
 	}
 	
 	public static final Parcelable.Creator CREATOR =
