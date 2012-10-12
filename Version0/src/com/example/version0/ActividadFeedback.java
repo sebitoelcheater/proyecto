@@ -20,6 +20,7 @@ public class ActividadFeedback extends Activity {
         setContentView(R.layout.activity_actividad_feedback);
         Bundle b = getIntent().getExtras();
 		controlador = b.getParcelable("CONTROLADOR");
+		controlador.nuevaActividad(this);
         cargarDatos();
         
         

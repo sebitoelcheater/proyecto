@@ -40,6 +40,7 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
         //Cargando el objeto controlador
         Bundle b = getIntent().getExtras();
 		controlador = b.getParcelable("CONTROLADOR");
+		controlador.nuevaActividad(this);
         //Cargando el objeto controlador
         ExpandableListView l = (ExpandableListView) findViewById(R.id.expandableListView1);
  
@@ -170,11 +171,11 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
             {
             	notas.add(new ArrayList<ArrayList<String>>());
                 
-                
-                for(int j = 0; j<=i;++j)
+                ArrayList<Integer> notasDelCurso = controlador.getCurso(i).getNotas();
+                for(int j = 0; j<notasDelCurso.size();++j)
                 {
                 	notas.get(i).add(new ArrayList<String>());
-                	notas.get(i).get(j).add(""+(j%7));
+                	notas.get(i).get(j).add(notasDelCurso.get(j)+"");
                 }
                 
             
@@ -220,9 +221,11 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
 
 	public void onClick(View v) {
 		
-		notas.get(cursoEditando).get(notaEditando).remove(0);
+		controlador.getCurso(cursoEditando).changeNota(notaEditando, Integer.parseInt(nota.getText().toString()));
+		//notas.get(cursoEditando).get(notaEditando).remove(0);
 		//String temp = nota.getText();
-		notas.get(cursoEditando).get(notaEditando).add(nota.getText().toString());
+		//notas.get(cursoEditando).get(notaEditando).add(nota.getText().toString());
+		cargarDatos();
 		actualizar();
 		removeDialog(1);
 		// TODO Auto-generated method stub
