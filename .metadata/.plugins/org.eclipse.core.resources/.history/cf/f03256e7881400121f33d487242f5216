@@ -117,7 +117,7 @@ public class Curso implements Parcelable {
 		
 	}
 	
-	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO TODOS LOS MODULOS SEGUN EL ID DEL CURSO(SEBAAAA)
+	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
 		// TODO Auto-generated method stub
 		for(int i=0; i<3;++i)
 		{
@@ -129,7 +129,7 @@ public class Curso implements Parcelable {
 
 
 
-	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO LAS NOTAS SEGUN EL ID DEL RAMO(SEBAAAAA)
+	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
 	{
 		for(int i=0; i<3; i++)
 		{

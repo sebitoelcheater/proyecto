@@ -95,7 +95,7 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
 	
 	public void removeCurso(Context context, String id) //O PARA ORIENTARLO MAS AL USUARIO PUEDE PEDIR EL CURSO COMO ARAMETRO :)
 	{
-		//METODO DE LA BASE DE DATOS QUE ELIMINA SEGUN EL id (SEBAAAAAAAAA)
+		//METODO DE LA BASE DE DATOS QUE ELIMINA SEGUN EL id
 		cargarCursos(context);
 		
 	}

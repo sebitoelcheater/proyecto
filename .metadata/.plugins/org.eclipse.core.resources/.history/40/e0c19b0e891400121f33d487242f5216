@@ -129,7 +129,7 @@ public class Curso implements Parcelable {
 
 
 
-	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO LAS NOTAS SEGUN EL ID DEL RAMO(SEBAAAAA)
+	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
 	{
 		for(int i=0; i<3; i++)
 		{

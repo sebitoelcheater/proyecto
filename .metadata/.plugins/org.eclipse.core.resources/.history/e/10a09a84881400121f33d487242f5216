@@ -32,24 +32,24 @@ public class Curso implements Parcelable {
 	
 	
 	
-	public void addNota(int nota) //HACERLO DESDE LA DB AÑANDIR UNA NUEVA NOTA CON EL ID EL CURSO(SEBAAAAAA)
+	public void addNota(int nota) //HACERLO DESDE LA DB
 	{
 		notas.add(nota);
 	}
 	
-	public void addModulo(Modulo m) //HACERLO DESDE LA DB AÑADIR UN MODULO CON EL ID DEL CURSO Y LOS OTROS CAMPOS NECESARIOS(SEBAAAA)
+	public void addModulo(Modulo m) //HACERLO DESDE LA DB
 	{
 		horario.add(m);
 	}
 	
 	
 	
-	public void changeNota(int position, int nota) //HACERLO DESDE LA DB CAMBIAR LA NOTA CON EL ID DEL CURSO, LA POSICION DE LA NOTA Y LA NOTA(SEBAAAAA)
+	public void changeNota(int position, int nota) //HACERLO DESDE LA DB
 	{
 		notas.set(position, nota);
 	}
 	
-	public void changeModulo(int position, Modulo m) //HACERLO DESDE LA DB CAMBIAR EL MODULO CON EL ID DEL CURSO, Y SUS DATOS ASOCIADOS Y LA POSICION DEL MODULO(SEBAAAAA)
+	public void changeModulo(int position, Modulo m) //HACERLO DESDE LA DB
 	{
 		horario.set(position, m);
 	}
@@ -117,7 +117,7 @@ public class Curso implements Parcelable {
 		
 	}
 	
-	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO TODOS LOS MODULOS SEGUN EL ID DEL CURSO(SEBAAAA)
+	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
 		// TODO Auto-generated method stub
 		for(int i=0; i<3;++i)
 		{
@@ -129,7 +129,7 @@ public class Curso implements Parcelable {
 
 
 
-	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO LAS NOTAS SEGUN EL ID DEL RAMO(SEBAAAAA)
+	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
 	{
 		for(int i=0; i<3; i++)
 		{
