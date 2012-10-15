@@ -99,6 +99,7 @@ public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTE
 		db.open();        
 	    db.deleteContact(Long.parseLong(id));
 		db.close();
+		//METODO DE LA BASE DE DATOS QUE ELIMINA SEGUN EL id (SEBAAAAAAAAA)
 		cargarCursos(context);
 		
 		

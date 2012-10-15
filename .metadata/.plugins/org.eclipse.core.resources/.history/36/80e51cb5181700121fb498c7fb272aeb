@@ -119,7 +119,6 @@ public class Curso implements Parcelable {
 	
 	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO TODOS LOS MODULOS SEGUN EL ID DEL CURSO(SEBAAAA)
 		// TODO Auto-generated method stub
-		AdapterHorarios db = new AdapterHorarios(context);
 		for(int i=0; i<3;++i)
 		{
 			Modulo m = new Modulo(context);

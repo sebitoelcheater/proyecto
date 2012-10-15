@@ -221,17 +221,15 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
 
 	public void onClick(View v) {
 		
-		try
-		{
-			controlador.getCurso(cursoEditando).changeNota(notaEditando, Integer.parseInt(nota.getText().toString()));
-				//notas.get(cursoEditando).get(notaEditando).remove(0);
-				//String temp = nota.getText();
-				//notas.get(cursoEditando).get(notaEditando).add(nota.getText().toString());
-				cargarDatos();
-				actualizar();
-				removeDialog(1);
-				// TODO Auto-generated method stub
-		}catch(NumberFormatException nfe){;}
+		controlador.getCurso(cursoEditando).changeNota(notaEditando, Integer.parseInt(nota.getText().toString()));
+		//notas.get(cursoEditando).get(notaEditando).remove(0);
+		//String temp = nota.getText();
+		//notas.get(cursoEditando).get(notaEditando).add(nota.getText().toString());
+		cargarDatos();
+		actualizar();
+		removeDialog(1);
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void actualizar() {//En Verdad aqui se deberia actualizar la base de datos y volver a cargar los datos(con los campos de ...Editando :))
