@@ -13,13 +13,18 @@ public class Curso implements Parcelable {
 	private ArrayList<Integer> notas; //CUANDO QUERAMOS PONDERAR COSAS ESTO SERA UNA ESTRUCTURA MAS COMPLEJA QUE UNA LISTA DE INTEGRS
 	private ArrayList<Modulo> horario;
 	
+	private ArrayList<String> idNotas;
+	private ArrayList<String> idModulos;
+	
 	
 	public Curso(Context context,String id)
 	{
 		this.id = id;
 		this.nombre = "";
 		this.notas = new ArrayList<Integer>();
-		horario = new ArrayList<Modulo>();
+		this.horario = new ArrayList<Modulo>();
+		this.idNotas = new ArrayList<String>();
+		this.idModulos = new ArrayList<String>();
 		nuevaActividad(context); //EN VEZ DE NUEVA ACTIVIDAD PODRIA SER NUEVOCURSO....//NUEVOMODULO
 	}
 	
@@ -126,15 +131,25 @@ public class Curso implements Parcelable {
 			m.setDia((Integer.parseInt(id)%4));//CUIDADO!
 			horario.add(m);
 		}
+		
+		for(int i = 0; i<3 ;++i) // RELLENAR CON LOS ID DE LOS MODULOS EN LA TABLA
+		{
+			idModulos.add(i+"");
+		}
 	}
 
 
 
 	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO LAS NOTAS SEGUN EL ID DEL RAMO(SEBAAAAA)
 	{
-		for(int i=0; i<3; i++)
+		for(int i=0; i<3; i++)//RELLENAR LAS NOTAS
 		{
-			addNota(i+5);
+			notas.add(i+5);
+		}
+		
+		for(int i=0; i<3; i++) //RELLENAR LOS ID DE LA NOTAS EN LA TABLA
+		{
+			idNotas.add(i+"");
 		}
 		
 	}

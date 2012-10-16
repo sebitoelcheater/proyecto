@@ -1,0 +1,45 @@
+package com.example.version0;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class AdaptadorDBOrganizador 
+{
+	//DATOS GENERALES DE LA BASE DE DATOS
+	public static final String NOMBRE_BD = "Organizador";
+	public static final int VERSION_BD = 1;
+	public static final String CREAR_BD = "create table if not exists Cursos (id integer primary key autoincrement, title VARCHAR not null);"; 
+	//DATOS GENERALES DE LA BASE DE DATOS
+	
+	
+	private Context context;
+	private DataBaseHelper DBHelper;
+	private SQLiteDatabase db;
+	
+	public AdaptadorDBOrganizador(Context context)
+	{
+		this.context = context;
+		this.DBHelper = new DataBaseHelper(context);
+	}
+	
+	public static class DataBaseHelper extends SQLiteOpenHelper
+	{
+		DataBaseHelper(Context context)
+		{
+			super(context,NOMBRE_BD,null,VERSION_BD);
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+}
