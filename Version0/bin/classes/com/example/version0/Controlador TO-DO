@@ -2,13 +2,13 @@ Sistema de objetos que gestinen los datos para hacer mas simple y expedita la pr
 
 INTENTO 1 :
 Consistira en una clase que gestione un grupo de objetos que representaran los cursos, por tanto, un con
-trolador representará un grupo de cursos.
+trolador representarï¿½ un grupo de cursos.
 
 He investigado y lo que hay que hacer para pasar un  objeto controlador de activity en activity es serializar el
 objeto implementando la interfaz Parcelable.... por ahora la he implementado en el objeto controlador... la actividad
 notas ya esta usando el controlador basico...
 
-SIGUIENTE PASO : CONTRUIR EL OBJETO CONTROLADOR COMPLETO(YA LO TENGO DISEÑADO EN PAPEL)
+SIGUIENTE PASO : CONTRUIR EL OBJETO CONTROLADOR COMPLETO(YA LO TENGO DISEï¿½ADO EN PAPEL)
 
 AVANCE : He implementado el controlador ahora como un conjunto de objetos Curso
 SIGUIENTE PASO : MODELAR EL OBJETO CURSO TOTALMENTE
@@ -27,3 +27,6 @@ SIGUIENTE PASO : COMPLETAR METODOS CON LAS DB... COMPLETAR CON METODOS SEGUN LA 
 AVANCE : SEBA LEE EL CONTROLADOR,y CURSO, donde diga SEBAAAAA, necesitos tus funciones en ellas
 
 SIGUIENTE PASO: TRABAJAR EN LOS METODOS DE CONEXION CON LOS ADAPTER DE SEBA
+
+
+Esteban: "hola :P"
