@@ -31,6 +31,7 @@ public class MySimpleArrayAdapter extends ArrayAdapter<UnRamo> {
 	  UnRamo item = objects.get(position);
 	  
       // replace those R.ids by the ones inside your custom list_item layout.
+	  
 	  TextView label = (TextView)convertView.findViewById(R.id.textoNombreRamo);
 	  label.setText(item.nombre);
 	  Button button = (Button)convertView.findViewById(R.id.botonEditarRamo);

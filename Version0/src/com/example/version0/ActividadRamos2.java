@@ -22,10 +22,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class ActividadRamos2 extends ListActivity {
-	private MySimpleArrayAdapter adapter;
-    ListView listView;
-
+	private ArrayList<String> cursos;
+	private ArrayList<String> ids;
+	 public AdapterCursos dbramos = new AdapterCursos(this);
+	 private Controlador controlador;
+ 
 	
+	
+	
+	
+	private MySimpleArrayAdapter adapter;
+    private ListView listView;
+
 	
 	public void clicbotoneditar(OnClickListener onClickListener)
     {
@@ -41,7 +49,10 @@ public class ActividadRamos2 extends ListActivity {
 	    View renderer;
 	    List<UnRamo> items; //Hace una lista con los objetos de clase UnRamo
 
-	            // call this one and pass it layoutInflater.inflate(R.layout.my_list_item)
+	.class);
+    	
+    	//Necesario para la comunicación entre Activities
+    	intent.putExtra(MENSAJE_EXTRA,true);            // call this one and pass it layoutInflater.inflate(R.layout.my_list_item)
 	    
 
 	            // whenever you need to set the list of items just use this method.
@@ -90,14 +101,28 @@ public class ActividadRamos2 extends ListActivity {
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+		 super.onCreate(savedInstanceState);
+		       setContentView(R.layout.activity_actividad_ramos);
+		       Bundle b = getIntent().getExtras();
+				controlador = b.getParcelable("CONTROLADOR");
+				controlador.nuevaActividad(this);
+				cargarDatos();
+				
+				
         listView = (ListView)findViewById(R.id.listaRamos);
         
         
-        setContentView(R.layout.activity_actividad_ramos);
+        ArrayList<UnRamo> ListaRamos = new ArrayList<UnRamo>();
+        for (int i = 0; i < 10; i++) {
+        	UnRamo ramo = new UnRamo();
+        	ramo.nombre = "hola";
+            ramo.id = "2";
+            ListaRamos.add(ramo);
+        }
+
     
         
-        List<UnRamo> ListaRamos = new ArrayList<UnRamo>();
+        ArrayList<UnRamo> ListaRamos2 = new ArrayList<UnRamo>();
         AdapterCursos db = new AdapterCursos(this);        
         db.open();
         Cursor c = db.getAllRecords();
@@ -119,83 +144,19 @@ public class ActividadRamos2 extends ListActivity {
             } while (c.moveToNext());
         }
         db.close();
+        
+        
+        ListView lvcurso = (ListView) findViewById(R.id.listaRamos);
+        
+        lvcurso.setAdapter(new CursosAdapter(ListaRamos));
+
        
-        MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this,R.layout.lista_ramos,ListaRamos);
+        /*MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this,R.layout.lista_ramos,ListaRamos);
         
         View header = (View)getLayoutInflater().inflate(R.layout.activity_actividad_ramos, null);
-        listView.addHeaderView(header);
-        listView.setAdapter(adapter); ///ESTO ES LO QUE CAUSA ERRORES
-               
-        /* try {
-        	listView.setAdapter(adapter);
-       } catch (Exception e) {
-            // This will catch any exception, because they are all descended from Exception
-       }
-        
-        
-        
-        this.setListAdapter(adapter);
-        
-        
-        
-        /*AdaptadorLista adaptador = new AdaptadorLista();
-        
-        adaptador.setear(ListaRamos);
-        setListAdapter(adaptador);
-        
-        lv = getListView();
-        lv.setTextFilterEnabled(true); 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        //Por ahora trabajaremos con un array de Ramos definidos.
-        //Pero debería ser una lista con Ramos e ID's
-        //String[] array_ramos = new String[] {"Ramo1", "Ramo2", "Ramo 3"};
-        AdapterCursos db = new AdapterCursos(this);
-        
-        ArrayList array_ramos = new ArrayList();
-        ArrayList array_idcursos = new ArrayList();
-        
-        db.open();
-        Cursor c = db.getAllRecords();
-        
-        if (c.moveToFirst())
-        {
-            do {          
-                String curso = c.getString(1);
-                String idcurso = c.getString(0);
-                array_ramos.add(curso);
-                array_idcursos.add(idcurso);
-            } while (c.moveToNext());
-        }
-        db.close();
-        
-        //Ahora le damos los ids de las views que se deben ir llenando,
-        //en este caso la de los nombres de los ramos
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-    			this,
-    			R.layout.lista_ramos,
-    			R.id.textoNombreRamo,
-    			array_ramos);
-        
-        
-        this.setListAdapter(adapter);
-        */
+        //listView.addHeaderView(header);
+        listView.setAdapter(adapter); ///ESTO ES LO QUE CAUSA ERRORES*/
+             
     }
     
     
@@ -222,7 +183,10 @@ public class ActividadRamos2 extends ListActivity {
         startActivity(i);
     }
     
-    
+private void cargarDatos() {
+    	
+		cursos= controlador.getNombreCursos();
+    }
    
 }
 
