@@ -13,13 +13,18 @@ public class Curso implements Parcelable {
 	private ArrayList<Integer> notas; //CUANDO QUERAMOS PONDERAR COSAS ESTO SERA UNA ESTRUCTURA MAS COMPLEJA QUE UNA LISTA DE INTEGRS
 	private ArrayList<Modulo> horario;
 	
+	private ArrayList<String> idNotas;
+	private ArrayList<String> idModulos;
+	
 	
 	public Curso(Context context,String id)
 	{
 		this.id = id;
 		this.nombre = "";
 		this.notas = new ArrayList<Integer>();
-		horario = new ArrayList<Modulo>();
+		this.horario = new ArrayList<Modulo>();
+		this.idNotas = new ArrayList<String>();
+		this.idModulos = new ArrayList<String>();
 		nuevaActividad(context); //EN VEZ DE NUEVA ACTIVIDAD PODRIA SER NUEVOCURSO....//NUEVOMODULO
 	}
 	
@@ -32,24 +37,24 @@ public class Curso implements Parcelable {
 	
 	
 	
-	public void addNota(int nota) //HACERLO DESDE LA DB
+	public void addNota(int nota) //HACERLO DESDE LA DB AÑANDIR UNA NUEVA NOTA CON EL ID EL CURSO(SEBAAAAAA)
 	{
 		notas.add(nota);
 	}
 	
-	public void addModulo(Modulo m) //HACERLO DESDE LA DB
+	public void addModulo(Modulo m) //HACERLO DESDE LA DB AÑADIR UN MODULO CON EL ID DEL CURSO Y LOS OTROS CAMPOS NECESARIOS(SEBAAAA)
 	{
 		horario.add(m);
 	}
 	
 	
 	
-	public void changeNota(int position, int nota) //HACERLO DESDE LA DB
+	public void changeNota(int position, int nota) //HACERLO DESDE LA DB CAMBIAR LA NOTA CON EL ID DEL CURSO, LA POSICION DE LA NOTA Y LA NOTA(SEBAAAAA)
 	{
 		notas.set(position, nota);
 	}
 	
-	public void changeModulo(int position, Modulo m) //HACERLO DESDE LA DB
+	public void changeModulo(int position, Modulo m) //HACERLO DESDE LA DB CAMBIAR EL MODULO CON EL ID DEL CURSO, Y SUS DATOS ASOCIADOS Y LA POSICION DEL MODULO(SEBAAAAA)
 	{
 		horario.set(position, m);
 	}
@@ -117,23 +122,34 @@ public class Curso implements Parcelable {
 		
 	}
 	
-	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
+	private void cargarModulos(Context context) { //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO TODOS LOS MODULOS SEGUN EL ID DEL CURSO(SEBAAAA)
 		// TODO Auto-generated method stub
+		AdapterHorarios db = new AdapterHorarios(context);
 		for(int i=0; i<3;++i)
 		{
 			Modulo m = new Modulo(context);
 			m.setDia((Integer.parseInt(id)%4));//CUIDADO!
 			horario.add(m);
 		}
+		
+		for(int i = 0; i<3 ;++i) // RELLENAR CON LOS ID DE LOS MODULOS EN LA TABLA
+		{
+			idModulos.add(i+"");
+		}
 	}
 
 
 
-	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS
+	private void cargarNotas(Context context) //ACA VA LA PARTE DE CONEXION CON LA BASE DE DATOS NECESITO LAS NOTAS SEGUN EL ID DEL RAMO(SEBAAAAA)
 	{
-		for(int i=0; i<3; i++)
+		for(int i=0; i<3; i++)//RELLENAR LAS NOTAS
 		{
-			addNota(i+5);
+			notas.add(i+5);
+		}
+		
+		for(int i=0; i<3; i++) //RELLENAR LOS ID DE LA NOTAS EN LA TABLA
+		{
+			idNotas.add(i+"");
 		}
 		
 	}

@@ -124,7 +124,6 @@ public class ActividadRamos2 extends ListActivity {
         
         View header = (View)getLayoutInflater().inflate(R.layout.activity_actividad_ramos, null);
         listView.addHeaderView(header);
-        
         listView.setAdapter(adapter); ///ESTO ES LO QUE CAUSA ERRORES
                
         /* try {
