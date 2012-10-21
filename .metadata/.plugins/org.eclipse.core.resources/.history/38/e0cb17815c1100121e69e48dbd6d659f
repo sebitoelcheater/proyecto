@@ -1,5 +1,0 @@
-Sistema de objetos que gestinen los datos para hacer mas simple y expedita la programacion en las view 
-
-INTENTO 1 :
-Consistira en una clase que gestione un grupo de objetos que representaran los cursos, por tanto, un con
-trolador representará un grupo de cursos.

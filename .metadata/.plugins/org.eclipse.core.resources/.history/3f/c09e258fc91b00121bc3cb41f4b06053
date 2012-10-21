@@ -1,0 +1,26 @@
+
+import java.util.*;
+import java.io.*;
+
+public class Pruebas {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("Hola bienvenido al sistema de pruebas de Calendar");
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		String [] dias = new String[]{"Sabado","Domingo","Lunes","Martes","Miercoles","Jueves","Viernes"};
+		Calendar calendario = Calendar.getInstance();
+		System.out.println("Hoy es : "+dias[calendario.get(Calendar.DAY_OF_WEEK)]);
+		
+		Calendar mañana = (Calendar)calendario.clone();
+		mañana.add(1, Calendar.DATE);
+		//Calendar mañana = new GregorianCalendar(calendario.get(Calendar.YEAR), calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH)+1);
+		System.out.println("Mañana sera : " + dias[mañana.get(Calendar.DAY_OF_WEEK)]);
+		
+	}
+
+}
