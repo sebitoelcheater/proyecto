@@ -9,7 +9,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadFeedback extends Activity {
 	 private ArrayList<String> cursos;
 	 public AdapterCursos dbramos = new AdapterCursos(this);

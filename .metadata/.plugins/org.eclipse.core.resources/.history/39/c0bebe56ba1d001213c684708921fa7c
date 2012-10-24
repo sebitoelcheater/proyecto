@@ -1,0 +1,15 @@
+package com.example.controlador;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+
+import com.example.data.*;
+
+public class Controlador 
+{
+	static public ArrayList<Curso> obtenerCursos(Context context)
+	{
+		
+	}
+}

@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.example.controlador.*;
+import com.example.data.*;
 
 public class ActividadConfiguracion extends ListActivity {
 

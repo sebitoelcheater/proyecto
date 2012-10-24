@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class MySimpleArrayAdapter extends ArrayAdapter<UnRamo> {
   private List<UnRamo> objects;
    

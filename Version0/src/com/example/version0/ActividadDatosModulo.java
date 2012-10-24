@@ -5,7 +5,8 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadDatosModulo extends Activity {
 
     String []diasDeLaSemana = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};

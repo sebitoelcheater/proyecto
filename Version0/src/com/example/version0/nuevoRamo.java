@@ -23,7 +23,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class nuevoRamo extends Activity {
 	private Controlador controlador;
     

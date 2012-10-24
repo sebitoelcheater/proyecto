@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadPrincipal extends Activity {
 	public final static String MENSAJE_EXTRA = "com.example.version0.MESSAGE";
 	private Controlador controlador;

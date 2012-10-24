@@ -10,7 +10,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadRamos extends ListActivity {
 
 	private Controlador controlador;

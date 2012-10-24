@@ -13,7 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class AdaptadorLista extends BaseAdapter {
   private final Context context;
   private final String[] values;

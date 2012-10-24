@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class Curso implements Parcelable {
 	
 	private String id;

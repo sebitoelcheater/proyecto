@@ -1,0 +1,45 @@
+import java.util.*;
+
+
+public class Modulo
+
+{
+	private String id;
+	private String idCurso;
+	private String nombre;
+	private Calendar inicio;
+	private Calendar fin;
+	
+	public Modulo(String id)
+	{
+		this.id = id;
+		///POR DEFECTO EL MODULO SE CARGA DESDE LA DB
+		cargarModuloDesdeDB();  //ESTO IMPLICA QUE CADA MODULO HARÁ UNA QUERY...(EFICIENCIA?)
+								//ADEMAS NO OLVIDAR QUE TODO ESTO NECESITA UN CONTEXTO,
+		///POR DEFECTO EL MODULO SE CARGA DESDE LA DB
+	}
+	
+	
+
+	
+
+
+
+	private void cargarModuloDesdeDB() 
+	{
+		
+		///CARGADOR POR DEFECTO
+		idCurso = "ID DE CURSO ASOCIADO POR DEFCTO";
+		nombre = "MODULO"+id;
+		inicio = Calendar.getInstance();
+		
+		fin = (Calendar) inicio.clone();
+		fin.add(Calendar.HOUR, 1);
+		///CARGADOR POR DEFECTO
+			
+		///METODO DE OBTENCION DE DATOS DESDE LA DB
+				
+		///METODO DE OBTENCION DE DATOS DESDE LA DB
+	}
+
+}

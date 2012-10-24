@@ -4,7 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.widget.EditText;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class UnRamo {
 	String nombre;
 	String id;

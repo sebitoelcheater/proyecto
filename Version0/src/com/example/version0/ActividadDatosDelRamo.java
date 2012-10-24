@@ -10,7 +10,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-
+import com.example.controlador.*;
+import com.example.data.*;
 
 public class ActividadDatosDelRamo extends Activity implements OnItemClickListener {
    

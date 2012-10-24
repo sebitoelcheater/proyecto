@@ -12,7 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadHorario extends Activity implements OnClickListener{
 	
 	private Controlador controlador;

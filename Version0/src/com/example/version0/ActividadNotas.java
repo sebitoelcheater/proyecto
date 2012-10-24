@@ -19,7 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
-
+import com.example.controlador.*;
+import com.example.data.*;
 
 
 public class ActividadNotas extends ExpandableListActivity{

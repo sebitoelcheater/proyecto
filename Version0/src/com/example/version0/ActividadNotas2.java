@@ -18,7 +18,8 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadNotas2 extends Activity implements ExpandableListView.OnChildClickListener, OnClickListener {
 
     private Controlador controlador;

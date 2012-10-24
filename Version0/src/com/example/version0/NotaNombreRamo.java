@@ -3,7 +3,8 @@ package com.example.version0;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class NotaNombreRamo extends Activity {
 
     @Override

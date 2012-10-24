@@ -15,7 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class Pruebas extends ExpandableListActivity{
 	 public AdapterCursos dbramos = new AdapterCursos(this);
 	    public AdapterNotas dbnotas = new AdapterNotas(this);

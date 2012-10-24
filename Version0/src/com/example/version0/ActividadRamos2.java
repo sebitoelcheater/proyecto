@@ -20,7 +20,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class ActividadRamos2 extends ListActivity {
 	private ArrayList<String> cursos;
 	private ArrayList<String> ids;

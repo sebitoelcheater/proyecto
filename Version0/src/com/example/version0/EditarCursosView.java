@@ -4,7 +4,8 @@ import android.content.Context;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import com.example.controlador.*;
+import com.example.data.*;
 public class EditarCursosView extends LinearLayout{
 
 	private TextView nombre;

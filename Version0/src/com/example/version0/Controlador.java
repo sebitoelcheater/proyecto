@@ -3,13 +3,14 @@ package com.example.version0;
 
 import java.util.ArrayList;
 
-import com.example.version0.AdapterCursos;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.EditText;
+import com.example.controlador.*;
+import com.example.data.*;
 
 //AGREGANDO FUNCINALIDADES REALES AL CONTROLADOR....
 public class Controlador implements Parcelable //CLASE SE BASa EN EL MISMO CONTEXT PARA TODAS LAS ACTIVITYS....

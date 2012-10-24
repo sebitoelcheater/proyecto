@@ -1,0 +1,31 @@
+package com.example.controlador;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.database.Cursor;
+
+import com.example.data.*;
+import com.example.version0.Curso;
+
+public class Controlador 
+{
+	static public ArrayList<Curso> obtenerCursos(Context context)
+	{
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		AdapterCursos db = new AdapterCursos(context);
+		Cursor c = db.getAllIds();
+		
+		if (c.moveToFirst())
+        {
+            do {
+                String idramo = c.getString(0);
+                
+                Curso curso = new Curso(context,idramo);
+                cursos.add(curso);
+            } while (c.moveToNext());
+        }
+        db.close();
+        return cursos;
+	}
+}
