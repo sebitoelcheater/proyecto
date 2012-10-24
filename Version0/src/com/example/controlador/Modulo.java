@@ -1,5 +1,7 @@
 package com.example.controlador;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import android.content.Context;
@@ -34,7 +36,7 @@ public class Modulo
 
 	public void cargarModuloDesdeDB(Context context) 
 	{
-		
+		/*
 		///CARGADOR POR DEFECTO
 		idCurso = "ID DE CURSO ASOCIADO POR DEFCTO";
 		nombre = "MODULO"+id;
@@ -43,16 +45,37 @@ public class Modulo
 		fin = (Calendar) inicio.clone();
 		fin.add(Calendar.HOUR, 1);
 		///CARGADOR POR DEFECTO
-			
-		/*
+		*/	
+		
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 		AdapterHorarios db = new AdapterHorarios(context);
 		Cursor c = db.getRecord(Long.parseLong(this.id));
-		c.get
-		setNombre(c.getString(1));
-        db.close();	
+		
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date a = new Date();
+		inicio = new GregorianCalendar();
+		setNombre(c.getString(3));
+        
+		try
+		{
+			a = formato.parse(c.getString(1));
+			inicio.setTime(a);
+		}catch(ParseException e){}
+		
+		
+		a = new Date();
+		fin = new GregorianCalendar();
+		
+		try
+		{
+			a = formato.parse(c.getString(2));
+			fin.setTime(a);
+		}catch(ParseException e){}
+		
+		idCurso = c.getString(4);	
+		db.close();	
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
-		 * */ //NOTA : APRENDER A TRABAJAR CON DATOS DATE EN LOS CURSORES.... COMPLETAR LOS DEMAS METODOS QUE REQUIEREN LA DB ///HACIA ABAJO DESDE AQUI Y COMPLETAR EL CONTROLADOR
+		
 		 
 	}
 	
@@ -112,48 +135,77 @@ public class Modulo
 		
 		// METODOS DE SETEO DE LA BASE DE DATOS Y OBJETO (NO OLVIDAR EL CONTEXTO)
 			//......to be Continued
-			public boolean estableceIdCurso(String idCurso) //DEPRECATED?
+			public boolean estableceIdCurso(Context context,String idCurso) //DEPRECATED?
 			{
-				if(true)
+				AdapterHorarios db = new AdapterHorarios(context);
+				Cursor c = db.getRecord(Long.parseLong(this.id));
+				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3), idCurso) )
 				{	
 					setIdCurso(idCurso);
+					db.close();
 					return true;
 				}
-				
+				db.close();
 				return false;
+				
 			}
 			
-			public boolean establecerNombre(String nuevoNombre)
+			public boolean establecerNombre(Context context,String nuevoNombre)//NOMBRE O UBICACION EN EL CASO DE LA DB
 			{
-				if(true)
+				AdapterHorarios db = new AdapterHorarios(context);
+				Cursor c = db.getRecord(Long.parseLong(this.id));
+				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), c.getString(2), nuevoNombre, c.getString(4)) )
 				{	
 					setNombre(nuevoNombre);
 					return true;
 				}
-				
+				db.close();
 				return false;
 			}
 			
-			public boolean establecerInicio(Calendar inicio)
+			public boolean establecerInicio(Context context, Calendar inicio)
 			{
-				if(true)
+				
+				AdapterHorarios db = new AdapterHorarios(context);
+				Cursor c = db.getRecord(Long.parseLong(this.id));
+				String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
+				
+				if(db.updateRecord(Long.parseLong(this.id),stringInicio, c.getString(2), c.getString(3), c.getString(4)))
 				{	
 					setInicio(inicio);
 					return true;
 				}
-				
+				db.close();
 				return false;
 			}
 			
-			public boolean establecerFin(Calendar fin)
+			public boolean establecerFin(Context context,Calendar fin)
 			{
-				if(true)
+				AdapterHorarios db = new AdapterHorarios(context);
+				Cursor c = db.getRecord(Long.parseLong(this.id));
+				String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
+				
+				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), stringFin, c.getString(3), c.getString(4)))
 				{	
 					setFin(fin);
 					return true;
 				}
-				
+				db.close();
 				return false;
 			}
 		// METODOS DE SETEO DE LA BASE DE DATOS Y OBJETO
+			
+			private static String agregarCeros(int n, int i) {
+				// TODO Auto-generated method stub
+				String numero = i+"";
+				if(numero.length()<n)
+				{
+					for(int j =0; j<(n-numero.length());++j)
+					{
+						numero = "0"+numero;
+					}	
+				}
+				return numero;
+			}
+
 }

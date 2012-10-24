@@ -1,7 +1,8 @@
 
 import java.util.*;
 import java.io.*;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 public class Pruebas {
 
 	/**
@@ -38,7 +39,37 @@ public class Pruebas {
 			System.out.println("Calendario es despues que Mañana");
 		}
 		
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date myDate = new Date();
+		Calendar myCalendario = new GregorianCalendar();
 		
+		try
+		{
+			myDate = formato.parse("2012-10-24 13:06:25");
+			
+			myCalendario.setTime(myDate);
+		}catch(ParseException e){}
+		
+		System.out.println("Dia="+myCalendario.get(Calendar.DATE));
+		System.out.println("Mes="+myCalendario.get(Calendar.MONTH));
+		System.out.println("Año="+myCalendario.get(Calendar.YEAR));
+		
+		System.out.println(agregarCeros(4,calendario.get(Calendar.YEAR))+"-"+agregarCeros(2,calendario.get(Calendar.MONTH))+"-"+agregarCeros(2,calendario.get(Calendar.DATE))+" "+agregarCeros(2,calendario.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,calendario.get(Calendar.MINUTE))+":"+agregarCeros(2,calendario.get(Calendar.SECOND)));
+		
+		
+	}
+
+	private static String agregarCeros(int n, int i) {
+		// TODO Auto-generated method stub
+		String numero = i+"";
+		if(numero.length()<n)
+		{
+			for(int j =0; j<(n-numero.length());++j)
+			{
+				numero = "0"+numero;
+			}	
+		}
+		return numero;
 	}
 
 }
