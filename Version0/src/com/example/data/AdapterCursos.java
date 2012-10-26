@@ -11,6 +11,8 @@ import android.util.Log;
 public class AdapterCursos {
     public static final String KEY_ROWID = "id";
     public static final String KEY_TITLE = "title";
+    public static final String KEY_COMENTABLE = "comentable";
+    public static final String KEY_ID_MASTER = "id_master";
     private static final String TAG = "AdapterCursos";
     
     private static final String DATABASE_NAME = "Usuario1";
@@ -18,7 +20,7 @@ public class AdapterCursos {
     private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_CREATE =
-        "create table if not exists Cursos (id integer primary key autoincrement, title VARCHAR not null);";
+        "create table if not exists Cursos (id integer primary key autoincrement, title VARCHAR not null, comentable integer, id_master integer);";
         
     private final Context context;    
 
@@ -72,10 +74,12 @@ public class AdapterCursos {
     }
     
     //---insert a record into the database---
-    public long insertRecord(String title) 
+    public long insertRecord(String title, String comentable, String id_master) 
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_TITLE, title);
+        initialValues.put(KEY_COMENTABLE, comentable);
+        initialValues.put(KEY_ID_MASTER, id_master);
         return db.insert(DATABASE_TABLE, null, initialValues);
     }
 
@@ -88,7 +92,7 @@ public class AdapterCursos {
     //---retrieves all the records---
     public Cursor getAllRecords() 
     {
-        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TITLE}, null, null, null, null, null);
+        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TITLE, KEY_COMENTABLE, KEY_ID_MASTER}, null, null, null, null, null);
     }
     
     public Cursor getAllIds()
@@ -101,7 +105,7 @@ public class AdapterCursos {
     {
         Cursor mCursor =
                 db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                KEY_TITLE}, 
+                KEY_TITLE, KEY_COMENTABLE, KEY_ID_MASTER}, 
                 KEY_ROWID + "=" + rowId, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
@@ -111,10 +115,12 @@ public class AdapterCursos {
     
 
     //---updates a record---
-    public boolean updateRecord(long rowId, String title, String duedate, String course, String notes) 
+    public boolean updateRecord(long rowId, String title, String comentable, String id_master) 
     {
         ContentValues args = new ContentValues();
         args.put(KEY_TITLE, title);
+        args.put(KEY_COMENTABLE, comentable);
+        args.put(KEY_ID_MASTER, id_master);
         return db.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
     }
 }
