@@ -1,22 +1,26 @@
-import java.util.*;
-//PREGUNTA PROPUESTA PARA ARIEL.... DEBO ACA PONER METODOS ESPECIALIZADOS COMO POR EJEMPLO LA OBTENCION DEL DIA?
+package com.example.version0;
 
-public class Modulo
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Modulo implements Parcelable 
 
 {
-	private String id;
-	private String idCurso;
+	private int dia;
+	private String horaInicio;
+	private String horaFin;
 	private String nombre;
-	private Calendar inicio;
-	private Calendar fin;
 	
-	public Modulo(String id)
+	public Modulo(Context context)
 	{
-		this.id = id;
-		///POR DEFECTO EL MODULO SE CARGA DESDE LA DB
-		cargarModuloDesdeDB();  //ESTO IMPLICA QUE CADA MODULO HARÁ UNA QUERY...(EFICIENCIA?)
-								//ADEMAS NO OLVIDAR QUE TODO ESTO NECESITA UN CONTEXTO,
-		///POR DEFECTO EL MODULO SE CARGA DESDE LA DB
+		this.nombre = "";
+		this.horaInicio="";
+		this.horaFin="";
+		this.dia = -1;
+		nuevaActividad(context);
 	}
 	
 	
@@ -25,121 +29,80 @@ public class Modulo
 
 
 
-	public void cargarModuloDesdeDB() 
+	public Modulo(Parcel in)
 	{
-		
-		///CARGADOR POR DEFECTO
-		idCurso = "ID DE CURSO ASOCIADO POR DEFCTO";
-		nombre = "MODULO"+id;
-		inicio = Calendar.getInstance();
-		
-		fin = (Calendar) inicio.clone();
-		fin.add(Calendar.HOUR, 1);
-		///CARGADOR POR DEFECTO
-			
-		///METODO DE OBTENCION DE DATOS DESDE LA DB
-				
-		///METODO DE OBTENCION DE DATOS DESDE LA DB
+		readFromParcel(in);
 	}
 	
-	//METODOS DE OBTENCION
-			public String obtenerId()
-			{
-				return id;
-			}
-			
-			public String obtenerIdCurso()
-			{
-				return idCurso;
-			}
-			
-			public String obtenerNombre()
-			{
-				return nombre;
-			}
-			
-			public Calendar obtenerInicio()
-			{
-				return (Calendar) inicio.clone();
-			}
-			
-			public Calendar obtenerFin()
-			{
-				return (Calendar) fin.clone();
-			}
-		//METODOS DE OBTENCION
+	public void setDia(int dia)
+	{
+		this.dia= dia;
+	}
+	public void setNombre(String nombre)
+	{
+		this.nombre=nombre;
+	}
+	public void setHoraInicio(String horaInicio)
+	{
+		this.horaInicio = horaInicio;
+	}
+	public void setHoraFin(String horaFin)
+	{
+		this.horaFin = horaFin;
+	}
+	
+	public int getDia()
+	{
+		return dia;
+	}
+	public String getNombre()
+	{
+		return nombre;
+	}
+	public String getHoraInicio()
+	{
+		return horaInicio;
+	}
+	public String getHoraFin()
+	{
+		return horaFin;
+	}
+	
+	private void readFromParcel(Parcel in) {
+		// TODO Auto-generated method stub
+		nombre = in.readString();
+		horaInicio = in.readString();
+		horaFin = in.readString();
+		dia = in.readInt();
 		
-		//METODOS DE SETEO DEL OBJETO(NO DB)
-			public void setId(String id)
-			{
-				this.id = id;
-			}
-			
-			public void setIdCurso(String idCurso)
-			{
-				this.idCurso = idCurso;
-			}
-			
-			public void setNombre(String nombre)
-			{
-				this.nombre = nombre;
-			}
-			
-			public void setInicio(Calendar inicio)
-			{
-				this.inicio = (Calendar) inicio.clone();
-			}
-			
-			public void setFin(Calendar fin)
-			{
-				this.fin = (Calendar) fin.clone();
-			}
-		//METODOS DE SETEO DEL OBJETO(NO DB)
+	}
+
+	private void nuevaActividad(Context context) { //¿CONEXION DB?
+		// TODO Auto-generated method stub
 		
-		// METODOS DE SETEO DE LA BASE DE DATOS Y OBJETO (NO OLVIDAR EL CONTEXTO)
-			//......to be Continued
-			public boolean estableceIdCurso(String idCurso) //DEPRECATED?
-			{
-				if(true)
-				{	
-					setIdCurso(idCurso);
-					return true;
-				}
-				
-				return false;
-			}
-			
-			public boolean establecerNombre(String nuevoNombre)
-			{
-				if(true)
-				{	
-					setNombre(nuevoNombre);
-					return true;
-				}
-				
-				return false;
-			}
-			
-			public boolean establecerInicio(Calendar inicio)
-			{
-				if(true)
-				{	
-					setInicio(inicio);
-					return true;
-				}
-				
-				return false;
-			}
-			
-			public boolean establecerFin(Calendar fin)
-			{
-				if(true)
-				{	
-					setFin(fin);
-					return true;
-				}
-				
-				return false;
-			}
-		// METODOS DE SETEO DE LA BASE DE DATOS Y OBJETO
+	}
+
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		dest.writeString(nombre);
+		dest.writeString(horaInicio);
+		dest.writeString(horaFin);
+		dest.writeInt(dia);
+	}
+	
+	public static final Parcelable.Creator CREATOR =
+        	new Parcelable.Creator() {
+                public Modulo createFromParcel(Parcel in) {
+                    return new Modulo(in);
+                }
+                public Modulo[] newArray(int size) {
+                    return new Modulo[size];
+                }
+            };
+
 }

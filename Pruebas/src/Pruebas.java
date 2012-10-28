@@ -13,9 +13,9 @@ public class Pruebas {
 		// TODO Auto-generated method stub
 		System.out.println("Hola bienvenido al sistema de pruebas de Calendar");
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-		String [] dias = new String[]{"Sabado","Domingo","Lunes","Martes","Miercoles","Jueves","Viernes"};
+		String [] dias = new String[]{"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
 		Calendar calendario = Calendar.getInstance();
-		System.out.println("Hoy es : "+dias[calendario.get(Calendar.DAY_OF_WEEK)]);
+		System.out.println("Hoy es : "+dias[calendario.get(Calendar.DAY_OF_WEEK)-1]);
 		
 		Calendar mañana = (Calendar)calendario.clone();
 		mañana.add(Calendar.DATE, 1);
@@ -54,8 +54,8 @@ public class Pruebas {
 		System.out.println("Mes="+myCalendario.get(Calendar.MONTH));
 		System.out.println("Año="+myCalendario.get(Calendar.YEAR));
 		
-		System.out.println(agregarCeros(4,calendario.get(Calendar.YEAR))+"-"+agregarCeros(2,calendario.get(Calendar.MONTH))+"-"+agregarCeros(2,calendario.get(Calendar.DATE))+" "+agregarCeros(2,calendario.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,calendario.get(Calendar.MINUTE))+":"+agregarCeros(2,calendario.get(Calendar.SECOND)));
-		
+		//System.out.println(agregarCeros(4,calendario.get(Calendar.YEAR))+"-"+agregarCeros(2,calendario.get(Calendar.MONTH))+"-"+agregarCeros(2,calendario.get(Calendar.DATE))+" "+agregarCeros(2,calendario.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,calendario.get(Calendar.MINUTE))+":"+agregarCeros(2,calendario.get(Calendar.SECOND)));
+		System.out.println(new Boolean(true));
 		
 	}
 

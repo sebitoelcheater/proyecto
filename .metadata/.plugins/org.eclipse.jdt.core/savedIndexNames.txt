@@ -10,7 +10,6 @@ INDEX VERSION 1.126+C:\Users\Hp\Documents\proyecto\proyecto\.metadata\.plugins\o
 1789169078.index
 3000053649.index
 52108211.index
-405949195.index
 4251467834.index
 3270002986.index
 3253170493.index

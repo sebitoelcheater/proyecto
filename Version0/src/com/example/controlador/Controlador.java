@@ -14,10 +14,23 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecord(nombre)+"";        
+	    String id = db.insertRecord(nombre,"0","")+"";   //por defecto los cursos creados son comentables, pero no tienen un idMaster  
 	    db.close();
 		return new Curso(context, id);
 	}
+	
+	/* HACER ESTO*/
+	static public Modulo crearNuevoModulo(Context context, Calendar inicio, Calendar fin, String nombre, String idCurso)
+	{
+		AdapterHorarios db = new AdapterHorarios(context);
+		String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
+		String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
+		db.open();        
+	    String id = db.insertRecord(stringInicio, stringFin, nombre, idCurso) +"";        
+	    db.close();
+		return new Modulo(context, id);
+	} 
+	
 	static public ArrayList<Curso> obtenerCursos(Context context)
 	{
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
@@ -77,4 +90,19 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
+	
+	
+	
+	private static String agregarCeros(int n, int i) {
+		// TODO Auto-generated method stub
+		String numero = i+"";
+		if(numero.length()<n)
+		{
+			for(int j =0; j<(n-numero.length());++j)
+			{
+				numero = "0"+numero;
+			}	
+		}
+		return numero;
+	}
 }
