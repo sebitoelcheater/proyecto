@@ -32,7 +32,7 @@ public class ActividadFeedback extends Activity {
     }
     private void cargarDatos() {
     	
-		ArrayList<Curso> cursosComentables = Controlador.obtenerCursosComentables(this); // ACA DEBERIA IR UN METODO LLAMADO OBTENERCURSOSCOMENTABLES... NO OLVIDAR PEDIRMELO!
+		ArrayList<Curso> cursosComentables = Controlador.obtenerCursos(this); // ACA DEBERIA IR UN METODO LLAMADO OBTENERCURSOSCOMENTABLES... NO OLVIDAR PEDIRMELO!
     	cursos = new ArrayList<String>();
 		for(Curso c : cursosComentables)
     		cursos.add(c.obtenerNombre());
