@@ -123,7 +123,7 @@ public class ActividadRamos2 extends ListActivity {
         ArrayList<UnRamo> ListaRamos2 = new ArrayList<UnRamo>();
         AdapterCursos db = new AdapterCursos(this);        
         db.open();
-        Cursor c = db.getAllRecords();
+        Cursor c = db.getAllRecordsCURSOS();
         
         if (c.moveToFirst())
         {

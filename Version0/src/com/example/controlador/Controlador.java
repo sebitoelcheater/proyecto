@@ -15,7 +15,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecord(nombre,"0","none")+"";   //por defecto los cursos creados son comentables, pero no tienen un idMaster  
+	    String id = db.insertRecordCURSOS(nombre,"0","none")+"";   //por defecto los cursos creados son comentables, pero no tienen un idMaster  
 	    db.close();
 	    
 	   return new Curso(context, id);
@@ -24,11 +24,11 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	/* HACER ESTO*/
 	static public Modulo crearNuevoModulo(Context context, Calendar inicio, Calendar fin, String nombre, String idCurso)
 	{
-		AdapterHorarios db = new AdapterHorarios(context);
+		AdapterCursos db = new AdapterCursos(context);
 		String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
 		String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
 		db.open();        
-	    String id = db.insertRecord(stringInicio, stringFin, nombre, idCurso) +"";        
+	    String id = db.insertRecordHORARIOS(stringInicio, stringFin, nombre, idCurso) +"";        
 	    db.close();
 		return new Modulo(context, id);
 	} 
@@ -38,7 +38,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		Cursor c = db.getAllIds();
+		Cursor c = db.getAllIdsCURSOS();
 		
 		
 		if (c.moveToFirst())
@@ -56,9 +56,9 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	static public ArrayList<Modulo> obtenerModulos(Context context)
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
-		AdapterHorarios db = new AdapterHorarios(context);
+		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		Cursor c = db.getAllIds();
+		Cursor c = db.getAllIdsHORARIOS();
 		
 		if (c.moveToFirst())
 		{
@@ -77,9 +77,9 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	static public ArrayList<Modulo> obtenerModulosSegunDia(Context context, int dia) //INEFICIENTE!!!!
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
-		AdapterHorarios db = new AdapterHorarios(context);
+		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		Cursor c = db.getAllIds();
+		Cursor c = db.getAllIdsHORARIOS();
 		
 		if (c.moveToFirst())
 		{

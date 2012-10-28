@@ -31,7 +31,7 @@ public class Curso
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		Cursor c = db.getRecord(Long.parseLong(this.id));
+		Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 		
 		setNombre(c.getString(1));
 		setComentable("0".equals(c.getString(2)));
@@ -90,8 +90,8 @@ public class Curso
 		{
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
-			Cursor c = db.getRecord(Long.parseLong(this.id));
-			if(db.updateRecord(Long.parseLong(this.id), nuevoNombre, c.getString(2), c.getString(3)))
+			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), nuevoNombre, c.getString(2), c.getString(3)))
 			{	
 				setNombre(nuevoNombre);
 				db.close();
@@ -105,8 +105,8 @@ public class Curso
 		{
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
-			Cursor c = db.getRecord(Long.parseLong(this.id));
-			if(db.updateRecord(Long.parseLong(this.id), c.getString(1), c.getString(2), idMaster))
+			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), idMaster))
 			{	
 				setIdMaster(idMaster);
 				db.close();
@@ -119,13 +119,13 @@ public class Curso
 		public boolean establecerComentable(Context context, boolean comentable)
 		{
 			AdapterCursos db = new AdapterCursos(context);
-			Cursor c = db.getRecord(Long.parseLong(this.id));
+			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 			db.open();
 			String stringComentable = "1";
 			if(comentable)
 				stringComentable = "0";
 			
-			if(db.updateRecord(Long.parseLong(this.id), c.getString(1), stringComentable, c.getString(3)))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), stringComentable, c.getString(3)))
 			{	
 				setComentable(comentable);
 				db.close();
@@ -140,7 +140,7 @@ public class Curso
 		{
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
-			if(db.deleteContact(Long.parseLong(this.id)))
+			if(db.deleteContactCURSOS(Long.parseLong(this.id)))
 			{	
 				db.close();
 				return true;

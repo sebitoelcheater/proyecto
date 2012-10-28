@@ -48,9 +48,9 @@ public class Modulo
 		*/	
 		
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
-		AdapterHorarios db = new AdapterHorarios(context);
+		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		Cursor c = db.getRecord(Long.parseLong(this.id));
+		Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 		
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date a = new Date();
@@ -138,10 +138,10 @@ public class Modulo
 			//......to be Continued
 			public boolean estableceIdCurso(Context context,String idCurso) //DEPRECATED?
 			{
-				AdapterHorarios db = new AdapterHorarios(context);
+				AdapterCursos db = new AdapterCursos(context);
 				db.open();
-				Cursor c = db.getRecord(Long.parseLong(this.id));
-				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3), idCurso) )
+				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3), idCurso) )
 				{	
 					setIdCurso(idCurso);
 					db.close();
@@ -154,10 +154,10 @@ public class Modulo
 			
 			public boolean establecerNombre(Context context,String nuevoNombre)//NOMBRE O UBICACION EN EL CASO DE LA DB
 			{
-				AdapterHorarios db = new AdapterHorarios(context);
+				AdapterCursos db = new AdapterCursos(context);
 				db.open();
-				Cursor c = db.getRecord(Long.parseLong(this.id));
-				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), c.getString(2), nuevoNombre, c.getString(4)) )
+				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), nuevoNombre, c.getString(4)) )
 				{	
 					setNombre(nuevoNombre);
 					db.close();
@@ -170,12 +170,12 @@ public class Modulo
 			public boolean establecerInicio(Context context, Calendar inicio)
 			{
 				
-				AdapterHorarios db = new AdapterHorarios(context);
+				AdapterCursos db = new AdapterCursos(context);
 				db.open();
-				Cursor c = db.getRecord(Long.parseLong(this.id));
+				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
 				
-				if(db.updateRecord(Long.parseLong(this.id),stringInicio, c.getString(2), c.getString(3), c.getString(4)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),stringInicio, c.getString(2), c.getString(3), c.getString(4)))
 				{	
 					setInicio(inicio);
 					db.close();
@@ -187,14 +187,27 @@ public class Modulo
 			
 			public boolean establecerFin(Context context,Calendar fin)
 			{
-				AdapterHorarios db = new AdapterHorarios(context);
+				AdapterCursos db = new AdapterCursos(context);
 				db.open();
-				Cursor c = db.getRecord(Long.parseLong(this.id));
+				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
 				
-				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), stringFin, c.getString(3), c.getString(4)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), stringFin, c.getString(3), c.getString(4)))
 				{	
 					setFin(fin);
+					db.close();
+					return true;
+				}
+				db.close();
+				return false;
+			}
+			
+			public boolean borrarModulo(Context context) //DEPRECATED ???(DEBERIA IR EN EL CONTROLADOR?)
+			{
+				AdapterCursos db = new AdapterCursos(context);
+				db.open();
+				if(db.deleteContactHORARIOS(Long.parseLong(this.id)))
+				{	
 					db.close();
 					return true;
 				}

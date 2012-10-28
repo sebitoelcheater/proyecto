@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -38,7 +39,8 @@ public class nuevoRamo extends Activity {
 	{
 		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
-		Controlador.crearNuevoCurso(this, nameTxt.getText().toString());
+		Curso c = Controlador.crearNuevoCurso(this, nameTxt.getText().toString());
+		Controlador.crearNuevoModulo(this, Calendar.getInstance(), Calendar.getInstance(), c.obtenerNombre(), c.obtenerId());//Crea un horario del curso por defecto
 		  finish();
 	}
 	

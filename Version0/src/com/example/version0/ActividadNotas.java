@@ -50,7 +50,7 @@ public class ActividadNotas extends ExpandableListActivity{
         
         dbramos.open();
         dbnotas.open();
-        Cursor c = dbramos.getAllRecords();
+        Cursor c = dbramos.getAllRecordsCURSOS();
         
         if (c.moveToFirst())
         {

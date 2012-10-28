@@ -34,7 +34,7 @@ public class ActividadConfiguracion extends ListActivity {
         ArrayList array_ramos = new ArrayList();
         
         db.open();
-        Cursor c = db.getAllRecords();
+        Cursor c = db.getAllRecordsCURSOS();
         
         if (c.moveToFirst())
         {
