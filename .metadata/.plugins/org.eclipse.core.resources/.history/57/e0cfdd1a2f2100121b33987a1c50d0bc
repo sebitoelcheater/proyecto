@@ -86,7 +86,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		     do {
 		         String idmodulo = c.getString(0);
 		         Modulo modulo = new Modulo(context,idmodulo);
-		         if (modulo.obtenerInicio().get(Calendar.DAY_OF_WEEK) == dia)
+		         if (modulo.obtenerInicio().get(Calendar.DATE) == dia)
 		        	modulos.add(modulo);
 		       } while (c.moveToNext());
 		 }

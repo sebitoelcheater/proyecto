@@ -57,7 +57,6 @@ public class ActividadHorario extends Activity implements OnClickListener{
 	private void generaModulos(int selectedItemPosition) {
 		// TODO Auto-generated method stub
 		ArrayList<Modulo> modulos = Controlador.obtenerModulosSegunDia(this, selectedItemPosition);
-		System.out.println("LARGO " +modulos.size());
 		this.array_modulos= new ArrayList<String>();
 		for(Modulo m : modulos)
 			array_modulos.add(m.obtenerNombre());

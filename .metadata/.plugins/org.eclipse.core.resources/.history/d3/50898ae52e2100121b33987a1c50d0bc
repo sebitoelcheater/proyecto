@@ -1,0 +1,34 @@
+
+import java.util.*;
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+public class Pruebas {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("Hola bienvenido al sistema de pruebas de Calendar");
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		String [] dias = new String[]{"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
+		Calendar calendario = Calendar.getInstance();
+		System.out.println(calendario.get(Calendar.DAY_OF_WEEK));		
+	}
+
+	private static String agregarCeros(int n, int i) {
+		// TODO Auto-generated method stub
+		String numero = i+"";
+		if(numero.length()<n)
+		{
+			for(int j =0; j<(n-numero.length());++j)
+			{
+				numero = "0"+numero;
+			}	
+		}
+		return numero;
+	}
+
+}
