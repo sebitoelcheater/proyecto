@@ -1,4 +1,4 @@
-package com.example.version0;
+/*package com.example.version0;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -166,7 +166,7 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
             dbramos.close();
             dbnotas.close();
            */
-            
+ /*           
             notas= new ArrayList<ArrayList<ArrayList<String>>>();
         	for(int i = 0; i< cursos.size();++i)//No olvidar conectar esto con la base de datos
             {
@@ -244,3 +244,4 @@ public class ActividadNotas2 extends Activity implements ExpandableListView.OnCh
 	}
 }
 
+*/

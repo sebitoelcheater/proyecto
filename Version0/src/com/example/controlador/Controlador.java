@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.example.data.*;
 
@@ -14,9 +15,10 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecord(nombre,"0","")+"";   //por defecto los cursos creados son comentables, pero no tienen un idMaster  
+	    String id = db.insertRecord(nombre,"0","none")+"";   //por defecto los cursos creados son comentables, pero no tienen un idMaster  
 	    db.close();
-		return new Curso(context, id);
+	    
+	   return new Curso(context, id);
 	}
 	
 	/* HACER ESTO*/
@@ -35,18 +37,19 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	{
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 		AdapterCursos db = new AdapterCursos(context);
+		db.open();
 		Cursor c = db.getAllIds();
+		
 		
 		if (c.moveToFirst())
         {
             do {
-                String idramo = c.getString(0);
-                
-                Curso curso = new Curso(context,idramo);
+            	String idramo = c.getString(0);
+            	Curso curso = new Curso(context,idramo);
                 cursos.add(curso);
             } while (c.moveToNext());
         }
-        db.close();
+		db.close();
         return cursos;
 	}
 	
@@ -54,6 +57,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		AdapterHorarios db = new AdapterHorarios(context);
+		db.open();
 		Cursor c = db.getAllIds();
 		
 		if (c.moveToFirst())
@@ -74,6 +78,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		AdapterHorarios db = new AdapterHorarios(context);
+		db.open();
 		Cursor c = db.getAllIds();
 		
 		if (c.moveToFirst())

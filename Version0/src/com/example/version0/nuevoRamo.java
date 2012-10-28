@@ -26,14 +26,11 @@ import android.widget.Toast;
 import com.example.controlador.*;
 import com.example.data.*;
 public class nuevoRamo extends Activity {
-	private Controlador controlador;
-    
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nuevo_ramo);
-        Bundle b = getIntent().getExtras();
-		controlador = b.getParcelable("CONTROLADOR");
         
     }
 	
@@ -41,11 +38,8 @@ public class nuevoRamo extends Activity {
 	{
 		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
-		Curso c = new Curso(this,""+(controlador.getNumeroDeCursos()+1)); 
-	    c.setNombre(nameTxt.getText().toString());
-	    controlador.addNuevoCurso(this, c);
-	    
-	    finish();
+		Controlador.crearNuevoCurso(this, nameTxt.getText().toString());
+		  finish();
 	}
 	
 	

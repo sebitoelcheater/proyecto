@@ -1,4 +1,4 @@
-package com.example.version0;
+/*package com.example.version0;
 
 import java.util.ArrayList;
 
@@ -106,3 +106,4 @@ public class Modulo implements Parcelable
             };
 
 }
+*/

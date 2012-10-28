@@ -1,6 +1,7 @@
 //IMPORTANTE: Soy Esteban y aquí trabajaré hasta que esté listo para no
 //entorpecer ActividadRamos Original
 
+//HOLA ESTEBAN... CREO QUE NO ESTAS APROVECHANDO LAS VENJAAS DEL CONTROLADOR... :)
 package com.example.version0;
 
 import java.util.ArrayList;
@@ -26,8 +27,7 @@ public class ActividadRamos2 extends ListActivity {
 	private ArrayList<String> cursos;
 	private ArrayList<String> ids;
 	 public AdapterCursos dbramos = new AdapterCursos(this);
-	 private Controlador controlador;
- 
+	 
 	
 	
 	
@@ -104,10 +104,7 @@ public class ActividadRamos2 extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
 		 super.onCreate(savedInstanceState);
 		       setContentView(R.layout.activity_actividad_ramos);
-		       Bundle b = getIntent().getExtras();
-				controlador = b.getParcelable("CONTROLADOR");
-				controlador.nuevaActividad(this);
-				cargarDatos();
+		       cargarDatos();
 				
 				
         listView = (ListView)findViewById(R.id.listaRamos);
@@ -186,7 +183,7 @@ public class ActividadRamos2 extends ListActivity {
     
 private void cargarDatos() {
     	
-		cursos= controlador.getNombreCursos();
+		
     }
    
 }

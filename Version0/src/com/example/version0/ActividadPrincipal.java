@@ -1,8 +1,12 @@
 package com.example.version0;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -10,12 +14,16 @@ import com.example.controlador.*;
 import com.example.data.*;
 public class ActividadPrincipal extends Activity {
 	public final static String MENSAJE_EXTRA = "com.example.version0.MESSAGE";
-	private Controlador controlador;
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_principal);
-        controlador = new Controlador(this);
+        
+        ArrayList<Curso> cursos = Controlador.obtenerCursos(this);
+        for(Curso c: cursos)
+        {
+        	c.borrarCurso(this);
+        }
         
     }
 
@@ -47,7 +55,6 @@ public class ActividadPrincipal extends Activity {
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);
-    	intent.putExtra("CONTROLADOR", controlador);	
     	
     	startActivity(intent);
     }
@@ -57,27 +64,27 @@ public class ActividadPrincipal extends Activity {
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);
-    	intent.putExtra("CONTROLADOR", controlador);	
+    		
     	
     	startActivity(intent);
     }
-    
+    /*
     public void verNotas (View view) {
     	Intent intent = new Intent(this,ActividadNotas2.class);
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);
-    	intent.putExtra("CONTROLADOR", controlador);	
+    	
     	
     	startActivity(intent);
-    }
+    }*/
     
     public void verFormularioFeedback (View view) {
     	Intent intent = new Intent(this,ActividadFeedback.class);
     	
     	//Necesario para la comunicación entre Activities
     	intent.putExtra(MENSAJE_EXTRA,true);
-    	intent.putExtra("CONTROLADOR", controlador);	
+    	
     	
     	startActivity(intent);
     }

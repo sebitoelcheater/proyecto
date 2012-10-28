@@ -13,16 +13,12 @@ import com.example.controlador.*;
 import com.example.data.*;
 public class ActividadFeedback extends Activity {
 	 private ArrayList<String> cursos;
-	 public AdapterCursos dbramos = new AdapterCursos(this);
-	 private Controlador controlador;
-    @Override
+	 @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_feedback);
         Bundle b = getIntent().getExtras();
-		controlador = b.getParcelable("CONTROLADOR");
-		controlador.nuevaActividad(this);
-        cargarDatos();
+		cargarDatos();
         
         
         Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
@@ -36,7 +32,10 @@ public class ActividadFeedback extends Activity {
     }
     private void cargarDatos() {
     	
-		cursos= controlador.getNombreCursos();
+		ArrayList<Curso> cursosComentables = Controlador.obtenerCursos(this); // ACA DEBERIA IR UN METODO LLAMADO OBTENERCURSOSCOMENTABLES... NO OLVIDAR PEDIRMELO!
+    	cursos = new ArrayList<String>();
+		for(Curso c : cursosComentables)
+    		cursos.add(c.obtenerNombre());
     }
     
     public void enviarComentario(View view)

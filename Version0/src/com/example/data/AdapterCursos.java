@@ -12,15 +12,15 @@ public class AdapterCursos {
     public static final String KEY_ROWID = "id";
     public static final String KEY_TITLE = "title";
     public static final String KEY_COMENTABLE = "comentable";
-    public static final String KEY_ID_MASTER = "id_master";
+    public static final String KEY_ID_MASTER = "idMaster";
     private static final String TAG = "AdapterCursos";
     
-    private static final String DATABASE_NAME = "Usuario1";
+    private static final String DATABASE_NAME= "OrganizadorDB";
     private static final String DATABASE_TABLE = "Cursos";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     private static final String DATABASE_CREATE =
-        "create table if not exists Cursos (id integer primary key autoincrement, title VARCHAR not null, comentable integer, id_master integer);";
+        "create table if not exists Cursos (id integer primary key autoincrement, title VARCHAR not null, comentable VARCHAR not null, idMaster VARCHAR not null);";
         
     private final Context context;    
 
@@ -90,26 +90,28 @@ public class AdapterCursos {
     }
 
     //---retrieves all the records---
-    public Cursor getAllRecords() 
+    public Cursor getAllRecords() //ARREGLANDO...
     {
-        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TITLE, KEY_COMENTABLE, KEY_ID_MASTER}, null, null, null, null, null);
+    	return db.query(DATABASE_TABLE, null, null, null, null, null, null);
     }
     
     public Cursor getAllIds()
     {
     	return db.query(DATABASE_TABLE, new String[] {KEY_ROWID}, null, null, null, null, null);
+    	
     }
 
     //---retrieves a particular record---
     public Cursor getRecord(long rowId) throws SQLException 
     {
-        Cursor mCursor =
-                db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+    	Cursor mCursor =
+                db.query(DATABASE_TABLE, new String[] {KEY_ROWID,
                 KEY_TITLE, KEY_COMENTABLE, KEY_ID_MASTER}, 
                 KEY_ROWID + "=" + rowId, null, null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
+    	if (mCursor != null) {
+    		
+    		mCursor.moveToFirst();
+               }
         return mCursor;
     }
     

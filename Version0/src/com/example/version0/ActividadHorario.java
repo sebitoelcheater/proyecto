@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -16,7 +17,6 @@ import com.example.controlador.*;
 import com.example.data.*;
 public class ActividadHorario extends Activity implements OnClickListener{
 	
-	private Controlador controlador;
 	
 	String []diasDeLaSemana = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
     ArrayList<String> array_modulos = new ArrayList<String>();
@@ -25,11 +25,7 @@ public class ActividadHorario extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario);
         
-        Bundle b = getIntent().getExtras();
-		controlador = b.getParcelable("CONTROLADOR");
-		controlador.nuevaActividad(this);
-		
-		Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
+    	Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
        
         
@@ -60,6 +56,9 @@ public class ActividadHorario extends Activity implements OnClickListener{
 
 	private void generaModulos(int selectedItemPosition) {
 		// TODO Auto-generated method stub
-		array_modulos = controlador.getListaDeModuloSegunDia(this, selectedItemPosition);
+		ArrayList<Modulo> modulos = Controlador.obtenerModulosSegunDia(this, selectedItemPosition);
+		this.array_modulos= new ArrayList<String>();
+		for(Modulo m : modulos)
+			array_modulos.add(m.obtenerNombre());
 	}
 }

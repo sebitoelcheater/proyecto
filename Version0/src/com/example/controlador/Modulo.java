@@ -49,6 +49,7 @@ public class Modulo
 		
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 		AdapterHorarios db = new AdapterHorarios(context);
+		db.open();
 		Cursor c = db.getRecord(Long.parseLong(this.id));
 		
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -138,6 +139,7 @@ public class Modulo
 			public boolean estableceIdCurso(Context context,String idCurso) //DEPRECATED?
 			{
 				AdapterHorarios db = new AdapterHorarios(context);
+				db.open();
 				Cursor c = db.getRecord(Long.parseLong(this.id));
 				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3), idCurso) )
 				{	
@@ -153,10 +155,12 @@ public class Modulo
 			public boolean establecerNombre(Context context,String nuevoNombre)//NOMBRE O UBICACION EN EL CASO DE LA DB
 			{
 				AdapterHorarios db = new AdapterHorarios(context);
+				db.open();
 				Cursor c = db.getRecord(Long.parseLong(this.id));
 				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), c.getString(2), nuevoNombre, c.getString(4)) )
 				{	
 					setNombre(nuevoNombre);
+					db.close();
 					return true;
 				}
 				db.close();
@@ -167,12 +171,14 @@ public class Modulo
 			{
 				
 				AdapterHorarios db = new AdapterHorarios(context);
+				db.open();
 				Cursor c = db.getRecord(Long.parseLong(this.id));
 				String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
 				
 				if(db.updateRecord(Long.parseLong(this.id),stringInicio, c.getString(2), c.getString(3), c.getString(4)))
 				{	
 					setInicio(inicio);
+					db.close();
 					return true;
 				}
 				db.close();
@@ -182,12 +188,14 @@ public class Modulo
 			public boolean establecerFin(Context context,Calendar fin)
 			{
 				AdapterHorarios db = new AdapterHorarios(context);
+				db.open();
 				Cursor c = db.getRecord(Long.parseLong(this.id));
 				String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
 				
 				if(db.updateRecord(Long.parseLong(this.id),c.getString(1), stringFin, c.getString(3), c.getString(4)))
 				{	
 					setFin(fin);
+					db.close();
 					return true;
 				}
 				db.close();
