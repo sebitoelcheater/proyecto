@@ -18,11 +18,15 @@ public class ActividadPrincipal extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_principal);
+        
+        
         ArrayList<Curso> cursos = Controlador.obtenerCursos(this);
         for(Curso c: cursos)
         {
         	c.borrarCurso(this);
         }
+        
+ 
         
     }
 

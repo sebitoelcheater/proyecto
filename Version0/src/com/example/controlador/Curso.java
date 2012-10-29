@@ -140,11 +140,23 @@ public class Curso
 		{
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
+					
+			
 			if(db.deleteContactCURSOS(Long.parseLong(this.id)))
 			{	
+				Cursor c = db.getRecordPorCursoHORARIOS(this.id); // ESTO BORRA LOS MODULOS ASOCIADOS AL CURSO
+				if (c.moveToFirst())
+				{
+				     do {
+				         String idmodulo = c.getString(0);
+				         new Modulo(context,idmodulo).borrarModulo(context);
+				         
+				       } while (c.moveToNext());
+				 }
 				db.close();
 				return true;
 			}
+			 db.close();
 			db.close();
 			return false;
 		}

@@ -40,7 +40,9 @@ public class nuevoRamo extends Activity {
 		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
 		Curso c = Controlador.crearNuevoCurso(this, nameTxt.getText().toString());
-		Controlador.crearNuevoModulo(this, Calendar.getInstance(), Calendar.getInstance(), c.obtenerNombre(), c.obtenerId());//Crea un horario del curso por defecto
+		//BORRAR
+		System.out.println(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
+		Controlador.crearNuevoModulo(this,Calendar.getInstance().get(Calendar.DAY_OF_WEEK), Calendar.getInstance(), Calendar.getInstance(), c.obtenerNombre(), c.obtenerId());//Crea un horario del curso por defecto
 		  finish();
 	}
 	

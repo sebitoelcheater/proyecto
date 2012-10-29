@@ -18,7 +18,7 @@ import com.example.data.*;
 public class ActividadHorario extends Activity implements OnClickListener{
 	
 	
-	String []diasDeLaSemana = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
+	String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
     ArrayList<String> array_modulos = new ArrayList<String>();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,7 @@ public class ActividadHorario extends Activity implements OnClickListener{
 
 	private void generaModulos(int selectedItemPosition) {
 		// TODO Auto-generated method stub
-		ArrayList<Modulo> modulos = Controlador.obtenerModulosSegunDia(this, selectedItemPosition);
-		System.out.println("LARGO " +modulos.size());
+		ArrayList<Modulo> modulos = Controlador.obtenerModulosSegunDia(this, selectedItemPosition+1);
 		this.array_modulos= new ArrayList<String>();
 		for(Modulo m : modulos)
 			array_modulos.add(m.obtenerNombre());

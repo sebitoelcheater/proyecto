@@ -17,18 +17,19 @@ public class AdapterCursos {
     public static final String KEY_ID_CURSO = "id_curso";
     public static final String KEY_COMENTABLE = "comentable";
     public static final String KEY_ID_MASTER = "idMaster";
+    public static final String KEY_DDS = "dds";
     private static final String TAG = "AdapterCursos";
     
     private static final String DATABASE_NAME= "OrganizadorDB";
     private static final String DATABASE_TABLE_CURSOS = "Cursos";
     private static final String DATABASE_TABLE_HORARIOS = "Horarios";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 7;
 
     private static final String DATABASE_CREATE_CURSOS =
         "create table if not exists Cursos (id integer primary key autoincrement, title VARCHAR not null, comentable VARCHAR not null, idMaster VARCHAR not null);";
         
     private static final String DATABASE_CREATE_HORARIOS =
-            "create table if not exists Horarios (id integer primary key autoincrement, "
+            "create table if not exists Horarios (id integer primary key autoincrement, dds integer, "
             + "inicio date, fin date, ubicacion VARCHAR, id_curso integer );";
     
     private final Context context;    
@@ -137,9 +138,10 @@ public class AdapterCursos {
         return db.update(DATABASE_TABLE_CURSOS, args, KEY_ROWID + "=" + rowId, null) > 0;
     }
     
-    public long insertRecordHORARIOS(String inicio, String fin, String ubicacion, String id_curso) 
+    public long insertRecordHORARIOS(String diaDeLaSemana,String inicio, String fin, String ubicacion, String id_curso) 
     {
         ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_DDS, diaDeLaSemana);
         initialValues.put(KEY_INICIO, inicio);
         initialValues.put(KEY_FIN, fin);
         initialValues.put(KEY_UBICACION, ubicacion);
@@ -165,7 +167,7 @@ public class AdapterCursos {
     public Cursor getRecordHORARIOS(long rowId) throws SQLException 
     {
         Cursor mCursor =
-                db.query(true, DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWID,
+                db.query(true, DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWID, KEY_DDS,
                 KEY_INICIO, KEY_FIN, KEY_UBICACION, KEY_ID_CURSO}, 
                 KEY_ROWID + "=" + rowId, null, null, null, null, null);
         if (mCursor != null) {
@@ -174,9 +176,22 @@ public class AdapterCursos {
         return mCursor;
     }
     
-    public boolean updateRecordHORARIOS(long rowId, String inicio, String fin, String ubicacion, String id_curso) 
+    public Cursor getRecordPorCursoHORARIOS(String idCurso)
+    {
+    	 Cursor mCursor =
+                 db.query(true, DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWID, KEY_DDS,
+                 KEY_INICIO, KEY_FIN, KEY_UBICACION, KEY_ID_CURSO}, 
+                 KEY_ID_CURSO + "=" + idCurso, null, null, null, null, null);
+         if (mCursor != null) {
+             mCursor.moveToFirst();
+         }
+         return mCursor;
+    }
+    
+    public boolean updateRecordHORARIOS(long rowId,String diaDeLaSemana, String inicio, String fin, String ubicacion, String id_curso) 
     {
         ContentValues args = new ContentValues();
+        args.put(KEY_DDS, diaDeLaSemana);
         args.put(KEY_INICIO, inicio);
         args.put(KEY_FIN, fin);
         args.put(KEY_UBICACION, ubicacion);

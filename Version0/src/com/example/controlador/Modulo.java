@@ -16,8 +16,10 @@ public class Modulo
 	private String id;
 	private String idCurso;
 	private String nombre;
+	private String diaDeLaSemana;
 	private Calendar inicio;
 	private Calendar fin;
+	
 	
 	public Modulo(Context context,String id)
 	{
@@ -52,14 +54,14 @@ public class Modulo
 		db.open();
 		Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 		
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat formato = new SimpleDateFormat("HH:mm");
 		Date a = new Date();
 		inicio = new GregorianCalendar();
-		setNombre(c.getString(3));
-        
+		setNombre(c.getString(4));
+        setDiaDeLaSemana(c.getString(1));
 		try
 		{
-			a = formato.parse(c.getString(1));
+			a = formato.parse(c.getString(2));
 			inicio.setTime(a);
 		}catch(ParseException e){}
 		
@@ -69,18 +71,25 @@ public class Modulo
 		
 		try
 		{
-			a = formato.parse(c.getString(2));
+			a = formato.parse(c.getString(3));
 			fin.setTime(a);
 		}catch(ParseException e){}
 		
-		idCurso = c.getString(4);	
+		idCurso = c.getString(5);	
 		db.close();	
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 		
 		 
 	}
 	
-	//METODOS DE OBTENCION
+	
+
+
+
+
+
+
+			//METODOS DE OBTENCION
 			public String obtenerId()
 			{
 				return id;
@@ -96,6 +105,11 @@ public class Modulo
 				return nombre;
 			}
 			
+			public String obtenerDiaDeLaSemana()
+			{
+				return diaDeLaSemana;
+			}
+			
 			public Calendar obtenerInicio()
 			{
 				return (Calendar) inicio.clone();
@@ -108,6 +122,11 @@ public class Modulo
 		//METODOS DE OBTENCION
 		
 		//METODOS DE SETEO DEL OBJETO(NO DB)
+			private void setDiaDeLaSemana(String diaDeLaSemana) 
+			{
+				this.diaDeLaSemana = diaDeLaSemana;				
+			}
+
 			public void setId(String id)
 			{
 				this.id = id;
@@ -141,7 +160,7 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3), idCurso) )
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3),c.getString(4), idCurso) )
 				{	
 					setIdCurso(idCurso);
 					db.close();
@@ -157,7 +176,7 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), nuevoNombre, c.getString(4)) )
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2),c.getString(3), nuevoNombre, c.getString(5)) )
 				{	
 					setNombre(nuevoNombre);
 					db.close();
@@ -173,9 +192,9 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
+				String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),stringInicio, c.getString(2), c.getString(3), c.getString(4)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),stringInicio, c.getString(3), c.getString(4), c.getString(5)))
 				{	
 					setInicio(inicio);
 					db.close();
@@ -190,11 +209,27 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
+				String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), stringFin, c.getString(3), c.getString(4)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), stringFin, c.getString(4), c.getString(5)))
 				{	
 					setFin(fin);
+					db.close();
+					return true;
+				}
+				db.close();
+				return false;
+			}
+			
+			public boolean establecerDiaDeLaSemana(Context context, int dia) //RELLENAR
+			{
+				AdapterCursos db = new AdapterCursos(context);
+				db.open();
+				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
+				
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),dia+"",c.getString(2), c.getString(3), c.getString(4), c.getString(5)))
+				{	
+					setDiaDeLaSemana(dia+"");
 					db.close();
 					return true;
 				}

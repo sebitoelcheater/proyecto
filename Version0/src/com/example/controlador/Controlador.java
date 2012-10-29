@@ -22,13 +22,13 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	}
 	
 	/* HACER ESTO*/
-	static public Modulo crearNuevoModulo(Context context, Calendar inicio, Calendar fin, String nombre, String idCurso)
+	static public Modulo crearNuevoModulo(Context context,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre, String idCurso)
 	{
 		AdapterCursos db = new AdapterCursos(context);
-		String stringInicio = agregarCeros(4,inicio.get(Calendar.YEAR))+"-"+agregarCeros(2,inicio.get(Calendar.MONTH))+"-"+agregarCeros(2,inicio.get(Calendar.DATE))+" "+agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE))+":"+agregarCeros(2,inicio.get(Calendar.SECOND));
-		String stringFin = agregarCeros(4,fin.get(Calendar.YEAR))+"-"+agregarCeros(2,fin.get(Calendar.MONTH))+"-"+agregarCeros(2,fin.get(Calendar.DATE))+" "+agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE))+":"+agregarCeros(2,fin.get(Calendar.SECOND));
+		String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
+		String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 		db.open();        
-	    String id = db.insertRecordHORARIOS(stringInicio, stringFin, nombre, idCurso) +"";        
+	    String id = db.insertRecordHORARIOS(diaDeLaSemana+"",stringInicio, stringFin, nombre, idCurso) +"";        
 	    db.close();
 		return new Modulo(context, id);
 	} 
@@ -102,13 +102,13 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
 		Cursor c = db.getAllIdsHORARIOS();
-		
+
 		if (c.moveToFirst())
 		{
 		     do {
-		         String idmodulo = c.getString(0);
-		         Modulo modulo = new Modulo(context,idmodulo);
-		         if (modulo.obtenerInicio().get(Calendar.DAY_OF_WEEK) == dia)
+		    	 String idmodulo = c.getString(0);
+		        Modulo modulo = new Modulo(context,idmodulo);
+		          if (modulo.obtenerDiaDeLaSemana().equals(dia+""))
 		        	modulos.add(modulo);
 		       } while (c.moveToNext());
 		 }
@@ -117,6 +117,32 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
+	static public ArrayList<Modulo> obtenerModulosDelDia(Context context, Calendar hoydia) //INEFICIENTE!!!!
+	{
+		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
+		AdapterCursos db = new AdapterCursos(context);
+		db.open();
+		Cursor c = db.getAllIdsHORARIOS();
+		
+		if (c.moveToFirst())
+		{
+		     do {
+		         String idmodulo = c.getString(0);
+		         Modulo modulo = new Modulo(context,idmodulo);
+		         if (modulo.obtenerDiaDeLaSemana().equals(hoydia.get(Calendar.DAY_OF_WEEK)+""))
+		        	modulos.add(modulo);
+		       } while (c.moveToNext());
+		 }
+		 db.close();
+				
+		return modulos;
+	}
+	
+	static private ArrayList<Modulo> obtenerLosSiguientesModulos(Context context, Calendar ahora, int largo)
+	{return null;}
+	
+	static private ArrayList<Modulo> obtenerLosSiguientesModulosDelDia(Context context, Calendar ahora, int largo)
+	{return null;}
 	
 	
 	
