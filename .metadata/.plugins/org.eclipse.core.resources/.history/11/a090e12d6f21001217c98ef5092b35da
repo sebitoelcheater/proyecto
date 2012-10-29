@@ -158,7 +158,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		{
 			while(modulos.size()<largo)
 			{
-				c = db.getModulosSiguientesHORARIOS(1+"","00:00",largo-modulos.size()+"");
+				c = db.getModulosSiguientesHORARIOS(ahora.get(Calendar.DAY_OF_WEEK)+"",hora,largo-modulos.size()+"");
 				if (c.moveToFirst())
 				{
 				     do {

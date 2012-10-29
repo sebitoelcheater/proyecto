@@ -144,8 +144,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		String hora = agregarCeros(2,ahora.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,ahora.get(Calendar.MINUTE));
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		
-		Cursor c = db.getModulosSiguientesHORARIOS(ahora.get(Calendar.DAY_OF_WEEK)+"",hora,largo+"");
+		Cursor c = db.getModulosSiguientesHORARIOS(hora,largo+"");
 		if (c.moveToFirst())
 		{
 		     do {
@@ -154,21 +153,6 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		         modulos.add(modulo);
 		       } while (c.moveToNext());
 		 }
-		if(modulos.size()<largo)
-		{
-			while(modulos.size()<largo)
-			{
-				c = db.getModulosSiguientesHORARIOS(1+"","00:00",largo-modulos.size()+"");
-				if (c.moveToFirst())
-				{
-				     do {
-				         String idmodulo = c.getString(0);
-				         Modulo modulo = new Modulo(context,idmodulo);
-				         modulos.add(modulo);
-				       } while (c.moveToNext());
-				 }
-			}
-		}
 		db.close();
 		
 		return modulos;

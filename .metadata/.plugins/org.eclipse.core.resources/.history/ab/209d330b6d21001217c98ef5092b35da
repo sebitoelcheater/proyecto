@@ -164,13 +164,9 @@ public class AdapterCursos {
     	 return db.query(DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWID}, null, null, null, null, null);
     }
     
-    public Cursor getModulosSiguientesHORARIOS(String diaDeLaSemana,String hora, String limit) {
-		// TODO Auto-generated method stub
-    	return db.query(DATABASE_TABLE_HORARIOS, null, null, null, null, null, KEY_INICIO,limit);
-	}
     public Cursor getModulosSiguientesDelDiaHORARIOS(String diaDeLaSemana,String hora,String limit)
     {
-    	return db.query(DATABASE_TABLE_HORARIOS, null, "("+KEY_DDS+"="+diaDeLaSemana+" and " +KEY_INICIO+">="+hora+")"+" or " + KEY_DDS+">="+diaDeLaSemana, null, null, null, KEY_INICIO,limit);
+    	return db.query(DATABASE_TABLE_HORARIOS, null, KEY_DDS+"="+diaDeLaSemana, null, null, null, KEY_INICIO,limit);
     }
     
     public Cursor getRecordHORARIOS(long rowId) throws SQLException 
@@ -207,7 +203,5 @@ public class AdapterCursos {
         args.put(KEY_ID_CURSO, id_curso);
         return db.update(DATABASE_TABLE_HORARIOS, args, KEY_ROWID + "=" + rowId, null) > 0;
     }
-
-	
 
 }
