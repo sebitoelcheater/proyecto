@@ -138,7 +138,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
-	static public ArrayList<Modulo> obtenerLosSiguientesModulos(Context context, Calendar ahora, int largo)
+	static private ArrayList<Modulo> obtenerLosSiguientesModulos(Context context, Calendar ahora, int largo)
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		String hora = agregarCeros(2,ahora.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,ahora.get(Calendar.MINUTE));
@@ -174,7 +174,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
-	static public ArrayList<Modulo> obtenerLosSiguientesModulosDelDia(Context context, Calendar ahora, int largo)
+	static private ArrayList<Modulo> obtenerLosSiguientesModulosDelDia(Context context, Calendar ahora, int largo)
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		String hora = agregarCeros(2,ahora.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,ahora.get(Calendar.MINUTE));
