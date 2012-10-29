@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;Documentacion Controlador&apos; to &apos;DEPRECATED&apos;" description="Move &apos;Documentacion Controlador&apos; to &apos;DEPRECATED&apos;" destination="src/com/example/DEPRECATED" element1="src/com/example/version0/Documentacion Controlador" element2="src/com/example/version0/Documentacion Curso" element3="src/com/example/version0/Documentacion Modulo" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="3" stamp="1351477571993" updateReferences="true"/>
+</session>
