@@ -40,7 +40,7 @@
             android:label="@string/title_activity_actividad_notas" >
         </activity>
         <activity
-            android:name=".ActividadRamos"
+            android:name="com.example.DEPRECATED.ActividadRamosAnterior"
             android:label="@string/title_activity_actividad_ramos" >
         </activity>
         <activity
@@ -58,7 +58,7 @@
             android:label="@string/title_activity_dialogo" >
         </activity>
         <activity
-            android:name=".ActividadRamos2"
+            android:name=".ActividadRamos"
             android:label="@string/title_activity_actividad_ramos2" >
         </activity>
         <activity

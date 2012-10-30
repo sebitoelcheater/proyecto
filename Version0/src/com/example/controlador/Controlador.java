@@ -33,6 +33,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return new Modulo(context, id);
 	} 
 	
+	
 	static public ArrayList<Curso> obtenerCursos(Context context)
 	{
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
@@ -52,6 +53,8 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		db.close();
         return cursos;
 	}
+	
+
 	
 	static public ArrayList<Curso> obtenerCursosComentables(Context context)
 	{
