@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.example.controlador.*;
 import com.example.data.*;
 import com.example.server.post;
@@ -44,11 +46,18 @@ public class ActividadFeedback extends Activity {
     
     public void enviarComentario(View view)
     {
+    	//Hola, soy Seba. Capturar spinner
     	Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
     	String ramo = mySpinner.getSelectedItem().toString();
+    	//Capturar comentario
     	comentario = (EditText) findViewById(R.id.editText1);
+    	//Crear objeto de la clase post y posteriormente ejecutar método comentar
     	post objeto1 = new post();
     	objeto1.comentar(view, ramo, comentario.getText().toString());
+    	
+    	//Gracias por el feedback
+    	Toast toast = Toast.makeText(getApplicationContext(), "Gracias por tu feedback!", Toast.LENGTH_SHORT);
+    	toast.show();
     }
 
 }
