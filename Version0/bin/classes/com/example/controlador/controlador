@@ -15,6 +15,8 @@ Los métodos que hasta ahora hay en la clase Controlador son :
 
 - static public Curso crearNuevoCurso(Context context, String nombre), que crea un nuevo curso en los datos y retorna el objeto correspondiente
 
+- static public Curso obtenerCurso(Context context, String id), que retorna el curso asociado al id indicado
+
 - static public Modulo crearNuevoModulo(Context context,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre, String idCurso) , que crea un nuevo modulo en los datos y retorna el objeto modulo asociado.
 
 - static public ArrayList<Curso> obtenerCursos(Context context), que retorna la lista de todos los cursos(objetos Curso) que se tienen en el celular

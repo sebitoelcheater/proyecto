@@ -22,11 +22,6 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 	}
 	
 	/* HACER ESTO*/
-	static public Curso obtenerCurso(Context context, String id)
-	{
-		return new Curso(context,id);
-	}
-	
 	static public Modulo crearNuevoModulo(Context context,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre, String idCurso)
 	{
 		AdapterCursos db = new AdapterCursos(context);
