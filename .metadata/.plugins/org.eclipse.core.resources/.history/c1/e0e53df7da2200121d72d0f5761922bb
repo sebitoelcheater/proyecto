@@ -31,7 +31,7 @@ Los métodos que hasta ahora hay en la clase Controlador son :
 
 - static public ArrayList<Modulo> obtenerLosSiguientesModulosDelDia(Context context, Calendar ahora, int largo), retorna los "largo" modulos despues de ahora , en el dia correspondiente
 
-La clase Curso, es la abstracción de un Curso o Ramo, por lo tanto, en su estructura posee su id, nombre, el idMaster(de Internet), y si es o no comentable. Basicamente un Curso se creo en base a los datos, por lo tanto, ustedes tambien pueden recuperar un curso desde los datos con el contructor de Curso, dando el contexto y el id.
+La clase Curso, es la abstracción de un Curso o Ramo, por lo tanto, en su estructura posee su id, nombre, el idMaster(de Internet), y si es o no comentable. Basicamente un Curso se creo en base a los datos, por lo tanto, ustedes no usarán el constructor propio de la clase, sino más bien el método antes mencionado en el controlador para crear un nuevo curso.
 NOTA : No olvidar que a los métodos de un determinado objeto se accede asi : nombreDelObjeto.nombreDelMetodo(argumentos)
 Los métodos que hay en Curso, son relativamente simples y se pueden resumir en :
 
@@ -48,7 +48,7 @@ Los métodos que hay en Curso, son relativamente simples y se pueden resumir en :
 
 - public boolean borrarCurso(Context context), que borra de los datos el curso y los los modulos asociados a el
 
-Finalmente, la clase Modulo, lo que representa es un modulo y en su estructura contiene un id, un id del curso relacionado, un nombre, un dia de la semana, un inicio y un fin, al igual que en el objeto Curso, un Modulo tambien se crea en base a los datos, además pueden usar el contructor de módulo dándole el contexto y el id lo que rescata los datos de la base de datos,y sus métodos se pueden resumir en : 
+Finalmente, la clase Modulo, lo que representa es un modulo y en su estructura contiene un id, un id del curso relacionado, un nombre, un dia de la semana, un inicio y un fin, al igual que en el objeto Curso, un Modulo tambien se crea en base a los datos(por lo que no usaran el constructor, sino más bien los métodos del controlador) y sus métodos se pueden resumir en : 
 
 - Métodos de obtención, que retornan los atributos del curso son: 
         public String obtenerId()
