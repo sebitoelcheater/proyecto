@@ -8,9 +8,11 @@ import android.database.Cursor;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import com.example.controlador.*;
 import com.example.data.*;
+import com.example.server.post;
 public class ActividadFeedback extends Activity {
 	 private ArrayList<String> cursos;
 	 @Override
@@ -25,6 +27,8 @@ public class ActividadFeedback extends Activity {
         numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,cursos));
     }
 
+	 EditText comentario;
+	 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_actividad_feedback, menu);
@@ -39,6 +43,12 @@ public class ActividadFeedback extends Activity {
     }
     
     public void enviarComentario(View view)
-    {}
+    {
+    	Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
+    	String ramo = mySpinner.getSelectedItem().toString();
+    	comentario = (EditText) findViewById(R.id.editText1);
+    	post objeto1 = new post();
+    	objeto1.comentar(view, ramo, comentario.getText().toString());
+    }
 
 }
