@@ -24,7 +24,7 @@ public class Pruebas {
 		}
 		
 		System.out.println("Minuto: " + inicio.get(Calendar.MINUTE));
-		inicio.add(Calendar.MINUTE, 100);
+		inicio.add(Calendar.MINUTE, 10);
 		System.out.println("Minuto: " + inicio.get(Calendar.MINUTE));
 	}
 

@@ -199,7 +199,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
-	static public ArrayList<Modulo> obtenerLosModulosProximos(Context context,Calendar ahora, int minutos) //TERMINAR
+	static public ArrayList<Modulo> obtenerLosModulosProximos(Context context,Calendar ahora, int minutos)
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		Calendar despues = ((Calendar)ahora.clone());

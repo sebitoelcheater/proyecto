@@ -199,30 +199,6 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
-	static public ArrayList<Modulo> obtenerLosModulosProximos(Context context,Calendar ahora, int minutos) //TERMINAR
-	{
-		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
-		Calendar despues = ((Calendar)ahora.clone());
-		despues.add(Calendar.MINUTE,minutos);
-		
-		String stringAhora = agregarCeros(2,ahora.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,ahora.get(Calendar.MINUTE));
-		String stringDespues = agregarCeros(2,despues.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,despues.get(Calendar.MINUTE));
-		
-		AdapterCursos db = new AdapterCursos(context);
-		db.open();
-		if(despues.get(Calendar.DAY_OF_WEEK)== ahora.get(Calendar.DAY_OF_WEEK))
-		{
-			//Cursor c = db.
-		}	
-		else
-		{
-			
-		}
-		db.close();
-		
-		return modulos;
-	}
-	
 	
 	
 	private static String agregarCeros(int n, int i) {

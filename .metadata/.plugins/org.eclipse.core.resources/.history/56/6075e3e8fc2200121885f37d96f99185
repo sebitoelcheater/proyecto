@@ -23,9 +23,9 @@ public class Pruebas {
 			System.out.println("HOLA");
 		}
 		
-		System.out.println("Minuto: " + inicio.get(Calendar.MINUTE));
-		inicio.add(Calendar.MINUTE, 100);
-		System.out.println("Minuto: " + inicio.get(Calendar.MINUTE));
+		System.out.println("DIA: " + inicio.get(Calendar.MINUTE));
+		System.out.println(inicio.compareTo(Calendar.getInstance()));
+		
 	}
 
 	private static String agregarCeros(int n, int i) {
