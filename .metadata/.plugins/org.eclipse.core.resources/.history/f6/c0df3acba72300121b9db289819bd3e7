@@ -32,12 +32,10 @@ private final int MSG_KEY_FIN = 2;
 private int MINUTOS = 10; //POR DEFAULT 10, luego ver como se puede generalzar esto
 
 
-private int indiceInicio;
-private int indiceFin;
+private int indiceInicio = 0;
+private int indiceFin = 0;
 public void run() {
 	
-	indiceInicio=0;
-	indiceFin=0;
 	Log.e("alarmChecker","ENTRE");
 	Calendar ahora = Calendar.getInstance();
 	proximosInicios = Controlador.obtenerLosModulosProximosInicio(this, ahora, MINUTOS); 
@@ -47,7 +45,8 @@ public void run() {
 	for(Modulo m: anterioresFinales)
 		handler.sendEmptyMessage(MSG_KEY_FIN);
 	
-	
+	indiceInicio=0;
+	indiceFin=0;
 		
 }
 
