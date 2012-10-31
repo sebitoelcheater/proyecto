@@ -13,8 +13,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import com.example.controlador.*;
 import com.example.data.*;
 import com.example.notificaciones.alarmChecker;
@@ -101,19 +99,19 @@ public class ActividadPrincipal extends Activity {
     
     private void activarNotificaciones() {
 		// TODO Auto-generated method stub
-    	int comprobacionIntervaloSegundos = 10;
-    	
+    	int comprobacionIntervaloSegundos = 10; //DEFAULT DE PRUEBAS DE INTERALO DE CONSULTA
 		   Intent myIntent = new Intent(ActividadPrincipal.this, alarmChecker.class);
 		   pendingIntent = PendingIntent.getService(ActividadPrincipal.this, 0, myIntent, 0);
-
+		   
+		   
 		   AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
 
 		   Calendar calendar = Calendar.getInstance();
 		   calendar.setTimeInMillis(System.currentTimeMillis());
 		   calendar.add(Calendar.SECOND, 10);
 		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
- 
-		   Toast.makeText(ActividadPrincipal.this, "Alarma iniciada", Toast.LENGTH_LONG).show();
+		   
+		   Log.e("LLEGUE",pendingIntent.toString());
 		   
 		   
 		   

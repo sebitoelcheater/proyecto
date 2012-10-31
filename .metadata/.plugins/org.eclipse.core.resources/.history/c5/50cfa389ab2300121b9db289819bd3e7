@@ -8,8 +8,6 @@ import java.util.Random;
 
 import com.example.controlador.Controlador;
 import com.example.controlador.Modulo;
-import com.example.version0.ActividadHorario;
-import com.example.version0.R;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -83,7 +81,10 @@ private Handler handler = new Handler() {
  */
 private void Notificar() {
 		
-	//Esta será la actividad de verdad que llamara la aplicacion
+	//Prepara la actividad que se abrira cuando el usuario pulse la notificacion
+		Intent intentNot = new Intent(this, ActividadPrincipal.class);
+		
+		//Esta será la actividad de verdad que llamara la aplicacion
 				Intent intentNot = new Intent(this, ActividadHorario.class);
 				
 			//Prepara la notificacion

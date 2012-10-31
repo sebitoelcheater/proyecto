@@ -1,16 +1,11 @@
-
-
 package com.example.notificaciones;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
 import com.example.controlador.Controlador;
 import com.example.controlador.Modulo;
-import com.example.version0.ActividadHorario;
-import com.example.version0.R;
-
+import com.example.version0.*;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -26,74 +21,83 @@ public class alarmChecker extends Service  implements Runnable {
 
 	
 
-	public static final int APP_ID_NOTIFICATION = 0; 
-	private NotificationManager mManager;
+public static final int APP_ID_NOTIFICATION = 0; 
+private NotificationManager mManager;
 
-	private ArrayList<Modulo> proximosInicios;
-	private ArrayList<Modulo> anterioresFinales;
+private ArrayList<Modulo> proximosInicios;
+private ArrayList<Modulo> anterioresFinales;
 
-	private final int MSG_KEY_INICIO = 1;
-	private final int MSG_KEY_FIN = 2;
-	private int MINUTOS = 10; //POR DEFAULT 10, luego ver como se puede generalzar esto
+private final int MSG_KEY_INICIO = 1;
+private final int MSG_KEY_FIN = 2;
+private int MINUTOS = 10; //POR DEFAULT 10, luego ver como se puede generalzar esto
 
-	private int indiceInicio;
-	private int indiceFin;
 
-/**
- * MŽtodo del hilo as’ncrono, que obtiene un numero aleatorio y comprueba su paridad
- */
+private int indiceInicio;
+private int indiceFin;
 public void run() {
 	
 	indiceInicio=0;
 	indiceFin=0;
-	
+	Log.e("alarmChecker","ENTRE");
 	Calendar ahora = Calendar.getInstance();
 	proximosInicios = Controlador.obtenerLosModulosProximosInicio(this, ahora, MINUTOS); 
 	anterioresFinales = Controlador.obtenerLosModulosAnterioresFin(this,ahora , MINUTOS);
-	
-	
-	
-	if(proximosInicios.size()==0)
+	for(Modulo m: proximosInicios)
 		handler.sendEmptyMessage(MSG_KEY_INICIO);
-	handler.sendEmptyMessage(MSG_KEY_INICIO);
+	for(Modulo m: anterioresFinales)
+		handler.sendEmptyMessage(MSG_KEY_FIN);
 	
 	
-	
-	
+		
 }
 
 
-/**
- * Procesa eventos desde el hilo run
- */
 private Handler handler = new Handler() {
 	@Override
 	public void handleMessage(Message msg) {
 			switch (msg.what){
 			case MSG_KEY_INICIO: //Hemos obtenido un numero par
-				 Notificar();
+				 NotificarInicio();
+				break;
+			case MSG_KEY_FIN:
+				NotificarFin();
 				break;
 			}
 	}
 };
 
 
-/**
- * prepara y lanza la notificacion
- */
-private void Notificar() {
+private void NotificarInicio() {
 		
 	//Esta será la actividad de verdad que llamara la aplicacion
-				Intent intentNot = new Intent(this, ActividadHorario.class);
-				
-			//Prepara la notificacion
-				Notification notification = new Notification(R.drawable.ic_launcher, "Inicio cerca", System.currentTimeMillis());
-				notification.setLatestEventInfo(this, proximosInicios.get(indiceInicio).obtenerNombre(), "A las "+proximosInicios.get(indiceInicio).obtenerStringInicio(), 
-						PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
-				
-				mManager.notify(APP_ID_NOTIFICATION, notification);
+		Intent intentNot = new Intent(this, ActividadHorario.class);
+		
+	//Prepara la notificacion
+		Notification notification = new Notification(R.drawable.ic_launcher, "Inicio cerca", System.currentTimeMillis());
+		notification.setLatestEventInfo(this, proximosInicios.get(indiceInicio).obtenerNombre(), "A las "+proximosInicios.get(indiceInicio).obtenerStringInicio(), 
+				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
+		
+		mManager.notify(APP_ID_NOTIFICATION, notification);
+		
+		++indiceInicio;
+	 }
+
+private void NotificarFin() {
+	
+	//Esta será la actividad de verdad que llamara la aplicacion
+		Intent intentNot = new Intent(this, ActividadHorario.class);
+		
+	//Prepara la notificacion
+		Notification notification = new Notification(R.drawable.ic_launcher, "Fin pasado", System.currentTimeMillis());
+		notification.setLatestEventInfo(this, "Clase terminada", anterioresFinales.get(indiceFin).obtenerNombre(), 
+				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
+		
+		mManager.notify(APP_ID_NOTIFICATION, notification);
+		
+		++indiceFin;
 		
 	 }
+
 
 	  
 	  
