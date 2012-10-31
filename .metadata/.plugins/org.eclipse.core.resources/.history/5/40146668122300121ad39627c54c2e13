@@ -119,14 +119,6 @@ public class Modulo
 			{
 				return (Calendar) fin.clone();
 			}
-			
-			public String obtenerStringInicio() {
-				return  agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
-			}
-			
-			public String obtenerStringFin() {
-				return agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
-			}
 		//METODOS DE OBTENCION
 		
 		//METODOS DE SETEO DEL OBJETO(NO DB)
@@ -271,13 +263,5 @@ public class Modulo
 				}
 				return numero;
 			}
-
-
-
-
-
-
-
-			
 
 }
