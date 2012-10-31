@@ -199,7 +199,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
-	static public ArrayList<Modulo> obtenerLosModulosProximosInicio(Context context,Calendar ahora, int minutos) //TERMINAR
+	static public ArrayList<Modulo> obtenerLosModulosProximos(Context context,Calendar ahora, int minutos) //TERMINAR
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		Calendar despues = ((Calendar)ahora.clone());
@@ -212,89 +212,11 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		db.open();
 		if(despues.get(Calendar.DAY_OF_WEEK)== ahora.get(Calendar.DAY_OF_WEEK))
 		{
-			Cursor c = db.getModulosInicioEntreHORARIOS(ahora.get(Calendar.DAY_OF_WEEK)+"", stringAhora, stringDespues);
-			if (c.moveToFirst())
-			{
-				do {
-					String idmodulo = c.getString(0);
-					Modulo modulo = new Modulo(context,idmodulo);
-					modulos.add(modulo);
-				} while (c.moveToNext());
-			}
+			//Cursor c = db.
 		}	
 		else
 		{
-			Cursor c = db.getModulosInicioEntreHORARIOS(ahora.get(Calendar.DAY_OF_WEEK)+"", stringAhora, "23:59");
-			if (c.moveToFirst())
-			{
-				do {
-					String idmodulo = c.getString(0);
-					Modulo modulo = new Modulo(context,idmodulo);
-					modulos.add(modulo);
-				} while (c.moveToNext());
-			}
 			
-			c = db.getModulosInicioEntreHORARIOS(despues.get(Calendar.DAY_OF_WEEK)+"", "00:00", stringDespues);
-			if (c.moveToFirst())
-			{
-				do {
-					String idmodulo = c.getString(0);
-					Modulo modulo = new Modulo(context,idmodulo);
-					modulos.add(modulo);
-				} while (c.moveToNext());
-			}		
-					
-		}
-		db.close();
-		
-		return modulos;
-	}
-	
-	static public ArrayList<Modulo> obtenerLosModulosProximosFin(Context context,Calendar ahora, int minutos) //TERMINAR
-	{
-		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
-		Calendar despues = ((Calendar)ahora.clone());
-		despues.add(Calendar.MINUTE,minutos);
-		
-		String stringAhora = agregarCeros(2,ahora.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,ahora.get(Calendar.MINUTE));
-		String stringDespues = agregarCeros(2,despues.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,despues.get(Calendar.MINUTE));
-		
-		AdapterCursos db = new AdapterCursos(context);
-		db.open();
-		if(despues.get(Calendar.DAY_OF_WEEK)== ahora.get(Calendar.DAY_OF_WEEK))
-		{
-			Cursor c = db.getModulosFinEntreHORARIOS(ahora.get(Calendar.DAY_OF_WEEK)+"", stringAhora, stringDespues);
-			if (c.moveToFirst())
-			{
-				do {
-					String idmodulo = c.getString(0);
-					Modulo modulo = new Modulo(context,idmodulo);
-					modulos.add(modulo);
-				} while (c.moveToNext());
-			}
-		}	
-		else
-		{
-			Cursor c = db.getModulosFinEntreHORARIOS(ahora.get(Calendar.DAY_OF_WEEK)+"", stringAhora, "23:59");
-			if (c.moveToFirst())
-			{
-				do {
-					String idmodulo = c.getString(0);
-					Modulo modulo = new Modulo(context,idmodulo);
-					modulos.add(modulo);
-				} while (c.moveToNext());
-			}
-			
-			c = db.getModulosFinEntreHORARIOS(despues.get(Calendar.DAY_OF_WEEK)+"", "00:00", stringDespues);
-			if (c.moveToFirst())
-			{
-				do {
-					String idmodulo = c.getString(0);
-					Modulo modulo = new Modulo(context,idmodulo);
-					modulos.add(modulo);
-				} while (c.moveToNext());
-			}		
-					
 		}
 		db.close();
 		

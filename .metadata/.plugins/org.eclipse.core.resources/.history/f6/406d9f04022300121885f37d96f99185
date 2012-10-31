@@ -175,12 +175,12 @@ public class AdapterCursos {
     
     public Cursor getModulosInicioEntreHORARIOS(String diaDeLaSemana, String desde,String hasta)
     {
-    	return db.query(DATABASE_TABLE_HORARIOS, null,KEY_DDS+"="+diaDeLaSemana+" AND "+KEY_INICIO+">="+desde+" AND "+ KEY_INICIO+ "<="+hasta, null, null, null, KEY_INICIO);
+    	return db.query(DATABASE_TABLE_HORARIOS, null, selection, selectionArgs, groupBy, having, KEY_INICIO)
     }
     
     public Cursor getModulosFinEntreHORARIOS(String diaDeLaSemana, String desde,String hasta)
     {
-    	return db.query(DATABASE_TABLE_HORARIOS, null, KEY_DDS+"="+diaDeLaSemana+" AND "+KEY_FIN+">="+desde+" AND "+ KEY_FIN+ "<="+hasta, null, null, null, KEY_FIN);
+    	return db.query(DATABASE_TABLE_HORARIOS, null, selection, selectionArgs, groupBy, having, KEY_INICIO)
     }
     
     public Cursor getRecordHORARIOS(long rowId) throws SQLException 
