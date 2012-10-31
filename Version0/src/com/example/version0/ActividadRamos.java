@@ -27,7 +27,7 @@ public class ActividadRamos extends ListActivity {
 	 * de los adapter para las listas.
 	 * En este en particular configura todo para que el botón lleve la id del ramo!!!!!
 	 */
- 	public static String MENSAJE_EXTRA = "com.example.version0.MESSAGE";
+ 	//public static String MENSAJE_EXTRA = "com.example.version0.MESSAGE";
 
 	public class MiArrayAdapter extends ArrayAdapter<Curso> {
 

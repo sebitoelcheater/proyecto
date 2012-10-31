@@ -25,7 +25,7 @@ public class Modulo
 	{
 		this.id = id;
 		///POR DEFECTO EL MODULO SE CARGA DESDE LA DB
-		cargarModuloDesdeDB(context);  //ESTO IMPLICA QUE CADA MODULO HARÁ UNA QUERY...(EFICIENCIA?)
+		cargarModuloDesdeDB(context);  //ESTO IMPLICA QUE CADA MODULO HARï¿½ UNA QUERY...(EFICIENCIA?)
 								//ADEMAS NO OLVIDAR QUE TODO ESTO NECESITA UN CONTEXTO,
 		///POR DEFECTO EL MODULO SE CARGA DESDE LA DB
 	}
@@ -108,6 +108,39 @@ public class Modulo
 			public String obtenerDiaDeLaSemana()
 			{
 				return diaDeLaSemana;
+			}
+			
+			public String obtenerNombreDiaDeLaSemana()
+			{
+				if (diaDeLaSemana=="1"){
+					return "Lunes";
+				}
+				else if (diaDeLaSemana=="2"){
+					return "Martes";
+					
+				}
+				else if (diaDeLaSemana=="3"){
+					return "Miercoles";
+					
+				}
+				else if (diaDeLaSemana=="4"){
+					return "Jueves";
+				}
+				else if (diaDeLaSemana=="5"){
+					return "Viernes";
+					
+				}
+				else if (diaDeLaSemana=="6"){
+					return "Sabado";
+					
+				}
+				else if (diaDeLaSemana=="7"){
+					return "Domingo";
+					
+				}
+				else {
+					return "DIA "+diaDeLaSemana+" ";
+				}
 			}
 			
 			public Calendar obtenerInicio()

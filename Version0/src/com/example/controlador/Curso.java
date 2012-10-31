@@ -2,7 +2,6 @@ package com.example.controlador;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import com.example.data.*;
 
@@ -16,7 +15,7 @@ public class Curso
 	{
 		this.id = id;
 		///POR DEFECTO EL CURSO SE CARGA DESDE LA DB
-		cargarCursoDesdeDB(context);  //ESTO IMPLICA QUE CADA CURSO HARÁ UNA QUERY...(EFICIENCIA?)
+		cargarCursoDesdeDB(context);  //ESTO IMPLICA QUE CADA CURSO HARï¿½ UNA QUERY...(EFICIENCIA?)
 							//ADEMAS NO OLVIDAR QUE TODO ESTO NECESITA UN CONTEXTO,
 		
 		///POR DEFECTO EL CURSO SE CARGA DESDE LA DB

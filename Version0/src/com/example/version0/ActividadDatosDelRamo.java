@@ -1,32 +1,75 @@
 package com.example.version0;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.List;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
-import android.text.Editable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ListView;
 
-import com.example.controlador.*;
-import com.example.data.*;
+import com.example.controlador.Controlador;
+import com.example.controlador.Curso;
+import com.example.controlador.Modulo;
 
 
 
-public class ActividadDatosDelRamo extends Activity implements OnItemClickListener {
+public class ActividadDatosDelRamo extends ListActivity implements OnItemClickListener {
+	
+	public class MiModuloArrayAdapter extends ArrayAdapter<Modulo> {
+
+		  private List<Modulo> objects;
+		   
+		  public MiModuloArrayAdapter(Context context, int textViewResourceId, List<Modulo> listaModulos) {
+				super(context, textViewResourceId, listaModulos);
+				this.objects = listaModulos;
+			}
+		
+
+
+		  @Override
+		  public View getView(final int position, View convertView, ViewGroup parent) {
+			  	LayoutInflater inflater=getLayoutInflater();
+			  	//Recoje la view de la lista
+			  	View fila=inflater.inflate(R.layout.item_modulo, parent, false);
+			  	//Recoje textview donde va el nombre del ramo
+				TextView diaModulo=(TextView)fila.findViewById(R.id.diaModulo);
+				TextView horaInicio=(TextView)fila.findViewById(R.id.horaInicio);
+				TextView horaFin=(TextView)fila.findViewById(R.id.horaFin);
+				//Le pone el nombre al campo de texto del nombre del ramo
+				diaModulo.setText(objects.get(position).obtenerNombreDiaDeLaSemana());
+				horaInicio.setText(objects.get(position).obtenerStringInicio());
+				horaFin.setText(objects.get(position).obtenerStringFin());
+				
+				
+				Button boton_editar = (Button)fila.findViewById(R.id.botonEditarModulo);
+				boton_editar.setOnClickListener(new View.OnClickListener() {
+		             public void onClick(View v) {
+		                 // Perform action on click
+		             	Intent intent = new Intent(ActividadDatosDelRamo.this,ActividadDatosDelRamo.class);
+		             	//Envía la id del módulo
+		             	intent.putExtra("id", objects.get(position).obtenerId());
+		             	startActivity(intent);
+		             }
+		         });
+			  return fila;
+		  }
+		} 
+
 	
 	public Curso cursoAEditar;
-	Integer [] numeros = {1,2,3,4,5,6,7};
-	String [] modulos= {"Lunes 10:00-11:30","Miercoles 13:30-14:45","...Agregar"};
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +81,8 @@ public class ActividadDatosDelRamo extends Activity implements OnItemClickListen
         cursoAEditar = new Curso(this,idRamoAEditar);
        
         String nombreOriginal = cursoAEditar.obtenerNombre();
+        ArrayList<Modulo> array_modulos = Controlador.obtenerModulosPorIdCurso(this, idRamoAEditar);
+
         
         
         setContentView(R.layout.activity_actividad_datos_del_ramo);
@@ -52,6 +97,10 @@ public class ActividadDatosDelRamo extends Activity implements OnItemClickListen
         EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
 
         campoTextoNombre.setText(nombreOriginal);
+        
+        setListAdapter(new MiModuloArrayAdapter(this, R.layout.item_modulo, array_modulos));
+
+        
         
     }
 
