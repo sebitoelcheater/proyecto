@@ -35,7 +35,6 @@ public class ActividadDatosDelRamo extends Activity implements OnItemClickListen
         //Aquí recibe la id (como string) del ramo a editar
         String idRamoAEditar = intent.getStringExtra("id");
         
-        //Lo siguiente es muuuy poco eficiente. NECESARIO UN Controlador.obtenerCurso(id)
         cursoAEditar = new Curso(this,idRamoAEditar);
        
         String nombreOriginal = cursoAEditar.obtenerNombre();

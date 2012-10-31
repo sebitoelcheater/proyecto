@@ -177,6 +177,13 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
+	
+	static public ArrayList<Modulo> obtenerModulosSegunIdCurso(Context context, int idCurso)
+	{
+		
+		/*TODO*/
+		return null;
+	}
 	static public ArrayList<Modulo> obtenerLosSiguientesModulosDelDia(Context context, Calendar ahora, int largo)
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
