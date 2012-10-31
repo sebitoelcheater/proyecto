@@ -109,7 +109,7 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
-		Cursor c = db.getRecordPorCursoHORARIOS(idCurso);
+		Cursor c = db.getAllIdsHORARIOS();
 		
 		if (c.moveToFirst())
 		{

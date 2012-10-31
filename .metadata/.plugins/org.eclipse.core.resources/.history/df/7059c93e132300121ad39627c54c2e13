@@ -104,27 +104,6 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return modulos;
 	}
 	
-	static public ArrayList<Modulo> obtenerModulosPorIdCurso(Context context,String idCurso)
-	{
-		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
-		AdapterCursos db = new AdapterCursos(context);
-		db.open();
-		Cursor c = db.getRecordPorCursoHORARIOS(idCurso);
-		
-		if (c.moveToFirst())
-		{
-		     do {
-		         String idmodulo = c.getString(0);
-		         
-		         Modulo modulo = new Modulo(context,idmodulo);
-		         modulos.add(modulo);
-		       } while (c.moveToNext());
-		 }
-		 db.close();
-				
-		return modulos;
-	}
-	
 	static public ArrayList<Modulo> obtenerModulosSegunDia(Context context, int dia) //INEFICIENTE!!!!, el dia es de 1 a 7 siendo 1 el domingo
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();
