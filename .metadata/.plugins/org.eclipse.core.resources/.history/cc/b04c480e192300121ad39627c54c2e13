@@ -111,7 +111,7 @@ public class ActividadPrincipal extends Activity {
 		   calendar.add(Calendar.SECOND, 10);
 		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
 		   
-		   Log.e("LLEGUE",pendingIntent.toString());
+		   Log.e("LLEGUE",pendingIntent.toString(););
 		   
 		   
 		   

@@ -102,8 +102,7 @@ public class ActividadPrincipal extends Activity {
     	int comprobacionIntervaloSegundos = 30; //DEFAULT DE PRUEBAS DE INTERALO DE CONSULTA
 		   Intent myIntent = new Intent(ActividadPrincipal.this, alarmChecker.class);
 		   pendingIntent = PendingIntent.getService(ActividadPrincipal.this, 0, myIntent, 0);
-		   
-		   
+
 		   AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
 
 		   Calendar calendar = Calendar.getInstance();
@@ -111,7 +110,7 @@ public class ActividadPrincipal extends Activity {
 		   calendar.add(Calendar.SECOND, 10);
 		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
 		   
-		   Log.e("LLEGUE",pendingIntent.toString());
+		   System.out.println("Hola");
 		   
 		   
 		   

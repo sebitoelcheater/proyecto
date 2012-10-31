@@ -40,6 +40,7 @@ public void run() {
 	Calendar ahora = Calendar.getInstance();
 	proximosInicios = Controlador.obtenerLosModulosProximosInicio(this, ahora, MINUTOS); 
 	anterioresFinales = Controlador.obtenerLosModulosAnterioresFin(this,ahora , MINUTOS);
+	int i = 0;
 	for(Modulo m: proximosInicios)
 		handler.sendEmptyMessage(MSG_KEY_INICIO);
 	for(Modulo m: anterioresFinales)
