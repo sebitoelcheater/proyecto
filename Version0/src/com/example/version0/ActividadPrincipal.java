@@ -5,7 +5,10 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,7 +20,7 @@ import android.widget.Toast;
 
 import com.example.controlador.*;
 import com.example.data.*;
-import com.example.notificaciones.alarmChecker;
+
 public class ActividadPrincipal extends Activity {
 	public final static String MENSAJE_EXTRA = "com.example.version0.MESSAGE";
 	private PendingIntent pendingIntent;
@@ -26,14 +29,14 @@ public class ActividadPrincipal extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_principal);
         
-        /*
+       
         ArrayList<Curso> cursos = Controlador.obtenerCursos(this);
         for(Curso c: cursos)
         {
         	c.borrarCurso(this);
-        }*/
-        
-        activarNotificaciones();
+        }
+       
+		activarNotificaciones();
         
     }
 
@@ -101,7 +104,7 @@ public class ActividadPrincipal extends Activity {
     
     private void activarNotificaciones() {
 		// TODO Auto-generated method stub
-    	int comprobacionIntervaloSegundos = 10;
+    	int comprobacionIntervaloSegundos = 1;
     	
 		   Intent myIntent = new Intent(ActividadPrincipal.this, alarmChecker.class);
 		   pendingIntent = PendingIntent.getService(ActividadPrincipal.this, 0, myIntent, 0);
