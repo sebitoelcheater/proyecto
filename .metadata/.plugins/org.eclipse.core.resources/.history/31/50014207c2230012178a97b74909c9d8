@@ -92,8 +92,8 @@ private void Notificar() {
 		Notification notification = new Notification(R.drawable.ic_launcher, "Próxima Clase", System.currentTimeMillis());
 		notification.setLatestEventInfo(this, proximosInicios.get(0).obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
 				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
-		notification.flags |= Notification.FLAG_AUTO_CANCEL;
-		mManager.notify(Integer.parseInt(proximosInicios.get(0).obtenerId()), notification); ///PENSAR MEJOR ESTO Y ¿COMO HACER QUE NO APARESCA DOS VECES?
+		
+		mManager.notify(0, notification);
 	}
 	if(anterioresFinales.size() != 0)
 	{
@@ -103,8 +103,6 @@ private void Notificar() {
 		Notification notification = new Notification(R.drawable.ic_launcher, "Comenta!", System.currentTimeMillis());
 		notification.setLatestEventInfo(this, "Comentar "+anterioresFinales.get(0).obtenerNombre(), "Da tu feedback!", 
 				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
-		notification.flags |= Notification.FLAG_AUTO_CANCEL;
-		mManager.notify(Integer.parseInt(anterioresFinales.get(0).obtenerId())+1, notification); ///PENSAR MEJOR ESTO  Y ¿COMO HACER QUE NO APARESCA DOS VECES?
 	}	
 	 }
 

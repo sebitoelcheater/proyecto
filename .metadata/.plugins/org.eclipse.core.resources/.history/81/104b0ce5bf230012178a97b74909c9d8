@@ -29,12 +29,12 @@ public class ActividadPrincipal extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_principal);
         
-       /*
+       
         ArrayList<Curso> cursos = Controlador.obtenerCursos(this);
         for(Curso c: cursos)
         {
         	c.borrarCurso(this);
-        }*/
+        }
        
 		activarNotificaciones();
         
@@ -116,7 +116,7 @@ public class ActividadPrincipal extends Activity {
 		   calendar.add(Calendar.SECOND, 10);
 		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
  
-	
+		   Toast.makeText(ActividadPrincipal.this, "Alarma iniciada", Toast.LENGTH_LONG).show();
 		   
 		   
 		   
