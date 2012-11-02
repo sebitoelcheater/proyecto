@@ -3417,3 +3417,28 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY org.eclipse.ui 4 4 2012-10-31 21:31:42.899
 !MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+!SESSION 2012-11-02 18:12:55.256 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-11-02 18:13:03.541
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-02 18:13:07.846
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Copy of Version5
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-02 18:13:12.711
+!MESSAGE fileChanged: failed to find manifest package for project Copy of Version5
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-02 18:13:22.913
+!MESSAGE fileChanged: failed to find manifest package for project Copy of Version5
+
+!ENTRY org.eclipse.ui 4 4 2012-11-02 18:13:23.357
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-02 18:13:24.353
+!MESSAGE fileChanged: failed to find manifest package for project Copy of Version5

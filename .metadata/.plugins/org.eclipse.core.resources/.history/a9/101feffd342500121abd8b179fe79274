@@ -104,7 +104,7 @@ public class ActividadPrincipal extends Activity {
     
     private void activarNotificaciones() {
 		// TODO Auto-generated method stub
-    	int comprobacionIntervaloSegundos = 3600;//pensar esto mejor
+    	int comprobacionIntervaloSegundos = 3600;
     	
 		   Intent myIntent = new Intent(ActividadPrincipal.this, alarmChecker.class);
 		   pendingIntent = PendingIntent.getService(ActividadPrincipal.this, 0, myIntent, 0);
