@@ -21,16 +21,16 @@ import com.example.data.*;
 public class ActividadHorario extends Activity implements OnClickListener{
 	
 	
-	//String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
+	String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
     ArrayList<HashMap<String,String>> array_modulos = new ArrayList<HashMap<String,String>>();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario);
-        /*antigua funcionalidad
+        
     	Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
-       */
+       
         
         //Esto puede ser un actualizable
         /*ListView modulos = (ListView)findViewById(R.id.listView1);

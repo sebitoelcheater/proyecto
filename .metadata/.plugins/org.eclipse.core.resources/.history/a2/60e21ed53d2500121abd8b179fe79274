@@ -21,16 +21,16 @@ import com.example.data.*;
 public class ActividadHorario extends Activity implements OnClickListener{
 	
 	
-	//String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
+	String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};
     ArrayList<HashMap<String,String>> array_modulos = new ArrayList<HashMap<String,String>>();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario);
-        /*antigua funcionalidad
+        
     	Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
-       */
+       
         
         //Esto puede ser un actualizable
         /*ListView modulos = (ListView)findViewById(R.id.listView1);
@@ -50,9 +50,11 @@ public class ActividadHorario extends Activity implements OnClickListener{
 
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
 		//generaModulos(numeroDeNotas.getSelectedItemPosition());
-		generaModulos();
 		
+		ListView modulos = (ListView)findViewById(R.id.listView1);
+        modulos.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array_modulos));
 	}
 /*METODO ANTIGUO
 	private void generaModulos(int selectedItemPosition) {
@@ -69,7 +71,7 @@ public class ActividadHorario extends Activity implements OnClickListener{
 	private void generaModulos() {
 		// TODO Auto-generated method stub
 		ArrayList<Modulo> modulos = Controlador.obtenerLosSiguientesModulosDelDia(this, Calendar.getInstance(), 5);
-		this.array_modulos= new ArrayList<HashMap<String,String>>();
+		this.array_modulos= new ArrayList<HashMap<String,String>();
 		for(Modulo m : modulos)
 		{	
 			HashMap<String,String> mapa = new HashMap<String,String>();
