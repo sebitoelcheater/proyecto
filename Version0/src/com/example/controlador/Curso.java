@@ -90,7 +90,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), nuevoNombre, c.getString(2), c.getString(3)))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), nuevoNombre, c.getString(2), c.getString(3), Integer.parseInt(c.getString(4))))
 			{	
 				setNombre(nuevoNombre);
 				db.close();
@@ -105,7 +105,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), idMaster))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3), Integer.parseInt(c.getString(4))))
 			{	
 				setIdMaster(idMaster);
 				db.close();
@@ -124,7 +124,7 @@ public class Curso
 			if(comentable)
 				stringComentable = "0";
 			
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), stringComentable, c.getString(3)))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3),Integer.parseInt(stringComentable)))
 			{	
 				setComentable(comentable);
 				db.close();

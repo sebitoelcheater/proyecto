@@ -201,7 +201,7 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3),c.getString(4), idCurso) )
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
 				{	
 					setIdCurso(idCurso);
 					db.close();
@@ -217,7 +217,7 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2),c.getString(3), nuevoNombre, c.getString(5)) )
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2),c.getString(3), c.getString(4), c.getString(5),nuevoNombre) )
 				{	
 					setNombre(nuevoNombre);
 					db.close();
@@ -235,7 +235,7 @@ public class Modulo
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),stringInicio, c.getString(3), c.getString(4), c.getString(5)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), c.getString(3),stringInicio, c.getString(5), c.getString(6)))
 				{	
 					setInicio(inicio);
 					db.close();
@@ -252,7 +252,7 @@ public class Modulo
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), stringFin, c.getString(4), c.getString(5)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), c.getString(3), c.getString(4), stringFin, c.getString(6)))
 				{	
 					setFin(fin);
 					db.close();
@@ -268,7 +268,7 @@ public class Modulo
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),dia+"",c.getString(2), c.getString(3), c.getString(4), c.getString(5)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2),dia+"", c.getString(4), c.getString(5), c.getString(6)))
 				{	
 					setDiaDeLaSemana(dia+"");
 					db.close();
