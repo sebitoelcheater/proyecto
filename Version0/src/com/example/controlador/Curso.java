@@ -7,9 +7,10 @@ import com.example.data.*;
 
 public class Curso 
 {
-	private String id;
+	private String id; //iidC
 	private String nombre;
-	private String idMaster;
+	private String idMaster; //idC
+	private String idP; 
 	private boolean comentable;
 	public Curso(Context context ,String id)
 	{

@@ -16,7 +16,7 @@ public class ActividadConfiguracion extends ListActivity {
 
     public String DisplayRecord(Cursor c)
     {
-    	return c.getString(1);  
+    	return c.getString(2);  
     } 
     
     @Override

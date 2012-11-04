@@ -53,7 +53,7 @@ public class ActividadFeedback extends Activity {
     	comentario = (EditText) findViewById(R.id.editText1);
     	//Crear objeto de la clase post y posteriormente ejecutar método comentar
     	server objeto1 = new server();
-    	objeto1.comentar(view, ramo, comentario.getText().toString());
+    	objeto1.comentar(view, 1, comentario.getText().toString());
     	
     	//Gracias por el feedback
     	Toast toast = Toast.makeText(getApplicationContext(), "Gracias por tu feedback!", Toast.LENGTH_SHORT);
