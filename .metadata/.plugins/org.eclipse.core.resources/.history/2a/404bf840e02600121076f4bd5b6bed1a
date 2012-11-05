@@ -116,7 +116,7 @@ public class Modulo
 				return diaDeLaSemana;
 			}
 			
-			public String obtenerNombreDiaDeLaSemana() 
+			public String obtenerNombreDiaDeLaSemana() //ARREGLAR SEGUN EL CALENDAR -.-
 			{
 				if (diaDeLaSemana=="2"){
 					return "Lunes";

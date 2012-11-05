@@ -13,8 +13,11 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.app.PendingIntent"/>
 <fullyQualifiedTypeName name="android.app.AlarmManager"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="android.app.NotificationManager"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="com.example.notificaciones.alarmChecker"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.example.version0.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.SimpleAdapter"/>
 </qualifiedTypeNameHistroy>

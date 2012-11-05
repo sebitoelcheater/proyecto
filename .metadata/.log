@@ -3442,3 +3442,16 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2012-11-02 18:13:24.353
 !MESSAGE fileChanged: failed to find manifest package for project Copy of Version5
+!SESSION 2012-11-04 20:57:12.492 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-04 20:57:25.642
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Copy of Version5
+
+!ENTRY org.eclipse.ui 4 4 2012-11-04 20:57:26.837
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset

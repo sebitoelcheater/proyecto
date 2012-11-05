@@ -116,31 +116,31 @@ public class Modulo
 				return diaDeLaSemana;
 			}
 			
-			public String obtenerNombreDiaDeLaSemana() 
+			public String obtenerNombreDiaDeLaSemana() //ARREGLAR SEGUN EL CALENDAR -.-
 			{
-				if (diaDeLaSemana=="2"){
+				if (diaDeLaSemana=="1"){
 					return "Lunes";
 				}
-				else if (diaDeLaSemana=="3"){
+				else if (diaDeLaSemana=="2"){
 					return "Martes";
 					
 				}
-				else if (diaDeLaSemana=="4"){
+				else if (diaDeLaSemana=="3"){
 					return "Miercoles";
 					
 				}
-				else if (diaDeLaSemana=="5"){
+				else if (diaDeLaSemana=="4"){
 					return "Jueves";
 				}
-				else if (diaDeLaSemana=="6"){
+				else if (diaDeLaSemana=="5"){
 					return "Viernes";
 					
 				}
-				else if (diaDeLaSemana=="7"){
+				else if (diaDeLaSemana=="6"){
 					return "Sabado";
 					
 				}
-				else if (diaDeLaSemana=="1"){
+				else if (diaDeLaSemana=="7"){
 					return "Domingo";
 					
 				}
@@ -177,11 +177,6 @@ public class Modulo
 			public void setId(String id)
 			{
 				this.id = id;
-			}
-			
-			public void setIdMaster(String idMaster)
-			{
-				this.idMaster = idMaster;
 			}
 			
 			public void setIdCurso(String idCurso)
@@ -221,11 +216,6 @@ public class Modulo
 				db.close();
 				return false;
 				
-			}
-			
-			public boolean estableceIdMaster(Context context, String idMaster)
-			{
-				return true;
 			}
 			
 			public boolean establecerNombre(Context context,String nuevoNombre)//NOMBRE O UBICACION EN EL CASO DE LA DB
