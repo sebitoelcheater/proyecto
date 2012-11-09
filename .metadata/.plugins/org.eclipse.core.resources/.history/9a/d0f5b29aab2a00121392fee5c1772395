@@ -269,15 +269,5 @@ public class AdapterCursos {
         initialValues.put(KEY_APELLIDO, apellido);
         return db.insert(DATABASE_TABLE_HORARIOS, null, initialValues);
     }
-    
-    public long insertRecordCOMENTARIOS(int idCom,int iidH,String fecha,String comentario) 
-    {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_ROWIDCOM, idCom);
-        initialValues.put(KEY_ROWIIDH, iidH);
-        initialValues.put(KEY_FECHA, fecha);
-        initialValues.put(KEY_COMENTARIO, comentario);
-        return db.insert(DATABASE_TABLE_HORARIOS, null, initialValues);
-    }
 
 }

@@ -14,17 +14,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecordPROFESORES(Integer.parseInt(idP),usuario,contrasena,nombre,apellido)+"";    
+	    String id = db.insertRecordPROFESORES(idP,usuario,contrasena,nombre,apellido)+"";    
 	    db.close();
-		return id;
-	}
-	static public String insertarComentario(Context context,String idCom, String iidH, String fecha,String comentario)//CUANDO MANEJE ESTO COMO OBJETO PUEDO INTERPRETAR EL fecha COMO UN CALENDAR :)
-	{
-		AdapterCursos db = new AdapterCursos(context);
-		db.open();        
-		String id = db.insertRecordCOMENTARIOS(Integer.parseInt(idCom), Integer.parseInt(iidH), fecha, comentario)+"";
-	    db.close();
-		return id;
+		return ""+id;
 	}
 	static public Curso crearNuevoCurso(Context context,int idC, int iidP, String nombre,boolean comentable) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
 	{
