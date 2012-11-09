@@ -50,7 +50,7 @@ public class AdapterCursos {
     private static final String DATABASE_TABLE_HORARIOS = "Horarios";
     private static final String DATABASE_TABLE_COMENTARIOS = "Comentarios";
     private static final String DATABASE_TABLE_PROFESORES = "Profesores";
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 7;
 
     private static final String TABLE_CREATE_CURSOS =
         "create table if not exists Cursos (iidC integer primary key autoincrement, idC integer, iidP integer, title VARCHAR not null, comentable integer);";
