@@ -4163,3 +4163,28 @@ org.eclipse.core.internal.resources.ResourceException: Resource is out of sync w
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
 !SUBENTRY 1 org.eclipse.core.resources 4 274 2012-11-09 11:05:48.566
 !MESSAGE Resource is out of sync with the file system: '/Version0/src/com/example/controlador/Controlador.java'.
+!SESSION 2012-11-09 12:00:27.514 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-11-09 12:00:35.612
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-09 12:00:39.668
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Copy of Version5
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-09 12:00:54.145
+!MESSAGE fileChanged: failed to find manifest package for project Copy of Version5
+
+!ENTRY org.eclipse.ui 4 4 2012-11-09 12:00:56.079
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-09 12:00:56.282
+!MESSAGE fileChanged: failed to find manifest package for project Copy of Version5
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-09 12:00:57.904
+!MESSAGE fileChanged: failed to find manifest package for project Copy of Version5

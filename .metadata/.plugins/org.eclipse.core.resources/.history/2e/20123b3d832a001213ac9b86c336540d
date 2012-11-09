@@ -12,12 +12,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 {
 	static public Curso crearNuevoCurso(Context context,int idC, int iidP, String nombre,boolean comentable) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
 	{
-		int c = 0;
-		if(!comentable)
-			c = 1;
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c)+"";    
+	    String id = db.insertRecordCURSOS(0,0,nombre,1)+"";   //por defecto los cursos creados no son comentables, no tienen un idMaster ni un profesor asociado 
 	    db.close();
 	    
 	   return new Curso(context, id);
