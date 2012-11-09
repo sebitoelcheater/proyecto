@@ -5,7 +5,10 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -13,9 +16,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.example.controlador.*;
 import com.example.data.*;
-import com.example.notificaciones.alarmChecker;
+
 public class ActividadPrincipal extends Activity {
 	public final static String MENSAJE_EXTRA = "com.example.version0.MESSAGE";
 	private PendingIntent pendingIntent;
@@ -24,14 +29,13 @@ public class ActividadPrincipal extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_principal);
         
-        /*
-        ArrayList<Curso> cursos = Controlador.obtenerCursos(this);
+     /* ArrayList<Curso> cursos = Controlador.obtenerCursos(this);
         for(Curso c: cursos)
         {
         	c.borrarCurso(this);
         }*/
-        
-        activarNotificaciones();
+       
+		activarNotificaciones();
         
     }
 
@@ -99,7 +103,8 @@ public class ActividadPrincipal extends Activity {
     
     private void activarNotificaciones() {
 		// TODO Auto-generated method stub
-    	int comprobacionIntervaloSegundos = 30; //DEFAULT DE PRUEBAS DE INTERALO DE CONSULTA
+    	int comprobacionIntervaloSegundos = 3600;//pensar esto mejor
+    	
 		   Intent myIntent = new Intent(ActividadPrincipal.this, alarmChecker.class);
 		   pendingIntent = PendingIntent.getService(ActividadPrincipal.this, 0, myIntent, 0);
 
@@ -109,7 +114,8 @@ public class ActividadPrincipal extends Activity {
 		   calendar.setTimeInMillis(System.currentTimeMillis());
 		   calendar.add(Calendar.SECOND, 10);
 		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
-		   
+ 
+	
 		   
 		   
 		   

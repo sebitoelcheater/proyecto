@@ -40,8 +40,12 @@ public class nuevoRamo extends Activity {
 		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
 		Curso c = Controlador.crearNuevoCurso(this, nameTxt.getText().toString());
-		//Crea un horario del curso por defecto
-		Controlador.crearNuevoModulo(this,Calendar.getInstance().get(Calendar.DAY_OF_WEEK), Calendar.getInstance(), Calendar.getInstance(), c.obtenerNombre(), c.obtenerId());
+		Calendar ahora = Calendar.getInstance();
+		ahora.add(Calendar.MINUTE, 6);
+		Calendar despues = (Calendar)ahora.clone();
+		despues.add(Calendar.HOUR,1);
+		//Crea un horario del curso por defecto 1 hora despues de empezar... esto lo tendremos que cambiar dps cuando configuremos los horarios
+		Controlador.crearNuevoModulo(this,0,Integer.parseInt(c.obtenerId()),Calendar.getInstance().get(Calendar.DAY_OF_WEEK), ahora, despues, c.obtenerNombre());
 		  finish();
 	}
 	

@@ -7,9 +7,10 @@ import com.example.data.*;
 
 public class Curso 
 {
-	private String id;
+	private String id; //iidC
 	private String nombre;
-	private String idMaster;
+	private String idMaster; //idC
+	private String idP; 
 	private boolean comentable;
 	public Curso(Context context ,String id)
 	{
@@ -32,9 +33,10 @@ public class Curso
 		db.open();
 		Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 		
-		setNombre(c.getString(1));
-		setComentable("0".equals(c.getString(2)));
-		setIdMaster(c.getString(3));
+		setNombre(c.getString(3));
+		setComentable("0".equals(c.getString(4)));
+		setIdMaster(c.getString(1));
+		setIdP(c.getString(2));
         db.close();
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 	}
@@ -53,6 +55,11 @@ public class Curso
 		public String obtenerIdMaster()
 		{
 			return idMaster;
+		}
+		
+		public String obtenerIdP()
+		{
+			return idP;
 		}
 		
 		public boolean obtenerComentable()
@@ -81,6 +88,11 @@ public class Curso
 		{
 			this.comentable = comentable;
 		}
+		
+		public void setIdP(String idP)
+		{
+			this.idP = idP;
+		}
 	//METODOS DE SETEO DEL OBJETO(NO DB)
 		
 	// METODOS DE SETEO DE LA BASE DE DATOS Y OBJETO (NO OLVIDAR EL CONTEXTO)
@@ -90,7 +102,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), nuevoNombre, c.getString(2), c.getString(3)))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), nuevoNombre, Integer.parseInt(c.getString(4))))
 			{	
 				setNombre(nuevoNombre);
 				db.close();
@@ -105,7 +117,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), idMaster))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), idMaster, c.getString(2), c.getString(3), Integer.parseInt(c.getString(4))))
 			{	
 				setIdMaster(idMaster);
 				db.close();
@@ -124,7 +136,7 @@ public class Curso
 			if(comentable)
 				stringComentable = "0";
 			
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), stringComentable, c.getString(3)))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3),Integer.parseInt(stringComentable)))
 			{	
 				setComentable(comentable);
 				db.close();
@@ -133,6 +145,21 @@ public class Curso
 			db.close();
 			return false;
 
+		}
+		
+		public boolean establecerIdP(Context context, String idP)
+		{
+			AdapterCursos db = new AdapterCursos(context);
+			db.open();
+			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), idP, c.getString(3), Integer.parseInt(c.getString(4))))
+			{	
+				setIdP(idP);
+				db.close();
+				return true;
+			}
+			db.close();
+			return false;
 		}
 		
 		public boolean borrarCurso(Context context) //DEPRECATED ???(DEBERIA IR EN EL CONTROLADOR?)

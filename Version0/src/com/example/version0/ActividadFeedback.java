@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.controlador.*;
 import com.example.data.*;
-import com.example.server.post;
+import com.example.server.server;
 public class ActividadFeedback extends Activity {
 	 private ArrayList<String> cursos;
 	 @Override
@@ -52,8 +52,8 @@ public class ActividadFeedback extends Activity {
     	//Capturar comentario
     	comentario = (EditText) findViewById(R.id.editText1);
     	//Crear objeto de la clase post y posteriormente ejecutar método comentar
-    	post objeto1 = new post();
-    	objeto1.comentar(view, ramo, comentario.getText().toString());
+    	server objeto1 = new server();
+    	objeto1.comentar(view, 1, comentario.getText().toString());
     	
     	//Gracias por el feedback
     	Toast toast = Toast.makeText(getApplicationContext(), "Gracias por tu feedback!", Toast.LENGTH_SHORT);

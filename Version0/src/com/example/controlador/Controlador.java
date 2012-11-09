@@ -8,13 +8,13 @@ import android.database.Cursor;
 
 import com.example.data.*;
 
-public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTROLADOR(NO OLVIDAR QUE EL CONTROLADOR ES COMO UNA CLASE BIBLIOTECA NADA MAS)
+public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PENSAR BIEN EN SU VERDADERA FUNCIONALIDAD!
 {
 	static public Curso crearNuevoCurso(Context context, String nombre) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecordCURSOS(nombre,"0","none")+"";   //por defecto los cursos creados son comentables, pero no tienen un idMaster  
+	    String id = db.insertRecordCURSOS(0,0,nombre,1)+"";   //por defecto los cursos creados no son comentables, no tienen un idMaster ni un profesor asociado 
 	    db.close();
 	    
 	   return new Curso(context, id);
@@ -26,13 +26,13 @@ public class Controlador  //NOTA: ESCRIBIR LOS METODOS NECESARIOS PARA EL CONTRO
 		return new Curso(context,id);
 	}
 	
-	static public Modulo crearNuevoModulo(Context context,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre, String idCurso)
+	static public Modulo crearNuevoModulo(Context context,int idH,int idC,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre)
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
 		String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 		db.open();        
-	    String id = db.insertRecordHORARIOS(diaDeLaSemana+"",stringInicio, stringFin, nombre, idCurso) +"";        
+	    String id = db.insertRecordHORARIOS(idH,idC,diaDeLaSemana+"",stringInicio, stringFin, nombre) +"";        
 	    db.close();
 		return new Modulo(context, id);
 	} 

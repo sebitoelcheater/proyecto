@@ -14,6 +14,7 @@ public class Modulo
 
 {
 	private String id;
+	private String idMaster;
 	private String idCurso;
 	private String nombre;
 	private String diaDeLaSemana;
@@ -53,15 +54,15 @@ public class Modulo
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
 		Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-		
+		this.idMaster = c.getString(1);
 		SimpleDateFormat formato = new SimpleDateFormat("HH:mm");
 		Date a = new Date();
 		inicio = new GregorianCalendar();
-		setNombre(c.getString(4));
-        setDiaDeLaSemana(c.getString(1));
+		setNombre(c.getString(6));
+        setDiaDeLaSemana(c.getString(3));
 		try
 		{
-			a = formato.parse(c.getString(2));
+			a = formato.parse(c.getString(4));
 			inicio.setTime(a);
 		}catch(ParseException e){}
 		
@@ -71,11 +72,11 @@ public class Modulo
 		
 		try
 		{
-			a = formato.parse(c.getString(3));
+			a = formato.parse(c.getString(5));
 			fin.setTime(a);
 		}catch(ParseException e){}
 		
-		idCurso = c.getString(5);	
+		idCurso = c.getString(2);	
 		db.close();	
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 		
@@ -95,6 +96,11 @@ public class Modulo
 				return id;
 			}
 			
+			public String obtenerIdMaster()
+			{
+				return idMaster;
+			}
+			
 			public String obtenerIdCurso()
 			{
 				return idCurso;
@@ -110,31 +116,31 @@ public class Modulo
 				return diaDeLaSemana;
 			}
 			
-			public String obtenerNombreDiaDeLaSemana()
+			public String obtenerNombreDiaDeLaSemana() 
 			{
-				if (diaDeLaSemana=="1"){
+				if (diaDeLaSemana=="2"){
 					return "Lunes";
 				}
-				else if (diaDeLaSemana=="2"){
+				else if (diaDeLaSemana=="3"){
 					return "Martes";
 					
 				}
-				else if (diaDeLaSemana=="3"){
+				else if (diaDeLaSemana=="4"){
 					return "Miercoles";
 					
 				}
-				else if (diaDeLaSemana=="4"){
+				else if (diaDeLaSemana=="5"){
 					return "Jueves";
 				}
-				else if (diaDeLaSemana=="5"){
+				else if (diaDeLaSemana=="6"){
 					return "Viernes";
 					
 				}
-				else if (diaDeLaSemana=="6"){
+				else if (diaDeLaSemana=="7"){
 					return "Sabado";
 					
 				}
-				else if (diaDeLaSemana=="7"){
+				else if (diaDeLaSemana=="1"){
 					return "Domingo";
 					
 				}
@@ -173,6 +179,11 @@ public class Modulo
 				this.id = id;
 			}
 			
+			public void setIdMaster(String idMaster)
+			{
+				this.idMaster = idMaster;
+			}
+			
 			public void setIdCurso(String idCurso)
 			{
 				this.idCurso = idCurso;
@@ -201,7 +212,7 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3),c.getString(4), idCurso) )
+				if(db.updateRecordHORARIOS(Long.parseLong(idCurso),c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
 				{	
 					setIdCurso(idCurso);
 					db.close();
@@ -212,12 +223,27 @@ public class Modulo
 				
 			}
 			
+			public boolean estableceIdMaster(Context context, String idMaster)
+			{
+				AdapterCursos db = new AdapterCursos(context);
+				db.open();
+				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),idMaster, c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
+				{	
+					setIdMaster(idCurso);
+					db.close();
+					return true;
+				}
+				db.close();
+				return false;
+			}
+			
 			public boolean establecerNombre(Context context,String nuevoNombre)//NOMBRE O UBICACION EN EL CASO DE LA DB
 			{
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2),c.getString(3), nuevoNombre, c.getString(5)) )
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2),c.getString(3), c.getString(4), c.getString(5),nuevoNombre) )
 				{	
 					setNombre(nuevoNombre);
 					db.close();
@@ -235,7 +261,7 @@ public class Modulo
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),stringInicio, c.getString(3), c.getString(4), c.getString(5)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), c.getString(3),stringInicio, c.getString(5), c.getString(6)))
 				{	
 					setInicio(inicio);
 					db.close();
@@ -252,7 +278,7 @@ public class Modulo
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), stringFin, c.getString(4), c.getString(5)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2), c.getString(3), c.getString(4), stringFin, c.getString(6)))
 				{	
 					setFin(fin);
 					db.close();
@@ -268,7 +294,7 @@ public class Modulo
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),dia+"",c.getString(2), c.getString(3), c.getString(4), c.getString(5)))
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1),c.getString(2),dia+"", c.getString(4), c.getString(5), c.getString(6)))
 				{	
 					setDiaDeLaSemana(dia+"");
 					db.close();
