@@ -10,32 +10,29 @@ import com.example.data.*;
 
 public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PENSAR BIEN EN SU VERDADERA FUNCIONALIDAD!
 {
-	static public Curso crearNuevoCurso(Context context,int idC, int iidP, String nombre,boolean comentable) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
+	static public Curso crearNuevoCurso(Context context, String nombre) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
 	{
-		int c = 0;
-		if(!comentable)
-			c = 1;
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c)+"";    
+	    String id = db.insertRecordCURSOS(0,0,nombre,1)+"";   //por defecto los cursos creados no son comentables, no tienen un idMaster ni un profesor asociado 
 	    db.close();
 	    
 	   return new Curso(context, id);
 	}
 	
 	/* HACER ESTO*/
-	static public Curso obtenerCurso(Context context, String id) //DEPRECATED???
+	static public Curso obtenerCurso(Context context, String id)
 	{
 		return new Curso(context,id);
 	}
 	
-	static public Modulo crearNuevoModulo(Context context,int idH,int iidC,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre)
+	static public Modulo crearNuevoModulo(Context context,int idH,int idC,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre)
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
 		String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 		db.open();        
-	    String id = db.insertRecordHORARIOS(idH,iidC,diaDeLaSemana+"",stringInicio, stringFin, nombre) +"";        
+	    String id = db.insertRecordHORARIOS(idH,idC,diaDeLaSemana+"",stringInicio, stringFin, nombre) +"";        
 	    db.close();
 		return new Modulo(context, id);
 	} 
@@ -206,7 +203,12 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	}
 	
 	
-
+	static public ArrayList<Modulo> obtenerModulosSegunIdCurso(Context context, int idCurso)
+	{
+		
+		/*TODO*/
+		return null;
+	}
 	static public ArrayList<Modulo> obtenerLosSiguientesModulosDelDia(Context context, Calendar ahora, int largo)
 	{
 		ArrayList<Modulo> modulos = new ArrayList<Modulo>();

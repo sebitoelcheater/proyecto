@@ -17,7 +17,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 			c = 1;
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c)+"";    
+	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c)+"";   //por defecto los cursos creados no son comentables, no tienen un idMaster ni un profesor asociado 
 	    db.close();
 	    
 	   return new Curso(context, id);
