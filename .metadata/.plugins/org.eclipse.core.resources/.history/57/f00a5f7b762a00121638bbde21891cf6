@@ -152,7 +152,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), idP, c.getString(3), Integer.parseInt(c.getString(4))))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3), Integer.parseInt(c.getString(4))))
 			{	
 				setIdP(idP);
 				db.close();

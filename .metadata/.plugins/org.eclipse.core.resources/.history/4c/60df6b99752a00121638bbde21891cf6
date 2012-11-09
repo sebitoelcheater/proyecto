@@ -230,7 +230,7 @@ public class Modulo
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
 				if(db.updateRecordHORARIOS(Long.parseLong(this.id),idMaster, c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
 				{	
-					setIdMaster(idCurso);
+					setIdCurso(idCurso);
 					db.close();
 					return true;
 				}

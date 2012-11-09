@@ -212,7 +212,7 @@ public class Modulo
 				AdapterCursos db = new AdapterCursos(context);
 				db.open();
 				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(idCurso),c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
+				if(db.updateRecordHORARIOS(Long.parseLong(this.id),c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
 				{	
 					setIdCurso(idCurso);
 					db.close();
@@ -225,17 +225,7 @@ public class Modulo
 			
 			public boolean estableceIdMaster(Context context, String idMaster)
 			{
-				AdapterCursos db = new AdapterCursos(context);
-				db.open();
-				Cursor c = db.getRecordHORARIOS(Long.parseLong(this.id));
-				if(db.updateRecordHORARIOS(Long.parseLong(this.id),idMaster, c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6)) )
-				{	
-					setIdMaster(idCurso);
-					db.close();
-					return true;
-				}
-				db.close();
-				return false;
+				return true;
 			}
 			
 			public boolean establecerNombre(Context context,String nuevoNombre)//NOMBRE O UBICACION EN EL CASO DE LA DB
