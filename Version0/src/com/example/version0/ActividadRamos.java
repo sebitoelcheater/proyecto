@@ -2,6 +2,7 @@ package com.example.version0;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -19,9 +20,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ciarang.tallyphant.DB;
 import com.example.controlador.*;
 import com.example.data.*;
 public class ActividadRamos extends ListActivity {
+	private ArrayList<Curso> array_ramos;
 	
 	/*Esta clase es muy necesaria para hacer una "personalización"
 	 * de los adapter para las listas.
@@ -89,9 +92,10 @@ public class ActividadRamos extends ListActivity {
         
         
         this.setListAdapter(adapter);*/
+        MiArrayAdapter<Curso> adaptadorCursos = new MiArrayAdapter(this, R.layout.lista_ramos, array_cursos);
         
-        setListAdapter(new MiArrayAdapter(this, R.layout.lista_ramos, array_cursos));
         
+        setListAdapter(   
     }
     
     
@@ -109,7 +113,11 @@ public class ActividadRamos extends ListActivity {
     	startActivity(i);
     }
     
-    
+    private void actualizarLista() {
+        array_ramos = Controlador.obtenerCursos(this);
+
+        mItemList.notifyDataSetChanged();
+    }
    
 }
 

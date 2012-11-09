@@ -50,9 +50,15 @@
 				android:text="YY:YY"/>
 		</LinearLayout>
 	</LinearLayout>
+	
 	<Button
 	            android:id="@+id/botonEditarModulo"	            
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Editar Modulo"/>
+	            android:text="Editar"/>
+	<Button
+	            android:id="@+id/botonEliminarModulo"	            
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Eliminar"/>
 </LinearLayout>
