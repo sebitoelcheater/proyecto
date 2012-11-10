@@ -113,6 +113,11 @@ public class ActividadRamos extends ListActivity {
     	startActivity(i);
     }
     
+    public void descargarramo(View view)
+    {
+        
+    }
+    
   /*  private void actualizarLista() {
         array_ramos = Controlador.obtenerCursos(this);
 

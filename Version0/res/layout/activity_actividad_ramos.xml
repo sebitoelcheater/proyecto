@@ -29,10 +29,24 @@
 	    
 	  </LinearLayout>
     
-     <Button
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:onClick="configurarnuevoramo"
-         android:text="Configurar Nuevo Ramo" />
+     
+     <LinearLayout
+        android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+        android:orientation="horizontal" >
+	     <Button
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_weight="1"
+	         android:onClick="configurarnuevoramo"
+	         android:text="Configurar Nuevo Ramo" />
+	     <Button
+	         android:layout_width="wrap_content"
+	         android:layout_weight="1"
+	         android:layout_height="wrap_content"
+	         android:onClick="descargarramo"	         
+	         android:text="Descargar Ramo" />
 
+     </LinearLayout>
 </LinearLayout>
