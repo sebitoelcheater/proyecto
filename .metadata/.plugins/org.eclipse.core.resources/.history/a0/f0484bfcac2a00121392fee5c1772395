@@ -18,7 +18,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	    db.close();
 		return id;
 	}
-	static public String insertarComentario(Context context,String idCom, String iidH, String fecha,String comentario)//CUANDO MANEJE ESTO COMO OBJETO PUEDO INTERPRETAR EL fecha COMO UN CALENDAR :)
+	static public String insertarComentario(Context context,String idCom, String iidH, String fecha,String comentario)
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        

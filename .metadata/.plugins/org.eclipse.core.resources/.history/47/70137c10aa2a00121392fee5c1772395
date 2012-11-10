@@ -258,26 +258,7 @@ public class AdapterCursos {
         args.put(KEY_UBICACION, ubicacion);
         return db.update(DATABASE_TABLE_HORARIOS, args, KEY_ROWIIDH + "=" + rowId, null) > 0;
     }
-    //AGREGAR METODOS DE LAS NUEVAS TABLAS
-    public long insertRecordPROFESORES(int idP,String usuario,String contrasena,String nombre, String apellido) 
-    {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_ROWIDP, idP);
-        initialValues.put(KEY_USUARIO, usuario);
-        initialValues.put(KEY_CONTRASENA, contrasena);
-        initialValues.put(KEY_NOMBRE, nombre);
-        initialValues.put(KEY_APELLIDO, apellido);
-        return db.insert(DATABASE_TABLE_HORARIOS, null, initialValues);
-    }
-    
-    public long insertRecordCOMENTARIOS(int idCom,int iidH,String fecha,String comentario) 
-    {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_ROWIDCOM, idCom);
-        initialValues.put(KEY_ROWIIDH, iidH);
-        initialValues.put(KEY_FECHA, fecha);
-        initialValues.put(KEY_COMENTARIO, comentario);
-        return db.insert(DATABASE_TABLE_HORARIOS, null, initialValues);
-    }
+
+	
 
 }

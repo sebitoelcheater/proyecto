@@ -150,7 +150,7 @@ public class server extends Activity {
 			String idH = Comentarios.get(i).getString("idH");
 			String fecha = Comentarios.get(i).getString("fecha");
 			String comentario = Comentarios.get(i).getString("comentario");
-			iidCom = Controlador.insertarComentario(this,idCom, iidH==null?"0":iidH,fecha,comentario);
+			iidCom = Controlador.insertarComentario();
         	// introducir nuevo comentarios 
         }
 		
