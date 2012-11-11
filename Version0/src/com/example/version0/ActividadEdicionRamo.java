@@ -26,13 +26,13 @@ import com.example.controlador.Modulo;
 
 
 
-public class ActividadDatosDelRamo extends ListActivity implements OnItemClickListener {
+public class ActividadEdicionRamo extends ListActivity implements OnItemClickListener {
 	
-	public class MiModuloArrayAdapter extends ArrayAdapter<Modulo> {
+	public class MiModuloEditandoArrayAdapter extends ArrayAdapter<Modulo> {
 
 		  private List<Modulo> objects;
 		   
-		  public MiModuloArrayAdapter(Context context, int textViewResourceId, List<Modulo> listaModulos) {
+		  public MiModuloEditandoArrayAdapter(Context context, int textViewResourceId, List<Modulo> listaModulos) {
 				super(context, textViewResourceId, listaModulos);
 				this.objects = listaModulos;
 			}
@@ -52,12 +52,24 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
 				diaModulo.setText(objects.get(position).obtenerNombreDiaDeLaSemana());
 				horaInicio.setText(objects.get(position).obtenerStringInicio());
 				horaFin.setText(objects.get(position).obtenerStringFin());
+				
+				
+				Button boton_editar = (Button)fila.findViewById(R.id.botonEditarModulo);
+				boton_editar.setOnClickListener(new View.OnClickListener() {
+		             public void onClick(View v) {
+		                 // Perform action on click
+		             	Intent intent = new Intent(ActividadEdicionRamo.this,ActividadEdicionRamo.class);
+		             	//Envía la id del módulo
+		             	intent.putExtra("id", objects.get(position).obtenerId());
+		             	startActivity(intent);
+		             }
+		         });
 			  return fila;
 		  }
 		} 
 
 	
-	public Curso cursoAVer;
+	public Curso cursoAEditar;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,14 +78,14 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         //Aquí recibe la id (como string) del ramo a editar
         String idRamoAEditar = intent.getStringExtra("id");
         
-        cursoAVer = new Curso(this,idRamoAEditar);
+        cursoAEditar = new Curso(this,idRamoAEditar);
        
-        String nombreOriginal = cursoAVer.obtenerNombre();
+        String nombreOriginal = cursoAEditar.obtenerNombre();
         ArrayList<Modulo> array_modulos = Controlador.obtenerModulosPorIdCurso(this, idRamoAEditar);
 
         
         
-        setContentView(R.layout.activity_actividad_datos_del_ramo);
+        setContentView(R.layout.activity_actividad_edicion_ramo);
         /*Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         //numeroDeNotas.setAdapter(new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item,numeros));
         //ListView listaDeModulos = (ListView) findViewById(R.id.listView1);
@@ -82,11 +94,11 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         //TextView textNombreRamo = (TextView) findViewById(R.id.textNombreRamo);
         textNombreRamo.setText(idRamoAEditar);*/
         
-        TextView campoTextoNombre = (TextView) findViewById(R.id.nombreRamoAVer);
+        EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
 
         campoTextoNombre.setText(nombreOriginal);
         
-        setListAdapter(new MiModuloArrayAdapter(this, R.layout.item_modulo, array_modulos));
+        setListAdapter(new MiModuloEditandoArrayAdapter(this, R.layout.item_modulo_editando, array_modulos));
 
         
         
@@ -98,18 +110,25 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         return true;
     }
 
-   
+    public void guardarCambios(View view)
+	{
+        EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
+        String nuevoNombre = campoTextoNombre.getText().toString();
+    	String nombreOriginal = cursoAEditar.obtenerNombre();
+
+        
+		if (nuevoNombre != nombreOriginal){
+			cursoAEditar.establecerNombre(this, nuevoNombre);
+			
+		}
+		setResult(RESULT_OK);
+		  finish();
+		  /*
+		   * TODO: Hacer que refresque la activity anterior*/
+	}
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public void editarRamo(View view)
-    {
-		Intent intent = new Intent(this,ActividadEdicionRamo.class);
-	 	intent.putExtra("id", cursoAVer.obtenerId());
-	 	startActivity(intent);
-    }
-	
 }

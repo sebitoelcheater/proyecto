@@ -12,6 +12,7 @@
 	            android:id="@+id/textoNombreRamo"
 	            android:layout_width="0dp"
 	            android:layout_height="wrap_content"
+	            android:clickable="true"
 	            android:layout_weight="1"/>
 
 	        <!-- Boton para Editar el Ramo -->
