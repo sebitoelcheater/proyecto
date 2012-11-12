@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Nombre Del Curso"
+        android:text="Configurando Módulo"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

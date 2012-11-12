@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,6 +13,8 @@ import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -20,12 +24,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
+
+import android.support.v4.app.FragmentActivity;
+//import android.app.Fragment;
+
 
 
 //import com.ciarang.tallyphant.DB;
 //import com.ciarang.tallyphant.DB;
 import com.example.controlador.*;
 import com.example.data.*;
+
+
 public class ActividadRamos extends ListActivity {
     private static final int REQUEST_EDITAR_O_AGREGAR = 0;
 
@@ -92,6 +103,31 @@ public class ActividadRamos extends ListActivity {
 		  }
 		} 
 
+	
+	/*public class DialogoSuscribirCurso extends DialogFragment{
+	    @Override
+	    public Dialog onCreateDialog(Bundle savedInstanceState) {
+	        // Use the Builder class for convenient dialog construction
+	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+	     // Get the layout inflater
+	        LayoutInflater inflater = getActivity().getLayoutInflater();
+	     // Inflate and set the layout for the dialog
+	        // Pass null as the parent view because its going in the dialog layout
+	        builder.setView(inflater.inflate(R.layout.alerta_suscribir_curso, null))	
+	               .setPositiveButton("Suscribir", new DialogInterface.OnClickListener() {
+	                   public void onClick(DialogInterface dialog, int id) {
+	                       // FIRE ZE MISSILES!
+	                   }
+	               })
+	               .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+	                   public void onClick(DialogInterface dialog, int id) {
+	                       // User cancelled the dialog
+	                   }
+	               });
+	        // Create the AlertDialog object and return it
+	        return builder.create();
+	    }
+	}*/
 	
 	private MiArrayAdapter adaptador;
 	 @Override
@@ -171,10 +207,19 @@ public class ActividadRamos extends ListActivity {
     	startActivityForResult(i, REQUEST_EDITAR_O_AGREGAR);
     }
     
-    public void descargarRamo(View view)
+    public void suscribirCurso(View view)
     {
-        
+    	/*FragmentManager fm = getFragmentManager();
+    	FragmentManager fragmentManager = getSupportFragmentManager();
+    	DialogFragment dialogo = new DialogoSuscribirCurso();
+    	dialogo.show(getActivity().getSupportFragmentManager(),"hola");*/
+    	
+    	Intent i = new Intent(this, ActividadSuscribirCursoActivity.class );
+    	
+    	startActivityForResult(i, REQUEST_EDITAR_O_AGREGAR);
+    	
     }
+   
     
     
         

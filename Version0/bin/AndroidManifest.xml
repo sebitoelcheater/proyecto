@@ -80,6 +80,15 @@
             android:name=".ActividadEdicionRamo"
             android:label="@string/title_activity_actividad_edicion_ramo" >
         </activity>
+        <activity
+            android:name=".ActividadSuscribirCursoActivity"
+            android:label="@string/title_activity_actividad_suscribir_curso" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

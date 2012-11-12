@@ -3,11 +3,14 @@ package com.example.version0;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -18,7 +21,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.ListView;
 
 import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
@@ -123,12 +125,38 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 		}
 		setResult(RESULT_OK);
 		  finish();
-		  /*
-		   * TODO: Hacer que refresque la activity anterior*/
 	}
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public class DialogoModulo extends DialogFragment {
+	    @Override
+	    public Dialog onCreateDialog(Bundle savedInstanceState) {
+	        // Use the Builder class for convenient dialog construction
+	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+	     // Get the layout inflater
+	        LayoutInflater inflater = getActivity().getLayoutInflater();
+	     // Inflate and set the layout for the dialog
+	        // Pass null as the parent view because its going in the dialog layout
+	        builder.setView(inflater.inflate(R.layout.activity_actividad_datos_modulo, null))	
+	               .setPositiveButton("Guardar", new DialogInterface.OnClickListener() {
+	                   public void onClick(DialogInterface dialog, int id) {
+	                       // FIRE ZE MISSILES!
+	                   }
+	               })
+	               .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+	                   public void onClick(DialogInterface dialog, int id) {
+	                       // User cancelled the dialog
+	                   }
+	               });
+	        // Create the AlertDialog object and return it
+	        return builder.create();
+	    }
+	}
+	
+	
+	
 }

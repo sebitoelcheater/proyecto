@@ -30,5 +30,6 @@
     <string name="title_activity_actividad_notas2">ActividadNotas2</string>
     <string name="title_activity_actividad_feedback">ActividadFeedback</string>
     <string name="title_activity_actividad_edicion_ramo">ActividadEdicionRamo</string>
+    <string name="title_activity_actividad_suscribir_curso">MainActivity</string>
 
 </resources>
