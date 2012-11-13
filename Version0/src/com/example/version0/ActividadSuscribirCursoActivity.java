@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import com.example.server.server;
 import com.example.*;
 
@@ -32,10 +34,11 @@ public class ActividadSuscribirCursoActivity extends Activity {
     public void suscribir(View view) throws Exception
 	{
 		
-		EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir);
 		server servidor = new server();
 		// ESTA LÍNEA ESA FALLANDO
-		servidor.suscribirCurso(idCurso.toString());
+		EditText temp = (EditText)findViewById(R.id.idRamoASuscribir);
+		String idCurso = temp.getText().toString();
+		servidor.suscribirCurso(idCurso,this);
 		setResult(RESULT_OK);
 		  finish();
 	}
