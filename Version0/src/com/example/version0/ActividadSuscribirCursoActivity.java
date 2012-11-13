@@ -35,7 +35,7 @@ public class ActividadSuscribirCursoActivity extends Activity {
 		EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir);
 		server servidor = new server();
 		// ESTA LÍNEA ESA FALLANDO
-		servidor.suscribirCurso(idCurso.toString());
+		servidor.suscribirCurso(idCurso.getText().toString());
 		setResult(RESULT_OK);
 		  finish();
 	}

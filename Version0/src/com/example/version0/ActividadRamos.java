@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -35,10 +36,13 @@ import android.support.v4.app.FragmentActivity;
 //import com.ciarang.tallyphant.DB;
 import com.example.controlador.*;
 import com.example.data.*;
+import com.example.server.server;
 
 
 public class ActividadRamos extends ListActivity {
     private static final int REQUEST_EDITAR_O_AGREGAR = 0;
+
+	public  String id_curso = null;
 
 	private ArrayList<Curso> array_ramos;
 	
@@ -214,13 +218,77 @@ public class ActividadRamos extends ListActivity {
     	DialogFragment dialogo = new DialogoSuscribirCurso();
     	dialogo.show(getActivity().getSupportFragmentManager(),"hola");*/
     	
-    	Intent i = new Intent(this, ActividadSuscribirCursoActivity.class );
+    	//Intent i = new Intent(this, ActividadSuscribirCursoActivity.class );
+    	//Intent i = new Intent(this, ActividadNotas.class );
+    	//startActivityForResult(i, REQUEST_EDITAR_O_AGREGAR);
     	
-    	startActivityForResult(i, REQUEST_EDITAR_O_AGREGAR);
+    	Bundle bundle = new Bundle();
+    	bundle.putString("NOTA", "7");//El valor 7 va segun la base de datos
+    	showDialog(1,bundle); //Cuidado con el showdialog....
+    	
+
     	
     }
-   
     
+protected Dialog onCreateDialog(int id, Bundle b) {
+    	
+    	Dialog d = new Dialog(this);
+		d.setContentView(R.layout.dialogo_suscribir_curso);
+		d.setTitle("Ingrese id del Curso a Suscribir");
+		Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonSuscribirCurso);
+		
+		boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir);
+        		server servidor = new server();
+        		id_curso = "2";
+        		
+        		id_curso = idCurso.getText().toString();
+        		
+        		try {
+					servidor.suscribirCurso(id_curso);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+
+		});
+             return d;
+	}
+   
+    private void showPopUp2() {
+
+    	 AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+    	 helpBuilder.setTitle("Pop Up");
+    	 helpBuilder.setMessage("This is a Simple Pop Up");
+    	 helpBuilder.setPositiveButton("Positive",
+    	   new DialogInterface.OnClickListener() {
+
+    	    public void onClick(DialogInterface dialog, int which) {
+    	     // Do nothing but close the dialog
+    	    }
+    	   });
+
+    	 helpBuilder.setNegativeButton("Negative", new DialogInterface.OnClickListener() {
+
+    	  public void onClick(DialogInterface dialog, int which) {
+    	   // Do nothing
+    	  }
+    	 });
+    	 
+    	 helpBuilder.setNeutralButton("Neutral", new DialogInterface.OnClickListener() {
+
+    	  public void onClick(DialogInterface dialog, int which) {
+    	   // Do nothing
+    	  }
+    	 });
+
+    	 // Remember, create doesn't show the dialog
+    	 AlertDialog helpDialog = helpBuilder.create();
+    	 helpDialog.show();
+
+    	}
     
         
         
