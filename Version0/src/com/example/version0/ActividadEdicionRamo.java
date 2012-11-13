@@ -1,13 +1,12 @@
 package com.example.version0;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -39,7 +38,13 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 			}
 		
 
+		  public void agregarModulo(Modulo modulo) {
+	            objects.add(modulo);
+	        }
 
+	        public void clear() {
+	            objects.clear();
+	        }
 		  @Override
 		  public View getView(final int position, View convertView, ViewGroup parent) {
 			  	LayoutInflater inflater=getLayoutInflater();
@@ -58,11 +63,25 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 				Button boton_editar = (Button)fila.findViewById(R.id.botonEditarModulo);
 				boton_editar.setOnClickListener(new View.OnClickListener() {
 		             public void onClick(View v) {
-		                 // Perform action on click
-		             	Intent intent = new Intent(ActividadEdicionRamo.this,ActividadEdicionRamo.class);
-		             	//Envía la id del módulo
-		             	intent.putExtra("id", objects.get(position).obtenerId());
-		             	startActivity(intent);
+		            	 String idModulo = objects.get(position).obtenerId();
+			             	Bundle bundle = new Bundle();
+			            	bundle.putString("idModulo", idModulo);
+			            	bundle.putString("CASO", "EDITAR");
+			            	showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+		                
+		             }
+		         });
+				
+				Button boton_eliminar_modulo = (Button)fila.findViewById(R.id.botonEliminarModulo);
+				boton_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+		             public void onClick(View v) {
+		             	Bundle bundle = new Bundle();
+		            	bundle.putString("idModulo", objects.get(position).obtenerId());
+		            	bundle.putString("CASO", "ELIMINAR");
+		            	showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+
+
+		                 
 		             }
 		         });
 			  return fila;
@@ -70,7 +89,13 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 		} 
 
 	
-	public Curso cursoAEditar;
+	  private String idRamoAEditar = null;
+		private MiModuloEditandoArrayAdapter adaptador;
+
+
+		public Curso cursoAEditar;
+		public Modulo moduloAEditar;
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +135,37 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
         getMenuInflater().inflate(R.menu.activity_actividad_datos_del_ramo, menu);
         return true;
     }
+public static int obtenerIdUnica(){
+    	
+    	/*Entrega una id única. Vital para crear dialogos únicos */
+    	Calendar now = Calendar.getInstance();
+		String year = String.valueOf(now.get(Calendar.YEAR));
+		String month = String.valueOf(now.get(Calendar.MONTH)); // Note: zero based!
+		String day = String.valueOf(now.get(Calendar.DAY_OF_MONTH)); //2
+		String hour = String.valueOf(now.get(Calendar.HOUR_OF_DAY));//2
+		String minute = String.valueOf(now.get(Calendar.MINUTE));//2
+		String second = String.valueOf(now.get(Calendar.SECOND));//2
+		String millis = String.valueOf(now.get(Calendar.MILLISECOND));//3
+		
+		//year + month + day +
+		//No puede quedar más largo, porque el rango de n
+		String idunicaStr = hour + minute + second + millis;
+		 int idunicaInt	=  Integer.valueOf(idunicaStr);
+		return (idunicaInt);
+    }
+public void actualizarModulos(View view)
+	{
+	
+   	ArrayList<Modulo> nuevo_array_modulos = Controlador.obtenerModulosPorIdCurso(this, idRamoAEditar);
 
+       
+       adaptador.clear();
+       for(Modulo modulo : nuevo_array_modulos){
+       	adaptador.agregarModulo(modulo);
+       }
+       adaptador.notifyDataSetChanged();
+       
+	}
     public void guardarCambios(View view)
 	{
         EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
@@ -131,30 +186,82 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 		
 	}
 	
-	/*public class DialogoModulo extends DialogFragment {
-	    @Override
-	    public Dialog onCreateDialog(Bundle savedInstanceState) {
-	        // Use the Builder class for convenient dialog construction
-	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-	     // Get the layout inflater
-	        LayoutInflater inflater = getActivity().getLayoutInflater();
-	     // Inflate and set the layout for the dialog
-	        // Pass null as the parent view because its going in the dialog layout
-	        builder.setView(inflater.inflate(R.layout.activity_actividad_datos_modulo, null))	
-	               .setPositiveButton("Guardar", new DialogInterface.OnClickListener() {
-	                   public void onClick(DialogInterface dialog, int id) {
-	                       // FIRE ZE MISSILES!
-	                   }
-	               })
-	               .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-	                   public void onClick(DialogInterface dialog, int id) {
-	                       // User cancelled the dialog
-	                   }
-	               });
-	        // Create the AlertDialog object and return it
-	        return builder.create();
-	    }
-	}*/
+	
+protected Dialog onCreateDialog(int id, Bundle b) {
+    	
+    	final Dialog d = new Dialog(this);
+    	String caso = b.getString("CASO"); 
+    	/*caso = "ELIMINAR" significa que se desea eliminar el módulo
+    	 * caso = "EDITAR" significa que se desea editar el módulo XD*/
+    	if (caso == "ELIMINAR") {
+
+    		d.setContentView(R.layout.dialogo_eliminar_modulo);
+    		d.setTitle("¿Está seguro de eliminar el siguiente Módulo?");
+    		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.botonCancelarEliminarModulo);
+    		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.botonAceptarEliminarModulo);
+    		String idModulo2 = b.getString("idModulo");
+            moduloAEditar = new Modulo(this,idModulo2);
+            TextView diaModulo=(TextView)d.findViewById(R.id.diaModulo);
+			TextView horaInicio=(TextView)d.findViewById(R.id.horaInicio);
+			TextView horaFin=(TextView)d.findViewById(R.id.horaFin);
+			//TextView textidModulo=(TextView)d.findViewById(R.id.idModulo);
+			//TextView textidModulo2=(TextView)d.findViewById(R.id.idModulo2);
+
+			
+			//Le pone el nombre al campo de texto del nombre del ramo
+			diaModulo.setText(moduloAEditar.obtenerNombreDiaDeLaSemana());
+			horaInicio.setText(moduloAEditar.obtenerStringInicio());
+			horaFin.setText(moduloAEditar.obtenerStringFin());
+			//textidModulo.setText(moduloAEditar.obtenerId());
+			//textidModulo2.setText(idModulo2);
+            
+
+		
+    		boton_cancelar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*Lo único que se hace al cancelar la eliminación del módulo, es cerrar
+                	 * el dialogo*/
+            		
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	
+                	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
+                	 * Además actualizar la lista de los módulos*/
+            		
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		return d;
+    		}
+    	else if (caso == "EDITAR") {
+    		/*TODO: Crear un layout para la edición de módulo
+    		 * recoger todos los datos del módulo
+    		 * colocarlos y permitir su edición
+    		 * recopilar los cambios
+    		 * hacer los cambios a través del controlador
+    		 * actualizar la lista de módulos*/
+    		return d;
+    		}
+    	else if (caso == "NUEVO") {
+    		/*TODO: Crear un layout para nuevo modulo
+    		 * recopilar los datos del nuevo módulo
+    		 * hacer los cambios a través del controlador
+    		 * actualizar la lista de módulos*/
+    		return d;
+    		}
+    	return d;
+    	}
+	
+	
 	
 	
 	
