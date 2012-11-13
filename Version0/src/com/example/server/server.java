@@ -24,6 +24,7 @@ import com.example.controlador.Curso;
 import com.example.controlador.Modulo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -85,7 +86,7 @@ public class server extends Activity {
 		return arreglo;
 	}
 	
-	public void suscribirCurso (String id) throws Exception{
+	public void suscribirCurso (String id, Context ctx) throws Exception{
 		ArrayList<JSONObject> Profesor = getCursoFromDatabase(id,"Profesores");
 		ArrayList<JSONObject> Curso = getCursoFromDatabase(id,"Cursos");
 		ArrayList<JSONObject> Horarios = getCursoFromDatabase(id,"Horarios");
@@ -98,7 +99,7 @@ public class server extends Activity {
 			String contrasena = Profesor.get(i).getString("contrasena");
 			String nombre = Profesor.get(i).getString("nombre");
 			String apellido = Profesor.get(i).getString("apellido");
-			iidP = Controlador.insertarProfesor(this, idP, usuario, contrasena, nombre, apellido);
+			iidP = Controlador.insertarProfesor(ctx, idP, usuario, contrasena, nombre, apellido);
 			// introducir nuevo profesor (si no est‡ introducido). Lo obtengo a partir de un for, pero es claro que arrojar‡ s—lo un elemento
         }
 		
@@ -107,7 +108,7 @@ public class server extends Activity {
 			String idP = Curso.get(i).getString("idP");
 			String titulo = Curso.get(i).getString("titulo");
 			String comentable = Curso.get(i).getString("comentable");
-        	Curso c = Controlador.crearNuevoCurso(this, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("0"));
+        	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("0"));
 			if(c!=null)
 				iidC = c.obtenerId();
         	// introducir nuevo curso con funciones hechas por Ariel, con los par‡metros declarados en este for. Lo mismo para profe,horarios y comentarios
@@ -139,7 +140,7 @@ public class server extends Activity {
 				a = formato.parse(fin);
 				cFin.setTime(a);
 			}catch(ParseException e){}
-        	Modulo h = Controlador.crearNuevoModulo(this, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion);
+        	Modulo h = Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion);
 			if(h!=null)
 				iidH = h.obtenerId();
         	// introducir nuevo horarios 
@@ -150,7 +151,7 @@ public class server extends Activity {
 			String idH = Comentarios.get(i).getString("idH");
 			String fecha = Comentarios.get(i).getString("fecha");
 			String comentario = Comentarios.get(i).getString("comentario");
-			iidCom = Controlador.insertarComentario(this,idCom, iidH==null?"0":iidH,fecha,comentario);
+			iidCom = Controlador.insertarComentario(ctx,idCom, iidH==null?"0":iidH,fecha,comentario);
         	// introducir nuevo comentarios 
         }
 		
