@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
 import com.example.controlador.Modulo;
+import com.example.version0.ActividadRamos.MiArrayAdapter;
 
 
 
@@ -64,10 +65,11 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 				boton_editar.setOnClickListener(new View.OnClickListener() {
 		             public void onClick(View v) {
 		            	 String idModulo = objects.get(position).obtenerId();
-			             	Bundle bundle = new Bundle();
-			            	bundle.putString("idModulo", idModulo);
-			            	bundle.putString("CASO", "EDITAR");
-			            	showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+			             	//Bundle bundle = new Bundle();
+			            	//bundle.putString("idModulo", idModulo);
+			            	//bundle.putString("CASO", "EDITAR");
+			            	//showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+		            	 
 		                
 		             }
 		         });
@@ -102,7 +104,7 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
         //Recibe el mensaje del inetent
         Intent intent = getIntent();
         //Aquí recibe la id (como string) del ramo a editar
-        String idRamoAEditar = intent.getStringExtra("id");
+        idRamoAEditar = intent.getStringExtra("id");
         
         cursoAEditar = new Curso(this,idRamoAEditar);
        
@@ -124,7 +126,8 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 
         campoTextoNombre.setText(nombreOriginal);
         
-        setListAdapter(new MiModuloEditandoArrayAdapter(this, R.layout.item_modulo_editando, array_modulos));
+        adaptador = new MiModuloEditandoArrayAdapter(this, R.layout.item_modulo_editando, array_modulos);
+        setListAdapter(adaptador);
 
         
         
@@ -153,7 +156,7 @@ public static int obtenerIdUnica(){
 		 int idunicaInt	=  Integer.valueOf(idunicaStr);
 		return (idunicaInt);
     }
-public void actualizarModulos(View view)
+public void actualizarModulos()
 	{
 	
    	ArrayList<Modulo> nuevo_array_modulos = Controlador.obtenerModulosPorIdCurso(this, idRamoAEditar);
@@ -199,8 +202,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		d.setTitle("¿Está seguro de eliminar el siguiente Módulo?");
     		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.botonCancelarEliminarModulo);
     		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.botonAceptarEliminarModulo);
-    		String idModulo2 = b.getString("idModulo");
-            moduloAEditar = new Modulo(this,idModulo2);
+    		String id_modulo = b.getString("idModulo");
+            moduloAEditar = new Modulo(this,id_modulo);
             TextView diaModulo=(TextView)d.findViewById(R.id.diaModulo);
 			TextView horaInicio=(TextView)d.findViewById(R.id.horaInicio);
 			TextView horaFin=(TextView)d.findViewById(R.id.horaFin);
@@ -219,9 +222,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 		
     		boton_cancelar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                	/*Lo único que se hace al cancelar la eliminación del módulo, es cerrar
-                	 * el dialogo*/
-            		
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	
             		d.dismiss(); //Cierra el diálogo
 
                 	}
@@ -233,7 +235,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 	
                 	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
                 	 * Además actualizar la lista de los módulos*/
-            		
+                	moduloAEditar.borrarModulo(ActividadEdicionRamo.this);
+            		actualizarModulos();
             		d.dismiss(); //Cierra el diálogo
 
                 	}
