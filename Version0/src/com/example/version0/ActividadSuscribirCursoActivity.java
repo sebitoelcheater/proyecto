@@ -36,13 +36,10 @@ public class ActividadSuscribirCursoActivity extends Activity {
 		
 		server servidor = new server();
 		// ESTA LÍNEA ESA FALLANDO
-<<<<<<< HEAD
-		servidor.suscribirCurso(idCurso.getText().toString());
-=======
-		EditText temp = (EditText)findViewById(R.id.idRamoASuscribir);
+		//servidor.suscribirCurso(idCurso.getText().toString());
+		EditText temp = (EditText)findViewById(R.id.idCursoASuscribir);
 		String idCurso = temp.getText().toString();
 		servidor.suscribirCurso(idCurso,this);
->>>>>>> 02fa8de2151e98ec7d3fff6e826cc75f423ffe1d
 		setResult(RESULT_OK);
 		  finish();
 	}

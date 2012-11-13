@@ -15,6 +15,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -225,39 +226,57 @@ public class ActividadRamos extends ListActivity {
     	Bundle bundle = new Bundle();
     	bundle.putString("NOTA", "7");//El valor 7 va segun la base de datos
     	showDialog(1,bundle); //Cuidado con el showdialog....
-    	
 
     	
     }
     
 protected Dialog onCreateDialog(int id, Bundle b) {
     	
-    	Dialog d = new Dialog(this);
+    	final Dialog d = new Dialog(this);
 		d.setContentView(R.layout.dialogo_suscribir_curso);
 		d.setTitle("Ingrese id del Curso a Suscribir");
 		Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonSuscribirCurso);
+		//EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir2);
+		//id_curso = idCurso.getText().toString();
 		
 		boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir);
+            	EditText textoid = (EditText) d.findViewById(R.id.idCursoASuscribir2);
+        		id_curso = textoid.getText().toString();
+
         		server servidor = new server();
-        		id_curso = "2";
-        		
-        		id_curso = idCurso.getText().toString();
         		
         		try {
-					servidor.suscribirCurso(id_curso);
+					servidor.suscribirCurso(id_curso,ActividadRamos.this);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+        		actualizarListaRamos();
+        		//String id = idCurso.getText().toString();
+        		//id_curso = idCurso.getText().toString();
+        		/*ttry {
+					servidor.suscribirCurso(id_curso,ActividadRamos.this);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		
+        		ry {
+					servidor.suscribirCurso(id_curso,ActividadRamos.this);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
+        		d.dismiss();
+
             }
 
 		});
              return d;
 	}
    
-    private void showPopUp2() {
+   /* private void showPopUp2() {
 
     	 AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
     	 helpBuilder.setTitle("Pop Up");
@@ -288,7 +307,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     	 AlertDialog helpDialog = helpBuilder.create();
     	 helpDialog.show();
 
-    	}
+    	}*/
     
         
         
