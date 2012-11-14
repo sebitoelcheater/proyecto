@@ -34,7 +34,7 @@ public class server extends Activity {
         // Create a new HttpClient and Post Header
         HttpClient httpclient = new DefaultHttpClient();
         comentario=comentario.replaceAll(" ", "%20");
-        HttpPost httppost = new HttpPost("http://www.cheaper.cl/android/signup.php?ramo="+i+"&comentario="+comentario+"");
+        HttpPost httppost = new HttpPost("http://www.cheaper.cl/android/comentar.php?ramo="+i+"&comentario="+comentario+"");
 
         try {
             // Execute HTTP Post Request
