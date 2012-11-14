@@ -122,7 +122,7 @@ public class server extends Activity {
 			String fin=Horarios.get(i).getString("fin");
 			String ubicacion=Horarios.get(i).getString("ubicacion");
 			
-			SimpleDateFormat formato = new SimpleDateFormat("HHmmss");
+			SimpleDateFormat formato = new SimpleDateFormat("HH:mm");
 			Date a = new Date();
 			Calendar cInicio = new GregorianCalendar();
 			try
