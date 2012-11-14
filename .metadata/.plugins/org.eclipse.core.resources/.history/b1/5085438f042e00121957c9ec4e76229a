@@ -108,7 +108,7 @@ public class server extends Activity {
 			String idP = Curso.get(i).getString("idP");
 			String titulo = Curso.get(i).getString("titulo");
 			String comentable = Curso.get(i).getString("comentable");
-        	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("1"));
+        	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("0"));
 			if(c!=null)
 				iidC = c.obtenerId();
         	// introducir nuevo curso con funciones hechas por Ariel, con los par‡metros declarados en este for. Lo mismo para profe,horarios y comentarios
