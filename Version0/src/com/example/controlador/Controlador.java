@@ -36,7 +36,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 				
 				if(m.obtenerInicio().get(Calendar.DAY_OF_WEEK)>=ahora.get(Calendar.DAY_OF_WEEK))
 				{
-					if(m.obtenerInicio().get(Calendar.HOUR)>=ahora.get(Calendar.HOUR))
+					if(m.obtenerInicio().get(Calendar.HOUR_OF_DAY)>=ahora.get(Calendar.HOUR_OF_DAY))
 					{
 						if(m.obtenerInicio().get(Calendar.MINUTE)>=ahora.get(Calendar.MINUTE))
 						{

@@ -18,7 +18,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
@@ -65,15 +67,14 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 				boton_editar.setOnClickListener(new View.OnClickListener() {
 		             public void onClick(View v) {
 		            	 String idModulo = objects.get(position).obtenerId();
-			             	//Bundle bundle = new Bundle();
-			            	//bundle.putString("idModulo", idModulo);
-			            	//bundle.putString("CASO", "EDITAR");
-			            	//showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+			             	Bundle bundle = new Bundle();
+			            	bundle.putString("idModulo", idModulo);
+			            	bundle.putString("CASO", "EDITAR");
+			            	showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
 		            	 
 		                
 		             }
 		         });
-				
 				Button boton_eliminar_modulo = (Button)fila.findViewById(R.id.botonEliminarModulo);
 				boton_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
 		             public void onClick(View v) {
@@ -86,6 +87,7 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 		                 
 		             }
 		         });
+				
 			  return fila;
 		  }
 		} 
@@ -183,6 +185,15 @@ public void actualizarModulos()
 		setResult(RESULT_OK);
 		  finish();
 	}
+    
+    public void agregarModulo(View view)
+    {
+    	
+    	Bundle bundle = new Bundle();
+    	bundle.putString("CASO", "NUEVO");
+    	showDialog(obtenerIdUnica(),bundle);
+    	
+    }
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
@@ -246,20 +257,137 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		return d;
     		}
     	else if (caso == "EDITAR") {
+    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+    		
+    		d.setContentView(R.layout.dialogo_modulo);
+    		d.setTitle("Editar hora");
+    		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
+    		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
+    		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+    		TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+    		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+    		String id_modulo = b.getString("idModulo");
+            moduloAEditar = new Modulo(this,id_modulo);
+            
+            
+    		///Agregando datos
+    		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
+    		tPInicio.setIs24HourView(true);
+    		tPInicio.setCurrentHour(moduloAEditar.obtenerInicio().get(Calendar.HOUR_OF_DAY));
+    		tPInicio.setCurrentMinute(moduloAEditar.obtenerInicio().get(Calendar.MINUTE));
+    		tPFin.setIs24HourView(true);
+    		tPFin.setCurrentHour(moduloAEditar.obtenerFin().get(Calendar.HOUR_OF_DAY));
+    		tPFin.setCurrentMinute(moduloAEditar.obtenerFin().get(Calendar.MINUTE));
+    		
+    		///Agregando datos
+    		
+            
+            		
+    		boton_cancelar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	
+                	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
+                	 * Además actualizar la lista de los módulos*/
+                	Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+                	TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+            		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+            		
+                	moduloAEditar.establecerDiaDeLaSemana(v.getContext(), spinnerDias.getSelectedItemPosition()+1);
+                	Calendar inicio = moduloAEditar.obtenerInicio();
+                	inicio.set(Calendar.HOUR_OF_DAY, tPInicio.getCurrentHour());
+                	inicio.set(Calendar.MINUTE,tPInicio.getCurrentMinute());
+                	
+                	Calendar fin = moduloAEditar.obtenerFin();
+                	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
+                	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
+                	
+                	moduloAEditar.establecerInicio(v.getContext(), inicio);
+                	moduloAEditar.establecerFin(v.getContext(), fin);
+                	actualizarModulos();
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		return d;
     		/*TODO: Crear un layout para la edición de módulo
     		 * recoger todos los datos del módulo
     		 * colocarlos y permitir su edición
     		 * recopilar los cambios
     		 * hacer los cambios a través del controlador
     		 * actualizar la lista de módulos*/
-    		return d;
+    		
     		}
     	else if (caso == "NUEVO") {
     		/*TODO: Crear un layout para nuevo modulo
     		 * recopilar los datos del nuevo módulo
     		 * hacer los cambios a través del controlador
     		 * actualizar la lista de módulos*/
+    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+    		
+    		d.setContentView(R.layout.dialogo_modulo);
+    		d.setTitle("Agregar Modulo");
+    		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
+    		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
+    		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+    		TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+    		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+    		
+            
+    		///Agregando datos
+    		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
+    		
+    		///Agregando datos
+    		
+            
+            		
+    		boton_cancelar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	
+                	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
+                	 * Además actualizar la lista de los módulos*/
+                	Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+                	TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+            		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+            		Calendar inicio = Calendar.getInstance();
+            		inicio.set(Calendar.HOUR_OF_DAY, tPInicio.getCurrentHour());
+                	inicio.set(Calendar.MINUTE,tPInicio.getCurrentMinute());
+                	
+                	Calendar fin = Calendar.getInstance();
+                	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
+                	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
+                	
+                	Controlador.crearNuevoModulo(v.getContext(), 0, Integer.parseInt(cursoAEditar.obtenerId()), spinnerDias.getSelectedItemPosition()+1, inicio, fin, cursoAEditar.obtenerNombre());
+            		actualizarModulos();
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
     		return d;
+
     		}
     	return d;
     	}

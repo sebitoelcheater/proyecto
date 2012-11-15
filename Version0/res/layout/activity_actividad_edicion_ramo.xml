@@ -40,13 +40,13 @@
                android:layout_height="match_parent"
                android:layout_weight="1"
                android:drawSelectorOnTop="false"/>
+
     		<Button
-        android:id="@+id/botonAgregarModulo"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="guardarCambios"
-        android:text=" + Agregar Módulo" />
-		
+    		    android:id="@+id/botonAgregarModulo"
+    		    android:layout_width="fill_parent"
+    		    android:layout_height="wrap_content"
+    		    android:onClick="agregarModulo"
+    		    android:text=" + Agregar Módulo" />
 	    
 	  </LinearLayout>
     

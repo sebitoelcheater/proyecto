@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Change Layout" description="Change Layout" file="/Version0/res/layout/dialogo_modulo.xml" flags="6" flatten="true" id="com.android.ide.eclipse.adt.refactoring.convert" proj="/Version0" sel-end="252" sel-start="40" stamp="1352956544184" type="android.widget.RelativeLayout"/>
+</session>
