@@ -89,7 +89,7 @@ private void Notificar() {
 		Intent intentNot = new Intent(this, ActividadHorario.class);
 	
 		//Prepara la notificacion
-		Notification notification = new Notification(android.R.drawable.ic_menu_my_calendar, "Próxima Clase", System.currentTimeMillis());
+		Notification notification = new Notification(android.R.drawable.ic_menu_agenda, "Próxima Clase", System.currentTimeMillis());
 		notification.setLatestEventInfo(this, proximosInicios.get(0).obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
 				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
