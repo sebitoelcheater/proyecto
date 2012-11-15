@@ -13,8 +13,8 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	static public Modulo ultimoModulo(Context context,Curso c) 
 	{
 		
-		Modulo ultimoModulo = null;    
-	    Modulo primerModulo;
+		Modulo ultimoModulo = new Modulo(db.ultimoModuloDelCurso+"");    
+	    
 		Modulo anterior = ultimoModulo;
 		
 		Calendar ahora = Calendar.getInstance();
@@ -24,16 +24,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		{
 			ArrayList<Modulo> anteriores = new ArrayList<Modulo>();
 			ArrayList<Modulo> posteriores = new ArrayList<Modulo>();
-			ultimoModulo = modulosDeC.get(0);
-			primerModulo = ultimoModulo;
+		
 			for(Modulo m:modulosDeC)
 			{
-				if(m.obtenerInicio().after(ultimoModulo.obtenerInicio()))
-					ultimoModulo = m;
-				
-				if(m.obtenerInicio().before(primerModulo.obtenerInicio()))
-					primerModulo = m;
-				
 				if(m.obtenerInicio().get(Calendar.DAY_OF_WEEK)>=ahora.get(Calendar.DAY_OF_WEEK))
 				{
 					if(m.obtenerInicio().get(Calendar.HOUR)>=ahora.get(Calendar.HOUR))
@@ -58,23 +51,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 				}
 			}
 		
-			if(anteriores.size()>=1)
-			{	
-				anterior = anteriores.get(0);
-				for(Modulo a : anteriores)
-				{
-					if(a.obtenerFin().after(anterior))
-						anterior = a;
-				}
-			}	
-			else
+			for(Modulo a : anteriores)
 			{
-				anterior = posteriores.get(0);
-				for(Modulo a : posteriores)
-				{
-					if(a.obtenerFin().before(anterior))
-						anterior = a;
-				}
+				if()
 			}
 			
 		}	

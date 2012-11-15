@@ -13,7 +13,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	static public Modulo ultimoModulo(Context context,Curso c) 
 	{
 		
-		Modulo ultimoModulo = null;    
+		Modulo ultimoModulo;    
 	    Modulo primerModulo;
 		Modulo anterior = ultimoModulo;
 		

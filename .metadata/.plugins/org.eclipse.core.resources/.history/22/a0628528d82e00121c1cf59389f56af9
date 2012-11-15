@@ -10,78 +10,6 @@ import com.example.data.*;
 
 public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PENSAR BIEN EN SU VERDADERA FUNCIONALIDAD!
 {
-	static public Modulo ultimoModulo(Context context,Curso c) 
-	{
-		
-		Modulo ultimoModulo = null;    
-	    Modulo primerModulo;
-		Modulo anterior = ultimoModulo;
-		
-		Calendar ahora = Calendar.getInstance();
-		
-		ArrayList<Modulo> modulosDeC = obtenerModulosPorIdCurso(context,c.obtenerId());
-		if(modulosDeC.size()>=1)
-		{
-			ArrayList<Modulo> anteriores = new ArrayList<Modulo>();
-			ArrayList<Modulo> posteriores = new ArrayList<Modulo>();
-			ultimoModulo = modulosDeC.get(0);
-			primerModulo = ultimoModulo;
-			for(Modulo m:modulosDeC)
-			{
-				if(m.obtenerInicio().after(ultimoModulo.obtenerInicio()))
-					ultimoModulo = m;
-				
-				if(m.obtenerInicio().before(primerModulo.obtenerInicio()))
-					primerModulo = m;
-				
-				if(m.obtenerInicio().get(Calendar.DAY_OF_WEEK)>=ahora.get(Calendar.DAY_OF_WEEK))
-				{
-					if(m.obtenerInicio().get(Calendar.HOUR)>=ahora.get(Calendar.HOUR))
-					{
-						if(m.obtenerInicio().get(Calendar.MINUTE)>=ahora.get(Calendar.MINUTE))
-						{
-							anteriores.add(m);
-						}
-						else
-						{
-							posteriores.add(m);
-						}
-					}
-					else
-					{
-						posteriores.add(m);
-					}
-				}
-				else
-				{
-					posteriores.add(m);
-				}
-			}
-		
-			if(anteriores.size()>=1)
-			{	
-				anterior = anteriores.get(0);
-				for(Modulo a : anteriores)
-				{
-					if(a.obtenerFin().after(anterior))
-						anterior = a;
-				}
-			}	
-			else
-			{
-				anterior = posteriores.get(0);
-				for(Modulo a : posteriores)
-				{
-					if(a.obtenerFin().before(anterior))
-						anterior = a;
-				}
-			}
-			
-		}	
-		return anterior;
-	}
-	
-	
 	static public String insertarProfesor(Context context,String idP,String usuario,String contrasena,String nombre, String apellido)//DEPRECATED, despues se usara el objeto profesor
 	{
 		AdapterCursos db = new AdapterCursos(context);
@@ -431,5 +359,8 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		}
 		return numero;
 	}
-	
+	public static Modulo ultimoModulo(Curso c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

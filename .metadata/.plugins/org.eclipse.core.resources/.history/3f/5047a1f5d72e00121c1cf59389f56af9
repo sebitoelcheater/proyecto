@@ -49,17 +49,17 @@ public class ActividadFeedback extends Activity {
     {
     	//Hola, soy Seba. Capturar spinner
     	Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
-       	Curso ramo = cursosComentables.get(mySpinner.getSelectedItemPosition());
+    	String ramo = mySpinner.getSelectedItem().toString();
     	//Capturar comentario
     	comentario = (EditText) findViewById(R.id.editText1);
     	//Crear objeto de la clase post y posteriormente ejecutar método comentar
     	server objeto1 = new server();
     	objeto1.comentar(view, 1, comentario.getText().toString());
     	
-    	/* HOLA SEBA USA ESTO PARA COMENTAR.... TE DEJE LO DEMAS EN SERVER PARA QUE L OCOMPLETARAS :)
-    	 objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(ramo),comentario.getText().toString());
-    	 */ 
-    	 
+    	/*
+    	 objeto1.comentar
+    	  
+    	 */
     	
     	
     	//Gracias por el feedback

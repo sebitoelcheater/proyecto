@@ -13,7 +13,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	static public Modulo ultimoModulo(Context context,Curso c) 
 	{
 		
-		Modulo ultimoModulo = null;    
+		Modulo ultimoModulo;    
 	    Modulo primerModulo;
 		Modulo anterior = ultimoModulo;
 		
@@ -69,11 +69,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 			}	
 			else
 			{
-				anterior = posteriores.get(0);
 				for(Modulo a : posteriores)
 				{
-					if(a.obtenerFin().before(anterior))
-						anterior = a;
+					}
 				}
 			}
 			
