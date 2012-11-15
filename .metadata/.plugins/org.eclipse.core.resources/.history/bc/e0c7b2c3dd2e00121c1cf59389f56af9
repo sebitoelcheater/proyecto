@@ -57,8 +57,7 @@ public class ActividadFeedback extends Activity {
     	objeto1.comentar(view, 1, comentario.getText().toString());
     	
     	/* HOLA SEBA USA ESTO PARA COMENTAR.... TE DEJE LO DEMAS EN SERVER PARA QUE L OCOMPLETARAS :)
-    	 	CUIDADO QUE ultimoModulo puede devolver null si el curso no tiene ningun modulo asociado...
-    	 objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(this,ramo),comentario.getText().toString());
+    	 objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(ramo),comentario.getText().toString());
     	 */ 
     	 
     	
