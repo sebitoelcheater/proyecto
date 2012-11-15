@@ -70,14 +70,10 @@ public class ActividadHorario extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		ArrayList<Modulo> modulos = Controlador.obtenerLosSiguientesModulosDelDia(this, Calendar.getInstance(), 5);
 		this.array_modulos= new ArrayList<HashMap<String,String>>();
-		for(Modulo m : modulos) 
+		for(Modulo m : modulos)
 		{	
-			Curso c = new Curso(this,m.obtenerIdCurso());
 			HashMap<String,String> mapa = new HashMap<String,String>();
-			if(m.obtenerNombre().toUpperCase().equals(c.obtenerNombre().toUpperCase())) //ARREGLAR ESTO!!!!!
-				mapa.put("Nombre",m.obtenerNombre());
-			else
-				mapa.put("Nombre",c.obtenerNombre()+" - "+m.obtenerNombre());
+			mapa.put("Nombre",m.obtenerNombre());
 			mapa.put("Hora", m.obtenerStringInicio());
 			array_modulos.add(mapa);
 		}

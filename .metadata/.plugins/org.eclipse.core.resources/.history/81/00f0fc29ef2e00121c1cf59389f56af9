@@ -189,10 +189,9 @@ public void actualizarModulos()
     public void agregarModulo(View view)
     {
     	
-    		Bundle bundle = new Bundle();
-    		bundle.putString("CASO", "NUEVO");
-        	showDialog(obtenerIdUnica(),bundle);
-    	
+    	Bundle bundle = new Bundle();
+    	bundle.putString("CASO", "NUEVO");
+    	showDialog(obtenerIdUnica(),bundle);
     	
     }
 

@@ -87,6 +87,11 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 		                 
 		             }
 		         });
+				if(!(new Curso(convertView.getContext(),objects.get(position).obtenerIdCurso()).esEditable()))
+				{
+					boton_eliminar_modulo.setEnabled(false);
+					boton_editar.setEnabled(false);
+				}
 				
 			  return fila;
 		  }
@@ -189,10 +194,9 @@ public void actualizarModulos()
     public void agregarModulo(View view)
     {
     	
-    		Bundle bundle = new Bundle();
-    		bundle.putString("CASO", "NUEVO");
-        	showDialog(obtenerIdUnica(),bundle);
-    	
+    	Bundle bundle = new Bundle();
+    	bundle.putString("CASO", "NUEVO");
+    	showDialog(obtenerIdUnica(),bundle);
     	
     }
 

@@ -77,7 +77,6 @@ public class ActividadHorario extends Activity implements OnClickListener{
 			if(m.obtenerNombre().toUpperCase().equals(c.obtenerNombre().toUpperCase())) //ARREGLAR ESTO!!!!!
 				mapa.put("Nombre",m.obtenerNombre());
 			else
-				mapa.put("Nombre",c.obtenerNombre()+" - "+m.obtenerNombre());
 			mapa.put("Hora", m.obtenerStringInicio());
 			array_modulos.add(mapa);
 		}

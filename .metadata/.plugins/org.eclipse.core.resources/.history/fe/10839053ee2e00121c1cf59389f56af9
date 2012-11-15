@@ -118,29 +118,29 @@ public class Modulo
 			
 			public String obtenerNombreDiaDeLaSemana() 
 			{
-				if (diaDeLaSemana.equals("2")){
+				if (diaDeLaSemana=="2"){
 					return "Lunes";
 				}
-				else if (diaDeLaSemana.equals("3")){
+				else if (diaDeLaSemana=="3"){
 					return "Martes";
 					
 				}
-				else if (diaDeLaSemana.equals("4")){
+				else if (diaDeLaSemana=="4"){
 					return "Miercoles";
 					
 				}
-				else if (diaDeLaSemana.equals("5")){
+				else if (diaDeLaSemana=="5"){
 					return "Jueves";
 				}
-				else if (diaDeLaSemana.equals("6")){
+				else if (diaDeLaSemana=="6"){
 					return "Viernes";
 					
 				}
-				else if (diaDeLaSemana.equals("7")){
+				else if (diaDeLaSemana=="7"){
 					return "Sabado";
 					
 				}
-				else if (diaDeLaSemana.equals("1")){
+				else if (diaDeLaSemana=="1"){
 					return "Domingo";
 					
 				}
