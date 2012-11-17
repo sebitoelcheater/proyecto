@@ -12,12 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.example.controlador.*;
 import com.example.data.*;
+import com.example.version0.ActividadDatosDelRamo;
 import com.example.version0.R;
+import com.example.version0.nuevoRamo;
 import com.example.version0.R.id;
 import com.example.version0.R.layout;
 import com.example.version0.R.menu;
-import com.example.version1.ActividadDatosDelRamo;
-import com.example.version1.nuevoRamo;
 public class ActividadRamosAnterior extends ListActivity {
 
 	 @Override

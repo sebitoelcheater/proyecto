@@ -1,4 +1,4 @@
-package com.example.version1;
+package com.example.version0;
 //Siguiendo el Tutorial de http://www.codeproject.com/Articles/119293/Using-SQLite-Database-with-Android
 
 //En la Version 0 hay que lograr que esta clase sepa:

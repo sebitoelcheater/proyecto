@@ -1,4 +1,4 @@
-package com.example.version1;
+package com.example.version0;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
 import com.example.controlador.Modulo;
 import com.example.version0.R;
-import com.example.version1.ActividadRamos.MiArrayAdapter;
+import com.example.version0.ActividadRamos.MiArrayAdapter;
 
 
 
