@@ -1,0 +1,34 @@
+La estructura Controlador es una abstración de un centro de procesos que maneja los cursos de un determinado usuario.
+Es un objeto que implementa la interfaz Parcelable, por lo que tiene la capacidad de ser pasado de Activity en Activity
+
+CONSTRUCTOR: Inicia un nuevo controlador extrayendo los datos desde la Base de datos interna del celular.
+				PARAMETROS :El Contexto en el cual se está trabajando(Context c)
+				
+METODOS: 
+
+* void addNuevoCurso(Context c, Curso c)
+				Añado un nuevo curso a mi controlador y al mismo tiempo a la Base De Datos del Celular
+				
+* ArrayList<String> getNombreCursos()
+				Retorna una lista con los nombres de los Cursos que tiene el controlador
+				
+* ArrayList<String> getIdCursos()
+				Retorna una lista con los ids(de la base de datos interna) de los Cursos del controlador
+				
+* ArrayList<String> getListaDeModuloSegunDia(Context context,int dia)
+				Retorna una lista con los datos(NOMBRES DE LOS CURSOS) de los modulos correspondientes a un determinado día
+				
+* ArrayList<Modulo> getListaDeModuloSegunDia1(Context context,int dia)
+				Retorna una lista de Modulos correspondientes a un determinado dia
+				
+* Curso getCurso(int posicion) // REVISANDO
+				Retorna un Curso según su posicion
+				
+* int getNumeroDeCursos()
+				Retorna el numero de cursos en el controlador
+				
+*  void removeCurso(Context context, String id)
+				Borrar un curso del controlador y la base de datos segun si ID
+				
+* void nuevaActividad(Context context)
+				Debe usarse cada vez que llego a una nueva actividad(CARACTER OBLIGATORIO)
