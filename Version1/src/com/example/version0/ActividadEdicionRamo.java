@@ -1,0 +1,401 @@
+package com.example.version0;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import android.app.Dialog;
+import android.app.ListActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+import com.example.controlador.Controlador;
+import com.example.controlador.Curso;
+import com.example.controlador.Modulo;
+import com.example.version0.R;
+import com.example.version0.ActividadRamos.MiArrayAdapter;
+
+
+
+public class ActividadEdicionRamo extends ListActivity implements OnItemClickListener {
+	
+	public class MiModuloEditandoArrayAdapter extends ArrayAdapter<Modulo> {
+
+		  private List<Modulo> objects;
+		   
+		  public MiModuloEditandoArrayAdapter(Context context, int textViewResourceId, List<Modulo> listaModulos) {
+				super(context, textViewResourceId, listaModulos);
+				this.objects = listaModulos;
+			}
+		
+
+		  public void agregarModulo(Modulo modulo) {
+	            objects.add(modulo);
+	        }
+
+	        public void clear() {
+	            objects.clear();
+	        }
+		  @Override
+		  public View getView(final int position, View convertView, ViewGroup parent) {
+			  	LayoutInflater inflater=getLayoutInflater();
+			  	//Recoje la view de la lista
+			  	View fila=inflater.inflate(R.layout.item_modulo, parent, false);
+			  	//Recoje textview donde va el nombre del ramo
+				TextView diaModulo=(TextView)fila.findViewById(R.id.diaModulo);
+				TextView horaInicio=(TextView)fila.findViewById(R.id.horaInicio);
+				TextView horaFin=(TextView)fila.findViewById(R.id.horaFin);
+				//Le pone el nombre al campo de texto del nombre del ramo
+				diaModulo.setText(objects.get(position).obtenerNombreDiaDeLaSemana());
+				horaInicio.setText(objects.get(position).obtenerStringInicio());
+				horaFin.setText(objects.get(position).obtenerStringFin());
+				
+				
+				Button boton_editar = (Button)fila.findViewById(R.id.botonEditarModulo);
+				boton_editar.setOnClickListener(new View.OnClickListener() {
+		             public void onClick(View v) {
+		            	 String idModulo = objects.get(position).obtenerId();
+			             	Bundle bundle = new Bundle();
+			            	bundle.putString("idModulo", idModulo);
+			            	bundle.putString("CASO", "EDITAR");
+			            	showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+		            	 
+		                
+		             }
+		         });
+				Button boton_eliminar_modulo = (Button)fila.findViewById(R.id.botonEliminarModulo);
+				boton_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+		             public void onClick(View v) {
+		             	Bundle bundle = new Bundle();
+		            	bundle.putString("idModulo", objects.get(position).obtenerId());
+		            	bundle.putString("CASO", "ELIMINAR");
+		            	showDialog(obtenerIdUnica(),bundle); //Cuidado con el showdialog....
+
+
+		                 
+		             }
+		         });
+				
+			  return fila;
+		  }
+		} 
+
+	
+	  private String idRamoAEditar = null;
+		private MiModuloEditandoArrayAdapter adaptador;
+
+
+		public Curso cursoAEditar;
+		public Modulo moduloAEditar;
+
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //Recibe el mensaje del inetent
+        Intent intent = getIntent();
+        //Aquí recibe la id (como string) del ramo a editar
+        idRamoAEditar = intent.getStringExtra("id");
+        
+        cursoAEditar = new Curso(this,idRamoAEditar);
+       
+        String nombreOriginal = cursoAEditar.obtenerNombre();
+        ArrayList<Modulo> array_modulos = Controlador.obtenerModulosPorIdCurso(this, idRamoAEditar);
+
+        
+        
+        setContentView(R.layout.activity_actividad_edicion_ramo);
+        /*Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
+        //numeroDeNotas.setAdapter(new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item,numeros));
+        //ListView listaDeModulos = (ListView) findViewById(R.id.listView1);
+        //listaDeModulos.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,modulos));
+        //listaDeModulos.setOnItemClickListener(this);
+        //TextView textNombreRamo = (TextView) findViewById(R.id.textNombreRamo);
+        textNombreRamo.setText(idRamoAEditar);*/
+        
+        EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
+
+        campoTextoNombre.setText(nombreOriginal);
+        
+        adaptador = new MiModuloEditandoArrayAdapter(this, R.layout.item_modulo_editando, array_modulos);
+        setListAdapter(adaptador);
+
+        
+        
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_actividad_datos_del_ramo, menu);
+        return true;
+    }
+public static int obtenerIdUnica(){
+    	
+    	/*Entrega una id única. Vital para crear dialogos únicos */
+    	Calendar now = Calendar.getInstance();
+		String year = String.valueOf(now.get(Calendar.YEAR));
+		String month = String.valueOf(now.get(Calendar.MONTH)); // Note: zero based!
+		String day = String.valueOf(now.get(Calendar.DAY_OF_MONTH)); //2
+		String hour = String.valueOf(now.get(Calendar.HOUR_OF_DAY));//2
+		String minute = String.valueOf(now.get(Calendar.MINUTE));//2
+		String second = String.valueOf(now.get(Calendar.SECOND));//2
+		String millis = String.valueOf(now.get(Calendar.MILLISECOND));//3
+		
+		//year + month + day +
+		//No puede quedar más largo, porque el rango de n
+		String idunicaStr = hour + minute + second + millis;
+		 int idunicaInt	=  Integer.valueOf(idunicaStr);
+		return (idunicaInt);
+    }
+public void actualizarModulos()
+	{
+	
+   	ArrayList<Modulo> nuevo_array_modulos = Controlador.obtenerModulosPorIdCurso(this, idRamoAEditar);
+
+       
+       adaptador.clear();
+       for(Modulo modulo : nuevo_array_modulos){
+       	adaptador.agregarModulo(modulo);
+       }
+       adaptador.notifyDataSetChanged();
+       
+	}
+    public void guardarCambios(View view)
+	{
+        EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
+        String nuevoNombre = campoTextoNombre.getText().toString();
+    	String nombreOriginal = cursoAEditar.obtenerNombre();
+
+        
+		if (nuevoNombre != nombreOriginal){
+			cursoAEditar.establecerNombre(this, nuevoNombre);
+			
+		}
+		setResult(RESULT_OK);
+		  finish();
+	}
+    
+    public void agregarModulo(View view)
+    {
+    	
+    		Bundle bundle = new Bundle();
+    		bundle.putString("CASO", "NUEVO");
+        	showDialog(obtenerIdUnica(),bundle);
+    	
+    	
+    }
+
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+protected Dialog onCreateDialog(int id, Bundle b) {
+    	
+    	final Dialog d = new Dialog(this);
+    	String caso = b.getString("CASO"); 
+    	/*caso = "ELIMINAR" significa que se desea eliminar el módulo
+    	 * caso = "EDITAR" significa que se desea editar el módulo XD*/
+    	if (caso == "ELIMINAR") {
+
+    		d.setContentView(R.layout.dialogo_eliminar_modulo);
+    		d.setTitle("¿Está seguro de eliminar el siguiente Módulo?");
+    		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.botonCancelarEliminarModulo);
+    		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.botonAceptarEliminarModulo);
+    		String id_modulo = b.getString("idModulo");
+            moduloAEditar = new Modulo(this,id_modulo);
+            TextView diaModulo=(TextView)d.findViewById(R.id.diaModulo);
+			TextView horaInicio=(TextView)d.findViewById(R.id.horaInicio);
+			TextView horaFin=(TextView)d.findViewById(R.id.horaFin);
+			//TextView textidModulo=(TextView)d.findViewById(R.id.idModulo);
+			//TextView textidModulo2=(TextView)d.findViewById(R.id.idModulo2);
+
+			
+			//Le pone el nombre al campo de texto del nombre del ramo
+			diaModulo.setText(moduloAEditar.obtenerNombreDiaDeLaSemana());
+			horaInicio.setText(moduloAEditar.obtenerStringInicio());
+			horaFin.setText(moduloAEditar.obtenerStringFin());
+			//textidModulo.setText(moduloAEditar.obtenerId());
+			//textidModulo2.setText(idModulo2);
+            
+
+		
+    		boton_cancelar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	
+                	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
+                	 * Además actualizar la lista de los módulos*/
+                	moduloAEditar.borrarModulo(ActividadEdicionRamo.this);
+            		actualizarModulos();
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		return d;
+    		}
+    	else if (caso == "EDITAR") {
+    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+    		
+    		d.setContentView(R.layout.dialogo_modulo);
+    		d.setTitle("Editar hora");
+    		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
+    		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
+    		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+    		TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+    		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+    		String id_modulo = b.getString("idModulo");
+            moduloAEditar = new Modulo(this,id_modulo);
+            
+            
+    		///Agregando datos
+    		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
+    		tPInicio.setIs24HourView(true);
+    		tPInicio.setCurrentHour(moduloAEditar.obtenerInicio().get(Calendar.HOUR_OF_DAY));
+    		tPInicio.setCurrentMinute(moduloAEditar.obtenerInicio().get(Calendar.MINUTE));
+    		tPFin.setIs24HourView(true);
+    		tPFin.setCurrentHour(moduloAEditar.obtenerFin().get(Calendar.HOUR_OF_DAY));
+    		tPFin.setCurrentMinute(moduloAEditar.obtenerFin().get(Calendar.MINUTE));
+    		
+    		///Agregando datos
+    		
+            
+            		
+    		boton_cancelar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	
+                	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
+                	 * Además actualizar la lista de los módulos*/
+                	Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+                	TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+            		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+            		
+                	moduloAEditar.establecerDiaDeLaSemana(v.getContext(), spinnerDias.getSelectedItemPosition()+1);
+                	Calendar inicio = moduloAEditar.obtenerInicio();
+                	inicio.set(Calendar.HOUR_OF_DAY, tPInicio.getCurrentHour());
+                	inicio.set(Calendar.MINUTE,tPInicio.getCurrentMinute());
+                	
+                	Calendar fin = moduloAEditar.obtenerFin();
+                	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
+                	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
+                	
+                	moduloAEditar.establecerInicio(v.getContext(), inicio);
+                	moduloAEditar.establecerFin(v.getContext(), fin);
+                	actualizarModulos();
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		return d;
+    		/*TODO: Crear un layout para la edición de módulo
+    		 * recoger todos los datos del módulo
+    		 * colocarlos y permitir su edición
+    		 * recopilar los cambios
+    		 * hacer los cambios a través del controlador
+    		 * actualizar la lista de módulos*/
+    		
+    		}
+    	else if (caso == "NUEVO") {
+    		/*TODO: Crear un layout para nuevo modulo
+    		 * recopilar los datos del nuevo módulo
+    		 * hacer los cambios a través del controlador
+    		 * actualizar la lista de módulos*/
+    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+    		
+    		d.setContentView(R.layout.dialogo_modulo);
+    		d.setTitle("Agregar Modulo");
+    		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
+    		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
+    		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+    		TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+    		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+    		
+            
+    		///Agregando datos
+    		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
+    		
+    		///Agregando datos
+    		
+            
+            		
+    		boton_cancelar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	
+                	/*TODO, recoger en el Buble la id del Módulo y eliminar el módulo*
+                	 * Además actualizar la lista de los módulos*/
+                	Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+                	TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+            		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+            		Calendar inicio = Calendar.getInstance();
+            		inicio.set(Calendar.HOUR_OF_DAY, tPInicio.getCurrentHour());
+                	inicio.set(Calendar.MINUTE,tPInicio.getCurrentMinute());
+                	
+                	Calendar fin = Calendar.getInstance();
+                	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
+                	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
+                	
+                	Controlador.crearNuevoModulo(v.getContext(), 0, Integer.parseInt(cursoAEditar.obtenerId()), spinnerDias.getSelectedItemPosition()+1, inicio, fin, cursoAEditar.obtenerNombre());
+            		actualizarModulos();
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		return d;
+
+    		}
+    	return d;
+    	}
+	
+	
+	
+	
+	
+}
