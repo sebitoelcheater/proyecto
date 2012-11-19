@@ -86,8 +86,7 @@
         </activity>
         <activity
             android:name=".ActividadHorarioSemanal"
-            android:label="@string/title_activity_actividad_horario_semanal" 
-            android:screenOrientation="landscape">
+            android:label="@string/title_activity_actividad_horario_semanal" >
             
         </activity>
     </application>
