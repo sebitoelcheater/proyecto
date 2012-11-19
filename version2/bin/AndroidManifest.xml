@@ -84,6 +84,11 @@
             android:name=".ActividadSuscribirCursoActivity"
             android:label="@string/title_activity_actividad_suscribir_curso" >
         </activity>
+        <activity
+            android:name=".ActividadHorarioSemanal"
+            android:label="@string/title_activity_actividad_horario_semanal" >
+            
+        </activity>
     </application>
 
 </manifest>
