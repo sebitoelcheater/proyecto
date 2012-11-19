@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
-
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="2.13"
         android:orientation="vertical" >
 
@@ -115,16 +115,15 @@
             android:layout_height="wrap_content"
             android:text="21"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="22"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
     </LinearLayout>
-
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -136,15 +135,6 @@
             android:layout_height="wrap_content"
             android:text="Lun "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutLunes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -158,15 +148,6 @@
             android:layout_height="wrap_content"
             android:text="Mar "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutMartes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -180,15 +161,6 @@
             android:layout_height="wrap_content"
             android:text="Mie "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutMiercoles"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -202,15 +174,6 @@
             android:layout_height="wrap_content"
             android:text="Jue "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayouJueves"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -229,15 +192,6 @@
                 android:layout_height="wrap_content"
                 android:text="Vie "
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <LinearLayout
-                android:id="@+id/LinearLayoutViernes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-            </LinearLayout>
-
         </LinearLayout>
 
         <TextView
@@ -259,15 +213,6 @@
             android:layout_height="wrap_content"
             android:text="Sab "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutSabado"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -281,15 +226,6 @@
             android:layout_height="wrap_content"
             android:text="Dom "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutDomingo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

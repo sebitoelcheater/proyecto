@@ -136,9 +136,8 @@
             android:layout_height="wrap_content"
             android:text="Lun "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
         <LinearLayout
-            android:id="@+id/LinearLayoutLunes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -158,9 +157,8 @@
             android:layout_height="wrap_content"
             android:text="Mar "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
         <LinearLayout
-            android:id="@+id/LinearLayoutMartes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -180,9 +178,8 @@
             android:layout_height="wrap_content"
             android:text="Mie "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
         <LinearLayout
-            android:id="@+id/LinearLayoutMiercoles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -202,9 +199,8 @@
             android:layout_height="wrap_content"
             android:text="Jue "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
         <LinearLayout
-            android:id="@+id/LinearLayouJueves"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -229,9 +225,8 @@
                 android:layout_height="wrap_content"
                 android:text="Vie "
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <LinearLayout
-                android:id="@+id/LinearLayoutViernes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
@@ -259,9 +254,8 @@
             android:layout_height="wrap_content"
             android:text="Sab "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
         <LinearLayout
-            android:id="@+id/LinearLayoutSabado"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -281,9 +275,8 @@
             android:layout_height="wrap_content"
             android:text="Dom "
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
         <LinearLayout
-            android:id="@+id/LinearLayoutDomingo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
