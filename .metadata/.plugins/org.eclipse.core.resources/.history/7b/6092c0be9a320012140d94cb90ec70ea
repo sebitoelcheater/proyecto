@@ -78,7 +78,7 @@ public class ActividadHorarioSemanal extends Activity {
 			}
 				
 			TextView a = new TextView(this);
-			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
+			a.setText(m.obtenerStringInicio());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -105,7 +105,7 @@ public class ActividadHorarioSemanal extends Activity {
 			}
 				
 			TextView a = new TextView(this);
-			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
+			a.setText(m.obtenerStringInicio());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -126,7 +126,7 @@ public class ActividadHorarioSemanal extends Activity {
 			}
 				
 			TextView a = new TextView(this);
-			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
+			a.setText(m.obtenerStringInicio());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -148,7 +148,7 @@ public class ActividadHorarioSemanal extends Activity {
 			}
 				
 			TextView a = new TextView(this);
-			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
+			a.setText(m.obtenerStringInicio());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -170,7 +170,7 @@ public class ActividadHorarioSemanal extends Activity {
 			}
 				
 			TextView a = new TextView(this);
-			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
+			a.setText(m.obtenerStringInicio());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -192,7 +192,7 @@ public class ActividadHorarioSemanal extends Activity {
 			}
 				
 			TextView a = new TextView(this);
-			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
+			a.setText(m.obtenerStringInicio());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
