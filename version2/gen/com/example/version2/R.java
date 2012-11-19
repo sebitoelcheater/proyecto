@@ -52,9 +52,9 @@ public final class R {
         public static final int tab_unselected=0x7f020015;
     }
     public static final class id {
-        public static final int LinearLayouJueves=0x7f0a0022;
         public static final int LinearLayout2=0x7f0a000c;
         public static final int LinearLayoutDomingo=0x7f0a0029;
+        public static final int LinearLayoutJueves=0x7f0a0022;
         public static final int LinearLayoutLunes=0x7f0a001d;
         public static final int LinearLayoutMartes=0x7f0a001e;
         public static final int LinearLayoutMiercoles=0x7f0a0020;
