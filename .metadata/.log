@@ -10408,3 +10408,45 @@ java.lang.IllegalStateException: ScrollView can host only one direct child
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.032
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.036
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.040
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.042
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.045
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.047
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.049
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.051
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.054
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.056
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.058
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.060
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.062
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.063
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!

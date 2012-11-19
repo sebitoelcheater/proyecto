@@ -43,20 +43,7 @@ public class ActividadHorarioSemanal extends Activity {
 		
     	for(Modulo m : modulosDia)
 		{
-    		Calendar inicio = m.obtenerInicio();
-			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
-			Calendar fin = m.obtenerFin();
-			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
-			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
-				enQueVoy+= minutos-enQueVoy;
-			}
-				
-			TextView a = new TextView(this);
-			a.setText(m.obtenerStringInicio());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
-			enQueVoy+=duracionEnMinutos;
+			l.addView(new Button(this));
 		}
 		
 		//EDITANDO
@@ -70,7 +57,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
+			if(enQueVoy<minutos)  //Y si enQueVoy>minutos(ESTO NO DEBERIA PASAR....)
 			{
 				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
 				enQueVoy+= minutos-enQueVoy;
@@ -93,20 +80,7 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
-			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
-			Calendar fin = m.obtenerFin();
-			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
-			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
-				enQueVoy+= minutos-enQueVoy;
-			}
-				
-			TextView a = new TextView(this);
-			a.setText(m.obtenerStringInicio());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
-			enQueVoy+=duracionEnMinutos;
+			l.addView(new Button(this));
 		}
 		
 		enQueVoy = 480;
@@ -136,20 +110,7 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
-			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
-			Calendar fin = m.obtenerFin();
-			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
-			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
-				enQueVoy+= minutos-enQueVoy;
-			}
-				
-			TextView a = new TextView(this);
-			a.setText(m.obtenerStringInicio());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
-			enQueVoy+=duracionEnMinutos;
+			l.addView(new Button(this));
 		}
 		
 		enQueVoy = 480;
@@ -158,20 +119,7 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
-			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
-			Calendar fin = m.obtenerFin();
-			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
-			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
-				enQueVoy+= minutos-enQueVoy;
-			}
-				
-			TextView a = new TextView(this);
-			a.setText(m.obtenerStringInicio());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
-			enQueVoy+=duracionEnMinutos;
+			l.addView(new Button(this));
 		}
 		
 		enQueVoy = 480;
@@ -180,20 +128,7 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
-			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
-			Calendar fin = m.obtenerFin();
-			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
-			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
-				enQueVoy+= minutos-enQueVoy;
-			}
-				
-			TextView a = new TextView(this);
-			a.setText(m.obtenerStringInicio());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
-			enQueVoy+=duracionEnMinutos;
+			l.addView(new Button(this));
 		}
 		
 	}
