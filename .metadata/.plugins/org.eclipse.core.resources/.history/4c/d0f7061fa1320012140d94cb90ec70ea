@@ -82,7 +82,7 @@ public class ActividadHorarioSemanal extends Activity {
 				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
 				enQueVoy+= minutos-enQueVoy;
 			}
-			/*
+			
 			ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 			HashMap<String,String> item = new HashMap<String,String>();
 			  item.put( "line1","line11");
@@ -96,7 +96,7 @@ public class ActividadHorarioSemanal extends Activity {
 					R.layout.modulo,
 					new String[] { "line1","line2","line3","line4" },
 					new int[] { R.id.textView1, R.id.textView2, R.id.textView3, R.id.textView4 } );
-			View v = modulo.getVie;*/
+			View v = modulo.getView(0, new View(this), new View(this));
 			TextView a = new TextView(this);
 			a.setText(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
