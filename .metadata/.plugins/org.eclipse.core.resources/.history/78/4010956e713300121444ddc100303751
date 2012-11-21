@@ -35,7 +35,7 @@ public class ViewModulo extends RelativeLayout{
 	        sala = (TextView) findViewById(R.id.textView3);
 	        horaFin = (TextView) findViewById(R.id.textView4);
 	        
-	        //horaInicio.setTextColor(Color.RED);
+	        horaInicio.setTextColor(Color.RED);
 	    }
 	 
 	    public void setHoraInicio(CharSequence horaInicio) {
