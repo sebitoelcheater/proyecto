@@ -203,7 +203,7 @@ public class AdapterCursos {
     
     public Cursor getAllIdsHORARIOS()
     {
-    	 return db.query(DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWIIDH}, null, null, null, null, KEY_INICIO);
+    	 return db.query(DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWIIDH}, null, null, null, null, null);
     }
     
     public Cursor getModulosSiguientesHORARIOS(String diaDeLaSemana,String hora, String limit) {
