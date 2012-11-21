@@ -39,8 +39,7 @@ public class ActividadHorarioSemanal extends Activity {
         
         
     }
-    
-   
+
     private void rellenarModulos() 
     {
 	   	// TODO Auto-generated method stub

@@ -40,7 +40,18 @@ public class ActividadHorarioSemanal extends Activity {
         
     }
     
-   
+    public void onResume(Bundle savedInstanceState) {
+        super.onResume();
+    	setContentView(R.layout.activity_actividad_horario_semanal);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+       
+        rellenarModulos();
+        
+        
+        
+        
+    }
+
     private void rellenarModulos() 
     {
 	   	// TODO Auto-generated method stub
