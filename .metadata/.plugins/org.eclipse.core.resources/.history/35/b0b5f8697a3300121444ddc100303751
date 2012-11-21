@@ -273,7 +273,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
             
     		///Agregando datos
     		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
-    		spinnerDias.setSelection(Integer.parseInt(moduloAEditar.obtenerDiaDeLaSemana())-1);
     		tPInicio.setIs24HourView(true);
     		tPInicio.setCurrentHour(moduloAEditar.obtenerInicio().get(Calendar.HOUR_OF_DAY));
     		tPInicio.setCurrentMinute(moduloAEditar.obtenerInicio().get(Calendar.MINUTE));
