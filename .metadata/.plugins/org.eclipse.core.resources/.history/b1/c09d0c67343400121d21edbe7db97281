@@ -16,11 +16,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
-
 import com.example.controlador.*;
 import com.example.data.*;
-public class ActividadHorario extends Activity{
+public class ActividadHorario extends Activity implements OnClickListener{
 	
 	int hoy;
 	int viendo;
@@ -43,8 +41,8 @@ public class ActividadHorario extends Activity{
         modulos.setAdapter(new ArrayAdapter<Integer>(this,android.R.layout.simple_list_item_1,array_modulos));
         */
         generaModulos();
-       // Button ver = (Button)findViewById(R.id.button1);
-        //ver.setOnClickListener(this);
+        Button ver = (Button)findViewById(R.id.button1);
+        ver.setOnClickListener(this);
        
     }
 
@@ -53,13 +51,13 @@ public class ActividadHorario extends Activity{
         getMenuInflater().inflate(R.menu.activity_actividad_horario, menu);
         return true;
     }
-/*
+
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		//generaModulos(numeroDeNotas.getSelectedItemPosition());
 		generaModulos();
 		
-	}*/
+	}
 /*METODO ANTIGUO
 	private void generaModulos(int selectedItemPosition) {
 		// TODO Auto-generated method stub
@@ -75,19 +73,11 @@ public class ActividadHorario extends Activity{
 	private void generaModulos() {
 		// TODO Auto-generated method stub
 		ArrayList<Modulo> modulos;
-		TextView titulo = (TextView)findViewById(R.id.textView1);
 		if (hoy==viendo)
-		{
 			modulos = Controlador.obtenerLosSiguientesModulosDelDia(this, Calendar.getInstance(), 5);
-			titulo.setText("Siguientes clases(HOY)");
-		}
 		
 		else
-		{
 			modulos = Controlador.obtenerModulosSegunDia(this, viendo);
-			titulo.setText(stringDDS(viendo));
-		}
-			
 		
 		this.array_modulos= new ArrayList<HashMap<String,String>>();
 		for(Modulo m : modulos) 
@@ -107,7 +97,7 @@ public class ActividadHorario extends Activity{
         
 	}
 	
-	public void verSiguiente(View v)
+	public void verSiguiente()
 	{
 		if(++viendo>7)
 			viendo = 1;
@@ -115,7 +105,7 @@ public class ActividadHorario extends Activity{
 		generaModulos();
 	}
 	
-	public void verAnterior(View v)
+	public void verAnterior()
 	{
 		if(--viendo<1)
 			viendo = 7;
@@ -123,42 +113,8 @@ public class ActividadHorario extends Activity{
 		generaModulos();
 	}
 	
-	public void verHoy(View v)
+	public void verHoy()
 	{
-		viendo = hoy;
-		generaModulos();
-	}
-	
-	private String stringDDS(int dia)
-	{
-		if (dia==2){
-			return "Lunes";
-		}
-		else if (dia==3){
-			return "Martes";
-			
-		}
-		else if (dia==4){
-			return "Miercoles";
-			
-		}
-		else if (dia==5){
-			return "Jueves";
-		}
-		else if (dia==6){
-			return "Viernes";
-			
-		}
-		else if (dia ==7){
-			return "Sabado";
-			
-		}
-		else if (dia==1){
-			return "Domingo";
-			
-		}
-		else {
-			return "DIA "+dia+" ";
-		}
+		
 	}
 }

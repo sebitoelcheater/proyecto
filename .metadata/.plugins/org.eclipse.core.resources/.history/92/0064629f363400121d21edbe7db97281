@@ -53,13 +53,13 @@ public class ActividadHorario extends Activity{
         getMenuInflater().inflate(R.menu.activity_actividad_horario, menu);
         return true;
     }
-/*
+
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		//generaModulos(numeroDeNotas.getSelectedItemPosition());
 		generaModulos();
 		
-	}*/
+	}
 /*METODO ANTIGUO
 	private void generaModulos(int selectedItemPosition) {
 		// TODO Auto-generated method stub

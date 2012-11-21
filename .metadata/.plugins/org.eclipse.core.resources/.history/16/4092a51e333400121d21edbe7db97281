@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="landscape" >
-
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -13,33 +13,32 @@
         android:layout_alignParentTop="true"
         android:text="Siguientes clases(HOY)"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
+
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/textView1"
-        android:background="@drawable/anterior"
-        android:onClick="verAnterior" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/hoy"
-        android:onClick="verHoy" />
+        android:text="Ver Horario(Refrescar)" />
 
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageButton3"
-        android:background="@drawable/siguiente"
-        android:onClick="verSiguiente" />
+        android:layout_below="@+id/button1"
+        android:background="@drawable/siguiente" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button1"
+        android:background="@drawable/anterior"
+        android:onClick="verAnterior" />
 
     <ListView
         android:id="@+id/listView1"
@@ -48,5 +47,14 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageButton2" >
     </ListView>
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageButton1"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/hoy"
+        android:onClick="verHoy" />
 
 </RelativeLayout>
