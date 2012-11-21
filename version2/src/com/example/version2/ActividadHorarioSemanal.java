@@ -51,6 +51,8 @@ public class ActividadHorarioSemanal extends Activity {
 		
     	for(Modulo m : modulosDia)
 		{
+    		Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
     		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
@@ -65,8 +67,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -78,7 +82,9 @@ public class ActividadHorarioSemanal extends Activity {
 		modulosDia = Controlador.obtenerModulosSegunDia(this, 3);
 		for(Modulo m : modulosDia)
 		{
-			Calendar inicio = m.obtenerInicio();
+Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
@@ -92,8 +98,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -109,7 +117,9 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
+Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
@@ -123,8 +133,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -134,7 +146,9 @@ public class ActividadHorarioSemanal extends Activity {
 		modulosDia = Controlador.obtenerModulosSegunDia(this, 5);
 		for(Modulo m : modulosDia)
 		{
-			Calendar inicio = m.obtenerInicio();
+            Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
@@ -148,8 +162,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -160,7 +176,9 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
+            Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
@@ -174,8 +192,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -186,7 +206,9 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
+			Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
@@ -200,8 +222,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
@@ -212,7 +236,9 @@ public class ActividadHorarioSemanal extends Activity {
 		for(Modulo m : modulosDia)
 		{
 			
-			Calendar inicio = m.obtenerInicio();
+			Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
@@ -226,8 +252,10 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
-			a.setColor(Color.GREEN);
+			
+			a.setNombre(curso.obtenerNombre().substring(0,4));
+			String color = curso.obtenerColor();
+			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}

@@ -12,6 +12,7 @@ public class Curso
 	private String idMaster; //idC
 	private String idP; 
 	private boolean comentable;
+	private String color;
 	public Curso(Context context ,String id)
 	{
 		this.id = id;
@@ -32,7 +33,7 @@ public class Curso
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();
 		Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-		
+		setColor(c.getString(5));
 		setNombre(c.getString(3));
 		setComentable("0".equals(c.getString(4)));
 		setIdMaster(c.getString(1));
@@ -41,7 +42,9 @@ public class Curso
 		///METODO DE OBTENCION DE DATOS DESDE LA DB
 	}
 	
-	//METODOS DE OBTENCION
+	
+
+		//METODOS DE OBTENCION
 		public String obtenerId()
 		{
 			return id;
@@ -71,6 +74,11 @@ public class Curso
 		{
 			return !comentable;
 		}
+		
+		public String obtenerColor()
+		{
+			return color;
+		}
 	//METODOS DE OBTENCION
 		
 	//METODOS DE SETEO DEL OBJETO(NO DB)
@@ -98,6 +106,11 @@ public class Curso
 		{
 			this.idP = idP;
 		}
+		
+		private void setColor(String string) {
+			// TODO Auto-generated method stub
+			color = string;
+		}
 	//METODOS DE SETEO DEL OBJETO(NO DB)
 		
 	// METODOS DE SETEO DE LA BASE DE DATOS Y OBJETO (NO OLVIDAR EL CONTEXTO)
@@ -107,7 +120,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), nuevoNombre, Integer.parseInt(c.getString(4))))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), nuevoNombre, Integer.parseInt(c.getString(4)),c.getString(5)))
 			{	
 				setNombre(nuevoNombre);
 				db.close();
@@ -122,7 +135,7 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), idMaster, c.getString(2), c.getString(3), Integer.parseInt(c.getString(4))))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), idMaster, c.getString(2), c.getString(3), Integer.parseInt(c.getString(4)),c.getString(5)))
 			{	
 				setIdMaster(idMaster);
 				db.close();
@@ -141,7 +154,7 @@ public class Curso
 			if(comentable)
 				stringComentable = "0";
 			
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3),Integer.parseInt(stringComentable)))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3),Integer.parseInt(stringComentable),c.getString(5)))
 			{	
 				setComentable(comentable);
 				db.close();
@@ -157,7 +170,22 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			db.open();
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
-			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), idP, c.getString(3), Integer.parseInt(c.getString(4))))
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), idP, c.getString(3), Integer.parseInt(c.getString(4)),c.getString(5)))
+			{	
+				setIdP(idP);
+				db.close();
+				return true;
+			}
+			db.close();
+			return false;
+		}
+		
+		public boolean establecerColor(Context context, String color)
+		{
+			AdapterCursos db = new AdapterCursos(context);
+			db.open();
+			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
+			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3), Integer.parseInt(c.getString(4)),color))
 			{	
 				setIdP(idP);
 				db.close();

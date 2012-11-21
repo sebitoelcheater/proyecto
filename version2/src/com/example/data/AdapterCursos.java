@@ -38,6 +38,7 @@ public class AdapterCursos {
 	
     public static final String KEY_TITLE = "title";
     public static final String KEY_COMENTABLE = "comentable";
+    public static final String KEY_COLOR = "color";
     
     //tabla comentarios
     
@@ -50,10 +51,10 @@ public class AdapterCursos {
     private static final String DATABASE_TABLE_HORARIOS = "Horarios";
     private static final String DATABASE_TABLE_COMENTARIOS = "Comentarios";
     private static final String DATABASE_TABLE_PROFESORES = "Profesores";
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
 
     private static final String TABLE_CREATE_CURSOS =
-        "create table if not exists Cursos (iidC integer primary key autoincrement, idC integer, iidP integer, title VARCHAR not null, comentable integer);";
+        "create table if not exists Cursos (iidC integer primary key autoincrement, idC integer, iidP integer, title VARCHAR not null, comentable integer, color VARCHAR not null);";
         
     private static final String TABLE_CREATE_HORARIOS =
         "create table if not exists Horarios (iidH integer primary key autoincrement, idH integer, iidC integer, dds integer, inicio date, fin date, ubicacion VARCHAR);";
@@ -122,13 +123,14 @@ public class AdapterCursos {
     }
     
     //---insert a record into the database---
-    public long insertRecordCURSOS(int idC, int iidP, String title, int comentable) 
+    public long insertRecordCURSOS(int idC, int iidP, String title, int comentable,String color) 
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_ROWIDC, idC);
         initialValues.put(KEY_ROWIIDP, iidP);
         initialValues.put(KEY_TITLE, title);
         initialValues.put(KEY_COMENTABLE, comentable);
+        initialValues.put(KEY_COLOR, color);
         return db.insert(DATABASE_TABLE_CURSOS, null, initialValues);
     }
 
@@ -155,7 +157,7 @@ public class AdapterCursos {
     {
     	Cursor mCursor =
                 db.query(DATABASE_TABLE_CURSOS, new String[] {KEY_ROWIIDC, KEY_ROWIDC, KEY_ROWIIDP, 
-                KEY_TITLE, KEY_COMENTABLE}, 
+                KEY_TITLE, KEY_COMENTABLE, KEY_COLOR}, 
                 KEY_ROWIIDC + "=" + rowId, null, null, null, null, null);
     	if (mCursor != null) {
     		
@@ -166,13 +168,14 @@ public class AdapterCursos {
     
 
     //---updates a record---
-    public boolean updateRecordCURSOS(long rowId, String idC, String iidP, String title, int comentable) 
+    public boolean updateRecordCURSOS(long rowId, String idC, String iidP, String title, int comentable,String color) 
     {
         ContentValues args = new ContentValues();
         args.put(KEY_ROWIDC, idC);
         args.put(KEY_ROWIIDP, iidP);
         args.put(KEY_TITLE, title);
         args.put(KEY_COMENTABLE, comentable);
+        args.put(KEY_COLOR, color);
         return db.update(DATABASE_TABLE_CURSOS, args, KEY_ROWIIDC + "=" + rowId, null) > 0;
     }
     

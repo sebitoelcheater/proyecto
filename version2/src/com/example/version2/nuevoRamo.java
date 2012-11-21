@@ -39,7 +39,7 @@ public class nuevoRamo extends Activity {
 	{
 		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
-		Curso c = Controlador.crearNuevoCurso(this,0,0, nameTxt.getText().toString(),true); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
+		Curso c = Controlador.crearNuevoCurso(this,0,0, nameTxt.getText().toString(),true,"000-255-000"); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
 		Calendar ahora = Calendar.getInstance();
 		ahora.add(Calendar.MINUTE, 6);
 		Calendar despues = (Calendar)ahora.clone();

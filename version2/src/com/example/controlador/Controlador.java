@@ -98,14 +98,14 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	    db.close();
 		return id;
 	}
-	static public Curso crearNuevoCurso(Context context,int idC, int iidP, String nombre,boolean comentable) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
+	static public Curso crearNuevoCurso(Context context,int idC, int iidP, String nombre,boolean comentable,String color) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
 	{
 		int c = 0;
 		if(!comentable)
 			c = 1;
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c)+"";    
+	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c,color)+"";    
 	    db.close();
 	    
 	   return new Curso(context, id);
@@ -423,7 +423,20 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		return modulos;
 	}
 	
+	public static int getRed(String color)
+	{
+		return Integer.parseInt(color.substring(0, 3));
+	}
 	
+	public static int getGreen(String color)
+	{
+		return Integer.parseInt(color.substring(4, 7));
+	}
+	
+	public static int getBlue(String color)
+	{
+		return Integer.parseInt(color.substring(8, 11));
+	}
 	
 	private static String agregarCeros(int n, int i) {
 		// TODO Auto-generated method stub
