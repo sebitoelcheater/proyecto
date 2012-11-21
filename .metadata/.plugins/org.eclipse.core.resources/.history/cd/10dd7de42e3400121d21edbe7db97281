@@ -104,7 +104,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*(minutos-enQueVoy))));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				

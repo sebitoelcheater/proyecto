@@ -104,7 +104,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*(minutos-enQueVoy))));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -229,7 +229,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*(minutos-enQueVoy))));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -241,7 +241,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*duracionEnMinutos)));
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -259,7 +259,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*(minutos-enQueVoy))));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -271,7 +271,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*duracionEnMinutos)));
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -289,7 +289,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*(minutos-enQueVoy))));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -301,7 +301,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,(int)(factor*duracionEnMinutos)));
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,(int)factor*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
