@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -64,8 +65,9 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -82,16 +84,17 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
-			
+				
 			ViewModulo a = new ViewModulo(this);
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -112,7 +115,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -120,8 +123,9 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -134,9 +138,9 @@ public class ActividadHorarioSemanal extends Activity {
 			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
 			Calendar fin = m.obtenerFin();
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)
+			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -144,8 +148,9 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -161,7 +166,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -169,8 +174,9 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -186,7 +192,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -194,8 +200,9 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		
@@ -211,7 +218,7 @@ public class ActividadHorarioSemanal extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,minutos-enQueVoy));
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,2*(minutos-enQueVoy)));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -219,8 +226,9 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraInicio(m.obtenerStringInicio());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
-			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre());
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,duracionEnMinutos));
+			a.setNombre(new Curso(this,m.obtenerIdCurso()).obtenerNombre().substring(0,4));
+			a.setColor(Color.GREEN);
+			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
 			enQueVoy+=duracionEnMinutos;
 		}
 		

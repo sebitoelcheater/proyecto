@@ -10450,3 +10450,40 @@ java.lang.IllegalStateException: ScrollView can host only one direct child
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2012-11-19 19:19:57.063
 !MESSAGE activity_actividad_horario_semanal.xml: Dimension "35" in attribute "layout_height" is missing unit!
+!SESSION 2012-11-20 20:28:51.318 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-20 20:30:05.586
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Version0
+
+!ENTRY org.eclipse.ui 4 4 2012-11-20 20:30:07.262
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:02:18.381
+!MESSAGE modulo.xml: Couldn't resolve resource @dimen/DimensionHora
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:02:18.432
+!MESSAGE modulo.xml: "@dimen/DimensionHora" in attribute "textSize" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:15.021
+!MESSAGE modulo.xml: Couldn't resolve resource @dimen/DimensionNombre
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:15.022
+!MESSAGE modulo.xml: "@dimen/DimensionNombre" in attribute "textSize" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:40.206
+!MESSAGE modulo.xml: Couldn't resolve resource @dimen/DimensionNombre2
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:40.208
+!MESSAGE modulo.xml: "@dimen/DimensionNombre2" in attribute "textSize" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:58.792
+!MESSAGE modulo.xml: Couldn't resolve resource @dimen/DimensionNombre3
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:58.795
+!MESSAGE modulo.xml: "@dimen/DimensionNombre3" in attribute "textSize" is not a valid format.
