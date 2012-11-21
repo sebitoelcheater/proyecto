@@ -31,7 +31,7 @@ public class ActividadHorarioSemanal extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario_semanal);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
        
         rellenarModulos();
         
@@ -68,7 +68,7 @@ public class ActividadHorarioSemanal extends Activity {
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
@@ -99,7 +99,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
@@ -134,7 +134,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
@@ -163,7 +163,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
@@ -193,7 +193,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
@@ -223,7 +223,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));
@@ -253,7 +253,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,4));
+			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,2*duracionEnMinutos));

@@ -3,6 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/scrollView1"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" >
         
@@ -140,7 +141,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:text="Lunes "
+            android:text="L      "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
@@ -167,7 +168,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:text="Martes "
+            android:text="M      "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
@@ -189,7 +190,7 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:text="Miercoles "
+            android:text="M      "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
@@ -211,7 +212,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:text="Jueves "
+            android:text="J      "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
@@ -238,7 +239,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
-                android:text="Viernes "
+                android:text="V      "
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <LinearLayout
@@ -268,7 +269,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:text="Sabado "
+            android:text="S      "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
@@ -288,9 +289,9 @@
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="98dp"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:text="Domingo"
+            android:text="D      "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout

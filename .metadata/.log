@@ -10487,3 +10487,9 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY com.android.ide.eclipse.adt 2 0 2012-11-20 21:04:58.795
 !MESSAGE modulo.xml: "@dimen/DimensionNombre3" in attribute "textSize" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-20 22:32:56.524
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "8" in attribute "layout_width" is missing unit!
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-20 22:32:56.819
+!MESSAGE activity_actividad_horario_semanal.xml: Dimension "8" in attribute "layout_width" is missing unit!
