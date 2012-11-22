@@ -11607,3 +11607,16 @@ Binding(CTRL+SHIFT+ARROW_DOWN,
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2012-11-22 01:25:25.614
 !MESSAGE Warning: Ignoring name conflict in resource file for name menu_settings
+!SESSION 2012-11-22 06:28:39.002 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-22 06:29:06.653
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Version0
+
+!ENTRY org.eclipse.ui 4 4 2012-11-22 06:29:09.117
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset

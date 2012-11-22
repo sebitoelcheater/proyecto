@@ -3,35 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="276" key="DIALOG_Y_ORIGIN"/>
-		<item value="379" key="DIALOG_HEIGHT"/>
 		<item value="751" key="DIALOG_X_ORIGIN"/>
+		<item value="379" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Segun" key="selection"/>
+		<item value="id" key="selection"/>
 		<list key="findhistory">
+			<item value="id"/>
+			<item value="colo"/>
+			<item value="Princi"/>
+			<item value="Support(get"/>
+			<item value="rt(this"/>
+			<item value="(int)(factor*(minutos-enQueVoy))"/>
+			<item value="(factor*(minutos-enQueVoy))"/>
 			<item value="segun"/>
-			<item value="dialog"/>
-			<item value="(int)"/>
-			<item value="prin"/>
-			<item value="factor"/>
-			<item value="2"/>
-			<item value="uses"/>
-			<item value="service"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Support.dipToPx(get"/>
+			<item value="Support."/>
+			<item value="rt(getApplicationContext()"/>
+			<item value="rt("/>
+			<item value="DisplaySupport(this,(int)(factor*(minutos-enQueVoy)))"/>
+			<item value="DisplaySupport(context,(int)(factor*(minutos-enQueVoy)))"/>
+			<item value="DisplaySupport(context,(factor*(minutos-enQueVoy)))"/>
 			<item value="(int)factor"/>
-			<item value="factor"/>
-			<item value="substring(0,3)"/>
-			<item value="80dp"/>
-			<item value="40"/>
-			<item value="34"/>
-			<item value="HOUR_OF_DAY"/>
 		</list>
 	</section>
 </section>
