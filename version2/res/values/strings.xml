@@ -1,9 +1,9 @@
 <resources>
 
-    <string name="app_name">Versión 2 de la App</string>
+    <string name="app_name">Organizador</string>
     <string name="edit_message">Escribe algo!</string>
     <string name="menu_settings">Configuración </string>
-    <string name="title_activity_principal">Principal</string>
+    <string name="title_activity_principal">Organizador</string>
     <string name="pagina_principal_">Pagina Principal!</string>
     <string name="boton_feedback">Da tu Feedback!</string>
     <string name="horario">Horario</string>
@@ -40,5 +40,6 @@
     </string-array>
 
     <string name="title_activity_actividad_horario_semanal">ActividadHorarioSemanal</string>
+    <string name="title_activity_actividad_horario_semanal2">ActividadHorarioSemanal2</string>
 
 </resources>

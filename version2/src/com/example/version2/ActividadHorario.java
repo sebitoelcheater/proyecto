@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import com.example.controlador.*;
 import com.example.data.*;
-public class ActividadHorario extends Activity{
+public class ActividadHorario extends Activity{ //PONER COLORES :)
 	
 	int hoy;
 	int viendo;
