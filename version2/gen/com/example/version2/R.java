@@ -133,32 +133,35 @@ public final class R {
         public static final int activity_actividad_edicion_ramo=0x7f030001;
         public static final int activity_actividad_feedback=0x7f030002;
         public static final int activity_actividad_horario=0x7f030003;
-        public static final int activity_actividad_horario_semanal=0x7f030004;
-        public static final int activity_actividad_horario_semanal2=0x7f030005;
-        public static final int activity_actividad_principal=0x7f030006;
-        public static final int activity_actividad_que_muestra_mensaje=0x7f030007;
-        public static final int activity_actividad_ramos=0x7f030008;
-        public static final int center_tab_indicator=0x7f030009;
-        public static final int dialogo_eliminar_modulo=0x7f03000a;
-        public static final int dialogo_modulo=0x7f03000b;
-        public static final int dialogo_suscribir_curso=0x7f03000c;
-        public static final int item_modulo=0x7f03000d;
-        public static final int item_modulo_editando=0x7f03000e;
-        public static final int lista_ramos=0x7f03000f;
-        public static final int main=0x7f030010;
-        public static final int modulo=0x7f030011;
-        public static final int nuevo_ramo=0x7f030012;
-        public static final int tab_indicator=0x7f030013;
+        public static final int activity_actividad_horario2=0x7f030004;
+        public static final int activity_actividad_horario_semanal=0x7f030005;
+        public static final int activity_actividad_horario_semanal2=0x7f030006;
+        public static final int activity_actividad_principal=0x7f030007;
+        public static final int activity_actividad_que_muestra_mensaje=0x7f030008;
+        public static final int activity_actividad_ramos=0x7f030009;
+        public static final int center_tab_indicator=0x7f03000a;
+        public static final int dialogo_eliminar_modulo=0x7f03000b;
+        public static final int dialogo_modulo=0x7f03000c;
+        public static final int dialogo_suscribir_curso=0x7f03000d;
+        public static final int item_modulo=0x7f03000e;
+        public static final int item_modulo_editando=0x7f03000f;
+        public static final int lista_ramos=0x7f030010;
+        public static final int main=0x7f030011;
+        public static final int modulo=0x7f030012;
+        public static final int modulolista=0x7f030013;
+        public static final int nuevo_ramo=0x7f030014;
+        public static final int tab_indicator=0x7f030015;
     }
     public static final class menu {
         public static final int activity_actividad_configuracion=0x7f090000;
         public static final int activity_actividad_datos_del_ramo=0x7f090001;
         public static final int activity_actividad_feedback=0x7f090002;
         public static final int activity_actividad_horario=0x7f090003;
-        public static final int activity_actividad_horario_semanal=0x7f090004;
-        public static final int activity_actividad_horario_semanal2=0x7f090005;
-        public static final int activity_actividad_ramos=0x7f090006;
-        public static final int activity_principal=0x7f090007;
+        public static final int activity_actividad_horario2=0x7f090004;
+        public static final int activity_actividad_horario_semanal=0x7f090005;
+        public static final int activity_actividad_horario_semanal2=0x7f090006;
+        public static final int activity_actividad_ramos=0x7f090007;
+        public static final int activity_principal=0x7f090008;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -183,6 +186,7 @@ public final class R {
         public static final int title_activity_actividad_edicion_ramo=0x7f06001d;
         public static final int title_activity_actividad_feedback=0x7f06001c;
         public static final int title_activity_actividad_horario=0x7f060010;
+        public static final int title_activity_actividad_horario2=0x7f060022;
         public static final int title_activity_actividad_horario_semanal=0x7f060020;
         public static final int title_activity_actividad_horario_semanal2=0x7f060021;
         public static final int title_activity_actividad_notas=0x7f060011;

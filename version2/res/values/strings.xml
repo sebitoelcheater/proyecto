@@ -41,5 +41,6 @@
 
     <string name="title_activity_actividad_horario_semanal">ActividadHorarioSemanal</string>
     <string name="title_activity_actividad_horario_semanal2">ActividadHorarioSemanal2</string>
+    <string name="title_activity_actividad_horario2">ActividadHorario2</string>
 
 </resources>
