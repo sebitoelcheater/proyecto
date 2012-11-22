@@ -11225,3 +11225,16 @@ Caused by: org.eclipse.core.commands.NotHandledException: There is no handler to
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
 	... 49 more
+!SESSION 2012-11-21 21:12:04.930 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-21 21:12:17.879
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Version0
+
+!ENTRY org.eclipse.ui 4 4 2012-11-21 21:12:19.257
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
