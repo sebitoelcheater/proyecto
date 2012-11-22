@@ -30,9 +30,9 @@ public class AwesomeActivity extends TabActivity {
 	private void setTabs()
 	{
 		addTab("", R.drawable.hoy, ActividadHorario.class);
-		addTab("", R.drawable.semanal, ActividadHorarioSemanal.class);
-		addTab("", R.drawable.config, ActividadRamos.class);
-		addTab("", R.drawable.feedback, ActividadFeedback.class);
+		addTab("Horario Semanal", R.drawable.tab_home, ActividadHorarioSemanal.class);
+		addTab("Cursos", R.drawable.tab_search, ActividadRamos.class);
+		addTab("Feedback", R.drawable.tab_home, ActividadFeedback.class);
 	}
 	private void addTab(String labelId, int drawableId, Class<?> c)
 	{
