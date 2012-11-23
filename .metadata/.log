@@ -11620,3 +11620,16 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY org.eclipse.ui 4 4 2012-11-22 06:29:09.117
 !MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
+!SESSION 2012-11-23 00:04:45.080 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_35
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-11-23 00:05:38.961
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Version0
+
+!ENTRY org.eclipse.ui 4 4 2012-11-23 00:05:42.486
+!MESSAGE Unable to find Action Set: org.eclipse.wb.core.ui.actionset
