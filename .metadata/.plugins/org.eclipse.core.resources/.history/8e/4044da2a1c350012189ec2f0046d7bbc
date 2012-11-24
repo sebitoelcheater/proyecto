@@ -44,7 +44,7 @@ public class nuevoRamo extends Activity {
 		ahora.add(Calendar.MINUTE, 6);
 		Calendar despues = (Calendar)ahora.clone();
 		despues.add(Calendar.HOUR,1);
-		despues.add(Calendar.MINUTE,30);
+		despues.add(Calendar.MINUTE,30)
 		//Crea un horario del curso por defecto 1 hora despues de empezar... esto lo tendremos que cambiar dps cuando configuremos los horarios
 		Controlador.crearNuevoModulo(this,0,Integer.parseInt(c.obtenerId()),Calendar.getInstance().get(Calendar.DAY_OF_WEEK), ahora, despues, "SALA");
 		setResult(RESULT_OK);
