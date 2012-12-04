@@ -245,8 +245,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
             public void onClick(View v) {
             	EditText textoid = (EditText) d.findViewById(R.id.idCursoASuscribir2);
         		id_curso = textoid.getText().toString();
-        		if(id_curso.equals(""))
-        			return;
         		boolean noHayTope = true;
         		if(!Controlador.existeCursoComentable(v.getContext(), id_curso))
         		{	
