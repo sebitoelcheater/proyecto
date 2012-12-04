@@ -51,7 +51,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		ImageView icon = (ImageView) tabIndicator.findViewById(R.id.icon);
 		icon.setImageResource(drawableId);		
 		spec.setIndicator(tabIndicator);
-		spec.setContent(intent);
+		spec.setContent(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		tabHost.addTab(spec);
 	
 	}
