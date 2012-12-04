@@ -315,24 +315,19 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 	Calendar fin = moduloAEditar.obtenerFin();
                 	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
                 	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
-                	if(inicio.before(fin))
+                	
+                	if(Controlador.puedoCambiarModulo(v.getContext(), spinnerDias.getSelectedItemPosition()+1, inicio, fin,moduloAEditar))
                 	{
-                		if(Controlador.puedoCambiarModulo(v.getContext(), spinnerDias.getSelectedItemPosition()+1, inicio, fin,moduloAEditar))
-                		{
-                			moduloAEditar.establecerInicio(v.getContext(), inicio);
-                			moduloAEditar.establecerFin(v.getContext(), fin);
-                			actualizarModulos();
-                			d.dismiss();
-                			//Cierra el diálogo
-                		}
-                		else{
-                			Toast.makeText(v.getContext(), "Modulo ocupado", Toast.LENGTH_LONG).show();
-                		}
+                		moduloAEditar.establecerInicio(v.getContext(), inicio);
+                		moduloAEditar.establecerFin(v.getContext(), fin);
+                		actualizarModulos();
+                		d.dismiss();
+                		//Cierra el diálogo
                 	}
-                	else
-                	{
-                		Toast.makeText(v.getContext(), "Inicio debe ser antes de Fin", Toast.LENGTH_LONG).show();
+                	else{
+                		Toast.makeText(v.getContext(), "Modulo ocupado", Toast.LENGTH_LONG).show();
                 	}
+                	 
 
                 	}
 
@@ -396,21 +391,16 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 	Calendar fin = Calendar.getInstance();
                 	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
                 	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
-                	if(inicio.before(fin))
-                	{	
-                		if(Controlador.crearNuevoModulo(v.getContext(), 0, Integer.parseInt(cursoAEditar.obtenerId()), spinnerDias.getSelectedItemPosition()+1, inicio, fin, cursoAEditar.obtenerNombre()))
-                		{
-                			actualizarModulos();
-                			d.dismiss(); //Cierra el diálogo
-                		}
-                		else
-                		{
-                			Toast.makeText(v.getContext(), "Ya existe un modulo a esta hora", Toast.LENGTH_LONG).show();
-                			d.dismiss();
-                		}
-                	}else{
-                		Toast.makeText(v.getContext(), "Inicio debe ser antes de Fin", Toast.LENGTH_LONG).show();
-                		
+                	
+                	if(Controlador.crearNuevoModulo(v.getContext(), 0, Integer.parseInt(cursoAEditar.obtenerId()), spinnerDias.getSelectedItemPosition()+1, inicio, fin, cursoAEditar.obtenerNombre()))
+            		{
+                		actualizarModulos();
+                		d.dismiss(); //Cierra el diálogo
+            		}
+                	else
+                	{
+                		Toast.makeText(v.getContext(), "Ya existe un modulo a esta hora", Toast.LENGTH_LONG).show();
+                		d.dismiss();
                 	}
 
                 	}
