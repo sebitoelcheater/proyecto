@@ -322,12 +322,11 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 		moduloAEditar.establecerFin(v.getContext(), fin);
                 		actualizarModulos();
                 		d.dismiss();
-                		//Cierra el diálogo
                 	}
                 	else{
                 		Toast.makeText(v.getContext(), "Modulo ocupado", Toast.LENGTH_LONG).show();
                 	}
-                	 
+                	 //Cierra el diálogo
 
                 	}
 

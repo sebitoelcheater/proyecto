@@ -316,18 +316,10 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
                 	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
                 	
-                	if(Controlador.puedoCambiarModulo(v.getContext(), spinnerDias.getSelectedItemPosition()+1, inicio, fin))
-                	{
-                		moduloAEditar.establecerInicio(v.getContext(), inicio);
-                		moduloAEditar.establecerFin(v.getContext(), fin);
-                		actualizarModulos();
-                		d.dismiss();
-                		//Cierra el diálogo
-                	}
-                	else{
-                		Toast.makeText(v.getContext(), "Modulo ocupado", Toast.LENGTH_LONG).show();
-                	}
-                	 
+                	moduloAEditar.establecerInicio(v.getContext(), inicio);
+                	moduloAEditar.establecerFin(v.getContext(), fin);
+                	actualizarModulos();
+            		d.dismiss(); //Cierra el diálogo
 
                 	}
 

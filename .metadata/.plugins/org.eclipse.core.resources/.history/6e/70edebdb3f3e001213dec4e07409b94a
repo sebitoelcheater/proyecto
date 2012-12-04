@@ -145,21 +145,6 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		
 	} 
 	
-	static public boolean puedoCambiarModulo(Context context,int dds, Calendar inicio,Calendar fin)
-	{
-		AdapterCursos db = new AdapterCursos(context);
-		String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
-		String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
-		
-		db.open();        
-		
-		boolean b = db.getEnHora(dds+"",stringInicio,stringFin).getCount()==0;
-		
-		  
-		db.close();
-		return b;
-	}
-	
 	
 	static public ArrayList<Curso> obtenerCursos(Context context)
 	{
