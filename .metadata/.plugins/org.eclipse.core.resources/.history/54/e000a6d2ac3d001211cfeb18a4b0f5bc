@@ -16,7 +16,7 @@ import android.widget.TextView;
  *
  */
 @SuppressWarnings("deprecation")
-public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeListener {
+public class AwesomeActivity extends TabActivity {
 	TabHost tabHost;
 	/** Called when the activity is first created. */
 	
@@ -26,19 +26,18 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		setContentView(R.layout.main);
 		tabHost = getTabHost();
 		setTabs();
-		tabHost.setOnTabChangedListener(this);
 	}
 	private void setTabs() 
 	{
-		addTab("", R.drawable.hoy, ActividadHorario.class,"HORARIO");
-		addTab("", R.drawable.semanal, ActividadHorarioSemanal2.class,"SEMANAL");
-		addTab("", R.drawable.config, ActividadRamos.class,"CONFIG");
-		addTab("", R.drawable.feedback, ActividadFeedback.class,"FEEDBACK");
+		addTab("", R.drawable.hoy, ActividadHorario.class);
+		addTab("", R.drawable.semanal, ActividadHorarioSemanal2.class);
+		addTab("", R.drawable.config, ActividadRamos.class);
+		addTab("", R.drawable.feedback, ActividadFeedback.class);
 	}
-	private void addTab(String labelId, int drawableId, Class<?> c,String nombreTab)
+	private void addTab(String labelId, int drawableId, Class<?> c)
 	{
 		Intent intent = new Intent(this, c);
-		TabHost.TabSpec spec = tabHost.newTabSpec(nombreTab);	
+		TabHost.TabSpec spec = tabHost.newTabSpec("tab" + labelId);	
 		
 		View tabIndicator = LayoutInflater.from(this).inflate(R.layout.tab_indicator, getTabWidget(), false);
 		TextView title = (TextView) tabIndicator.findViewById(R.id.title);
@@ -48,7 +47,6 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		spec.setIndicator(tabIndicator);
 		spec.setContent(intent);
 		tabHost.addTab(spec);
-	
 	}
 	/**
 	public void openCameraActivity(View b)
@@ -57,9 +55,4 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		startActivity(intent);
 	}
 	**/
-	@Override
-	public void onTabChanged(String tabId) {
-		// TODO Auto-generated method stub
-		System.out.println("CAMBIE A : "+tabId);
-	}
 }

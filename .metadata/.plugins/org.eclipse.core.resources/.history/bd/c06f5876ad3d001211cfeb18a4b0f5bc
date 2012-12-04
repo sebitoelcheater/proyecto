@@ -30,15 +30,15 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 	}
 	private void setTabs() 
 	{
-		addTab("", R.drawable.hoy, ActividadHorario.class,"HORARIO");
-		addTab("", R.drawable.semanal, ActividadHorarioSemanal2.class,"SEMANAL");
-		addTab("", R.drawable.config, ActividadRamos.class,"CONFIG");
-		addTab("", R.drawable.feedback, ActividadFeedback.class,"FEEDBACK");
+		addTab("", R.drawable.hoy, ActividadHorario.class);
+		addTab("", R.drawable.semanal, ActividadHorarioSemanal2.class);
+		addTab("", R.drawable.config, ActividadRamos.class);
+		addTab("", R.drawable.feedback, ActividadFeedback.class);
 	}
-	private void addTab(String labelId, int drawableId, Class<?> c,String nombreTab)
+	private void addTab(String labelId, int drawableId, Class<?> c)
 	{
 		Intent intent = new Intent(this, c);
-		TabHost.TabSpec spec = tabHost.newTabSpec(nombreTab);	
+		TabHost.TabSpec spec = tabHost.newTabSpec("tab" + labelId);	
 		
 		View tabIndicator = LayoutInflater.from(this).inflate(R.layout.tab_indicator, getTabWidget(), false);
 		TextView title = (TextView) tabIndicator.findViewById(R.id.title);
