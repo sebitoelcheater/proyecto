@@ -92,9 +92,8 @@ public class server extends Activity {
 		return arreglo;
 	}
 	
-	public boolean suscribirCurso (String id, Context ctx) throws Exception{
+	public void suscribirCurso (String id, Context ctx) throws Exception{
 		
-		boolean b = true;
 		ArrayList<JSONObject> Profesor = getCursoFromDatabase(id,"Profesores");
 		ArrayList<JSONObject> Curso = getCursoFromDatabase(id,"Cursos");
 		ArrayList<JSONObject> Horarios = getCursoFromDatabase(id,"Horarios");
@@ -154,8 +153,7 @@ public class server extends Activity {
 				cFin.setTime(a);
 			}catch(ParseException e){}
         	
-			if(!Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion));
-				b = false;
+			Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion);
 			// introducir nuevo horarios 
         }
 		
@@ -168,7 +166,7 @@ public class server extends Activity {
         	// introducir nuevo comentarios 
         }
 		
-		return b;
+		
 		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
 		
 	}
