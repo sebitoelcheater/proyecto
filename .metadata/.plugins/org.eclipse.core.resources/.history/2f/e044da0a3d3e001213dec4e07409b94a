@@ -167,6 +167,7 @@ public class server extends Activity {
 			iidCom = Controlador.insertarComentario(ctx,idCom, iidH==null?"0":iidH,fecha,comentario);
         	// introducir nuevo comentarios 
         }
+		System.out.println("No hay tope en server : "+b);
 		return b;
 		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
 		
