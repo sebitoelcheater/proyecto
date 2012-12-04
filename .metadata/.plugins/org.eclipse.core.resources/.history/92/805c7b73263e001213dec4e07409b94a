@@ -152,9 +152,10 @@ public class server extends Activity {
 				a = formato.parse(fin);
 				cFin.setTime(a);
 			}catch(ParseException e){}
-        	
-			Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion);
-			// introducir nuevo horarios 
+        	Modulo h = Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion);
+			if(h!=null)
+				iidH = h.obtenerId();
+        	// introducir nuevo horarios 
         }
 		
 		for (int i = 0; i < Comentarios.size(); i++) {

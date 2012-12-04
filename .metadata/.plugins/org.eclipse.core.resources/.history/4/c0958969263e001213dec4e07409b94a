@@ -126,23 +126,15 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		return new Curso(context,id);
 	}
 	
-	static public boolean crearNuevoModulo(Context context,int idH,int iidC,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre)
+	static public Modulo crearNuevoModulo(Context context,int idH,int iidC,int diaDeLaSemana, Calendar inicio, Calendar fin, String nombre)
 	{
-		
 		AdapterCursos db = new AdapterCursos(context);
 		String stringInicio = agregarCeros(2,inicio.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,inicio.get(Calendar.MINUTE));
 		String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 		db.open();        
-		
-		boolean b = db.getBajoInicioSobreFin(diaDeLaSemana+"",stringInicio,stringFin).getCount()==0;
-		
-		if(b)
-			db.insertRecordHORARIOS(idH,iidC,diaDeLaSemana+"",stringInicio, stringFin, nombre);        
-	    
-		db.close();
-		
-		return b;
-		
+	    String id = db.insertRecordHORARIOS(idH,iidC,diaDeLaSemana+"",stringInicio, stringFin, nombre) +"";        
+	    db.close();
+		return new Modulo(context, id);
 	} 
 	
 	
