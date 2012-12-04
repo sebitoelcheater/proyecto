@@ -64,6 +64,6 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 	public void onTabChanged(String tabId) {
 		// TODO Auto-generated method stub
 		if(tabId.equals("FEEDBACK") && Controlador.obtenerCursosComentables(this).size()==0)
-			Toast.makeText(this, "No hay ramos comentables", Toast.LENGTH_LONG).show();
+			Toast.makeText(v.getContext(), "No hay ramos comentables", Toast.LENGTH_LONG).show();
 	}
 }
