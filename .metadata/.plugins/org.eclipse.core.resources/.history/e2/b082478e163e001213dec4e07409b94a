@@ -24,7 +24,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 	TabHost tabHost;
 	/** Called when the activity is first created. */
 	
-	int tab = 0;
+	
 	public void onCreate(Bundle savedInstanceState) { // SEBA... NO FUNCIONAN LAS NOTIFICACIONES
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
@@ -67,12 +67,8 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		// TODO Auto-generated method stub
 		if(tabId.equals("FEEDBACK") && Controlador.obtenerCursosComentables(this).size()==0)
 		{
-			tabHost.setCurrentTab(tab);
+			tabHost.setCurrentTab(0);
 			Toast.makeText(this, "No hay ramos comentables", Toast.LENGTH_LONG).show();
-		}
-		else
-		{
-			tab = tabHost.getCurrentTab();
 		}
 	}
 }
