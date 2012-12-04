@@ -154,9 +154,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		db.open();        
 		Cursor c =db.getEnHora(dds+"",stringInicio,stringFin);
 		boolean b = c.getCount()==0;
-		if((!b) && c.getCount()==1)
-			if((moduloAEditar.obtenerId().equals(c.getString(0))))
-				b = true;
+		if(!b)
+			if(moduloAEditar.obtenerId().equals(c.getString(0)))
+		  
 		db.close();
 		return b;
 	}
