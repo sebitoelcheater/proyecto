@@ -283,7 +283,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		tPFin.setIs24HourView(true);
     		tPFin.setCurrentHour(moduloAEditar.obtenerFin().get(Calendar.HOUR_OF_DAY));
     		tPFin.setCurrentMinute(moduloAEditar.obtenerFin().get(Calendar.MINUTE));
-    		
     		///Agregando datos
     		
             
@@ -398,7 +397,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
             
     		///Agregando datos
     		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
-    		
+    		tPInicio.setCurrentMinute(0);
+    		tPFin.setCurrentMinute(0);
     		///Agregando datos
     		
             spinnerDias.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1);
