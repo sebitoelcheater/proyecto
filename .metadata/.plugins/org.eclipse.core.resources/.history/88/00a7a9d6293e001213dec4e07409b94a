@@ -134,7 +134,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		String stringFin = agregarCeros(2,fin.get(Calendar.HOUR_OF_DAY))+":"+agregarCeros(2,fin.get(Calendar.MINUTE));
 		db.open();        
 		
-		boolean b = db.getEnHora(diaDeLaSemana+"",stringInicio,stringFin).getCount()==0;
+		boolean b = db.getBajoInicioSobreFin(diaDeLaSemana+"",stringInicio,stringFin).getCount()==0;
 		
 		if(b)
 			db.insertRecordHORARIOS(idH,iidC,diaDeLaSemana+"",stringInicio, stringFin, nombre);        
