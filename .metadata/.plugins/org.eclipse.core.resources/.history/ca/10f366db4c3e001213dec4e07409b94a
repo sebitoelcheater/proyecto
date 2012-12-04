@@ -31,7 +31,7 @@ import com.example.version2.ActividadRamos.MiArrayAdapter;
 
 
 
-public class ActividadEdicionRamo extends ListActivity implements OnItemClickListener {
+public class ActividadEdicionRamo extends ListActivity implements OnItemClickListener, TimePicker.OnTimeChangedListener {
 	
 	public class MiModuloEditandoArrayAdapter extends ArrayAdapter<Modulo> {
 
@@ -338,32 +338,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 
     		});
     		
-    		
-    		//ESTO ES PARA QUE LOS PICKER NO SE PASEN DE LISTOS
-    		tPInicio.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
-
-				@Override
-				public void onTimeChanged(TimePicker view, int hourOfDay,
-						int minute) {
-					// TODO Auto-generated method stub
-					
-				}
-    			
-    			
-    		});
-    		tPFin.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
-
-				@Override
-				public void onTimeChanged(TimePicker view, int hourOfDay,
-						int minute) {
-					// TODO Auto-generated method stub
-					
-				}
-    			
-    			
-    		});
-    		//ESTO ES PARA QUE LOS PICKER NO SE PASEN DE LISTOS
-    		
     		return d;
     		/*TODO: Crear un layout para la edición de módulo
     		 * recoger todos los datos del módulo
@@ -448,6 +422,12 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		}
     	return d;
     	}
+
+@Override
+public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+	// TODO Auto-generated method stub
+	
+}
 	
 	
 	
