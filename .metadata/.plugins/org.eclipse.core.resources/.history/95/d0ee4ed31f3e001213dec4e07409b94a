@@ -14,9 +14,8 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	{
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
-	    boolean b = db.getCursoPorIdMaster(Long.parseLong(idMaster)).getCount()==0;    
+	    boolean b = db.getCursoPorIdMaster(Long.parseLong(idMaster));    
 	    db.close();
-	    return !b;
 		
 	}
 	static public Modulo ultimoModulo(Context context,Curso c) 

@@ -166,19 +166,6 @@ public class AdapterCursos {
         return mCursor;
     }
     
-    public Cursor getCursoPorIdMaster(long idMaster)
-    {
-    	Cursor mCursor =
-                db.query(DATABASE_TABLE_CURSOS, new String[] {KEY_ROWIIDC, KEY_ROWIDC, KEY_ROWIIDP, 
-                KEY_TITLE, KEY_COMENTABLE, KEY_COLOR}, 
-                KEY_ROWIDC + "=" + idMaster, null, null, null, null, null);
-    	if (mCursor != null) {
-    		
-    		mCursor.moveToFirst();
-               }
-        return mCursor;
-    }
-    
 
     //---updates a record---
     public boolean updateRecordCURSOS(long rowId, String idC, String iidP, String title, int comentable,String color) 

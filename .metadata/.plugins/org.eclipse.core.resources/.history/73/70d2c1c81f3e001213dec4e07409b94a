@@ -10,15 +10,6 @@ import com.example.data.*;
 
 public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PENSAR BIEN EN SU VERDADERA FUNCIONALIDAD!
 {
-	static public boolean existeCursoComentable(Context context,String idMaster)// Le das el idmaster y te dice si ya lo tienes en ls base de datos interna :)
-	{
-		AdapterCursos db = new AdapterCursos(context);
-		db.open();        
-	    boolean b = db.getCursoPorIdMaster(Long.parseLong(idMaster)).getCount()==0;    
-	    db.close();
-	    return !b;
-		
-	}
 	static public Modulo ultimoModulo(Context context,Curso c) 
 	{
 		

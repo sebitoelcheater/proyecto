@@ -245,31 +245,26 @@ protected Dialog onCreateDialog(int id, Bundle b) {
             public void onClick(View v) {
             	EditText textoid = (EditText) d.findViewById(R.id.idCursoASuscribir2);
         		id_curso = textoid.getText().toString();
-        		if(!Controlador.existeCursoComentable(v.getContext(), id_curso))
-        		{	
-        			server servidor = new server();
+        		if(Controlador.existeCursoComentable(v.getContext(), id_curso))
+        		server servidor = new server();
         		
-        			try {
-        				servidor.suscribirCurso(id_curso,ActividadRamos.this);
-        			} 
-        			catch(UnknownHostException uhe){
-        				Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
-        				d.dismiss();
-        			}catch(NoExisteCursoException nece)
-        			{
-        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
-        				d.dismiss();
-        			} 
-        			catch (Exception e) {
-					// TODO Auto-generated catch block
-        				e.printStackTrace();
-        			}
-        		
-        		}
-        		else
+        		try {
+					servidor.suscribirCurso(id_curso,ActividadRamos.this);
+				} 
+        		catch(UnknownHostException uhe){
+        			Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
+					d.dismiss();
+        		}catch(NoExisteCursoException nece)
         		{
-        			Toast.makeText(v.getContext(), "Ya tienes el curso en tu celular", Toast.LENGTH_LONG).show();
-        		}
+        			Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+					d.dismiss();
+        		} 
+        		catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		
+        		
         		actualizarListaRamos();
         		//String id = idCurso.getText().toString();
         		//id_curso = idCurso.getText().toString();

@@ -98,6 +98,11 @@ public class server extends Activity {
 		ArrayList<JSONObject> Curso = getCursoFromDatabase(id,"Cursos");
 		ArrayList<JSONObject> Horarios = getCursoFromDatabase(id,"Horarios");
 		ArrayList<JSONObject> Comentarios = getCursoFromDatabase(id,"Comentarios");
+		System.out.println(Profesor);
+		System.out.println(Curso);
+		System.out.println(Horarios);
+		System.out.println(Comentarios);
+		
 		if(Profesor == null && Curso == null && Horarios == null && Comentarios == null)
 		{	
 			throw new NoExisteCursoException("No existe CUrso");
