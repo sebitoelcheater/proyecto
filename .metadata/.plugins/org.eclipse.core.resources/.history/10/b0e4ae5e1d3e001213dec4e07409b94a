@@ -105,7 +105,7 @@ public class server extends Activity {
 		
 		if(Profesor == null && Curso == null && Horarios == null && Comentarios == null)
 		{	
-			throw new NoExisteCursoException("No existe CUrso");
+			throw new NullPointerException();
 		}
 		String iidC=null,iidP = null,iidH=null,iidCom=null;
 		
@@ -177,13 +177,7 @@ public class server extends Activity {
 		
 	}
 	
-	public class NoExisteCursoException extends Exception {
-
-		public NoExisteCursoException(String msg) {
-
-		super(msg);
-		} 
-		}
+	
 	
 	
 	

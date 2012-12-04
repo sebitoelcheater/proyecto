@@ -39,7 +39,6 @@ import android.widget.Toast;
 import com.example.controlador.*;
 import com.example.data.*;
 import com.example.server.server;
-import com.example.server.server.NoExisteCursoException;
 
 
 public class ActividadRamos extends ListActivity {
@@ -254,17 +253,14 @@ protected Dialog onCreateDialog(int id, Bundle b) {
         		catch(UnknownHostException uhe){
         			Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
 					d.dismiss();
-        		}catch(NoExisteCursoException nece)
-        		{
-        			Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
-					d.dismiss();
-        		} 
+        		}
         		catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					Toast.makeText(v.getContext(), "Error :Codigo Invalido o no tienes acceso a Internet", Toast.LENGTH_LONG).show();
+					d.dismiss();
+					
 				}
-        		
-        		
         		actualizarListaRamos();
         		//String id = idCurso.getText().toString();
         		//id_curso = idCurso.getText().toString();
@@ -327,7 +323,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 
        
     }
-
    
 
 
