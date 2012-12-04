@@ -42,6 +42,13 @@ public class nuevoRamo extends Activity {
 		
 		EditText nameTxt = (EditText)findViewById(R.id.editText1);
 		Curso c = Controlador.crearNuevoCurso(this,0,0, nameTxt.getText().toString(),false,"000-255-000"); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
+		Calendar ahora = Calendar.getInstance();
+		ahora.add(Calendar.MINUTE, 6);
+		Calendar despues = (Calendar)ahora.clone();
+		despues.add(Calendar.HOUR,1);
+		despues.add(Calendar.MINUTE,30);
+		//Crea un horario del curso por defecto 1 hora despues de empezar... esto lo tendremos que cambiar dps cuando configuremos los horarios
+		Controlador.crearNuevoModulo(this,0,Integer.parseInt(c.obtenerId()),Calendar.getInstance().get(Calendar.DAY_OF_WEEK), ahora, despues, "SALA");
 		setResult(RESULT_OK);
 		
 		  finish();
