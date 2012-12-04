@@ -2,7 +2,6 @@ package com.example.version2;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.example.controlador.*;
@@ -13,7 +12,7 @@ public class ActividadQueMuestraMensaje extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_que_muestra_mensaje);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        
         //Recibe el mensaje del inetent
         Intent intent = getIntent();
         String mensaje = intent.getStringExtra(ActividadPrincipal.MENSAJE_EXTRA);

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Menu;
@@ -31,6 +32,7 @@ public class ActividadHorario2 extends Activity{ //PONER COLORES :)
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Calendar c = Calendar.getInstance();
         hoy = c.get(Calendar.DAY_OF_WEEK);
         viendo = hoy;

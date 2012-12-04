@@ -11,7 +11,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
-import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -141,7 +140,7 @@ public class ActividadRamos extends ListActivity {
         
         
        setContentView(R.layout.activity_actividad_ramos);
-       setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        
         ArrayList<Curso> array_cursos = Controlador.obtenerCursos(this);
         ArrayList<String> array_ramos = new ArrayList<String>();
         ArrayList<String> array_idramos = new ArrayList<String>();

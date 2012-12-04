@@ -8,7 +8,6 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -106,7 +105,6 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
         super.onCreate(savedInstanceState);
         //Recibe el mensaje del inetent
         Intent intent = getIntent();
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //Aquí recibe la id (como string) del ramo a editar
         idRamoAEditar = intent.getStringExtra("id");
         

@@ -1,6 +1,3 @@
-
-
-
 package com.example.version2;
 
 import java.util.ArrayList;
@@ -10,7 +7,7 @@ import java.util.HashMap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -24,7 +21,7 @@ import android.widget.TextView;
 
 import com.example.controlador.*;
 import com.example.data.*;
-public class ActividadHorario extends Activity{ //PONER COLORES :)
+public class ActividadHorario2 extends Activity{ //PONER COLORES :)
 	
 	int hoy;
 	int viendo;
@@ -34,7 +31,6 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_horario);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Calendar c = Calendar.getInstance();
         hoy = c.get(Calendar.DAY_OF_WEEK);
         viendo = hoy;
@@ -79,6 +75,8 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
 
 	private void generaModulos() {
 		// TODO Auto-generated method stub
+		ListView listaModulos = (ListView)findViewById(R.id.listView1);
+		//listaModulos.clearFocus();
 		ArrayList<Modulo> modulos;
 		TextView titulo = (TextView)findViewById(R.id.textView1);
 		if (hoy==viendo)
@@ -98,17 +96,14 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
 		for(Modulo m : modulos) 
 		{	
 			Curso c = new Curso(this,m.obtenerIdCurso());
-			HashMap<String,String> mapa = new HashMap<String,String>();
-			if(m.obtenerNombre().toUpperCase().equals(c.obtenerNombre().toUpperCase())) //ARREGLAR ESTO!!!!!
-				mapa.put("Nombre",m.obtenerNombre());
-			else
-				mapa.put("Nombre",c.obtenerNombre()+" - "+m.obtenerNombre());
-			mapa.put("Hora", m.obtenerStringInicio());
-			array_modulos.add(mapa);
+			ViewModuloLista l = new ViewModuloLista(this); 
+			l.setNombreSala(c.obtenerNombre()+" ("+m.obtenerNombre()+")");
+			l.setHora( m.obtenerStringInicio());
+			String color = c.obtenerColor();
+			l.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
+			listaModulos.addFooterView(l);
 		}
-		ListView listaModulos = (ListView)findViewById(R.id.listView1);
-        listaModulos.setAdapter(new SimpleAdapter(this, array_modulos, android.R.layout.simple_list_item_2, new String[]{"Nombre","Hora"},  new int[] { android.R.id.text1, android.R.id.text2 }));
-        
+		
         
 	}
 	
