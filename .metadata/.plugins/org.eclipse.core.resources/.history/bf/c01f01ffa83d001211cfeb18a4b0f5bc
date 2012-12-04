@@ -48,8 +48,7 @@ public class server extends Activity {
 	}
 	
 	public void comentar2(View view, int i,Curso c,Modulo m, String comentario)
-	{
-		//Hola seba esto es para que guardes el nuevo método que considerara el Curso asociado y el Modulo asociado(teniendo los objetos tienes todos los dato asociados a ellos... si necesitas ayuda me dices o revisas la documentacion del controlador)
+	{//Hola seba esto es para que guardes el nuevo método que considerara el Curso asociado y el Modulo asociado(teniendo los objetos tienes todos los dato asociados a ellos... si necesitas ayuda me dices o revisas la documentacion del controlador)
 		
 	}
 	

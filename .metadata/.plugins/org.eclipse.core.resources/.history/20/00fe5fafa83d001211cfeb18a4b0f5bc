@@ -327,3 +327,4 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 
 
 
+objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(this,ramo),comentario.getText().toString());

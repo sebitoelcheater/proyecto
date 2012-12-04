@@ -54,10 +54,9 @@ public class ActividadFeedback extends Activity {
     	comentario = (EditText) findViewById(R.id.editText1);
     	//Crear objeto de la clase post y posteriormente ejecutar método comentar
     	server objeto1 = new server();
-    	
+    	//objeto1.comentar(view, 1, comentario.getText().toString());
     	try{
-    		objeto1.comentar(view, 1, comentario.getText().toString()); 
-    		//objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(this,ramo),comentario.getText().toString());
+    		 objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(this,ramo),comentario.getText().toString());
     	}catch(Exception e){ Toast.makeText(view.getContext(), "Error :Curso ya no existe o no tienes acceso a Internet", Toast.LENGTH_LONG).show();}	
     	 
     	
