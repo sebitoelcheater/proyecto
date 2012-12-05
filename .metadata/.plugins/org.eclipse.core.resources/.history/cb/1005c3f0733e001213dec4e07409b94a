@@ -24,7 +24,7 @@ public class ViewEstatica extends RelativeLayout{
 	    private void initView(Context context) {
 	        final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	 
-	        inflater.inflate(R.layout.activity_actividad_horario_semanal, this, true);
+	        inflater.inflate(R.layout.activity_actividad_horario2, this, true);
 	        
 	    }
 	 
