@@ -14,7 +14,6 @@
 <fullyQualifiedTypeName name="com.example.version0.R.layout"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.drawable"/>
-<fullyQualifiedTypeName name="android.widget.Spinner"/>
 <fullyQualifiedTypeName name="com.example.version0.R.id"/>
 <fullyQualifiedTypeName name="android.widget.TimePicker"/>
 <fullyQualifiedTypeName name="android.widget.LinearLayout"/>
@@ -35,8 +34,17 @@
 <fullyQualifiedTypeName name="android.view.Display"/>
 <fullyQualifiedTypeName name="android.util.DisplayMetrics"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
-<fullyQualifiedTypeName name="com.example.version2.R.id"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.example.controlador.DisplaySupport"/>
+<fullyQualifiedTypeName name="java.net.UnknownHostException"/>
+<fullyQualifiedTypeName name="com.example.server.server.NoExisteCursoException"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.example.version2.R"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="com.example.version2.R.id"/>
+<fullyQualifiedTypeName name="android.widget.Spinner"/>
+<fullyQualifiedTypeName name="android.graphics.Bitmap"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.BitmapDrawable"/>
+<fullyQualifiedTypeName name="android.widget.FrameLayout"/>
+<fullyQualifiedTypeName name="android.widget.ScrollView"/>
 </qualifiedTypeNameHistroy>

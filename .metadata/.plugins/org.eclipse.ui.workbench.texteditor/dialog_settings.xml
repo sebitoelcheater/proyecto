@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="276" key="DIALOG_Y_ORIGIN"/>
-		<item value="379" key="DIALOG_HEIGHT"/>
 		<item value="751" key="DIALOG_X_ORIGIN"/>
+		<item value="379" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="ELIMI" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
-			<item value="elimi"/>
-			<item value="onC"/>
-			<item value="on"/>
-			<item value="onc"/>
-			<item value="set"/>
-			<item value="onCl"/>
-			<item value="oncl"/>
-			<item value="id"/>
+			<item value="(24.0"/>
+			<item value="(5.0"/>
+			<item value="HORA"/>
+			<item value="Hor"/>
+			<item value="27dp"/>
+			<item value="26dp"/>
+			<item value="80dp"/>
+			<item value="frame"/>
 		</list>
 		<list key="replacehistory">
+			<item value="25dp"/>
+			<item value="26dp"/>
+			<item value="27dp"/>
 			<item value="Support.dipToPx(get"/>
 			<item value="Support."/>
 			<item value="rt(getApplicationContext()"/>
 			<item value="rt("/>
 			<item value="DisplaySupport(this,(int)(factor*(minutos-enQueVoy)))"/>
-			<item value="DisplaySupport(context,(int)(factor*(minutos-enQueVoy)))"/>
-			<item value="DisplaySupport(context,(factor*(minutos-enQueVoy)))"/>
-			<item value="(int)factor"/>
 		</list>
 	</section>
 </section>
