@@ -74,7 +74,7 @@ public class ActividadHorarioSemanal2 extends Activity {
 	}
 
 
-	private void rellenarModulos() 
+	private void rellenarModulos()  //SOLO MODULOS>= 2hrs tienen sala, por un asunto estetico
     {
 	   	// TODO Auto-generated method stub
     	//LA RELACION ES 25dp  corresponde a 60 minutos 
@@ -100,7 +100,7 @@ public class ActividadHorarioSemanal2 extends Activity {
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
@@ -131,7 +131,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
@@ -166,7 +166,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
@@ -195,7 +195,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
@@ -225,7 +225,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
@@ -255,7 +255,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
@@ -285,7 +285,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
+			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();

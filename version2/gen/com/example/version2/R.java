@@ -19,19 +19,22 @@ public final class R {
         public static final int tabTransparent=0x7f040002;
     }
     public static final class dimen {
+        public static final int Catorce=0x7f050007;
         public static final int Diez=0x7f050005;
         public static final int DimensionHora=0x7f050000;
         public static final int DimensionNombre=0x7f050001;
         public static final int DimensionNombre2=0x7f050002;
         public static final int DimensionNombre3=0x7f050003;
+        public static final int Ocho=0x7f050006;
         public static final int Quince=0x7f050004;
-        public static final int corner_radius=0x7f050006;
-        public static final int corner_radius_zero=0x7f050007;
-        public static final int tab_space=0x7f050009;
-        public static final int tab_space_bottom_line=0x7f05000b;
-        public static final int tab_space_plus1=0x7f05000a;
-        public static final int tab_space_top=0x7f050008;
-        public static final int tab_space_unselected_top=0x7f05000c;
+        public static final int Trece=0x7f050008;
+        public static final int corner_radius=0x7f050009;
+        public static final int corner_radius_zero=0x7f05000a;
+        public static final int tab_space=0x7f05000c;
+        public static final int tab_space_bottom_line=0x7f05000e;
+        public static final int tab_space_plus1=0x7f05000d;
+        public static final int tab_space_top=0x7f05000b;
+        public static final int tab_space_unselected_top=0x7f05000f;
     }
     public static final class drawable {
         public static final int anterior=0x7f020000;
