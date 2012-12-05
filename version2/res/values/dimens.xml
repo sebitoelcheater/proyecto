@@ -4,4 +4,6 @@
     <dimen name="DimensionNombre">40dp</dimen>
     <dimen name="DimensionNombre2">25dp</dimen>
     <dimen name="DimensionNombre3">20dp</dimen>
+    <dimen name="Quince">15dp</dimen>
+    <dimen name="Diez">10dp</dimen>
 </resources>

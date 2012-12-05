@@ -30,27 +30,18 @@ public class ViewModulo extends RelativeLayout{
 	 
 	        inflater.inflate(R.layout.modulo, this, true);
 	 
-	        horaInicio = (TextView) findViewById(R.id.textView1);
 	        nombre = (TextView) findViewById(R.id.textView2);
 	        sala = (TextView) findViewById(R.id.textView3);
-	        horaFin = (TextView) findViewById(R.id.textView4);
 	        
 	        
 	    }
 	 
-	    public void setHoraInicio(CharSequence horaInicio) {
-	        this.horaInicio.setText(horaInicio);
-	    }
 	    public void setNombre(CharSequence nombre) {
 	        this.nombre.setText(nombre);
 	    }
 	    public void setSala(CharSequence sala) {
 	        this.sala.setText(sala);
 		}
-	    public void setHoraFin(CharSequence horaFin)
-	    {
-	    	this.horaFin.setText(horaFin);
-	    }
 	    
 	    public void setColor(int color)
 	    {

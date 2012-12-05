@@ -48,13 +48,18 @@ public class ActividadHorarioSemanal2 extends Activity {
         
         FrameLayout fl = new FrameLayout(this);  
         fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-        setContentView(fl);
+        ScrollView sv = new ScrollView(this);
+		sv.addView(fl);
+        setContentView(sv);
         
         
 		dibujaLasLineas(fl);	
 		fl.addView(new ViewEstatica(this));
 		rellenarModulos();
-        
+		
+		
+		
+		
        
         
         
@@ -74,8 +79,8 @@ public class ActividadHorarioSemanal2 extends Activity {
 	private void rellenarModulos() 
     {
 	   	// TODO Auto-generated method stub
-    	//LA RELACION ES 80dp  corresponde a 60 minutos 
-    	double factor= (101.0/240.0);
+    	//LA RELACION ES 25dp  corresponde a 60 minutos 
+    	double factor= (201.0/240.0);
     	int enQueVoy = 480;
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
     	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
@@ -95,8 +100,8 @@ public class ActividadHorarioSemanal2 extends Activity {
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -126,8 +131,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -161,8 +166,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -190,8 +195,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -220,8 +225,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -250,8 +255,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -280,8 +285,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			}
 				
 			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
+			//a.setHoraInicio(m.obtenerStringInicio());
+			//a.setHoraFin(m.obtenerStringFin());
 			a.setSala(m.obtenerNombre());
 			
 			a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -332,7 +337,7 @@ class Lienzo extends View {
     	int dato1 = DisplaySupport.dipToPx(this.getContext(),50);
     	int dato2 = DisplaySupport.dipToPx(this.getContext(),53);
     	int dato3 = DisplaySupport.dipToPx(this.getContext(),40);		
-    	int dato4 = DisplaySupport.dipToPx(this.getContext(),25);
+    	int dato4 = DisplaySupport.dipToPx(this.getContext(),50);//TAMAÑO DE UNA HORA
     	
     	canvas.drawRGB(255,255,255);
         int ancho=canvas.getWidth();
