@@ -342,8 +342,8 @@ class Lienzo extends View {
         canvas.drawLine(73, 0, 73, alto, pincel1);
         canvas.drawLine(76, 0, 76, alto, pincel1);
         pincel1.setARGB(255,0,0,0);
-        int cantLineas=16;
+        int cantLineas=14;
         for(int fila=0;fila<cantLineas;fila++) {
-        	canvas.drawLine(0, fila*38+58, ancho, fila*38+58, pincel1);
+        	canvas.drawLine(0, fila*30+60, ancho, fila*30+60, pincel1);
         }
     }}

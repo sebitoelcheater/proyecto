@@ -329,7 +329,7 @@ class Lienzo extends View {
 		}*/
     	//
     	int dato1 = DisplaySupport.dipToPx(this.getContext(),80);
-    	int dato2 = DisplaySupport.dipToPx(this.getContext(),83);
+    	int dato2 = DisplaySupport.dipToPx(this.getContext(),81);
     	int dato3 = DisplaySupport.dipToPx(this.getContext(),25);		
     	int dato4 = DisplaySupport.dipToPx(this.getContext(),25);
     	
@@ -339,11 +339,11 @@ class Lienzo extends View {
         
         Paint pincel1=new Paint();
         pincel1.setARGB(255,255,0,0);            
-        canvas.drawLine(73, 0, 73, alto, pincel1);
-        canvas.drawLine(76, 0, 76, alto, pincel1);
+        canvas.drawLine(dato1, 0, dato2, alto, pincel1);
+        canvas.drawLine(dato2, 0, dato2, alto, pincel1);
         pincel1.setARGB(255,0,0,0);
-        int cantLineas=16;
+        int cantLineas=14;
         for(int fila=0;fila<cantLineas;fila++) {
-        	canvas.drawLine(0, fila*38+58, ancho, fila*38+58, pincel1);
+        	canvas.drawLine(0, fila*30+60, ancho, fila*30+60, pincel1);
         }
     }}

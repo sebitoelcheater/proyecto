@@ -311,8 +311,22 @@ class Lienzo extends View {
 	protected void onDraw(Canvas canvas) {
     	
     	/*
-    	
-    			l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*(minutos-enQueVoy)))));
+    	double factor= (4.0/3.0);
+    	int enQueVoy = 480;
+    	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
+    	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
+		
+    	for(Modulo m : modulosDia)
+		{
+    		Curso curso = new Curso(this,m.obtenerIdCurso()); 
+    		
+    		Calendar inicio = m.obtenerInicio();
+			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
+			Calendar fin = m.obtenerFin();
+			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
+			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
+			{
+				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*(minutos-enQueVoy)))));
 				enQueVoy+= minutos-enQueVoy;
 			}
 				
@@ -328,22 +342,18 @@ class Lienzo extends View {
 			enQueVoy+=duracionEnMinutos;
 		}*/
     	//
-    	int dato1 = DisplaySupport.dipToPx(this.getContext(),80);
-    	int dato2 = DisplaySupport.dipToPx(this.getContext(),83);
-    	int dato3 = DisplaySupport.dipToPx(this.getContext(),25);		
-    	int dato4 = DisplaySupport.dipToPx(this.getContext(),25);
     	
-    	canvas.drawRGB(255,255,255);
+        canvas.drawRGB(255,255,255);
         int ancho=canvas.getWidth();
         int alto=canvas.getHeight();
         
         Paint pincel1=new Paint();
         pincel1.setARGB(255,255,0,0);            
+        canvas.drawLine(70, 0, 70, alto, pincel1);
         canvas.drawLine(73, 0, 73, alto, pincel1);
-        canvas.drawLine(76, 0, 76, alto, pincel1);
         pincel1.setARGB(255,0,0,0);
-        int cantLineas=16;
+        int cantLineas=alto/30-2;
         for(int fila=0;fila<cantLineas;fila++) {
-        	canvas.drawLine(0, fila*38+58, ancho, fila*38+58, pincel1);
+        	canvas.drawLine(0, fila*30+60, ancho, fila*30+60, pincel1);
         }
     }}
