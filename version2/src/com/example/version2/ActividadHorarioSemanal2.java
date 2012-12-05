@@ -331,7 +331,7 @@ class Lienzo extends View {
 			enQueVoy+=duracionEnMinutos;
 		}*/
     	//
-    	int dato0 = DisplaySupport.dipToPx(this.getContext(),415);
+    	int dato0 = DisplaySupport.dipToPx(this.getContext(),365);
     	int dato1 = DisplaySupport.dipToPx(this.getContext(),50);
     	int dato2 = DisplaySupport.dipToPx(this.getContext(),53);
     	int dato3 = DisplaySupport.dipToPx(this.getContext(),35);		
