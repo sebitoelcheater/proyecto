@@ -37,8 +37,8 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 	{
 		addTab("Hoy", R.drawable.tab_hoy, ActividadHorario.class,"HORARIO");
 		addTab("Horario", R.drawable.tab_horario, ActividadHorarioSemanal2.class,"SEMANAL");
-		addTab("Ajustes", R.drawable.tab_preferencias, ActividadRamos.class,"CONFIG");
 		addTab("Feedback", R.drawable.tab_feedback, ActividadFeedback.class,"FEEDBACK");
+		addTab("Ajustes", R.drawable.tab_preferencias, ActividadRamos.class,"CONFIG");
 	}
 	private void addTab(String labelId, int drawableId, Class<?> c,String nombreTab)
 	{
