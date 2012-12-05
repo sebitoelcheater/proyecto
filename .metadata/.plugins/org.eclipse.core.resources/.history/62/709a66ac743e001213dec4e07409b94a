@@ -48,7 +48,7 @@ public class ActividadHorarioSemanal2 extends Activity {
         
         FrameLayout fl = new FrameLayout(this);  
         fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-        setContentView(fl);
+         setContentView(fl);
         
         
 		dibujaLasLineas(fl);	
@@ -75,7 +75,7 @@ public class ActividadHorarioSemanal2 extends Activity {
     {
 	   	// TODO Auto-generated method stub
     	//LA RELACION ES 80dp  corresponde a 60 minutos 
-    	double factor= (5.0/12.0);
+    	double factor= (4.0/3.0);
     	int enQueVoy = 480;
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
     	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
@@ -309,40 +309,6 @@ class Lienzo extends View {
     
     @SuppressLint("DrawAllocation")
 	protected void onDraw(Canvas canvas) {
-    	
-    	/*
-    	double factor= (4.0/3.0);
-    	int enQueVoy = 480;
-    	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
-    	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
-		
-    	for(Modulo m : modulosDia)
-		{
-    		Curso curso = new Curso(this,m.obtenerIdCurso()); 
-    		
-    		Calendar inicio = m.obtenerInicio();
-			int minutos = inicio.get(Calendar.HOUR_OF_DAY)*60+inicio.get(Calendar.MINUTE);
-			Calendar fin = m.obtenerFin();
-			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
-			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
-			{
-				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*(minutos-enQueVoy)))));
-				enQueVoy+= minutos-enQueVoy;
-			}
-				
-			ViewModulo a = new ViewModulo(this);
-			a.setHoraInicio(m.obtenerStringInicio());
-			a.setHoraFin(m.obtenerStringFin());
-			a.setSala(m.obtenerNombre());
-			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
-			String color = curso.obtenerColor();
-			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
-			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
-			enQueVoy+=duracionEnMinutos;
-		}*/
-    	//
-    	
         canvas.drawRGB(255,255,255);
         int ancho=canvas.getWidth();
         int alto=canvas.getHeight();

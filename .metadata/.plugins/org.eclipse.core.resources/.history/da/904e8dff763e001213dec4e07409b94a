@@ -310,7 +310,7 @@ class Lienzo extends View {
     @SuppressLint("DrawAllocation")
 	protected void onDraw(Canvas canvas) {
     	
-    	/*
+    	//
     	double factor= (4.0/3.0);
     	int enQueVoy = 480;
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
@@ -340,7 +340,7 @@ class Lienzo extends View {
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
 			enQueVoy+=duracionEnMinutos;
-		}*/
+		}
     	//
     	
         canvas.drawRGB(255,255,255);
