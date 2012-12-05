@@ -75,7 +75,7 @@ public class ActividadHorarioSemanal2 extends Activity {
     {
 	   	// TODO Auto-generated method stub
     	//LA RELACION ES 80dp  corresponde a 60 minutos 
-    	double factor= (101.0/240.0);
+    	double factor= (26.0/60.0);
     	int enQueVoy = 480;
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
     	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
@@ -328,7 +328,6 @@ class Lienzo extends View {
 			enQueVoy+=duracionEnMinutos;
 		}*/
     	//
-    	int dato0 = DisplaySupport.dipToPx(this.getContext(),415);
     	int dato1 = DisplaySupport.dipToPx(this.getContext(),50);
     	int dato2 = DisplaySupport.dipToPx(this.getContext(),53);
     	int dato3 = DisplaySupport.dipToPx(this.getContext(),40);		
@@ -340,8 +339,8 @@ class Lienzo extends View {
         
         Paint pincel1=new Paint();
         pincel1.setARGB(255,255,0,0);            
-        canvas.drawLine(dato1, 0, dato1, dato0, pincel1);
-        canvas.drawLine(dato2, 0, dato2, dato0, pincel1);
+        canvas.drawLine(dato1, 0, dato1, alto, pincel1);
+        canvas.drawLine(dato2, 0, dato2, alto, pincel1);
         pincel1.setARGB(255,0,0,0);
         int cantLineas=16;
         for(int fila=0;fila<cantLineas;fila++) {

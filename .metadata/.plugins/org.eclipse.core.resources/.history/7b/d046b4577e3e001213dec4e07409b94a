@@ -75,7 +75,7 @@ public class ActividadHorarioSemanal2 extends Activity {
     {
 	   	// TODO Auto-generated method stub
     	//LA RELACION ES 80dp  corresponde a 60 minutos 
-    	double factor= (101.0/240.0);
+    	double factor= (51.0/120.0);
     	int enQueVoy = 480;
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
     	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
