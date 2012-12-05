@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Change Layout" description="Change Layout" file="/version2/res/layout/activity_dibujar_lineas.xml" flags="6" flatten="true" id="com.android.ide.eclipse.adt.refactoring.convert" proj="/version2" sel-end="342" sel-start="0" stamp="1354660158989" type="android.widget.FrameLayout"/>
+</session>

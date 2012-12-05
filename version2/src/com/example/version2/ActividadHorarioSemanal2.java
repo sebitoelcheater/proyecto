@@ -12,21 +12,27 @@ import com.example.controlador.DisplaySupport;
 import com.example.controlador.Modulo;
 
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.WindowManager;
 
@@ -37,18 +43,34 @@ public class ActividadHorarioSemanal2 extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividad_horario_semanal);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-       
-        rellenarModulos();
         
+        FrameLayout fl = new FrameLayout(this);  
+        fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+        setContentView(fl);
+        
+        
+		dibujaLasLineas(fl);	
+		fl.addView(new ViewEstatica(this));
+		rellenarModulos();
+        
+       
         
         
         
     }
     
    
-    private void rellenarModulos() 
+    private void dibujaLasLineas(FrameLayout fl) {
+		// TODO Auto-generated method stub
+    	LinearLayout ln = new LinearLayout(this);
+        ln.addView(new Lienzo(this));
+        fl.addView(ln);
+		
+	}
+
+
+	private void rellenarModulos() 
     {
 	   	// TODO Auto-generated method stub
     	//LA RELACION ES 80dp  corresponde a 60 minutos 
@@ -277,3 +299,26 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
     }
 	
 }
+
+class Lienzo extends View {
+
+    public Lienzo(Context context) {
+        super(context);
+    }
+    
+    @SuppressLint("DrawAllocation")
+	protected void onDraw(Canvas canvas) {
+        canvas.drawRGB(255,255,255);
+        int ancho=canvas.getWidth();
+        int alto=canvas.getHeight();
+        
+        Paint pincel1=new Paint();
+        pincel1.setARGB(255,255,0,0);            
+        canvas.drawLine(70, 0, 70, alto, pincel1);
+        canvas.drawLine(73, 0, 73, alto, pincel1);
+        pincel1.setARGB(255,0,0,0);
+        int cantLineas=alto/30-2;
+        for(int fila=0;fila<cantLineas;fila++) {
+        	canvas.drawLine(0, fila*30+60, ancho, fila*30+60, pincel1);
+        }
+    }}
