@@ -48,14 +48,12 @@ public class ActividadHorarioSemanal2 extends Activity {
         
         FrameLayout fl = new FrameLayout(this);  
         fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-        ScrollView sv = new ScrollView(this);
-		sv.addView(fl);
-        setContentView(sv);
+        setContentView(fl);
         
-        
-		dibujaLasLineas(fl);	
+        dibujaLasLineas(fl);	
 		fl.addView(new ViewEstatica(this));
 		rellenarModulos();
+
 		
 		
 		
@@ -80,7 +78,7 @@ public class ActividadHorarioSemanal2 extends Activity {
     {
 	   	// TODO Auto-generated method stub
     	//LA RELACION ES 25dp  corresponde a 60 minutos 
-    	double factor= (201.0/240.0);
+    	double factor= (185.0/500.0);
     	int enQueVoy = 480;
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
     	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
@@ -336,8 +334,8 @@ class Lienzo extends View {
     	int dato0 = DisplaySupport.dipToPx(this.getContext(),415);
     	int dato1 = DisplaySupport.dipToPx(this.getContext(),50);
     	int dato2 = DisplaySupport.dipToPx(this.getContext(),53);
-    	int dato3 = DisplaySupport.dipToPx(this.getContext(),40);		
-    	int dato4 = DisplaySupport.dipToPx(this.getContext(),50);//TAMAÑO DE UNA HORA
+    	int dato3 = DisplaySupport.dipToPx(this.getContext(),35);		
+    	int dato4 = DisplaySupport.dipToPx(this.getContext(),22);//TAMAÑO DE UNA HORA
     	
     	canvas.drawRGB(255,255,255);
         int ancho=canvas.getWidth();
