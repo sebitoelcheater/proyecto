@@ -341,7 +341,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		//ESTO ES PARA QUE LOS PICKER NO SE PASEN DE LISTOS
     		tPInicio.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
 
-				@Override
 				public void onTimeChanged(TimePicker view, int hourOfDay,int minute) {
 					// TODO Auto-generated method stub
 					if(hourOfDay> 22)
@@ -354,7 +353,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		});
     		tPFin.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
 
-				@Override
 				public void onTimeChanged(TimePicker view, int hourOfDay,
 						int minute) {
 					// TODO Auto-generated method stub
@@ -458,7 +456,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		//ESTO ES PARA QUE LOS PICKER NO SE PASEN DE LISTOS
     		tPInicio.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
 
-				@Override
 				public void onTimeChanged(TimePicker view, int hourOfDay,
 						int minute) {
 					// TODO Auto-generated method stub
@@ -472,7 +469,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		});
     		tPFin.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
 
-				@Override
 				public void onTimeChanged(TimePicker view, int hourOfDay,
 						int minute) {
 					// TODO Auto-generated method stub

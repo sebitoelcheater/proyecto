@@ -63,14 +63,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		tabHost.addTab(spec);
 	
 	}
-	/**
-	public void openCameraActivity(View b)
-	{
-		Intent intent = new Intent(this, CameraActivity.class);
-		startActivity(intent);
-	}
-	**/
-	@Override
+	
 	public void onTabChanged(String tabId) {
 		// TODO Auto-generated method stub
 		if(tabId.equals("FEEDBACK") && Controlador.obtenerCursosComentables(this).size()==0)
