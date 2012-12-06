@@ -3,49 +3,38 @@ package com.example.version2;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.DialogInterface.OnClickListener;
 import android.content.pm.ActivityInfo;
-import android.database.Cursor;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
-//import android.app.Fragment;
-
-
-
-//import com.ciarang.tallyphant.DB;
-//import com.ciarang.tallyphant.DB;
-import com.example.controlador.*;
-import com.example.data.*;
+import com.example.controlador.Controlador;
+import com.example.controlador.Curso;
 import com.example.server.server;
 import com.example.server.server.NoExisteCursoException;
+//import android.app.Fragment;
+//import com.ciarang.tallyphant.DB;
+//import com.ciarang.tallyphant.DB;
 
 
 public class ActividadRamos extends ListActivity {
     private static final int REQUEST_EDITAR_O_AGREGAR = 0;
 
 	public  String id_curso = null;
+
+	public  String nombre_curso = null;
 
 	private ArrayList<Curso> array_ramos;
 	
@@ -211,12 +200,17 @@ public class ActividadRamos extends ListActivity {
     public void configurarnuevoramo(View view)
     {
     	
-    	Intent i = new Intent(this, nuevoRamo.class );
+    	//Intent i = new Intent(this, nuevoRamo.class );
     	/* Este intent envía un "requestCode" que es REQUEST_EDITAR_O_AGREGAR
     	en el protected void onActivityResult se indica qué es lo que hay que hacer según
     	los resultados   	
     	*/
-    	startActivityForResult(i, REQUEST_EDITAR_O_AGREGAR);
+    	//startActivityForResult(i, REQUEST_EDITAR_O_AGREGAR);
+    	
+    	Bundle bundle = new Bundle();
+    	bundle.putString("NOTA", "7");//El valor 7 va segun la base de datos
+    	showDialog(2,bundle); //Usa un 2 para configurar un nuevo Curso
+
     }
     
     public void suscribirCurso(View view)
@@ -232,79 +226,122 @@ public class ActividadRamos extends ListActivity {
     	
     	Bundle bundle = new Bundle();
     	bundle.putString("NOTA", "7");//El valor 7 va segun la base de datos
-    	showDialog(1,bundle); //Cuidado con el showdialog....
+    	showDialog(1,bundle); //Usa un 1 para suscribir un Curso
 
     	
     }
     
 protected Dialog onCreateDialog(int id, Bundle b) {
+	
+			final Dialog d = new Dialog(this);
+	
+			if (id == 1){			
     	
-    	final Dialog d = new Dialog(this);
-		d.setContentView(R.layout.dialogo_suscribir_curso);
-		d.setTitle("Ingrese id del Curso a Suscribir");
-		Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonSuscribirCurso);
-		//EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir2);
-		//id_curso = idCurso.getText().toString();
+					
+					d.setContentView(R.layout.dialogo_suscribir_curso);
+					d.setTitle("Ingrese id del Curso a Suscribir");
+					Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonSuscribirCurso);
+					//EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir2);
+					//id_curso = idCurso.getText().toString();
+					
+					boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
+			            public void onClick(View v) {
+			            	EditText textoid = (EditText) d.findViewById(R.id.idCursoASuscribir2);
+			        		id_curso = textoid.getText().toString();
+			        		if(id_curso.equals(""))
+			        			return;
+			        		boolean noHayTope = true;
+			        		if(!Controlador.existeCursoComentable(v.getContext(), id_curso))
+			        		{	
+			        			server servidor = new server();
+			        			
+			        			try {
+			        				noHayTope = servidor.suscribirCurso(id_curso,ActividadRamos.this);
+			        			} 
+			        			catch(UnknownHostException uhe){
+			        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+			        				d.dismiss();
+			        			}catch(NoExisteCursoException nece)
+			        			{
+			        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+			        				d.dismiss();
+			        			} 
+			        			catch (Exception e) {
+								// TODO Auto-generated catch block
+			        				e.printStackTrace();
+			        			}
+			        		
+			        		}
+			        		else
+			        		{
+			        			Toast.makeText(v.getContext(), "Ya tienes el curso en tu celular", Toast.LENGTH_LONG).show();
+			        		}
+			        		
+			        		
+			        		actualizarListaRamos();
+			        		
+			        		if(!noHayTope)
+			        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
+			        		//String id = idCurso.getText().toString();
+			        		//id_curso = idCurso.getText().toString();
+			        		/*ttry {
+								servidor.suscribirCurso(id_curso,ActividadRamos.this);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+			        		
+			        		ry {
+								servidor.suscribirCurso(id_curso,ActividadRamos.this);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}*/
+			        		d.dismiss();
+			
+			            }
 		
-		boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	EditText textoid = (EditText) d.findViewById(R.id.idCursoASuscribir2);
-        		id_curso = textoid.getText().toString();
-        		if(id_curso.equals(""))
-        			return;
-        		boolean noHayTope = true;
-        		if(!Controlador.existeCursoComentable(v.getContext(), id_curso))
-        		{	
-        			server servidor = new server();
-        			
-        			try {
-        				noHayTope = servidor.suscribirCurso(id_curso,ActividadRamos.this);
-        			} 
-        			catch(UnknownHostException uhe){
-        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
-        				d.dismiss();
-        			}catch(NoExisteCursoException nece)
-        			{
-        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
-        				d.dismiss();
-        			} 
-        			catch (Exception e) {
-					// TODO Auto-generated catch block
-        				e.printStackTrace();
-        			}
-        		
-        		}
-        		else
-        		{
-        			Toast.makeText(v.getContext(), "Ya tienes el curso en tu celular", Toast.LENGTH_LONG).show();
-        		}
-        		
-        		
-        		actualizarListaRamos();
-        		
-        		if(!noHayTope)
-        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
-        		//String id = idCurso.getText().toString();
-        		//id_curso = idCurso.getText().toString();
-        		/*ttry {
-					servidor.suscribirCurso(id_curso,ActividadRamos.this);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-        		
-        		ry {
-					servidor.suscribirCurso(id_curso,ActividadRamos.this);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
-        		d.dismiss();
+				});
+			
+			
+			}; 
+			
+			if (id==2){
+				
+				
+				d.setContentView(R.layout.dialogo_crear_curso);
+				d.setTitle("Ingrese un nombre para el Curso");
+				Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonCrearCurso);
+				//EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir2);
+				//id_curso = idCurso.getText().toString();
+				
+				boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
+		            public void onClick(View v) {
+		            	EditText textonombre = (EditText) d.findViewById(R.id.nombreCursoACrear);
+		        		nombre_curso = textonombre.getText().toString();
+		        		
+		        		Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,"000-255-000"); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
 
-            }
-
-		});
-             return d;
+		        		Toast.makeText(v.getContext(), "Curso Agregado :)", Toast.LENGTH_LONG).show();	
+		        		
+		        		
+		        		actualizarListaRamos();
+		        		
+		        		
+		        		d.dismiss();
+		
+		            }
+	
+			});
+				
+			};
+			
+			
+			return d;
+			
+			
+			
+    	
 	}
    
    /* private void showPopUp2() {
