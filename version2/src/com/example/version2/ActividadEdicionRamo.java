@@ -217,7 +217,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     	if (caso == "ELIMINAR") {
 
     		d.setContentView(R.layout.dialogo_eliminar_modulo);
-    		d.setTitle("�Esta seguro de eliminar el siguiente Modulo?");
+    		d.setTitle("¿Esta seguro de eliminar el siguiente Modulo?");
     		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.botonCancelarEliminarModulo);
     		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.botonAceptarEliminarModulo);
     		String id_modulo = b.getString("idModulo");
@@ -231,7 +231,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			
 			//Le pone el nombre al campo de texto del nombre del ramo
 			diaModulo.setText(moduloAEditar.obtenerNombreDiaDeLaSemana());
-			horaInicio.setText(moduloAEditar.obtenerStringInicio());
+			horaInicio.setText(" "+moduloAEditar.obtenerStringInicio());
 			horaFin.setText(moduloAEditar.obtenerStringFin());
 			//textidModulo.setText(moduloAEditar.obtenerId());
 			//textidModulo2.setText(idModulo2);
