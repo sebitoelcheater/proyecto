@@ -446,8 +446,14 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		}
 		db.close();
 		
+		ArrayList<Modulo> modulosComentables = new ArrayList<Modulo>();//AQUI ESTA
+		for(Modulo m: modulos )
+		{
+			if(new Curso(context,m.obtenerIdCurso()).obtenerComentable())
+				modulosComentables.add(m);
+		}
 		
-		return modulos;
+		return modulosComentables;
 	}
 	
 	public static int getRed(String color)

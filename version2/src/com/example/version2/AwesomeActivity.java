@@ -187,7 +187,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
     
     private void activarNotificaciones() {
 		// TODO Auto-generated method stub
-    	int comprobacionIntervaloSegundos = 30;//pensar esto mejor
+    	int comprobacionIntervaloSegundos = 360;//pensar esto mejor
     	
 		   Intent myIntent = new Intent(AwesomeActivity.this, alarmChecker.class);
 		   pendingIntent = PendingIntent.getService(AwesomeActivity.this, 0, myIntent, 0);
