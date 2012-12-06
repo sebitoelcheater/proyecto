@@ -109,9 +109,9 @@ public final class R {
         public static final int botonCancelarEliminarModulo=0x7f0a0037;
         public static final int botonCrearCurso=0x7f0a0031;
         public static final int botonEditarEsteRamo=0x7f0a0004;
-        public static final int botonEditarModulo=0x7f0a0040;
-        public static final int botonEditarRamo=0x7f0a0043;
-        public static final int botonEliminarModulo=0x7f0a0041;
+        public static final int botonEditarModulo=0x7f0a0041;
+        public static final int botonEditarRamo=0x7f0a0044;
+        public static final int botonEliminarModulo=0x7f0a0042;
         public static final int botonSuscribirCurso=0x7f0a003e;
         public static final int button1=0x7f0a003c;
         public static final int button2=0x7f0a003d;
@@ -119,6 +119,7 @@ public final class R {
         public static final int dospuntos=0x7f0a0035;
         public static final int editText1=0x7f0a0009;
         public static final int edit_message=0x7f0a002d;
+        public static final int espacio=0x7f0a0040;
         public static final int horaFin=0x7f0a0036;
         public static final int horaInicio=0x7f0a0034;
         public static final int icon=0x7f0a0030;
@@ -128,7 +129,7 @@ public final class R {
         public static final int imageButton3=0x7f0a000b;
         public static final int linearLayout1=0x7f0a002f;
         public static final int listView1=0x7f0a000d;
-        public static final int menu_settings=0x7f0a0045;
+        public static final int menu_settings=0x7f0a0046;
         public static final int nombreCursoACrear=0x7f0a0032;
         public static final int nombreRamoAEditar=0x7f0a0005;
         public static final int nombreRamoAVer=0x7f0a0002;
@@ -143,10 +144,10 @@ public final class R {
         public static final int textView7=0x7f0a0025;
         public static final int textView8=0x7f0a0028;
         public static final int textView9=0x7f0a002a;
-        public static final int textoNombreRamo=0x7f0a0042;
+        public static final int textoNombreRamo=0x7f0a0043;
         public static final int timePicker1=0x7f0a003a;
         public static final int timePicker2=0x7f0a003b;
-        public static final int title=0x7f0a0044;
+        public static final int title=0x7f0a0045;
         public static final int version=0x7f0a0000;
     }
     public static final class layout {

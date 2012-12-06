@@ -9,8 +9,13 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center|center_horizontal"
-		    android:textAppearance="?android:attr/textAppearanceLarge"
-		    android:text="Día   "/>
+		    android:text="Día"/>
+	<TextView
+		    android:id="@+id/espacio"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center|center_horizontal"
+		    android:text=" "/>
 
 	<LinearLayout
 	    xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,20 +38,17 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_gravity="center"
-			    android:textAppearance="?android:attr/textAppearanceLarge"
 			    android:text="XX:XX"/>
 	
 			<TextView
 				android:id="@+id/dospuntos"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge" 
 				android:text=" - "/>
 			<TextView
 				android:id="@+id/horaFin"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge"
 				android:text="YY:YY"/>
 		</LinearLayout>
 	</LinearLayout>

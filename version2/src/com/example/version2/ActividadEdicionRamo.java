@@ -214,7 +214,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     	if (caso == "ELIMINAR") {
 
     		d.setContentView(R.layout.dialogo_eliminar_modulo);
-    		d.setTitle("¿Esta seguro de eliminar el siguiente Modulo?");
+    		d.setTitle("ï¿½Esta seguro de eliminar el siguiente Modulo?");
     		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.botonCancelarEliminarModulo);
     		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.botonAceptarEliminarModulo);
     		String id_modulo = b.getString("idModulo");
@@ -342,8 +342,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		tPInicio.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
 
 				@Override
-				public void onTimeChanged(TimePicker view, int hourOfDay,
-						int minute) {
+				public void onTimeChanged(TimePicker view, int hourOfDay,int minute) {
 					// TODO Auto-generated method stub
 					if(hourOfDay> 22)
 						view.setCurrentHour(8);
