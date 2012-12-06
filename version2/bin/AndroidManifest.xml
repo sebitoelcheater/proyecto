@@ -100,7 +100,10 @@
         <activity
             android:name=".DibujarLineas"
             android:label="@string/title_activity_dibujar_lineas" >
-            
+        </activity>
+        <activity
+            android:name=".ActividadFeedBackear"
+            android:label="@string/title_activity_actividad_feed_backear" >
         </activity>
     </application>
 
