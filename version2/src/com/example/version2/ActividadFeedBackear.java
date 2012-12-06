@@ -51,16 +51,17 @@ public class ActividadFeedBackear extends Activity {
 				Chronometer cronometro=(Chronometer)fila.findViewById(R.id.chronometer1);
 				try{
 					String nombreCurso = new Curso(convertView.getContext(),modulosPorFeedBackear.get(position).obtenerIdCurso()).obtenerNombre();
-				if(nombreCurso == null) //HACER ESTO DESDE LOS CURSOS
-					nombre.setText("SIN NOMBRE");
-				else
-							nombre.setText(nombreCurso);
-				}catch(Exception e){System.out.println("JAJA");}
+				
+					nombre.setText(nombreCurso);
+				}catch(NullPointerException e){}
+				
 				fecha.setText(modulosPorFeedBackear.get(position).obtenerNombreDiaDeLaSemana()+" "+modulosPorFeedBackear.get(position).obtenerStringInicio()+" - "+modulosPorFeedBackear.get(position).obtenerStringFin());
 				
 				
 				//ACA VA EL MANEJO DEL CRONOMETRO
-				//
+				cronometro.start();
+				
+				//ESTO ESTA EN TRANCE MIENTRAS BUSCO UN CRONOMETRO
 				//ACA DEBERIAN IR LOS LISTENER
 				
 			  return fila;
@@ -81,7 +82,6 @@ public class ActividadFeedBackear extends Activity {
         ListView lista = (ListView)findViewById(R.id.listView1);
         
         ArrayList<Modulo> modulosAFeedBackear = Controlador.obtenerModulos(this);
-        System.out.println(modulosAFeedBackear.size());
         lista.setAdapter(new MiModuloFeedBackeandoArrayAdapter(this, R.layout.item_modulo_editando, modulosAFeedBackear));
         
         
