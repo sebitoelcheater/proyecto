@@ -52,5 +52,9 @@
     <string name="ok">Ok</string>
     <string name="URL">"http://www.cheaper.cl/android"</string>
     <string name="title_activity_actividad_feed_backear">ActividadFeedBackear</string>
-
+    <string name="actualizar">Actualizar</string>
+    <string name="editar">Editar</string>
+    <string name="sala">Lugar:</string>
+    
+    
 </resources>
