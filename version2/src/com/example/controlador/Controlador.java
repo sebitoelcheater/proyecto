@@ -483,5 +483,47 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		}
 		return numero;
 	}
+	public static ArrayList<Modulo> obtenerLosFeedBackeables(
+			Context context, Calendar ahora) {
+		// TODO Auto-generated method stub
+		int horas = 3;//Lo que espera el feedBack
+		
+		
+		ArrayList<Modulo> posiblesModulos = obtenerModulosDelDia(context,ahora);
+		ArrayList<Modulo> posibles2Modulos = new ArrayList<Modulo>();
+		
+		
+		///
+		System.out.println(posiblesModulos.size());
+		///
+		
+		for (Modulo m : posiblesModulos)
+			if(new Curso(context,m.obtenerIdCurso()).obtenerComentable())
+				posibles2Modulos.add(m);
+		
+		
+		///
+		System.out.println(posibles2Modulos.size());
+		///
+		
+		
+		posiblesModulos =  new ArrayList<Modulo>();
+		for(Modulo m : posibles2Modulos)
+		{
+			Calendar fin = m.obtenerFin();
+			Calendar plazoMaximo = (Calendar) fin.clone();
+			plazoMaximo.add(Calendar.HOUR, horas);
+			Calendar aahora = (Calendar) fin.clone();
+			aahora.set(Calendar.HOUR_OF_DAY, ahora.get(Calendar.HOUR_OF_DAY));
+			aahora.set(Calendar.MINUTE, ahora.get(Calendar.MINUTE));
+			
+			if(aahora.before(plazoMaximo))
+				posiblesModulos.add(m);
+		}
+		///
+		System.out.println(posiblesModulos.size());
+		///
+		return posiblesModulos;
+	}
 	
 }

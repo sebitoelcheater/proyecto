@@ -75,10 +75,10 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 	
 	public void onTabChanged(String tabId) {
 		// TODO Auto-generated method stub
-		if(tabId.equals("FEEDBACK") && Controlador.obtenerCursosComentables(this).size()==0)
+		if(tabId.equals("FEEDBACK") && Controlador.obtenerLosFeedBackeables(this,Calendar.getInstance()).size()==0)
 		{
 			tabHost.setCurrentTab(tab);
-			Toast.makeText(this, "No hay ramos comentables", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "No hay ramos para FeedBackear", Toast.LENGTH_LONG).show();
 		}
 		else
 		{

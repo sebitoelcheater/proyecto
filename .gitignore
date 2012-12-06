@@ -4,5 +4,11 @@
 *.jar
 *.war
 *.ear
+<<<<<<< HEAD
 version2/bin/*
 
+=======
+*/bin/classes.dex
+*/bin/resources.ap_
+*/bin/*.apk
+>>>>>>> 0d2863315aa4f364f52719f3d42933c8064f8014
