@@ -55,6 +55,8 @@
     <string name="actualizar">Actualizar</string>
     <string name="editar">Editar</string>
     <string name="sala">Lugar:</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
     
     
 </resources>

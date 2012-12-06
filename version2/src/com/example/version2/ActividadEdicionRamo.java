@@ -266,7 +266,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     	else if (caso == "EDITAR") {
     		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
     		
-    		d.setContentView(R.layout.dialogo_modulo);
+    		d.setContentView(R.layout.dialogo_modulo_nuevo);
     		d.setTitle("Editar hora");
     		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
     		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
@@ -274,8 +274,14 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
     		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
     		String id_modulo = b.getString("idModulo");
+    		
+    		EditText campoTextoLugar = (EditText) d.findViewById(R.id.salaModuloAEditar);
+
             moduloAEditar = new Modulo(this,id_modulo);
-            
+            String salaOriginal = moduloAEditar.obtenerNombre();
+           campoTextoLugar.setText(salaOriginal);
+            //campoTextoLugar.setText(moduloAEditar.obtenerNombreDiaDeLaSemana());
+
             
     		///Agregando datos
     		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
@@ -308,6 +314,12 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 	Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
                 	TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
             		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+            		
+            		EditText campoTextoLugar = (EditText) d.findViewById(R.id.salaModuloAEditar);
+
+            		
+            		String nuevoLugar = campoTextoLugar.getText().toString();
+            		moduloAEditar.establecerNombre(v.getContext(), nuevoLugar);
             		
                 	moduloAEditar.establecerDiaDeLaSemana(v.getContext(), spinnerDias.getSelectedItemPosition()+1);
                 	Calendar inicio = moduloAEditar.obtenerInicio();
@@ -385,7 +397,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		 * actualizar la lista de módulos*/
     		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
     		
-    		d.setContentView(R.layout.dialogo_modulo);
+    		d.setContentView(R.layout.dialogo_modulo_nuevo);
     		d.setTitle("Agregar Modulo");
     		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
     		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
@@ -435,10 +447,20 @@ protected Dialog onCreateDialog(int id, Bundle b) {
                 	Calendar fin = Calendar.getInstance();
                 	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
                 	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
+                	
+                	
+                	EditText campoTextoLugar = (EditText) d.findViewById(R.id.salaModuloAEditar);
+
+            		String lugar = campoTextoLugar.getText().toString();
+            		
+            		
+            		
                 	if(inicio.before(fin))
                 	{	
-                		if(Controlador.crearNuevoModulo(v.getContext(), 0, Integer.parseInt(cursoAEditar.obtenerId()), spinnerDias.getSelectedItemPosition()+1, inicio, fin, cursoAEditar.obtenerNombre()))
+                		if(Controlador.crearNuevoModulo(v.getContext(), 0, Integer.parseInt(cursoAEditar.obtenerId()), spinnerDias.getSelectedItemPosition()+1, inicio, fin, lugar))
                 		{
+                			
+                 
                 			actualizarModulos();
                 			d.dismiss(); //Cierra el diálogo
                 		}
