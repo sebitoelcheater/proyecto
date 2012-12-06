@@ -19,8 +19,7 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/edittextNombredelRamo"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    	<EditText
+		   	<EditText
 	    	    android:id="@+id/nombreRamoAEditar"
 	    	    android:layout_width="match_parent"
 	    	    android:layout_height="50dp"

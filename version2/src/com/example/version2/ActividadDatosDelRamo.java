@@ -58,12 +58,16 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
 			  	View fila=inflater.inflate(R.layout.item_modulo, parent, false);
 			  	//Recoje textview donde va el nombre del ramo
 				TextView diaModulo=(TextView)fila.findViewById(R.id.diaModulo);
+				TextView salaModulo=(TextView)fila.findViewById(R.id.salaModulo);
+
 				TextView horaInicio=(TextView)fila.findViewById(R.id.horaInicio);
 				TextView horaFin=(TextView)fila.findViewById(R.id.horaFin);
 				//Le pone el nombre al campo de texto del nombre del ramo
 				diaModulo.setText(objects.get(position).obtenerNombreDiaDeLaSemana());
 				horaInicio.setText(objects.get(position).obtenerStringInicio());
 				horaFin.setText(objects.get(position).obtenerStringFin());
+				salaModulo.setText(" "+objects.get(position).obtenerNombre());
+
 			  return fila;
 		  }
 		} 

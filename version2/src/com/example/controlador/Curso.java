@@ -77,7 +77,7 @@ public class Curso
 		
 		public boolean esDescargado()
 		{
-			return idMaster.equals("0");
+			return !(idMaster.equals("0"));
 		}
 		
 		public String obtenerColor()
@@ -132,6 +132,12 @@ public class Curso
 				return true;
 			}
 			db.close();
+			return false;
+		}
+		
+		public boolean actualizar(Context context)
+		{
+			
 			return false;
 		}
 		
