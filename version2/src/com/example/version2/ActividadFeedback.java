@@ -64,8 +64,7 @@ public class ActividadFeedback extends Activity {
     	server objeto1 = new server();
     	
     	try{
-    		objeto1.comentar(view, 1, comentario.getText().toString()); 
-    		//objeto1.comentar2(view,1,ramo,Controlador.ultimoModulo(this,ramo),comentario.getText().toString());
+    		objeto1.comentar2(view,ramo,Controlador.ultimoModulo(this,ramo),comentario.getText().toString());
     		
     		//Gracias por el feedback
         	Toast toast = Toast.makeText(getApplicationContext(), "Gracias por tu feedback!", Toast.LENGTH_SHORT);

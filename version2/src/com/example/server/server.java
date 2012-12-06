@@ -47,8 +47,23 @@ public class server extends Activity {
         }
 	}
 	
-	public void comentar2(View view, int i,Curso c,Modulo m, String comentario)
+	public void comentar2(View view, Curso c,Modulo m, String comentario)
 	{
+		int idH = Integer.parseInt(m.obtenerIdMaster());
+        // Create a new HttpClient and Post Header
+        HttpClient httpclient = new DefaultHttpClient();
+        comentario=comentario.replaceAll(" ", "%20");
+        HttpPost httppost = new HttpPost("http://www.cheaper.cl/android/funciones/comentar.php?idH="+idH+"&comentario="+comentario+"");
+        System.out.println(idH);
+        try {
+            // Execute HTTP Post Request
+            HttpResponse response = httpclient.execute(httppost);
+            
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+        }
 		//Hola seba esto es para que guardes el nuevo método que considerara el Curso asociado y el Modulo asociado(teniendo los objetos tienes todos los dato asociados a ellos... si necesitas ayuda me dices o revisas la documentacion del controlador)
 		
 	}
