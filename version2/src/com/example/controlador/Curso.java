@@ -72,7 +72,12 @@ public class Curso
 		
 		public boolean esEditable()
 		{
-			return !comentable;
+			return !(esDescargado());
+		}
+		
+		public boolean esDescargado()
+		{
+			return idMaster.equals("0");
 		}
 		
 		public String obtenerColor()

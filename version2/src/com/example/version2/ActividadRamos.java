@@ -260,10 +260,12 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        			} 
 			        			catch(UnknownHostException uhe){
 			        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			}catch(NoExisteCursoException nece)
 			        			{
 			        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			} 
 			        			catch (Exception e) {
@@ -297,6 +299,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}*/
+			        		textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        		d.dismiss();
 			
 			            }

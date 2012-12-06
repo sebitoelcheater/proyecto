@@ -109,9 +109,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 	}
 	static public Curso crearNuevoCurso(Context context,int idC, int iidP, String nombre,boolean comentable,String color) //CUANDO ESTO CRESCA NO OLVIDAR AGREGAR ACA NUEVAS CARACTERISTICAS
 	{
-		int c = 0;
+		int c = 1;
 		if(!comentable)
-			c = 1;
+			c = 0;
 		AdapterCursos db = new AdapterCursos(context);
 		db.open();        
 	    String id = db.insertRecordCURSOS(idC,iidP,nombre,c,color)+"";    
