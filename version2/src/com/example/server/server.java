@@ -150,6 +150,10 @@ public class server extends Activity {
 			String fin=Horarios.get(i).getString("fin");
 			String ubicacion=Horarios.get(i).getString("ubicacion");
 			
+			
+			inicio = arreglaLo(inicio);
+			fin = arreglaLo(fin);
+			
 			SimpleDateFormat formato = new SimpleDateFormat("HHmmss");
 			Date a = new Date();
 			Calendar cInicio = new GregorianCalendar();
@@ -159,7 +163,7 @@ public class server extends Activity {
 				cInicio.setTime(a);
 			}catch(ParseException e){}
 			
-			
+			formato = new SimpleDateFormat("HHmmss");
 			a = new Date();
 			Calendar cFin = new GregorianCalendar();
 			
@@ -186,7 +190,32 @@ public class server extends Activity {
 		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
 		
 	}
-	
+	private String arreglaLo(String horaSeba) {
+		// TODO Auto-generated method stub
+		String arreglado = "";
+		int zHoraSeba = Integer.parseInt(horaSeba);
+		
+		int horas = zHoraSeba/10000;
+		int minutos = (zHoraSeba/100)%100;
+		int segundos = zHoraSeba%10000;
+		
+		arreglado = agregarCeros(2,horas)+agregarCeros(2,minutos)+agregarCeros(2,segundos);
+		
+		return arreglado;
+	}
+
+	private static String agregarCeros(int n, int i) {
+		// TODO Auto-generated method stub
+		String numero = i+"";
+		if(numero.length()<n)
+		{
+			for(int j =0; j<(n-numero.length());++j)
+			{
+				numero = "0"+numero;
+			}	
+		}
+		return numero;
+	}
 	public class NoExisteCursoException extends Exception {
 
 		public NoExisteCursoException(String msg) {
