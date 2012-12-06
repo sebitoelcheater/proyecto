@@ -35,7 +35,7 @@ public class Curso
 		Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 		setColor(c.getString(5));
 		setNombre(c.getString(3));
-		setComentable("0".equals(c.getString(4)));
+		setComentable("1".equals(c.getString(4)));
 		setIdMaster(c.getString(1));
 		setIdP(c.getString(2));
         db.close();
@@ -155,9 +155,9 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 			db.open();
-			String stringComentable = "1";
+			String stringComentable = "0";
 			if(comentable)
-				stringComentable = "0";
+				stringComentable = "1";
 			
 			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3),Integer.parseInt(stringComentable),c.getString(5)))
 			{	

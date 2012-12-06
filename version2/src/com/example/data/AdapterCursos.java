@@ -270,7 +270,7 @@ public class AdapterCursos {
     	Cursor mCursor =
                  db.query(true, DATABASE_TABLE_HORARIOS, new String[] {KEY_ROWIIDH, KEY_ROWIDH, KEY_ROWIIDC, KEY_DDS,
                  KEY_INICIO, KEY_FIN, KEY_UBICACION}, 
-                 KEY_DDS + "=" + diaDeLaSemana+ " AND (("+KEY_INICIO+"<"+fInicio+" AND "+ KEY_FIN+">"+fFin+") OR ("+KEY_INICIO+">"+fInicio+" AND "+ KEY_INICIO+"<"+fFin+") OR ("+KEY_FIN+">"+fInicio+" AND "+ KEY_FIN+"<"+fFin+")"+")", null, null, null, null, null);
+                 KEY_DDS + "=" + diaDeLaSemana+ " AND (("+KEY_INICIO+"<"+fInicio+" AND "+ KEY_FIN+">"+fFin+") OR ("+KEY_INICIO+">="+fInicio+" AND "+ KEY_INICIO+"<"+fFin+") OR ("+KEY_FIN+">"+fInicio+" AND "+ KEY_FIN+"<="+fFin+")"+")", null, null, null, null, null);
          if (mCursor != null) {
              mCursor.moveToFirst();
          }
