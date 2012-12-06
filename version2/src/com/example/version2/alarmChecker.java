@@ -51,6 +51,8 @@ public void run() {
 	proximosInicios = Controlador.obtenerLosModulosProximosInicio(this, ahora, MINUTOS); 
 	anterioresFinales = Controlador.obtenerLosModulosAnterioresFin(this,ahora , MINUTOS);
 	
+	
+	System.out.println("NOTIFICACION");
 	/*
 	for(Modulo m : proximosInicios)
 		Log.d("MODULO",m.obtenerNombre());

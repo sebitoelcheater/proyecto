@@ -1,8 +1,13 @@
 package com.example.version2;
 
-import com.example.controlador.Controlador;
+import java.util.Calendar;
 
+import com.example.controlador.Controlador;
+import com.example.controlador.Curso;
+
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.TabActivity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -31,7 +36,7 @@ import android.widget.Toast;
 public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeListener {
 	TabHost tabHost;
 	/** Called when the activity is first created. */
-	
+	private PendingIntent pendingIntent;
 	int tab = 0;
 	public void onCreate(Bundle savedInstanceState) { // SEBA... NO FUNCIONAN LAS NOTIFICACIONES
 		super.onCreate(savedInstanceState);
@@ -40,6 +45,10 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		tabHost = getTabHost();
 		setTabs();
 		tabHost.setOnTabChangedListener(this);
+		
+		
+		activarNotificaciones();
+		
 	}
 	private void setTabs() 
 	{
@@ -175,4 +184,24 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    private void activarNotificaciones() {
+		// TODO Auto-generated method stub
+    	int comprobacionIntervaloSegundos = 30;//pensar esto mejor
+    	
+		   Intent myIntent = new Intent(AwesomeActivity.this, alarmChecker.class);
+		   pendingIntent = PendingIntent.getService(AwesomeActivity.this, 0, myIntent, 0);
+
+		   AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+		   Calendar calendar = Calendar.getInstance();
+		   calendar.setTimeInMillis(System.currentTimeMillis());
+		   calendar.add(Calendar.SECOND, 10);
+		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
+ 
+	
+		   
+		   
+		   
+	}
 }

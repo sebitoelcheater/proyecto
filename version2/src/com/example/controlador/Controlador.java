@@ -395,13 +395,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 					
 		}
 		db.close();
-		ArrayList<Modulo> modulosComentables = new ArrayList<Modulo>();
-		for(Modulo m: modulos )
-		{
-			if(new Curso(context,m.obtenerIdCurso()).obtenerComentable())
-				modulosComentables.add(m);
-		}
-		return modulosComentables;
+		return modulos;
 	}
 	
 	static public ArrayList<Modulo> obtenerLosModulosAnterioresFin(Context context,Calendar ahora, int minutos) //TERMINAR
