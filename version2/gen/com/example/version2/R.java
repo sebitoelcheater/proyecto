@@ -109,7 +109,7 @@ public final class R {
         public static final int botonCambios=0x7f0a0007;
         public static final int botonCancelarEliminarModulo=0x7f0a0038;
         public static final int botonCrearCurso=0x7f0a0032;
-        public static final int botonEditarEsteRamo=0x7f0a0004;
+        public static final int botonEditarEsteCurso=0x7f0a0004;
         public static final int botonEditarModulo=0x7f0a0043;
         public static final int botonEditarRamo=0x7f0a0046;
         public static final int botonEliminarModulo=0x7f0a0044;
