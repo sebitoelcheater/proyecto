@@ -2,12 +2,20 @@ package com.example.version2;
 
 import com.example.controlador.Controlador;
 
+import android.app.AlertDialog;
 import android.app.TabActivity;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -75,4 +83,103 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 			tab = tabHost.getCurrentTab();
 		}
 	}
+	
+	   /* private static final int NEW_ITEM = Menu.FIRST;
+    private static final int RESET_ALL = Menu.FIRST + 1;
+    private static final int SHARE = Menu.FIRST + 2;
+    private static final int PREFERENCES = Menu.FIRST + 3;*/
+    //private static final int ABOUT = Menu.FIRST + 4;
+    private static final int ABOUT = Menu.FIRST;
+    
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        super.onCreateOptionsMenu(menu);
+        /*menu.add(Menu.NONE, NEW_ITEM, 1, R.string.menu_newitem).setIcon(
+                android.R.drawable.ic_menu_add);
+        menu.add(Menu.NONE, RESET_ALL, 2, R.string.menu_resetall).setIcon(
+                android.R.drawable.ic_menu_revert);
+        menu.add(Menu.NONE, SHARE, 3, R.string.menu_share).setIcon(
+                android.R.drawable.ic_menu_share);
+        menu.add(Menu.NONE, PREFERENCES, 4, R.string.menu_preferences).setIcon(
+                android.R.drawable.ic_menu_preferences);*/
+        menu.add(Menu.NONE, ABOUT, 5, R.string.menu_about).setIcon(
+                android.R.drawable.ic_menu_help);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+        /*case NEW_ITEM:
+            Intent call = new Intent(TallyphantActivity.this, ItemEdit.class);
+            startActivityForResult(call, REQUEST_EDITITEM);
+            return true;
+
+        case RESET_ALL:
+            db.resetAll();
+            remoteNotifyAll();
+            updateItemList();
+            return true;
+
+        case SHARE:
+            Intent i = new Intent(android.content.Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, R.string.share_subject);
+            Vector<DB.Item> items = db.getItems();
+            String msg = "";
+            for (DB.Item titem : items)
+                msg += titem.getFormatted() + "\n";
+            i.putExtra(Intent.EXTRA_TEXT, msg);
+            startActivity(Intent.createChooser(i,
+                    getString(R.string.share_title)));
+            return true;
+
+        case PREFERENCES:
+            Intent prefs = new Intent(getBaseContext(), Preferences.class);
+            startActivityForResult(prefs, REQUEST_PREFS);
+            return true;*/
+
+        case ABOUT:
+            LayoutInflater li = LayoutInflater.from(this);
+            View view = li.inflate(R.layout.about, null);
+
+            // Fill in the version...
+            TextView tv = (TextView) view.findViewById(R.id.version);
+            PackageManager pm = getPackageManager();
+            try {
+                PackageInfo pi = pm.getPackageInfo(getApplicationContext()
+                        .getPackageName(), 0);
+                tv.setText(pi.versionName);
+            } catch (Exception e) {
+            }
+
+            Builder p = new AlertDialog.Builder(this).setView(view);
+            final AlertDialog alrt = p.create();
+            alrt.setIcon(R.drawable.ic_launcher);
+            alrt.setTitle(getString(R.string.about_title));
+            alrt.setButton(AlertDialog.BUTTON_NEUTRAL,
+                    getString(R.string.about_website),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                int whichButton) {
+                            Uri uri = Uri
+                                    .parse(getString(R.string.URL));
+                            startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                        }
+                    });
+            alrt.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.ok),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                int whichButton) {
+                        }
+                    });
+            alrt.show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

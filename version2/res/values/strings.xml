@@ -43,5 +43,14 @@
     <string name="title_activity_actividad_horario_semanal2">ActividadHorarioSemanal2</string>
     <string name="title_activity_actividad_horario2">ActividadHorario2</string>
     <string name="title_activity_dibujar_lineas">DibujarLineas</string>
+    <string name="menu_about">Acerca de esta App</string>    
+    <string name="about_site">Sitio Web</string>
+    <string name="about_desc">Organizador - copyright 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias.</string>
+    <string name="about_title">Acerca de Organizador</string>
+    <string name="about_website">Sitio Web</string>
+    <string name="about_version">Versión:</string>
+    <string name="ok">Ok</string>
+    <string name="URL">"http://www.cheaper.cl/android"</string>
+            
 
 </resources>

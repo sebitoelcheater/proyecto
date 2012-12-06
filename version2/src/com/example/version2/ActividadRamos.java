@@ -184,12 +184,17 @@ public class ActividadRamos extends ListActivity {
 	    }
 	        
 	 
+	 /*
+	  * Lo siguiente no tiene que estar, para que mande el menú de la actividad
+	  * que está como arriba de ella (awsome activity)
+	  * 
 	 @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_actividad_configuracion, menu);
         return true;
     }
        
+       */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -256,7 +261,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
         				noHayTope = servidor.suscribirCurso(id_curso,ActividadRamos.this);
         			} 
         			catch(UnknownHostException uhe){
-        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
         				d.dismiss();
         			}catch(NoExisteCursoException nece)
         			{

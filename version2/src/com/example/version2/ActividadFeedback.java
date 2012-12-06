@@ -34,11 +34,17 @@ public class ActividadFeedback extends Activity {
 
 	 EditText comentario;
 	 
-    @Override
+	 /*
+	  * Lo siguiente no tiene que estar, para que mande el menú de la actividad
+	  * que está como arriba de ella (awsome activity)
+	  * 
+	 @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_actividad_feedback, menu);
+        getMenuInflater().inflate(R.menu.activity_actividad_configuracion, menu);
         return true;
     }
+       
+       */
     private void cargarDatos() {
     	
 		cursosComentables = Controlador.obtenerCursosComentables(this); // ACA DEBERIA IR UN METODO LLAMADO OBTENERCURSOSCOMENTABLES... NO OLVIDAR PEDIRMELO!
@@ -54,7 +60,7 @@ public class ActividadFeedback extends Activity {
        	Curso ramo = cursosComentables.get(mySpinner.getSelectedItemPosition());
     	//Capturar comentario
     	comentario = (EditText) findViewById(R.id.editText1);
-    	//Crear objeto de la clase post y posteriormente ejecutar m�todo comentar
+    	//Crear objeto de la clase post y posteriormente ejecutar m�todo comentar
     	server objeto1 = new server();
     	
     	try{

@@ -296,12 +296,17 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 		
 	}
 
-	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_actividad_horario_semanal, menu);
-        return true;
-    }
-	
+	 /*
+	  * Lo siguiente no tiene que estar, para que mande el menú de la actividad
+	  * que está como arriba de ella (awsome activity)
+	  * 
+	 @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+       getMenuInflater().inflate(R.menu.activity_actividad_configuracion, menu);
+       return true;
+   }
+      
+      */
 }
 
 class Lienzo extends View {
@@ -335,7 +340,7 @@ class Lienzo extends View {
     	int dato1 = DisplaySupport.dipToPx(this.getContext(),50);
     	int dato2 = DisplaySupport.dipToPx(this.getContext(),53);
     	int dato3 = DisplaySupport.dipToPx(this.getContext(),35);		
-    	int dato4 = DisplaySupport.dipToPx(this.getContext(),22);//TAMA�O DE UNA HORA
+    	int dato4 = DisplaySupport.dipToPx(this.getContext(),22);//TAMA�O DE UNA HORA
     	
     	canvas.drawRGB(255,255,255);
         int ancho=canvas.getWidth();
