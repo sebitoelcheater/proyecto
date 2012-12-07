@@ -113,7 +113,7 @@ public class ActividadRamos extends ListActivity {
 				        				noHayTope = objects.get(position).actualizar(ActividadRamos.this);
 				        			} 
 				        			catch(UnknownHostException uhe){
-				        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+				        				Toast.makeText(v.getContext(), "Error :No hay conexion con el servidor", Toast.LENGTH_LONG).show();
 				        				return;
 				        			}catch(NoExisteCursoException nece)
 				        			{
@@ -125,8 +125,8 @@ public class ActividadRamos extends ListActivity {
 				        				e.printStackTrace();
 				        			}
 				        		
-				        		if(!noHayTope)
-					        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
+				        		//if(!noHayTope)
+					        	//		Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
 				        		
 				        		actualizarListaRamos();
 			             }		         
@@ -309,7 +309,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        				noHayTope = servidor.suscribirCurso(id_curso,ActividadRamos.this);
 			        			} 
 			        			catch(UnknownHostException uhe){
-			        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+			        				Toast.makeText(v.getContext(), "Error :No hay conexion con el servidor", Toast.LENGTH_LONG).show();
 			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			}catch(NoExisteCursoException nece)
@@ -332,8 +332,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        		
 			        		actualizarListaRamos();
 			        		
-			        		if(!noHayTope)
-			        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
+			        		//if(!noHayTope)
+			        		//	Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
 			        		//String id = idCurso.getText().toString();
 			        		//id_curso = idCurso.getText().toString();
 			        		/*ttry {

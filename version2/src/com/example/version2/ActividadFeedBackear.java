@@ -70,16 +70,9 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
 					clon.set(Calendar.MINUTE, fin.get(Calendar.MINUTE));
 					
 					
-					//
-					System.out.println("CLON HORA : " + clon.get(Calendar.HOUR_OF_DAY));
-					System.out.println("CLON MINUTO : " + clon.get(Calendar.MINUTE));
-					System.out.println("AHORA HORA : " + ahora.get(Calendar.HOUR_OF_DAY));
-					System.out.println("AHORA MINUTO : " + ahora.get(Calendar.MINUTE));
-					//
-					
-					//lo que me falta es ahora-clon en milisegundos
 					long diferencia =clon.getTimeInMillis()-ahora.getTimeInMillis();
-					System.out.println("DIFERENCIA : "+diferencia);
+					long difS = diferencia/1000;
+					
 					Calendar cDiferencia = (Calendar) clon.clone();
 					
 					cDiferencia.setTimeInMillis(diferencia);
