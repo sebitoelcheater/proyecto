@@ -181,4 +181,12 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         }
     }
 	
+	public void eliminarCurso(View v)
+	{
+		
+		new Curso(this,idRamoAEditar).borrarCurso(this);
+		setResult(RESULT_OK);
+		  finish();
+	}
+	
 }

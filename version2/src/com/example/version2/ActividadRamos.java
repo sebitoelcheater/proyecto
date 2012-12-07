@@ -138,7 +138,10 @@ public class ActividadRamos extends ListActivity {
 		                 // Para Ver un Ramo
 		             	Intent intent = new Intent(ActividadRamos.this,ActividadDatosDelRamo.class);
 		             	intent.putExtra("id", objects.get(position).obtenerId());
-		             	startActivity(intent);
+         	
+		         
+		            	
+		             	startActivityForResult(intent, REQUEST_EDITAR_O_AGREGAR);
 		             }
 		         
 		         });
