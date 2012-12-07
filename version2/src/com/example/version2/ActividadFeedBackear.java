@@ -73,10 +73,14 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
 					long diferencia =clon.getTimeInMillis()-ahora.getTimeInMillis();
 					long difS = diferencia/1000;
 					
+					int horass = ((int)difS)/3600;
+					int minutos = ((int)(difS-horass*3600))/60;
+					/*
 					Calendar cDiferencia = (Calendar) clon.clone();
-					
 					cDiferencia.setTimeInMillis(diferencia);
-					String Tempo =agregarCeros(2,cDiferencia.get(Calendar.HOUR_OF_DAY)) +":"+agregarCeros(2,cDiferencia.get(Calendar.MINUTE));
+					*/
+					
+					String Tempo =agregarCeros(2,horass) +":"+agregarCeros(2,minutos);
 					
 					deadLine.setText("Te quedan "+ Tempo + " para FeedBackear");
 				}catch(NullPointerException e){}
