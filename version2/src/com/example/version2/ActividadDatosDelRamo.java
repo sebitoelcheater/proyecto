@@ -92,6 +92,13 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         
         
         setContentView(R.layout.activity_actividad_datos_del_ramo);
+        
+		Button boton_editar_curso = (Button) findViewById(R.id.botonEditarEsteCurso);
+
+        if (!cursoAVer.esEditable())
+        {
+        	boton_editar_curso.setVisibility(View.INVISIBLE);    	
+        };
         /*Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         //numeroDeNotas.setAdapter(new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item,numeros));
         //ListView listaDeModulos = (ListView) findViewById(R.id.listView1);
