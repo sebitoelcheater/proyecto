@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.controlador.*;
@@ -19,17 +20,21 @@ import com.example.server.server;
 public class ActividadFeedback extends Activity {
 	 private ArrayList<String> cursos;
 	 private ArrayList<Curso> cursosComentables;
+	 Modulo aFB;
 	 @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_feedback);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Bundle b = getIntent().getExtras();
-		cargarDatos();
+        aFB = new Modulo(this,getIntent().getStringExtra("ID"));
         
+        //cargarDatos();
+        TextView nombreCurso=(TextView) findViewById(R.id.nombreCusoAFeedbackear);     
+        nombreCurso.setText(new Curso(this,aFB.obtenerIdCurso()).obtenerNombre());
         
-        Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
-        numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,cursos));
+        //Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
+        //numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,cursos));
     }
 
 	 EditText comentario;
@@ -56,8 +61,8 @@ public class ActividadFeedback extends Activity {
     public void enviarComentario(View view)
     {
     	//Hola, soy Seba. Capturar spinner
-    	Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
-       	Curso ramo = cursosComentables.get(mySpinner.getSelectedItemPosition());
+    	//Spinner mySpinner = (Spinner)findViewById(R.id.spinner1);
+       	Curso ramo = new Curso(this,aFB.obtenerIdCurso());
     	//Capturar comentario
     	comentario = (EditText) findViewById(R.id.editText1);
     	//Crear objeto de la clase post y posteriormente ejecutar m�todo comentar
