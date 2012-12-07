@@ -100,7 +100,7 @@ private void Notificar() {
 	}
 	if(anterioresFinales.size() != 0)
 	{
-		Intent intentNot = new Intent(this, ActividadFeedback.class);
+		Intent intentNot = new Intent(this, ActividadFeedBackear.class);
 		
 		//Prepara la notificacion
 		Notification notification = new Notification(android.R.drawable.ic_menu_send, "Comenta!", System.currentTimeMillis());
