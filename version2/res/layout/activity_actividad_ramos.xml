@@ -40,13 +40,13 @@
 	         android:layout_height="wrap_content"
 	         android:layout_weight="1"
 	         android:onClick="configurarnuevoramo"
-	         android:text="Configurar Nuevo Ramo" />
+	         android:text="@string/configurar_nuevo_curso" />
 	     <Button
 	         android:layout_width="wrap_content"
 	         android:layout_weight="1"
 	         android:layout_height="wrap_content"
 	         android:onClick="suscribirCurso"
-	         android:text="Descargar Ramo" />
+	         android:text="@string/descargar_curso" />
 
      </LinearLayout>
 </LinearLayout>
