@@ -190,6 +190,97 @@ public class server extends Activity {
 		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
 		
 	}
+	
+	
+public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope en la nueva edicion
+		throws Exception{
+		
+		
+		boolean b = true;
+		ArrayList<JSONObject> Profesor = getCursoFromDatabase(id,"Profesores");
+		ArrayList<JSONObject> Curso = getCursoFromDatabase(id,"Cursos");
+		ArrayList<JSONObject> Horarios = getCursoFromDatabase(id,"Horarios");
+		ArrayList<JSONObject> Comentarios = getCursoFromDatabase(id,"Comentarios");
+		
+		if(Profesor == null && Curso == null && Horarios == null && Comentarios == null)
+		{	
+			
+			throw new NoExisteCursoException("No existe CUrso");
+			
+		}
+		String iidC=null,iidP = null,iidH=null,iidCom=null;
+		
+		for (int i = 0; i < Profesor.size(); i++) {
+			String idP = Profesor.get(i).getString("idP");
+			String usuario = Profesor.get(i).getString("usuario");
+			String contrasena = Profesor.get(i).getString("contrasena");
+			String nombre = Profesor.get(i).getString("nombre");
+			String apellido = Profesor.get(i).getString("apellido");
+			iidP = Controlador.insertarProfesor(ctx, idP, usuario, contrasena, nombre, apellido);
+			// introducir nuevo profesor (si no est‡ introducido). Lo obtengo a partir de un for, pero es claro que arrojar‡ s—lo un elemento
+        }
+		
+		for (int i = 0; i < Curso.size(); i++) {
+			String idC = Curso.get(i).getString("idC");
+			String idP = Curso.get(i).getString("idP");
+			String titulo = Curso.get(i).getString("titulo");
+			String comentable = Curso.get(i).getString("comentable");
+			String color = Curso.get(i).getString("color");
+        	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("1"),color);
+			if(c!=null)
+				iidC = c.obtenerId();
+        	// introducir nuevo curso con funciones hechas por Ariel, con los par‡metros declarados en este for. Lo mismo para profe,horarios y comentarios
+        }
+		
+		for (int i = 0; i < Horarios.size(); i++) {
+			String idH=Horarios.get(i).getString("idH");
+			String idC=Horarios.get(i).getString("idC");
+			String dds=Horarios.get(i).getString("dds");
+			String inicio=Horarios.get(i).getString("inicio");
+			String fin=Horarios.get(i).getString("fin");
+			String ubicacion=Horarios.get(i).getString("ubicacion");
+			
+			
+			inicio = arreglaLo(inicio);
+			fin = arreglaLo(fin);
+			
+			SimpleDateFormat formato = new SimpleDateFormat("HHmmss");
+			Date a = new Date();
+			Calendar cInicio = new GregorianCalendar();
+			try
+			{
+				a = formato.parse(inicio);
+				cInicio.setTime(a);
+			}catch(ParseException e){}
+			
+			formato = new SimpleDateFormat("HHmmss");
+			a = new Date();
+			Calendar cFin = new GregorianCalendar();
+			
+			try
+			{
+				a = formato.parse(fin);
+				cFin.setTime(a);
+			}catch(ParseException e){}
+        	
+			if(!Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion));
+				b = false;
+			// introducir nuevo horarios 
+        }
+		
+		for (int i = 0; i < Comentarios.size(); i++) {
+			String idCom = Comentarios.get(i).getString("idCom");
+			String idH = Comentarios.get(i).getString("idH");
+			String fecha = Comentarios.get(i).getString("fecha");
+			String comentario = Comentarios.get(i).getString("comentario");
+			iidCom = Controlador.insertarComentario(ctx,idCom, iidH==null?"0":iidH,fecha,comentario);
+        	// introducir nuevo comentarios 
+        }
+		return b;
+		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
+		
+	}
+
 	private String arreglaLo(String horaSeba) {
 		// TODO Auto-generated method stub
 		String arreglado = "";

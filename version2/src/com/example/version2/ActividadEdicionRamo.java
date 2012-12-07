@@ -192,6 +192,21 @@ public void actualizarModulos()
 		  finish();
 	}
     
+    public void eliminarCurso(View view)
+	{
+        EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
+        String nuevoNombre = campoTextoNombre.getText().toString();
+    	String nombreOriginal = cursoAEditar.obtenerNombre();
+
+        
+		if (nuevoNombre != nombreOriginal){
+			cursoAEditar.borrarCurso(this);
+			
+		}
+		setResult(RESULT_OK);
+		  finish();
+	}
+    
     public void agregarModulo(View view)
     {
     	
