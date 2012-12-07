@@ -58,12 +58,16 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
 			  	View fila=inflater.inflate(R.layout.item_modulo, parent, false);
 			  	//Recoje textview donde va el nombre del ramo
 				TextView diaModulo=(TextView)fila.findViewById(R.id.diaModulo);
+				TextView salaModulo=(TextView)fila.findViewById(R.id.salaModulo);
+
 				TextView horaInicio=(TextView)fila.findViewById(R.id.horaInicio);
 				TextView horaFin=(TextView)fila.findViewById(R.id.horaFin);
 				//Le pone el nombre al campo de texto del nombre del ramo
 				diaModulo.setText(objects.get(position).obtenerNombreDiaDeLaSemana());
 				horaInicio.setText(objects.get(position).obtenerStringInicio());
 				horaFin.setText(objects.get(position).obtenerStringFin());
+				salaModulo.setText(" "+objects.get(position).obtenerNombre());
+
 			  return fila;
 		  }
 		} 
@@ -88,6 +92,13 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         
         
         setContentView(R.layout.activity_actividad_datos_del_ramo);
+        
+		Button boton_editar_curso = (Button) findViewById(R.id.botonEditarEsteCurso);
+
+        if (!cursoAVer.esEditable())
+        {
+        	boton_editar_curso.setVisibility(View.INVISIBLE);    	
+        };
         /*Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         //numeroDeNotas.setAdapter(new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item,numeros));
         //ListView listaDeModulos = (ListView) findViewById(R.id.listView1);

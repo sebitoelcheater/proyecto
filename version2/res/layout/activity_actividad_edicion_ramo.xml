@@ -19,8 +19,7 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/edittextNombredelRamo"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    	<EditText
+		   	<EditText
 	    	    android:id="@+id/nombreRamoAEditar"
 	    	    android:layout_width="match_parent"
 	    	    android:layout_height="50dp"
@@ -51,12 +50,29 @@
 	    
 	  </LinearLayout>
     
-      <Button
-        android:id="@+id/botonCambios"
+      
+      <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="guardarCambios"
-        android:text="Guardar Cambios" />
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+        android:orientation="horizontal" >
+	     <Button
+	         android:id="@+id/botonCambios"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_weight="1"
+	         android:onClick="guardarCambios"
+	         android:text="Guardar Cambios" />
+	     <Button
+	         android:id="@+id/botonEliminarCurso"
+	         android:layout_width="wrap_content"
+	         android:layout_weight="1"
+	         android:layout_height="wrap_content"
+	         android:onClick="eliminarCurso"
+	         android:color="#000000"
+	         android:text="Eliminar Ramo" />
+
+     </LinearLayout>
      
      
 

@@ -70,22 +70,69 @@ public class ActividadRamos extends ListActivity {
 				TextView label=(TextView)fila.findViewById(R.id.textoNombreRamo);
 				//Le pone el nombre al campo de texto del nombre del ramo
 				label.setText(objects.get(position).obtenerNombre());
+				
+				/*Aquí discrimina a los Cursos que son editables o no
+				 *En caso de que sean editables, le coloca al botón la etiqueta de "Editar"
+				 *y también agrega un listener correpondiente (que efectivamente edite el Curso)
+				 *
+				 *Si el ramo no es editable, la etiqueta del botón será "Actualizar".
+				 *En este caso el listener producirá que se actualice el ramo con el Servidor.
+				 * */
+				 
 				Button boton_editar = (Button)fila.findViewById(R.id.botonEditarRamo);
-				boton_editar.setOnClickListener(new View.OnClickListener() {
-		             public void onClick(View v) {
-		                 // Para Editar un RAmo
-		             	Intent intent = new Intent(ActividadRamos.this,ActividadEdicionRamo.class);
-		             	intent.putExtra("id", objects.get(position).obtenerId());
-		             	
-		             	
-		            	/* Este intent envía un "requestCode" que es REQUEST_EDITAR_O_AGREGAR
-		            	en el protected void onActivityResult se indica qué es lo que hay que hacer según
-		            	los resultados   	
-		            	*/
-		            	
-		             	startActivityForResult(intent, REQUEST_EDITAR_O_AGREGAR);
-		             }		         
-				});			
+				if (objects.get(position).esEditable()){
+					
+					
+					boton_editar.setText(R.string.editar);
+					boton_editar.setOnClickListener(new View.OnClickListener() {
+			             public void onClick(View v) {
+			                 // Para Editar un RAmo
+			             	Intent intent = new Intent(ActividadRamos.this,ActividadEdicionRamo.class);
+			             	intent.putExtra("id", objects.get(position).obtenerId());
+			             	
+			             	
+			            	/* Este intent envía un "requestCode" que es REQUEST_EDITAR_O_AGREGAR
+			            	en el protected void onActivityResult se indica qué es lo que hay que hacer según
+			            	los resultados   	
+			            	*/
+			            	
+			             	startActivityForResult(intent, REQUEST_EDITAR_O_AGREGAR);
+			             }		         
+					});	
+					
+				}
+				else {
+					boton_editar.setText(R.string.actualizar);
+					boton_editar.setOnClickListener(new View.OnClickListener() {
+			             public void onClick(View v) {
+			                 // Aquí las instrucciones para actualizar el Curso
+			            	 
+			            	 boolean noHayTope = true;
+				        		
+				        			try {
+				        				noHayTope = objects.get(position).actualizar(ActividadRamos.this);
+				        			} 
+				        			catch(UnknownHostException uhe){
+				        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+				        				return;
+				        			}catch(NoExisteCursoException nece)
+				        			{
+				        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+				        				return;
+				        			} 
+				        			catch (Exception e) {
+									// TODO Auto-generated catch block
+				        				e.printStackTrace();
+				        			}
+				        		
+				        		if(!noHayTope)
+					        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
+				        		
+				        		actualizarListaRamos();
+			             }		         
+					});	
+				}
+						
 				label.setOnClickListener(new View.OnClickListener() {
 		             public void onClick(View v) {
 		                 // Para Ver un Ramo
@@ -260,10 +307,12 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        			} 
 			        			catch(UnknownHostException uhe){
 			        				Toast.makeText(v.getContext(), "Error :No hay conexi�n con el servidor", Toast.LENGTH_LONG).show();
+			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			}catch(NoExisteCursoException nece)
 			        			{
 			        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			} 
 			        			catch (Exception e) {
@@ -297,6 +346,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}*/
+			        		textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        		d.dismiss();
 			
 			            }

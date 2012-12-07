@@ -1,8 +1,13 @@
 package com.example.version2;
 
-import com.example.controlador.Controlador;
+import java.util.Calendar;
 
+import com.example.controlador.Controlador;
+import com.example.controlador.Curso;
+
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.TabActivity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -31,7 +36,7 @@ import android.widget.Toast;
 public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeListener {
 	TabHost tabHost;
 	/** Called when the activity is first created. */
-	
+	private PendingIntent pendingIntent;
 	int tab = 0;
 	public void onCreate(Bundle savedInstanceState) { // SEBA... NO FUNCIONAN LAS NOTIFICACIONES
 		super.onCreate(savedInstanceState);
@@ -40,12 +45,16 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		tabHost = getTabHost();
 		setTabs();
 		tabHost.setOnTabChangedListener(this);
+		
+		
+		activarNotificaciones();
+		
 	}
 	private void setTabs() 
 	{
 		addTab("Hoy", R.drawable.tab_hoy, ActividadHorario.class,"HORARIO");
 		addTab("Horario", R.drawable.tab_horario, ActividadHorarioSemanal2.class,"SEMANAL");
-		addTab("Feedback", R.drawable.tab_feedback, ActividadFeedback.class,"FEEDBACK");
+		addTab("Feedback", R.drawable.tab_feedback, ActividadFeedBackear.class,"FEEDBACK");
 		addTab("Ajustes", R.drawable.tab_preferencias, ActividadRamos.class,"CONFIG");
 	}
 	private void addTab(String labelId, int drawableId, Class<?> c,String nombreTab)
@@ -63,20 +72,13 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		tabHost.addTab(spec);
 	
 	}
-	/**
-	public void openCameraActivity(View b)
-	{
-		Intent intent = new Intent(this, CameraActivity.class);
-		startActivity(intent);
-	}
-	**/
-	@Override
+	
 	public void onTabChanged(String tabId) {
 		// TODO Auto-generated method stub
-		if(tabId.equals("FEEDBACK") && Controlador.obtenerCursosComentables(this).size()==0)
+		if(tabId.equals("FEEDBACK") && Controlador.obtenerLosFeedBackeables(this,Calendar.getInstance()).size()==0)
 		{
 			tabHost.setCurrentTab(tab);
-			Toast.makeText(this, "No hay ramos comentables", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "No hay ramos para FeedBackear", Toast.LENGTH_LONG).show();
 		}
 		else
 		{
@@ -182,4 +184,24 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    private void activarNotificaciones() {
+		// TODO Auto-generated method stub
+    	int comprobacionIntervaloSegundos = 360;//pensar esto mejor
+    	
+		   Intent myIntent = new Intent(AwesomeActivity.this, alarmChecker.class);
+		   pendingIntent = PendingIntent.getService(AwesomeActivity.this, 0, myIntent, 0);
+
+		   AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+		   Calendar calendar = Calendar.getInstance();
+		   calendar.setTimeInMillis(System.currentTimeMillis());
+		   calendar.add(Calendar.SECOND, 10);
+		   alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), comprobacionIntervaloSegundos * 1000, pendingIntent);
+ 
+	
+		   
+		   
+		   
+	}
 }

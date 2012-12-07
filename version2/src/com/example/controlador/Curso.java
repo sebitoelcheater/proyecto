@@ -1,9 +1,18 @@
 package com.example.controlador;
 
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.database.Cursor;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.data.*;
+import com.example.server.server;
+import com.example.server.server.NoExisteCursoException;
+import com.example.version2.ActividadRamos;
+import com.example.version2.R;
 
 public class Curso 
 {
@@ -35,7 +44,7 @@ public class Curso
 		Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 		setColor(c.getString(5));
 		setNombre(c.getString(3));
-		setComentable("0".equals(c.getString(4)));
+		setComentable("1".equals(c.getString(4)));
 		setIdMaster(c.getString(1));
 		setIdP(c.getString(2));
         db.close();
@@ -72,7 +81,12 @@ public class Curso
 		
 		public boolean esEditable()
 		{
-			return !comentable;
+			return !(esDescargado());
+		}
+		
+		public boolean esDescargado()
+		{
+			return !(idMaster.equals("0"));
 		}
 		
 		public String obtenerColor()
@@ -130,6 +144,51 @@ public class Curso
 			return false;
 		}
 		
+		public boolean actualizar(Context context) throws Exception//REVISAR SI LOS TOAST SIRVEN ACA
+		{
+			boolean b = true;
+			if(esDescargado())
+			{
+				//ACTUALIZAR UN RAMO
+				Curso cursoActualizando = new Curso(context,id);
+				ArrayList<Modulo> modulosDelCurso = Controlador.obtenerModulosPorIdCurso(context, id);
+				cursoActualizando.borrarCurso(context);
+				
+				try {
+					server s = new server();
+					
+    				b = s.actualizarCurso(idMaster, context);
+    			} 
+    			catch(UnknownHostException uhe){
+    				//REPONER LOS CURSOS
+    				String ii = Controlador.crearNuevoCurso(context, Integer.parseInt(idMaster), Integer.parseInt(idP), nombre, comentable, color).obtenerId();
+    				for(Modulo m : modulosDelCurso)
+    				{
+    					Controlador.crearNuevoModulo(context, Integer.parseInt(m.obtenerIdMaster()), Integer.parseInt(ii), Integer.parseInt(m.obtenerDiaDeLaSemana()), m.obtenerInicio(), m.obtenerFin(), m.obtenerNombre());
+    				}
+    				throw uhe;
+    			}catch(NoExisteCursoException nece)
+    			{
+    				//REPONER LOS CURSOS
+    				String ii = Controlador.crearNuevoCurso(context, Integer.parseInt(idMaster), Integer.parseInt(idP), nombre, comentable, color).obtenerId();
+    				for(Modulo m : modulosDelCurso)
+    				{
+    					Controlador.crearNuevoModulo(context, Integer.parseInt(m.obtenerIdMaster()), Integer.parseInt(ii), Integer.parseInt(m.obtenerDiaDeLaSemana()), m.obtenerInicio(), m.obtenerFin(), m.obtenerNombre());
+    				}
+    				throw nece;
+    				
+    			} 
+    			catch (Exception e) {
+				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+				
+				
+			}
+
+			return b;
+		}
+		
 		public boolean establecerIdMaster(Context context, String idMaster)
 		{
 			AdapterCursos db = new AdapterCursos(context);
@@ -150,9 +209,9 @@ public class Curso
 			AdapterCursos db = new AdapterCursos(context);
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 			db.open();
-			String stringComentable = "1";
+			String stringComentable = "0";
 			if(comentable)
-				stringComentable = "0";
+				stringComentable = "1";
 			
 			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3),Integer.parseInt(stringComentable),c.getString(5)))
 			{	

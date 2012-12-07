@@ -43,14 +43,25 @@
     <string name="title_activity_actividad_horario_semanal2">ActividadHorarioSemanal2</string>
     <string name="title_activity_actividad_horario2">ActividadHorario2</string>
     <string name="title_activity_dibujar_lineas">DibujarLineas</string>
-    <string name="menu_about">Acerca de esta App</string>    
+    <string name="menu_about">Acerca de esta App</string>
     <string name="about_site">Sitio Web</string>
-    <string name="about_desc">Organizador - copyright 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias.</string>
+    <string name="about_desc">Organizador - copyright 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias. Esta aplicación está bajo una Licencia Creative Commons Reconocimiento-NoComercial-SinObraDerivada 
+CC BY-NC-ND</string>
     <string name="about_title">Acerca de Organizador</string>
     <string name="about_website">Sitio Web</string>
     <string name="about_version">Versión:</string>
     <string name="ok">Ok</string>
-    <string name="URL">"http://www.cheaper.cl/android"</string>
-            
-
+    <string name="URL">"http://www.cheaper.cl/organizador"</string>
+    <string name="title_activity_actividad_feed_backear">ActividadFeedBackear</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="editar">Editar</string>
+    <string name="sala">Lugar:</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="configurar_nuevo_curso">Configurar Nuevo Curso</string>
+    <string name="descargar_curso">Descargar Curso</string>
+    
+    
+    
+    
 </resources>
