@@ -216,6 +216,8 @@ public final class R {
         public static final int calificaciones=0x7f060007;
         public static final int cancelar=0x7f060031;
         public static final int configuraci_n_de_ramos=0x7f060008;
+        public static final int configurar_nuevo_curso=0x7f060032;
+        public static final int descargar_curso=0x7f060033;
         public static final int edit_message=0x7f060001;
         public static final int editar=0x7f06002e;
         public static final int edittextNombredelRamo=0x7f060018;
