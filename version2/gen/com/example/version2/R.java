@@ -116,8 +116,13 @@ public final class R {
         public static final int botonEliminarCurso=0x7f0a0008;
         public static final int botonEliminarModulo=0x7f0a0046;
         public static final int botonSuscribirCurso=0x7f0a0041;
+<<<<<<< HEAD
         public static final int button1=0x7f0a003f;
         public static final int button2=0x7f0a0040;
+=======
+        public static final int button1=0x7f0a003e;
+        public static final int button2=0x7f0a003f;
+>>>>>>> 57728f31c5227c95be9978b41ad88afc83efda8e
         public static final int diaModulo=0x7f0a0035;
         public static final int dospuntos=0x7f0a0037;
         public static final int editText1=0x7f0a000c;
@@ -132,13 +137,21 @@ public final class R {
         public static final int imageButton3=0x7f0a000e;
         public static final int linearLayout1=0x7f0a0031;
         public static final int listView1=0x7f0a000a;
+<<<<<<< HEAD
         public static final int menu_settings=0x7f0a004b;
+=======
+        public static final int menu_settings=0x7f0a004a;
+>>>>>>> 57728f31c5227c95be9978b41ad88afc83efda8e
         public static final int nombreCursoACrear=0x7f0a0034;
         public static final int nombreCusoAFeedbackear=0x7f0a000b;
         public static final int nombreRamoAEditar=0x7f0a0005;
         public static final int nombreRamoAVer=0x7f0a0002;
         public static final int salaModulo=0x7f0a0044;
+<<<<<<< HEAD
         public static final int salaModuloAEditar=0x7f0a003c;
+=======
+        public static final int salaModuloAEditar=0x7f0a0040;
+>>>>>>> 57728f31c5227c95be9978b41ad88afc83efda8e
         public static final int scrollView1=0x7f0a002e;
         public static final int spinner1=0x7f0a003b;
         public static final int textView1=0x7f0a0001;
@@ -151,9 +164,15 @@ public final class R {
         public static final int textView8=0x7f0a002a;
         public static final int textView9=0x7f0a002c;
         public static final int textoNombreRamo=0x7f0a0047;
+<<<<<<< HEAD
         public static final int timePicker1=0x7f0a003d;
         public static final int timePicker2=0x7f0a003e;
         public static final int title=0x7f0a004a;
+=======
+        public static final int timePicker1=0x7f0a003c;
+        public static final int timePicker2=0x7f0a003d;
+        public static final int title=0x7f0a0049;
+>>>>>>> 57728f31c5227c95be9978b41ad88afc83efda8e
         public static final int version=0x7f0a0000;
     }
     public static final class layout {
@@ -173,17 +192,18 @@ public final class R {
         public static final int center_tab_indicator=0x7f03000d;
         public static final int dialogo_crear_curso=0x7f03000e;
         public static final int dialogo_eliminar_modulo=0x7f03000f;
-        public static final int dialogo_modulo_nuevo=0x7f030010;
-        public static final int dialogo_suscribir_curso=0x7f030011;
-        public static final int feedbackeo=0x7f030012;
-        public static final int item_modulo=0x7f030013;
-        public static final int item_modulo_editando=0x7f030014;
-        public static final int lista_ramos=0x7f030015;
-        public static final int main=0x7f030016;
-        public static final int modulo=0x7f030017;
-        public static final int modulolista=0x7f030018;
-        public static final int nuevo_ramo=0x7f030019;
-        public static final int tab_indicator=0x7f03001a;
+        public static final int dialogo_modulo=0x7f030010;
+        public static final int dialogo_modulo_nuevo=0x7f030011;
+        public static final int dialogo_suscribir_curso=0x7f030012;
+        public static final int feedbackeo=0x7f030013;
+        public static final int item_modulo=0x7f030014;
+        public static final int item_modulo_editando=0x7f030015;
+        public static final int lista_ramos=0x7f030016;
+        public static final int main=0x7f030017;
+        public static final int modulo=0x7f030018;
+        public static final int modulolista=0x7f030019;
+        public static final int nuevo_ramo=0x7f03001a;
+        public static final int tab_indicator=0x7f03001b;
     }
     public static final class menu {
         public static final int activity_actividad_configuracion=0x7f090000;
