@@ -45,8 +45,7 @@
     <string name="title_activity_dibujar_lineas">DibujarLineas</string>
     <string name="menu_about">Acerca de esta App</string>
     <string name="about_site">Sitio Web</string>
-    <string name="about_desc">Organizador - copyright 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias. Esta aplicación está bajo una Licencia Creative Commons Reconocimiento-NoComercial-SinObraDerivada 
-CC BY-NC-ND</string>
+    <string name="about_desc">Organizador - copyright 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias. Esta aplicación está bajo una Licencia Creative Commons Reconocimiento-NoComercial-SinObraDerivada</string>
     <string name="about_title">Acerca de Organizador</string>
     <string name="about_website">Sitio Web</string>
     <string name="about_version">Versión:</string>

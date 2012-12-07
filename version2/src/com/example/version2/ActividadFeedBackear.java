@@ -120,7 +120,7 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
 	
 	
 	private MiModuloFeedBackeandoArrayAdapter adaptador;
-
+	ArrayList<Modulo> modulosAFeedBackear;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
         
         ListView lista = (ListView)findViewById(R.id.listView1);
         
-        ArrayList<Modulo> modulosAFeedBackear = Controlador.obtenerLosFeedBackeables(this,Calendar.getInstance());
+        modulosAFeedBackear = Controlador.obtenerLosFeedBackeables(this,Calendar.getInstance());
         
         lista.setAdapter(new MiModuloFeedBackeandoArrayAdapter(this, R.layout.item_modulo_editando, modulosAFeedBackear));
         
@@ -145,7 +145,7 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent(this,ActividadFeedback.class);
-    	
+		intent.putExtra("ID", modulosAFeedBackear.get(arg2).obtenerId());
     	
     	startActivity(intent);
 	}
