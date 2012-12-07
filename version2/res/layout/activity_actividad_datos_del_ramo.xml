@@ -46,7 +46,7 @@
 	  </LinearLayout>
     
       <Button
-        android:id="@+id/botonEditarEsteRamo"
+        android:id="@+id/botonEditarEsteCurso"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="editarRamo"

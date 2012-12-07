@@ -88,7 +88,7 @@ public final class R {
         public static final int LinearLayoutMiercoles=0x7f0a0023;
         public static final int LinearLayoutSabado=0x7f0a002a;
         public static final int LinearLayoutViernes=0x7f0a0027;
-        public static final int RelativeLayout1=0x7f0a003a;
+        public static final int RelativeLayout1=0x7f0a0047;
         public static final int TextView01=0x7f0a001e;
         public static final int TextView02=0x7f0a001d;
         public static final int TextView03=0x7f0a001c;
@@ -109,7 +109,11 @@ public final class R {
         public static final int botonCambios=0x7f0a0007;
         public static final int botonCancelarEliminarModulo=0x7f0a0038;
         public static final int botonCrearCurso=0x7f0a0032;
+<<<<<<< HEAD
         public static final int botonEditarEsteRamo=0x7f0a0004;
+=======
+        public static final int botonEditarEsteCurso=0x7f0a0004;
+>>>>>>> 398953ebc8801b15d09e2fbf3dda81fce6f94f71
         public static final int botonEditarModulo=0x7f0a0043;
         public static final int botonEditarRamo=0x7f0a0046;
         public static final int botonEliminarModulo=0x7f0a0044;
@@ -130,11 +134,19 @@ public final class R {
         public static final int imageButton3=0x7f0a000d;
         public static final int linearLayout1=0x7f0a0030;
         public static final int listView1=0x7f0a0009;
+<<<<<<< HEAD
         public static final int menu_settings=0x7f0a0048;
+=======
+        public static final int menu_settings=0x7f0a0049;
+>>>>>>> 398953ebc8801b15d09e2fbf3dda81fce6f94f71
         public static final int nombreCursoACrear=0x7f0a0033;
         public static final int nombreRamoAEditar=0x7f0a0005;
         public static final int nombreRamoAVer=0x7f0a0002;
         public static final int salaModulo=0x7f0a0042;
+<<<<<<< HEAD
+=======
+        public static final int salaModuloAEditar=0x7f0a003a;
+>>>>>>> 398953ebc8801b15d09e2fbf3dda81fce6f94f71
         public static final int scrollView1=0x7f0a002d;
         public static final int spinner1=0x7f0a000a;
         public static final int textView1=0x7f0a0001;
@@ -149,7 +161,11 @@ public final class R {
         public static final int textoNombreRamo=0x7f0a0045;
         public static final int timePicker1=0x7f0a003b;
         public static final int timePicker2=0x7f0a003c;
+<<<<<<< HEAD
         public static final int title=0x7f0a0047;
+=======
+        public static final int title=0x7f0a0048;
+>>>>>>> 398953ebc8801b15d09e2fbf3dda81fce6f94f71
         public static final int version=0x7f0a0000;
     }
     public static final class layout {
@@ -169,7 +185,7 @@ public final class R {
         public static final int center_tab_indicator=0x7f03000d;
         public static final int dialogo_crear_curso=0x7f03000e;
         public static final int dialogo_eliminar_modulo=0x7f03000f;
-        public static final int dialogo_modulo=0x7f030010;
+        public static final int dialogo_modulo_nuevo=0x7f030010;
         public static final int dialogo_suscribir_curso=0x7f030011;
         public static final int feedbackeo=0x7f030012;
         public static final int item_modulo=0x7f030013;
@@ -201,6 +217,7 @@ public final class R {
         public static final int about_title=0x7f060027;
         public static final int about_version=0x7f060029;
         public static final int about_website=0x7f060028;
+        public static final int aceptar=0x7f060030;
         public static final int actualizar=0x7f06002d;
         public static final int app_name=0x7f060000;
         public static final int boton_configurar=0x7f06000c;
@@ -209,6 +226,7 @@ public final class R {
         public static final int boton_notas=0x7f06000e;
         public static final int button_send=0x7f060009;
         public static final int calificaciones=0x7f060007;
+        public static final int cancelar=0x7f060031;
         public static final int configuraci_n_de_ramos=0x7f060008;
         public static final int edit_message=0x7f060001;
         public static final int editar=0x7f06002e;
