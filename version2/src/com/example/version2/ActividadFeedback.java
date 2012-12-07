@@ -74,6 +74,8 @@ public class ActividadFeedback extends Activity {
     		//Gracias por el feedback
         	Toast toast = Toast.makeText(getApplicationContext(), "Gracias por tu feedback!", Toast.LENGTH_SHORT);
         	toast.show();
+        	
+        	finish();
     	}catch(Exception e){ Toast.makeText(view.getContext(), "Error :Curso ya no existe o no tienes acceso a Internet", Toast.LENGTH_LONG).show();}	
     	 
     	
