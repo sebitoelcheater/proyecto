@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -183,10 +184,54 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
 	
 	public void eliminarCurso(View v)
 	{
-		
-		new Curso(this,idRamoAEditar).borrarCurso(this);
-		setResult(RESULT_OK);
-		  finish();
+		Bundle bundle = new Bundle();
+    	bundle.putString("idCurso", idRamoAEditar);
+		showDialog(1,bundle);
 	}
 	
+	protected Dialog onCreateDialog(int id, Bundle b) {
+		
+		
+		final Dialog d = new Dialog(this);
+    	d.setContentView(R.layout.dialogo_eliminar_curso);
+    		d.setTitle("Desea Eliminar:");
+    		
+    		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.button1);
+    		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.button2);
+    		
+    		String id_curso = b.getString("idCurso");
+            Curso cursoAEditar = new Curso(this,id_curso);
+            
+            TextView nombreCurso=(TextView)d.findViewById(R.id.nombreCurso);
+			
+			nombreCurso.setText(cursoAEditar.obtenerNombre());
+
+		
+    		boton_cancelar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		
+    		boton_aceptar_eliminar_modulo.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+                	new Curso(v.getContext(),idRamoAEditar).borrarCurso(v.getContext());
+            		setResult(RESULT_OK);
+            		  finish();
+            	
+            		d.dismiss(); //Cierra el diálogo
+
+                	}
+
+    		});
+    		return d;
+	
+	
+	
+	
+}
 }

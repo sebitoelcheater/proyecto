@@ -232,7 +232,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     	if (caso == "ELIMINAR") {
 
     		d.setContentView(R.layout.dialogo_eliminar_modulo);
-    		d.setTitle("¿Esta seguro de eliminar el siguiente Modulo?");
+    		d.setTitle("Desea Eliminar:");
     		Button boton_cancelar_eliminar_modulo = (Button) d.findViewById(R.id.botonCancelarEliminarModulo);
     		Button boton_aceptar_eliminar_modulo = (Button) d.findViewById(R.id.botonAceptarEliminarModulo);
     		String id_modulo = b.getString("idModulo");
