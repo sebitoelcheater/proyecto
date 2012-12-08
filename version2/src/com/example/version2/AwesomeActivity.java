@@ -47,7 +47,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		tabHost.setOnTabChangedListener(this);
 		
 		
-		activarNotificaciones();
+		//activarNotificaciones();
 		
 	}
 	private void setTabs() 
