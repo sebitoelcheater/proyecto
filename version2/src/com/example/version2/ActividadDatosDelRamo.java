@@ -79,6 +79,7 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.app_name);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //Recibe el mensaje del inetent
         Intent intent = getIntent();

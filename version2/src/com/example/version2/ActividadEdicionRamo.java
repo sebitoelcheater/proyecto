@@ -110,6 +110,7 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
         //Recibe el mensaje del inetent
         Intent intent = getIntent();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setTitle(R.string.app_name);
         //Aquí recibe la id (como string) del ramo a editar
         idRamoAEditar = intent.getStringExtra("id");
         
