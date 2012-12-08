@@ -154,6 +154,7 @@ public class server extends Activity {
 			inicio = arreglaLo(inicio);
 			fin = arreglaLo(fin);
 			
+			
 			SimpleDateFormat formato = new SimpleDateFormat("HHmmss");
 			Date a = new Date();
 			Calendar cInicio = new GregorianCalendar();
@@ -288,7 +289,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 		
 		int horas = zHoraSeba/10000;
 		int minutos = (zHoraSeba/100)%100;
-		int segundos = zHoraSeba%10000;
+		int segundos = zHoraSeba%10;
 		
 		arreglado = agregarCeros(2,horas)+agregarCeros(2,minutos)+agregarCeros(2,segundos);
 		

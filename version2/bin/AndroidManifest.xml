@@ -76,6 +76,7 @@
 
         <service android:name=".alarmChecker" />
 
+        
         <activity
             android:name=".ActividadEdicionRamo"
             android:label="@string/title_activity_actividad_edicion_ramo" >
