@@ -3,6 +3,8 @@ package com.example.controlador;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import org.apache.http.NoHttpResponseException;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.widget.EditText;
@@ -167,7 +169,16 @@ public class Curso
     					Controlador.crearNuevoModulo(context, Integer.parseInt(m.obtenerIdMaster()), Integer.parseInt(ii), Integer.parseInt(m.obtenerDiaDeLaSemana()), m.obtenerInicio(), m.obtenerFin(), m.obtenerNombre());
     				}
     				throw uhe;
-    			}catch(NoExisteCursoException nece)
+    			}catch(NoHttpResponseException nhre)
+    			{
+    				String ii = Controlador.crearNuevoCurso(context, Integer.parseInt(idMaster), Integer.parseInt(idP), nombre, comentable, color).obtenerId();
+    				for(Modulo m : modulosDelCurso)
+    				{
+    					Controlador.crearNuevoModulo(context, Integer.parseInt(m.obtenerIdMaster()), Integer.parseInt(ii), Integer.parseInt(m.obtenerDiaDeLaSemana()), m.obtenerInicio(), m.obtenerFin(), m.obtenerNombre());
+    				}
+    				throw nhre;
+    			}
+				catch(NoExisteCursoException nece)
     			{
     				//REPONER LOS CURSOS
     				String ii = Controlador.crearNuevoCurso(context, Integer.parseInt(idMaster), Integer.parseInt(idP), nombre, comentable, color).obtenerId();

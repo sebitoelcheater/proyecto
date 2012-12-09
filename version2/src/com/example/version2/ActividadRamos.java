@@ -4,6 +4,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.NoHttpResponseException;
+
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
+import com.example.controlador.Modulo;
 import com.example.server.server;
 import com.example.server.server.NoExisteCursoException;
 //import android.app.Fragment;
@@ -114,6 +117,11 @@ public class ActividadRamos extends ListActivity {
 				        				Toast.makeText(v.getContext(), "Curso actualizado", Toast.LENGTH_LONG).show();
 				        			} 
 				        			catch(UnknownHostException uhe){
+				        				Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
+				        				return;
+				        			}
+				        			catch(NoHttpResponseException nhre)
+				        			{
 				        				Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
 				        				return;
 				        			}catch(NoExisteCursoException nece)
