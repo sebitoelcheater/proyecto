@@ -102,7 +102,7 @@ public class ActividadHorarioSemanal2 extends Activity {
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
@@ -133,7 +133,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
@@ -168,7 +168,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
@@ -197,7 +197,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
@@ -227,7 +227,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
@@ -257,7 +257,7 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
@@ -287,7 +287,8 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			//a.setHoraFin(m.obtenerStringFin());
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
-			a.setNombre(curso.obtenerNombre().substring(0,3));
+			
+			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
 			String color = curso.obtenerColor();
 			a.setColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
 			l.addView(a,new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*duracionEnMinutos))));
