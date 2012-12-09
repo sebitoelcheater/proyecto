@@ -186,7 +186,7 @@ public void actualizarModulos()
 
         
 		if (nuevoNombre != nombreOriginal){
-			cursoAEditar.establecerNombre(this, nuevoNombre);
+			cursoAEditar.establecerNombre(this, nuevoNombre.trim());
 			
 		}
 		setResult(RESULT_OK);

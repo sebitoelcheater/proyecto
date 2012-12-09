@@ -88,27 +88,54 @@ private void Notificar() {
 	//Esta será la actividad de verdad que llamara la aplicacion
 	if(proximosInicios.size()!=0)
 	{	
-		Intent intentNot = new Intent(this, ActividadHorario.class);
-	
-		//Prepara la notificacion
-		Notification notification = new Notification(android.R.drawable.ic_menu_my_calendar, "Próxima Clase", System.currentTimeMillis());
-		notification.setLatestEventInfo(this, new Curso(this,proximosInicios.get(0).obtenerIdCurso()).obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
-				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
-		notification.flags |= Notification.FLAG_AUTO_CANCEL;
-		mManager.notify(Integer.parseInt(proximosInicios.get(0).obtenerId()), notification); ///PENSAR MEJOR ESTO Y ¿COMO HACER QUE NO APARESCA DOS VECES?
+		Modulo m = proximosInicios.get(0);
+		Curso c = new Curso(this,m.obtenerIdCurso());
+		if(c.obtenerComentable())
+		{	
+			if(!(c.obtenerNombre().endsWith(" ")))
+			{
+			c.establecerNombre(this, c.obtenerNombre()+" "); //esto funciona considerando que el tiempo es lineal
+			Intent intentNot = new Intent(this, ActividadHorario.class);
+			
+			//Prepara la notificacion
+			Notification notification = new Notification(android.R.drawable.ic_menu_my_calendar, "Próxima Clase", System.currentTimeMillis());
+			notification.setLatestEventInfo(this, c.obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
+					PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
+			notification.flags |= Notification.FLAG_AUTO_CANCEL;
+			mManager.notify(Integer.parseInt(m.obtenerId()), notification); ///PENSAR MEJOR ESTO Y ¿COMO HACER QUE NO APARESCA DOS VECES?
+			}
+		}
+		else
+		{
+			c.establecerNombre(this, c.obtenerNombre()+" "); //esto funciona considerando que el tiempo es lineal
+			Intent intentNot = new Intent(this, ActividadHorario.class);
+			
+			//Prepara la notificacion
+			Notification notification = new Notification(android.R.drawable.ic_menu_my_calendar, "Próxima Clase", System.currentTimeMillis());
+			notification.setLatestEventInfo(this, c.obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
+					PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
+			notification.flags |= Notification.FLAG_AUTO_CANCEL;
+			mManager.notify(Integer.parseInt(m.obtenerId()), notification);
+		}
 	}
 	if(anterioresFinales.size() != 0)
 	{
-		Intent intentNot = new Intent(this, ActividadFeedback.class);
+		Modulo m = anterioresFinales.get(0);
+		Curso c = new Curso(this,m.obtenerIdCurso());
+		if((c.obtenerNombre().endsWith(" ")))
+		{
+			c.establecerNombre(this, c.obtenerNombre().trim()); 
+			Intent intentNot = new Intent(this, ActividadFeedback.class);
 		
-		intentNot.putExtra("ID", anterioresFinales.get(0).obtenerId());
+			intentNot.putExtra("ID", anterioresFinales.get(0).obtenerId());
 		
-		//Prepara la notificacion
-		Notification notification = new Notification(android.R.drawable.ic_menu_send, "FeedBackea!", System.currentTimeMillis());
-		notification.setLatestEventInfo(this, "FeedBackear "+ new Curso(this,anterioresFinales.get(0).obtenerIdCurso()).obtenerNombre(), " Da tu feedback!", 
-				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
-		notification.flags |= Notification.FLAG_AUTO_CANCEL;
-		mManager.notify(Integer.parseInt(anterioresFinales.get(0).obtenerId())+1, notification); ///PENSAR MEJOR ESTO  Y ¿COMO HACER QUE NO APARESCA DOS VECES?
+			//Prepara la notificacion
+			Notification notification = new Notification(android.R.drawable.ic_menu_send, "FeedBackea!", System.currentTimeMillis());
+			notification.setLatestEventInfo(this, "FeedBackear "+ c.obtenerNombre(), " Da tu feedback!", 
+					PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
+			notification.flags |= Notification.FLAG_AUTO_CANCEL;
+			mManager.notify(Integer.parseInt(anterioresFinales.get(0).obtenerId())+1, notification); ///PENSAR MEJOR ESTO  Y ¿COMO HACER QUE NO APARESCA DOS VECES?
+		}
 	}	
 	 }
 

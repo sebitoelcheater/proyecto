@@ -64,7 +64,7 @@ public class server extends Activity {
         } catch (IOException e) {
             // TODO Auto-generated catch block
         }
-		//Hola seba esto es para que guardes el nuevo m�todo que considerara el Curso asociado y el Modulo asociado(teniendo los objetos tienes todos los dato asociados a ellos... si necesitas ayuda me dices o revisas la documentacion del controlador)
+		//Hola seba esto es para que guardes el nuevo método que considerara el Curso asociado y el Modulo asociado(teniendo los objetos tienes todos los dato asociados a ellos... si necesitas ayuda me dices o revisas la documentacion del controlador)
 		
 	}
 	
@@ -127,21 +127,21 @@ public class server extends Activity {
 			String nombre = Profesor.get(i).getString("nombre");
 			String apellido = Profesor.get(i).getString("apellido");
 			iidP = Controlador.insertarProfesor(ctx, idP, usuario, contrasena, nombre, apellido);
-			// introducir nuevo profesor (si no est� introducido). Lo obtengo a partir de un for, pero es claro que arrojar� s�lo un elemento
+			// introducir nuevo profesor (si no est‡ introducido). Lo obtengo a partir de un for, pero es claro que arrojar‡ s—lo un elemento
         }
 		
 		for (int i = 0; i < Curso.size(); i++) {
 			String idC = Curso.get(i).getString("idC");
 			String idP = Curso.get(i).getString("idP");
-			String titulo = Curso.get(i).getString("titulo");
+			String titulo = Curso.get(i).getString("titulo").trim();
 			String comentable = Curso.get(i).getString("comentable");
 			String color = Curso.get(i).getString("color");
         	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("1"),color);
 			if(c!=null)
 				iidC = c.obtenerId();
-        	// introducir nuevo curso con funciones hechas por Ariel, con los par�metros declarados en este for. Lo mismo para profe,horarios y comentarios
+        	// introducir nuevo curso con funciones hechas por Ariel, con los par‡metros declarados en este for. Lo mismo para profe,horarios y comentarios
         }
-		
+		if(Horarios!= null){
 		for (int i = 0; i < Horarios.size(); i++) {
 			String idH=Horarios.get(i).getString("idH");
 			String idC=Horarios.get(i).getString("idC");
@@ -182,7 +182,7 @@ public class server extends Activity {
 				b = false;
 			}
 			// introducir nuevo horarios 
-        }
+        }}
 		/*
 		for (int i = 0; i < Comentarios.size(); i++) {
 			String idCom = Comentarios.get(i).getString("idCom");
@@ -223,21 +223,22 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 			String nombre = Profesor.get(i).getString("nombre");
 			String apellido = Profesor.get(i).getString("apellido");
 			iidP = Controlador.insertarProfesor(ctx, idP, usuario, contrasena, nombre, apellido);
-			// introducir nuevo profesor (si no est� introducido). Lo obtengo a partir de un for, pero es claro que arrojar� s�lo un elemento
+			// introducir nuevo profesor (si no est‡ introducido). Lo obtengo a partir de un for, pero es claro que arrojar‡ s—lo un elemento
         }
 		
 		for (int i = 0; i < Curso.size(); i++) {
 			String idC = Curso.get(i).getString("idC");
 			String idP = Curso.get(i).getString("idP");
-			String titulo = Curso.get(i).getString("titulo");
+			String titulo = Curso.get(i).getString("titulo").trim();
 			String comentable = Curso.get(i).getString("comentable");
 			String color = Curso.get(i).getString("color");
         	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("1"),color);
 			if(c!=null)
 				iidC = c.obtenerId();
-        	// introducir nuevo curso con funciones hechas por Ariel, con los par�metros declarados en este for. Lo mismo para profe,horarios y comentarios
+        	// introducir nuevo curso con funciones hechas por Ariel, con los par‡metros declarados en este for. Lo mismo para profe,horarios y comentarios
         }
-		
+		if(Horarios != null)
+		{	
 		for (int i = 0; i < Horarios.size(); i++) {
 			String idH=Horarios.get(i).getString("idH");
 			String idC=Horarios.get(i).getString("idC");
@@ -272,7 +273,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 			if(!Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion))
 				b = false;
 			// introducir nuevo horarios 
-        }
+        }}
 		/*
 		for (int i = 0; i < Comentarios.size(); i++) {
 			String idCom = Comentarios.get(i).getString("idCom");
@@ -321,6 +322,21 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 		} 
 		}
 	
-	
+	private String arreglarCotejamiento(String variable)
+	{
+		variable = variable.replace("Ã¡", "á");
+		variable = variable.replace("Ã©", "é");
+		variable = variable.replace("Ã*", "í");
+		variable = variable.replace("Ã³", "ó");
+		variable = variable.replace("Ãº", "ú");
+		variable = variable.replace("Ã", "Á");
+		variable = variable.replace("Ã‰", "É");
+		variable = variable.replace("Ã", "Í");
+		variable = variable.replace("Ã“", "Ó");
+		variable = variable.replace("Ãš", "Ú");
+		variable = variable.replace("Ã±", "ñ");
+		variable = variable.replace("Ã‘", "Ñ");
+		return variable;
+	}
 	
 }

@@ -524,7 +524,9 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		ArrayList<Modulo> posiblesModulos = obtenerModulosDelDia(context,ahora);
 		ArrayList<Modulo> posibles2Modulos = new ArrayList<Modulo>();
 		
-		
+		///
+		System.out.println(posiblesModulos.size());
+		///
 		
 		
 		for (Modulo m : posiblesModulos)
@@ -534,6 +536,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		
 		///
 		System.out.println(posibles2Modulos.size());
+		
 		///
 		
 		
