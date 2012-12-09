@@ -368,8 +368,9 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 				d.setContentView(R.layout.dialogo_crear_curso);
 				d.setTitle("Ingrese un nombre para el Curso");
 				Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonCrearCurso);
-				//EditText idCurso = (EditText)findViewById(R.id.idCursoASuscribir2);
-				//id_curso = idCurso.getText().toString();
+				
+				//EditText idCurso = (EditText)d.findViewById(R.id.nombreCursoACrear);
+				//idCurso.setText("");
 				
 				boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
 		            public void onClick(View v) {
@@ -384,7 +385,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 		        		actualizarListaRamos();
 		        		
 		        		
-		        		d.dismiss();}
+		        		d.dismiss();
+		        		textonombre.setText("");}
 		
 		            }
 	
