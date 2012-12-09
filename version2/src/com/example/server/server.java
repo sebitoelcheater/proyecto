@@ -178,7 +178,7 @@ public class server extends Activity {
 				b = false;
 			// introducir nuevo horarios 
         }
-		
+		/*
 		for (int i = 0; i < Comentarios.size(); i++) {
 			String idCom = Comentarios.get(i).getString("idCom");
 			String idH = Comentarios.get(i).getString("idH");
@@ -186,7 +186,7 @@ public class server extends Activity {
 			String comentario = Comentarios.get(i).getString("comentario");
 			iidCom = Controlador.insertarComentario(ctx,idCom, iidH==null?"0":iidH,fecha,comentario);
         	// introducir nuevo comentarios 
-        }
+        }*/
 		return b;
 		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
 		
@@ -268,7 +268,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 				b = false;
 			// introducir nuevo horarios 
         }
-		
+		/*
 		for (int i = 0; i < Comentarios.size(); i++) {
 			String idCom = Comentarios.get(i).getString("idCom");
 			String idH = Comentarios.get(i).getString("idH");
@@ -276,7 +276,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 			String comentario = Comentarios.get(i).getString("comentario");
 			iidCom = Controlador.insertarComentario(ctx,idCom, iidH==null?"0":iidH,fecha,comentario);
         	// introducir nuevo comentarios 
-        }
+        }*/
 		return b;
 		// forma de obtener el campo "name" del usuario de idP 1 Profesor.get(1).getString("name");
 		

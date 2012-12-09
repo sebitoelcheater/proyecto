@@ -36,7 +36,7 @@ import android.widget.Toast;
 public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeListener {
 	TabHost tabHost;
 	/** Called when the activity is first created. */
-	private PendingIntent pendingIntent;
+	private static PendingIntent pendingIntent;
 	int tab = 0;
 	public void onCreate(Bundle savedInstanceState) { // SEBA... NO FUNCIONAN LAS NOTIFICACIONES
 		super.onCreate(savedInstanceState);

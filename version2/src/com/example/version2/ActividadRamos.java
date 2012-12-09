@@ -111,6 +111,8 @@ public class ActividadRamos extends ListActivity {
 				        		
 				        			try {
 				        				noHayTope = objects.get(position).actualizar(ActividadRamos.this);
+				        				System.out.println("noHayTope = "+ noHayTope);
+				        				Toast.makeText(v.getContext(), "Curso actualizado", Toast.LENGTH_LONG).show();
 				        			} 
 				        			catch(UnknownHostException uhe){
 				        				Toast.makeText(v.getContext(), "Error :No hay conexion con el servidor", Toast.LENGTH_LONG).show();
@@ -307,6 +309,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        			
 			        			try {
 			        				noHayTope = servidor.suscribirCurso(id_curso,ActividadRamos.this);
+			        				System.out.println("noHayTope = "+ noHayTope);
+			        				Toast.makeText(v.getContext(), "Curso Descargado", Toast.LENGTH_LONG).show();
 			        			} 
 			        			catch(UnknownHostException uhe){
 			        				Toast.makeText(v.getContext(), "Error :No hay conexion con el servidor", Toast.LENGTH_LONG).show();
@@ -314,13 +318,14 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        				d.dismiss();
 			        			}catch(NoExisteCursoException nece)
 			        			{
-			        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+			        				Toast.makeText(v.getContext(), "Error :No existe el codigo de curso", Toast.LENGTH_LONG).show();
 			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			} 
 			        			catch (Exception e) {
 								// TODO Auto-generated catch block
 			        				e.printStackTrace();
+			        				//System.out.println("HOLA");
 			        			}
 			        		
 			        		}
@@ -332,8 +337,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        		
 			        		actualizarListaRamos();
 			        		
-			        		//if(!noHayTope)
-			        		//	Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
+			        		if(!noHayTope)
+			        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
 			        		//String id = idCurso.getText().toString();
 			        		//id_curso = idCurso.getText().toString();
 			        		/*ttry {
@@ -375,7 +380,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 		        		
 		        		Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,"000-255-000"); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
 
-		        		Toast.makeText(v.getContext(), "Curso Agregado :)", Toast.LENGTH_LONG).show();	
+		        		Toast.makeText(v.getContext(), "Curso Agregado", Toast.LENGTH_LONG).show();	
 		        		
 		        		
 		        		actualizarListaRamos();
