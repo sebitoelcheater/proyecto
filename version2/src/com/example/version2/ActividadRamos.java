@@ -375,7 +375,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 		            public void onClick(View v) {
 		            	EditText textonombre = (EditText) d.findViewById(R.id.nombreCursoACrear);
 		        		nombre_curso = textonombre.getText().toString();
-		        		
+		        		if(!nombre_curso.equals("")){
 		        		Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,"000-255-000"); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
 
 		        		Toast.makeText(v.getContext(), "Curso Agregado", Toast.LENGTH_LONG).show();	
@@ -384,7 +384,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 		        		actualizarListaRamos();
 		        		
 		        		
-		        		d.dismiss();
+		        		d.dismiss();}
 		
 		            }
 	

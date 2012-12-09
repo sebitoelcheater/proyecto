@@ -183,14 +183,14 @@ public void actualizarModulos()
         EditText campoTextoNombre = (EditText) findViewById(R.id.nombreRamoAEditar);
         String nuevoNombre = campoTextoNombre.getText().toString();
     	String nombreOriginal = cursoAEditar.obtenerNombre();
-
-        
+    	if(nuevoNombre.equals("")){Toast.makeText(view.getContext(), "Elija un nombre para el curso", Toast.LENGTH_LONG).show();}
+    	else{
 		if (nuevoNombre != nombreOriginal){
 			cursoAEditar.establecerNombre(this, nuevoNombre.trim());
 			
 		}
 		setResult(RESULT_OK);
-		  finish();
+		  finish();}
 	}
     
     public void eliminarCurso(View view)
