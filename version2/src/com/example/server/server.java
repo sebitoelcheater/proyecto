@@ -54,7 +54,6 @@ public class server extends Activity {
         HttpClient httpclient = new DefaultHttpClient();
         comentario=comentario.replaceAll(" ", "%20");
         HttpPost httppost = new HttpPost("http://www.cheaper.cl/android/funciones/comentar.php?idH="+idH+"&comentario="+comentario+"");
-        System.out.println(idH);
         try {
             // Execute HTTP Post Request
             HttpResponse response = httpclient.execute(httppost);
