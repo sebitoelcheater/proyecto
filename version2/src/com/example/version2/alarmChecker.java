@@ -53,7 +53,6 @@ public void run() {
 	anterioresFinales = Controlador.obtenerLosModulosAnterioresFin(this,ahora , MINUTOS);
 	
 	
-	
 	/*
 	for(Modulo m : proximosInicios)
 		Log.d("MODULO",m.obtenerNombre());
@@ -93,7 +92,7 @@ private void Notificar() {
 	
 		//Prepara la notificacion
 		Notification notification = new Notification(android.R.drawable.ic_menu_my_calendar, "Próxima Clase", System.currentTimeMillis());
-		notification.setLatestEventInfo(this, new Curso(this,proximosInicios.get(0).obtenerId()).obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
+		notification.setLatestEventInfo(this, new Curso(this,proximosInicios.get(0).obtenerIdCurso()).obtenerNombre(), "A las "+proximosInicios.get(0).obtenerStringInicio(), 
 				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 		mManager.notify(Integer.parseInt(proximosInicios.get(0).obtenerId()), notification); ///PENSAR MEJOR ESTO Y ¿COMO HACER QUE NO APARESCA DOS VECES?
@@ -104,7 +103,7 @@ private void Notificar() {
 		
 		//Prepara la notificacion
 		Notification notification = new Notification(android.R.drawable.ic_menu_send, "Comenta!", System.currentTimeMillis());
-		notification.setLatestEventInfo(this, "Comentar "+new Curso(this,anterioresFinales.get(0).obtenerId()).obtenerNombre(), "Da tu feedback!", 
+		notification.setLatestEventInfo(this, "Comentar "+ new Curso(this,anterioresFinales.get(0).obtenerIdCurso()).obtenerNombre(), " Da tu feedback!", 
 				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 		mManager.notify(Integer.parseInt(anterioresFinales.get(0).obtenerId())+1, notification); ///PENSAR MEJOR ESTO  Y ¿COMO HACER QUE NO APARESCA DOS VECES?
