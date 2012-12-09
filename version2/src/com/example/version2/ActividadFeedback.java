@@ -25,6 +25,7 @@ public class ActividadFeedback extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_feedback);
+        setTitle("Organizador");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Bundle b = getIntent().getExtras();
         aFB = new Modulo(this,getIntent().getStringExtra("ID"));

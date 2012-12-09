@@ -42,7 +42,9 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_actividad_horario);
+        setTitle("Organizador");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Calendar c = Calendar.getInstance();
         hoy = c.get(Calendar.DAY_OF_WEEK);
