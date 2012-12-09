@@ -114,7 +114,7 @@ public class ActividadRamos extends ListActivity {
 				        				Toast.makeText(v.getContext(), "Curso actualizado", Toast.LENGTH_LONG).show();
 				        			} 
 				        			catch(UnknownHostException uhe){
-				        				Toast.makeText(v.getContext(), "Error :No hay conexion con el servidor", Toast.LENGTH_LONG).show();
+				        				Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
 				        				return;
 				        			}catch(NoExisteCursoException nece)
 				        			{
@@ -311,7 +311,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        				Toast.makeText(v.getContext(), "Curso Descargado", Toast.LENGTH_LONG).show();
 			        			} 
 			        			catch(UnknownHostException uhe){
-			        				Toast.makeText(v.getContext(), "Error :No hay conexion con el servidor", Toast.LENGTH_LONG).show();
+			        				Toast.makeText(v.getContext(), "Error :No hay conexión con el servidor", Toast.LENGTH_LONG).show();
 			        				textoid.setText(""); //PARA QUE CUADO VUELA A CARGAR NO ESTE EL ID ANTERIOR
 			        				d.dismiss();
 			        			}catch(NoExisteCursoException nece)

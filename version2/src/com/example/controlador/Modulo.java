@@ -126,7 +126,7 @@ public class Modulo
 					
 				}
 				else if (diaDeLaSemana.equals("4")){
-					return "Miercoles";
+					return "Miércoles";
 					
 				}
 				else if (diaDeLaSemana.equals("5")){
@@ -137,7 +137,7 @@ public class Modulo
 					
 				}
 				else if (diaDeLaSemana.equals("7")){
-					return "Sabado";
+					return "Sábado";
 					
 				}
 				else if (diaDeLaSemana.equals("1")){

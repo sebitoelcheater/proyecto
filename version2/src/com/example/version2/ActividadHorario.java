@@ -160,7 +160,7 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
 			
 		}
 		else if (dia==4){
-			return "Miercoles";
+			return "Miércoles";
 			
 		}
 		else if (dia==5){
@@ -171,7 +171,7 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
 			
 		}
 		else if (dia ==7){
-			return "Sabado";
+			return "Sábado";
 			
 		}
 		else if (dia==1){

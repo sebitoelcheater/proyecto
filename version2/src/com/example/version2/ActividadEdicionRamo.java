@@ -273,10 +273,10 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		return d;
     		}
     	else if (caso == "EDITAR") {
-    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","MiÈrcoles","Jueves","Viernes","S·bado"};//CORRERSE EN UN INDICE...DOMINGO ==1
     		
     		d.setContentView(R.layout.dialogo_modulo_nuevo);
-    		d.setTitle("Editar Modulo");
+    		d.setTitle("Editar MÛdulo");
     		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
     		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
     		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
@@ -404,10 +404,10 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		 * recopilar los datos del nuevo m√≥dulo
     		 * hacer los cambios a trav√©s del controlador
     		 * actualizar la lista de m√≥dulos*/
-    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+    		String []diasDeLaSemana = {"Domingo","Lunes","Martes","MiÈrcoles","Jueves","Viernes","S·bado"};//CORRERSE EN UN INDICE...DOMINGO ==1
     		
     		d.setContentView(R.layout.dialogo_modulo_nuevo);
-    		d.setTitle("Agregar Modulo");
+    		d.setTitle("Agregar MÛdulo");
     		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
     		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
     		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
