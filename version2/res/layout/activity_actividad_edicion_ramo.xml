@@ -27,7 +27,6 @@
 	    	    android:layout_below="@+id/textView1"
 	    	    android:ems="10" >
 
-	        <requestFocus />
 	        </EditText>
 	        <TextView
 	        android:id="@+id/textView2"
@@ -56,13 +55,15 @@
 	    android:layout_height="wrap_content"
 	    android:layout_gravity="center"
         android:orientation="horizontal" >
-	     <Button
-	         android:id="@+id/botonCambios"
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_weight="1"
-	         android:onClick="guardarCambios"
-	         android:text="Guardar Cambios" />
+
+          <Button
+              android:id="@+id/botonCambios"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:onClick="guardarCambios"
+              android:text="Guardar" />
+	    
 	     <Button
 	         android:id="@+id/botonEliminarCurso"
 	         android:layout_width="wrap_content"
@@ -71,7 +72,6 @@
 	         android:onClick="eliminarCurso"
 	         android:color="#000000"
 	         android:text="Eliminar Curso" />
-
      </LinearLayout>
      
      

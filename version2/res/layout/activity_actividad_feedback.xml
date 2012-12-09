@@ -52,8 +52,7 @@ en ese tutorial. Se los recomiendo
             android:ems="10"
             android:inputType="textMultiLine" >
 
-            <requestFocus />
-        </EditText>
+           </EditText>
     
           <Button
 	        android:layout_width="match_parent"

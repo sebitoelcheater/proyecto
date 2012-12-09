@@ -276,7 +276,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     		String []diasDeLaSemana = {"Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"};//CORRERSE EN UN INDICE...DOMINGO ==1
     		
     		d.setContentView(R.layout.dialogo_modulo_nuevo);
-    		d.setTitle("Editar hora");
+    		d.setTitle("Editar Modulo");
     		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
     		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
     		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
