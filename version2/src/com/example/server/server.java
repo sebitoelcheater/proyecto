@@ -113,7 +113,7 @@ public class server extends Activity {
 		ArrayList<JSONObject> Curso = getCursoFromDatabase(id,"Cursos");
 		ArrayList<JSONObject> Horarios = getCursoFromDatabase(id,"Horarios");
 		ArrayList<JSONObject> Comentarios = getCursoFromDatabase(id,"Comentarios");
-		if(Profesor == null && Curso == null && Horarios == null && Comentarios == null)
+		if(Profesor == null && Curso == null && Comentarios == null)
 		{	
 			throw new NoExisteCursoException("No existe CUrso");
 		}
@@ -207,7 +207,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 		ArrayList<JSONObject> Horarios = getCursoFromDatabase(id,"Horarios");
 		ArrayList<JSONObject> Comentarios = getCursoFromDatabase(id,"Comentarios");
 		
-		if(Profesor == null && Curso == null && Horarios == null && Comentarios == null)
+		if(Profesor == null && Curso == null && Comentarios == null)
 		{	
 			
 			throw new NoExisteCursoException("No existe CUrso");
