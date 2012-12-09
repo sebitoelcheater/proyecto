@@ -141,12 +141,12 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
         
         
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_actividad_datos_del_ramo, menu);
         return true;
-    }
+    }*/
 public static int obtenerIdUnica(){
     	
     	/*Entrega una id única. Vital para crear dialogos únicos */

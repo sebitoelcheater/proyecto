@@ -4,7 +4,7 @@
     <string name="edit_message">Escribe algo!</string>
     <string name="menu_settings">Configuración </string>
     <string name="title_activity_principal">Organizador</string>
-    <string name="pagina_principal_">Pagina Principal!</string>
+    <string name="pagina_principal_">Página Principal!</string>
     <string name="boton_feedback">Da tu Feedback!</string>
     <string name="horario">Horario</string>
     <string name="calificaciones">Calificaciones</string>
@@ -15,7 +15,7 @@
     <string name="boton_configurar">Configura tus Cursos</string>
     <string name="boton_horario">Revisa tu Horario</string>
     <string name="boton_notas">Revisa tus Notas</string>
-    <string name="title_activity_actividad_configuracion">ActividadConfiguracion</string>
+    <string name="title_activity_actividad_configuracion">ActividadConfiguración</string>
     <string name="title_activity_actividad_horario">ActividadHorario</string>
     <string name="title_activity_actividad_notas">ActividadNotas</string>
     <string name="nombre_ramo">Nombre Curso</string>
@@ -25,7 +25,7 @@
     <string name="title_activity_actividad_ramos">ActividadCursos</string>
     <string name="title_activity_nota_nombre_ramo">NotaNombreCurso</string>
     <string name="edittextNombredelRamo">Nombre del Curso</string>
-    <string name="title_activity_dialogo">Dialogo</string>
+    <string name="title_activity_dialogo">Diálogo</string>
     <string name="title_activity_actividad_ramos2">ActividadCursos2</string>
     <string name="title_activity_actividad_notas2">ActividadNotas2</string>
     <string name="title_activity_actividad_feedback">ActividadFeedback</string>
@@ -45,7 +45,7 @@
     <string name="title_activity_dibujar_lineas">DibujarLineas</string>
     <string name="menu_about">Acerca de esta App</string>
     <string name="about_site">Sitio Web</string>
-    <string name="about_desc">Organizador - copyright 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias. Esta aplicación está bajo una Licencia Creative Commons Reconocimiento-NoComercial-SinObraDerivada</string>
+    <string name="about_desc">Organizador - 2012 Sebastián Hernandez, Ariel Cáceres y Esteban Iglesias.</string>
     <string name="about_title">Acerca de Organizador</string>
     <string name="about_website">Sitio Web</string>
     <string name="about_version">Versión:</string>

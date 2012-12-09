@@ -50,12 +50,12 @@ public class ActividadHorario2 extends Activity{ //PONER COLORES :)
         //ver.setOnClickListener(this);
        
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_actividad_horario, menu);
         return true;
-    }
+    }*/
 /*
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

@@ -119,14 +119,14 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         
         
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_actividad_datos_del_ramo, menu);
         return true;
     }
 
-   
+   */
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
