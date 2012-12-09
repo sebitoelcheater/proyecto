@@ -85,7 +85,7 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
 					deadLine.setText("Te quedan "+ Tempo + " para FeedBackear");
 				}catch(NullPointerException e){}
 				
-				fecha.setText(modulosPorFeedBackear.get(position).obtenerNombreDiaDeLaSemana()+" "+modulosPorFeedBackear.get(position).obtenerStringInicio()+" - "+modulosPorFeedBackear.get(position).obtenerStringFin());
+				//fecha.setText(modulosPorFeedBackear.get(position).obtenerNombreDiaDeLaSemana()+" "+modulosPorFeedBackear.get(position).obtenerStringInicio()+" - "+modulosPorFeedBackear.get(position).obtenerStringFin());
 				
 				
 				
