@@ -183,7 +183,7 @@ public class ActividadRamos extends ListActivity {
         
        setContentView(R.layout.activity_actividad_ramos);
        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        ArrayList<Curso> array_cursos = Controlador.obtenerCursos(this);
+        ArrayList<Curso> array_cursos = Controlador.obtenerCursosOrdenados(this);
         ArrayList<String> array_ramos = new ArrayList<String>();
         ArrayList<String> array_idramos = new ArrayList<String>();
         for(Curso c : array_cursos)
@@ -214,7 +214,7 @@ public class ActividadRamos extends ListActivity {
     
 
 	 public void actualizarListaRamos() {
-	        ArrayList<Curso> nuevo_array_cursos = Controlador.obtenerCursos(this);
+	        ArrayList<Curso> nuevo_array_cursos = Controlador.obtenerCursosOrdenados(this);
 	        adaptador.clear();
 	        for(Curso curso : nuevo_array_cursos){
 	        	adaptador.agregarCurso(curso);

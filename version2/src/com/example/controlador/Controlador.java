@@ -182,6 +182,39 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
         return cursos;
 	}
 	
+	static public ArrayList<Curso> obtenerCursosOrdenados(Context context)
+	{
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		AdapterCursos db = new AdapterCursos(context);
+		db.open();
+		Cursor c = db.getAllIdsCURSOS();
+		
+		
+		if (c.moveToFirst())
+        {
+            do {
+            	String idramo = c.getString(0);
+            	Curso curso = new Curso(context,idramo);
+                cursos.add(curso);
+            } while (c.moveToNext());
+        }
+		db.close();
+		
+		ArrayList<Curso> ordenados = new ArrayList<Curso>();
+		for(Curso curso : cursos)
+		{
+			if(curso.esEditable())
+				ordenados.add(curso);
+		}
+		
+		for(Curso curso : cursos)
+		{
+			if(!(curso.esEditable()))
+				ordenados.add(curso);
+		}
+        
+		return ordenados;
+	}
 
 	
 	static public ArrayList<Curso> obtenerCursosComentables(Context context)
