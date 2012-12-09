@@ -174,8 +174,13 @@ public class server extends Activity {
 				cFin.setTime(a);
 			}catch(ParseException e){}
         	
-			if(!Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion));
+			boolean pudeCrearlo = Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion);
+			
+			
+			if(!pudeCrearlo)
+			{
 				b = false;
+			}
 			// introducir nuevo horarios 
         }
 		/*
@@ -264,7 +269,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 				cFin.setTime(a);
 			}catch(ParseException e){}
         	
-			if(!Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion));
+			if(!Controlador.crearNuevoModulo(ctx, Integer.parseInt(idH), Integer.parseInt(iidC==null?"0":iidC), Integer.parseInt(dds), cInicio, cFin, ubicacion))
 				b = false;
 			// introducir nuevo horarios 
         }

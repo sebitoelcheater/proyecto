@@ -111,7 +111,6 @@ public class ActividadRamos extends ListActivity {
 				        		
 				        			try {
 				        				noHayTope = objects.get(position).actualizar(ActividadRamos.this);
-				        				System.out.println("noHayTope = "+ noHayTope);
 				        				Toast.makeText(v.getContext(), "Curso actualizado", Toast.LENGTH_LONG).show();
 				        			} 
 				        			catch(UnknownHostException uhe){
@@ -127,8 +126,8 @@ public class ActividadRamos extends ListActivity {
 				        				e.printStackTrace();
 				        			}
 				        		
-				        		//if(!noHayTope)
-					        	//		Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
+				        		if(!noHayTope)
+					        			Toast.makeText(v.getContext(), "Hay topes de hora con algun modulo", Toast.LENGTH_LONG).show();
 				        		
 				        		actualizarListaRamos();
 			             }		         
@@ -309,7 +308,6 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 			        			
 			        			try {
 			        				noHayTope = servidor.suscribirCurso(id_curso,ActividadRamos.this);
-			        				System.out.println("noHayTope = "+ noHayTope);
 			        				Toast.makeText(v.getContext(), "Curso Descargado", Toast.LENGTH_LONG).show();
 			        			} 
 			        			catch(UnknownHostException uhe){

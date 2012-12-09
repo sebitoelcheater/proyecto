@@ -135,7 +135,6 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		db.open();        
 		
 		boolean b = db.getEnHora(diaDeLaSemana+"",stringInicio,stringFin).getCount()==0;
-		
 		if(b)
 			db.insertRecordHORARIOS(idH,iidC,diaDeLaSemana+"",stringInicio, stringFin, nombre);        
 	    
