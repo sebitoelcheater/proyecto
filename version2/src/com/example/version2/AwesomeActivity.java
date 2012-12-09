@@ -48,7 +48,12 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		
 		
 		activarNotificaciones();
-		
+		if(Controlador.obtenerCursos(this).size()==0)
+		{
+			Toast.makeText(this, "¿No sabes que hacer?", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Presiona el botón Menú!", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Y visita nuestro sitio web", Toast.LENGTH_LONG).show();
+		}
 	}
 	private void setTabs() 
 	{
