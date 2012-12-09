@@ -104,8 +104,8 @@ private void Notificar() {
 		intentNot.putExtra("ID", anterioresFinales.get(0).obtenerId());
 		
 		//Prepara la notificacion
-		Notification notification = new Notification(android.R.drawable.ic_menu_send, "Comenta!", System.currentTimeMillis());
-		notification.setLatestEventInfo(this, "Comentar "+ new Curso(this,anterioresFinales.get(0).obtenerIdCurso()).obtenerNombre(), " Da tu feedback!", 
+		Notification notification = new Notification(android.R.drawable.ic_menu_send, "FeedBackea!", System.currentTimeMillis());
+		notification.setLatestEventInfo(this, "FeedBackear "+ new Curso(this,anterioresFinales.get(0).obtenerIdCurso()).obtenerNombre(), " Da tu feedback!", 
 				PendingIntent.getActivity(this.getBaseContext(), 0, intentNot, PendingIntent.FLAG_CANCEL_CURRENT));
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 		mManager.notify(Integer.parseInt(anterioresFinales.get(0).obtenerId())+1, notification); ///PENSAR MEJOR ESTO  Y ¿COMO HACER QUE NO APARESCA DOS VECES?

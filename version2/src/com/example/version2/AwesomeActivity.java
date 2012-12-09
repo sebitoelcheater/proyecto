@@ -78,7 +78,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
 		if(tabId.equals("FEEDBACK") && Controlador.obtenerLosFeedBackeables(this,Calendar.getInstance()).size()==0)
 		{
 			tabHost.setCurrentTab(tab);
-			Toast.makeText(this, "No hay ramos para FeedBackear", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "No hay cursos para FeedBackear ahora", Toast.LENGTH_LONG).show();
 		}
 		else
 		{

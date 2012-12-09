@@ -70,7 +70,7 @@
 	         android:layout_height="wrap_content"
 	         android:onClick="eliminarCurso"
 	         android:color="#000000"
-	         android:text="Eliminar Ramo" />
+	         android:text="Eliminar Curso" />
 
      </LinearLayout>
      

@@ -118,7 +118,7 @@ public class ActividadRamos extends ListActivity {
 				        				return;
 				        			}catch(NoExisteCursoException nece)
 				        			{
-				        				Toast.makeText(v.getContext(), "Error :No existe el codigo de ramo", Toast.LENGTH_LONG).show();
+				        				Toast.makeText(v.getContext(), "Error :No existe el codigo de curso", Toast.LENGTH_LONG).show();
 				        				return;
 				        			} 
 				        			catch (Exception e) {
