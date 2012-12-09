@@ -80,7 +80,7 @@ public class ActividadFeedback extends Activity {
     	}catch(Exception e){ Toast.makeText(view.getContext(), "Error :Curso ya no existe o no tienes acceso a Internet", Toast.LENGTH_LONG).show();}	
     	 
     	
-    	
+    	 
     	
     }
 

@@ -30,7 +30,7 @@ import android.view.View;
 
 public class server extends Activity {
 
-	public void comentar (View view, int i, String comentario) {
+	public void comentar (View view, int i, String comentario) throws Exception {
         // Create a new HttpClient and Post Header
         HttpClient httpclient = new DefaultHttpClient();
         comentario=comentario.replaceAll(" ", "%20");
@@ -40,11 +40,16 @@ public class server extends Activity {
             // Execute HTTP Post Request
             HttpResponse response = httpclient.execute(httppost);
             
+            
         } catch (ClientProtocolException e) {
             // TODO Auto-generated catch block
+        	e.printStackTrace();
+        	throw e;
         } catch (IOException e) {
             // TODO Auto-generated catch block
-        }
+        	e.printStackTrace();
+        	throw e;
+        } 
 	}
 	
 	public void comentar2(View view, Curso c,Modulo m, String comentario)
