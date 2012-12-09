@@ -99,7 +99,9 @@ private void Notificar() {
 	}
 	if(anterioresFinales.size() != 0)
 	{
-		Intent intentNot = new Intent(this, ActividadFeedBackear.class);
+		Intent intentNot = new Intent(this, ActividadFeedback.class);
+		
+		intentNot.putExtra("ID", anterioresFinales.get(0).obtenerId());
 		
 		//Prepara la notificacion
 		Notification notification = new Notification(android.R.drawable.ic_menu_send, "Comenta!", System.currentTimeMillis());
