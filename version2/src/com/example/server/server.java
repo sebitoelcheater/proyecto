@@ -133,7 +133,7 @@ public class server extends Activity {
 		for (int i = 0; i < Curso.size(); i++) {
 			String idC = Curso.get(i).getString("idC");
 			String idP = Curso.get(i).getString("idP");
-			String titulo = Curso.get(i).getString("titulo").trim();
+			String titulo = arreglarCotejamiento(Curso.get(i).getString("titulo")).trim();
 			String comentable = Curso.get(i).getString("comentable");
 			String color = Curso.get(i).getString("color");
         	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("1"),color);
@@ -148,7 +148,7 @@ public class server extends Activity {
 			String dds=Horarios.get(i).getString("dds");
 			String inicio=Horarios.get(i).getString("inicio");
 			String fin=Horarios.get(i).getString("fin");
-			String ubicacion=Horarios.get(i).getString("ubicacion");
+			String ubicacion=arreglarCotejamiento(Horarios.get(i).getString("ubicacion"));
 			
 			
 			inicio = arreglaLo(inicio);
@@ -229,7 +229,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 		for (int i = 0; i < Curso.size(); i++) {
 			String idC = Curso.get(i).getString("idC");
 			String idP = Curso.get(i).getString("idP");
-			String titulo = Curso.get(i).getString("titulo").trim();
+			String titulo = arreglarCotejamiento(Curso.get(i).getString("titulo")).trim();
 			String comentable = Curso.get(i).getString("comentable");
 			String color = Curso.get(i).getString("color");
         	Curso c = Controlador.crearNuevoCurso(ctx, Integer.parseInt(idC), Integer.parseInt(iidP==null?"0":iidP), titulo, comentable.equals("1"),color);
@@ -245,7 +245,7 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 			String dds=Horarios.get(i).getString("dds");
 			String inicio=Horarios.get(i).getString("inicio");
 			String fin=Horarios.get(i).getString("fin");
-			String ubicacion=Horarios.get(i).getString("ubicacion");
+			String ubicacion=arreglarCotejamiento(Horarios.get(i).getString("ubicacion"));
 			
 			
 			inicio = arreglaLo(inicio);
@@ -324,18 +324,18 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 	
 	private String arreglarCotejamiento(String variable)
 	{
-		variable = variable.replace("Ã¡", "á");
-		variable = variable.replace("Ã©", "é");
-		variable = variable.replace("Ã*", "í");
-		variable = variable.replace("Ã³", "ó");
-		variable = variable.replace("Ãº", "ú");
-		variable = variable.replace("Ã", "Á");
-		variable = variable.replace("Ã‰", "É");
-		variable = variable.replace("Ã", "Í");
-		variable = variable.replace("Ã“", "Ó");
-		variable = variable.replace("Ãš", "Ú");
-		variable = variable.replace("Ã±", "ñ");
-		variable = variable.replace("Ã‘", "Ñ");
+		variable = variable.replace("&aacute;", "á");
+		variable = variable.replace("&eacute;", "é");
+		variable = variable.replace("&iacute;", "í");
+		variable = variable.replace("&oacute;", "ó");
+		variable = variable.replace("&uacute;", "ú");
+		variable = variable.replace("&Aacute;", "Á");
+		variable = variable.replace("&Eacute;", "É");
+		variable = variable.replace("&Iacute;", "Í");
+		variable = variable.replace("&Oacute;", "Ó");
+		variable = variable.replace("&Uacute;", "Ú");
+		variable = variable.replace("&ntilde;", "ñ");
+		variable = variable.replace("&Ntilde;", "Ñ");
 		return variable;
 	}
 	
