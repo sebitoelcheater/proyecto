@@ -309,13 +309,15 @@ public boolean actualizarCurso (String id, Context ctx) //retorna si hay un tope
 	private static String agregarCeros(int n, int i) {
 		// TODO Auto-generated method stub
 		String numero = i+"";
+		int longitud = n-numero.length();
 		if(numero.length()<n)
 		{
-			for(int j =0; j<(n-numero.length());++j)
+			for(int j =0; j<longitud;++j)
 			{
 				numero = "0"+numero;
 			}	
 		}
+		
 		return numero;
 	}
 	public class NoExisteCursoException extends Exception {

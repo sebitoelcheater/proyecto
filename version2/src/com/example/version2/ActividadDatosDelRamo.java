@@ -9,6 +9,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -94,6 +95,11 @@ public class ActividadDatosDelRamo extends ListActivity implements OnItemClickLi
         
         
         setContentView(R.layout.activity_actividad_datos_del_ramo);
+        Button botonColor = (Button) findViewById(R.id.button2);
+        String color = cursoAVer.obtenerColor();
+        int intColor = Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color));
+        botonColor.setBackgroundColor(intColor);
+        botonColor.setClickable(false);
         
 		Button boton_editar_curso = (Button) findViewById(R.id.botonEditarEsteCurso);
 

@@ -391,8 +391,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 						public void colorChanged(String key, int colorido) {
  							// TODO Auto-generated method stub
  							color  = colorido;
- 							Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,Controlador.agregarCeros(3,Color.red(color))+"-"+Controlador.agregarCeros(3,Color.green(color))+"-"+Controlador.agregarCeros(3,Color.blue(color))); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
-
+ 							System.out.println(Controlador.agregarCeros(3,Color.red(color))+"-"+Controlador.agregarCeros(3,Color.green(color))+"-"+Controlador.agregarCeros(3,Color.blue(color)));
+ 							Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,Controlador.agregarCeros(3,Color.red(color))+"-"+Controlador.agregarCeros(3,Color.green(color))+"-"+Controlador.agregarCeros(3,Color.blue(color))); 
  			        		Toast.makeText(getApplicationContext(), "Curso Agregado", Toast.LENGTH_LONG).show();	
  			        		
  			        		
