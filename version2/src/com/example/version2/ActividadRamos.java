@@ -11,6 +11,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import com.example.server.server.NoExisteCursoException;
 //import android.app.Fragment;
 //import com.ciarang.tallyphant.DB;
 //import com.ciarang.tallyphant.DB;
+import com.example.version2.ColorPickerDialog.OnColorChangedListener;
 
 
 public class ActividadRamos extends ListActivity {
@@ -376,21 +378,38 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 				d.setContentView(R.layout.dialogo_crear_curso);
 				d.setTitle("Ingrese un nombre para el Curso");
 				Button boton_suscribir_curso = (Button) d.findViewById(R.id.botonCrearCurso);
-				
 				//EditText idCurso = (EditText)d.findViewById(R.id.nombreCursoACrear);
 				//idCurso.setText("");
 				
+				
 				boton_suscribir_curso.setOnClickListener(new View.OnClickListener() {
-		            public void onClick(View v) {
+					private int color = Color.CYAN;
+					 class OnColorChangedListenerMia implements OnColorChangedListener {
+
+ 						
+
+						public void colorChanged(String key, int colorido) {
+ 							// TODO Auto-generated method stub
+ 							color  = colorido;
+ 							Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,Controlador.agregarCeros(3,Color.red(color))+"-"+Controlador.agregarCeros(3,Color.green(color))+"-"+Controlador.agregarCeros(3,Color.blue(color))); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
+
+ 			        		Toast.makeText(getApplicationContext(), "Curso Agregado", Toast.LENGTH_LONG).show();	
+ 			        		
+ 			        		
+ 			        		actualizarListaRamos();
+ 						}}
+					public void onClick(View v) {
 		            	EditText textonombre = (EditText) d.findViewById(R.id.nombreCursoACrear);
 		        		nombre_curso = textonombre.getText().toString();
 		        		if(!nombre_curso.equals("")){
-		        		Curso c = Controlador.crearNuevoCurso(ActividadRamos.this,0,0, nombre_curso,false,"000-255-000"); //ESTEBAN, esto significa que no tiene profesor asociado, ni curso REMOTO ASOCIADO, ademas se establece como comentable(esto es para programar)
-
-		        		Toast.makeText(v.getContext(), "Curso Agregado", Toast.LENGTH_LONG).show();	
 		        		
+		        			
+		    		           
+		        			new ColorPickerDialog(v.getContext(),new OnColorChangedListenerMia(),"",Color.CYAN,Color.CYAN).show();	
+		    		            
+		    			 
+		    					
 		        		
-		        		actualizarListaRamos();
 		        		
 		        		
 		        		d.dismiss();
@@ -399,6 +418,8 @@ protected Dialog onCreateDialog(int id, Bundle b) {
 		            }
 	
 			});
+				
+				
 				
 			};
 			
