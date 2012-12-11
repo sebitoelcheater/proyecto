@@ -543,11 +543,31 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 			Calendar aahora = (Calendar) fin.clone();
 			aahora.set(Calendar.HOUR_OF_DAY, ahora.get(Calendar.HOUR_OF_DAY));
 			aahora.set(Calendar.MINUTE, ahora.get(Calendar.MINUTE));
-			
-			if(aahora.before(plazoMaximo))
+				
+			if(aahora.before(plazoMaximo) && aahora.after(fin))
 				posiblesModulos.add(m);
 		}
 		return posiblesModulos;
+	}
+	public static ArrayList<Curso> obtenerCursosEditables(Context context) {
+		// TODO Auto-generated method stub
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		AdapterCursos db = new AdapterCursos(context);
+		db.open();
+		Cursor c = db.getAllIdsCURSOS();
+		
+		
+		if (c.moveToFirst())
+        {
+            do {
+            	String idramo = c.getString(0);
+            	Curso curso = new Curso(context,idramo);
+            	if(curso.esEditable())
+            		cursos.add(curso);
+            } while (c.moveToNext());
+        }
+		db.close();
+        return cursos;
 	}
 	
 }

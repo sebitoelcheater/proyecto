@@ -1,5 +1,7 @@
 package com.example.version2;
 
+import com.example.controlador.Modulo;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
@@ -11,6 +13,7 @@ public class ViewModulo extends RelativeLayout{
 	    private TextView nombre;
 	    private TextView sala;
 	    private TextView horaFin;
+	    private Modulo modulo;
 	    
 	    public ViewModulo(Context context, AttributeSet attrs, int defStyle) {
 	        super(context, attrs, defStyle);
@@ -42,6 +45,16 @@ public class ViewModulo extends RelativeLayout{
 	    public void setSala(CharSequence sala) {
 	        this.sala.setText(sala);
 		}
+	    
+	    public void setModulo(Modulo m)
+	    {
+	    	modulo = m;
+	    }
+	    
+	    public Modulo getModulo()
+	    {
+	    	return modulo;
+	    }
 	    
 	    public void setColor(int color)
 	    {

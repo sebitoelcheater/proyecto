@@ -14,6 +14,7 @@ import com.example.controlador.Modulo;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
@@ -25,27 +26,33 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsoluteLayout;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 import android.view.WindowManager;
 
 //ESTO TRABAJA EN PIXELES
 
-public class ActividadHorarioSemanal2 extends Activity {
+public class ActividadHorarioSemanal2 extends Activity implements OnClickListener {
 
-    @Override
+	
+	private Modulo moduloAEditar;
+	 @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        
         FrameLayout fl = new FrameLayout(this);  
         fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
         setContentView(fl);
@@ -83,6 +90,8 @@ public class ActividadHorarioSemanal2 extends Activity {
     	LinearLayout l = (LinearLayout) findViewById(R.id.LinearLayoutLunes);
     	ArrayList<Modulo> modulosDia = Controlador.obtenerModulosSegunDia(this, 2);
 		
+    	
+    	//EDITANDO
     	for(Modulo m : modulosDia)
 		{
     		Curso curso = new Curso(this,m.obtenerIdCurso()); 
@@ -93,6 +102,8 @@ public class ActividadHorarioSemanal2 extends Activity {
 			int duracionEnMinutos = fin.get(Calendar.HOUR_OF_DAY)*60+fin.get(Calendar.MINUTE) - minutos;
 			if(enQueVoy<minutos)  //Y si enQueVoy=>minutos(ESTO NO DEBERIA PASAR....)
 			{
+				
+				
 				l.addView(new TextView(this),new LayoutParams(LayoutParams.FILL_PARENT,DisplaySupport.dipToPx(getApplicationContext(),(int)(factor*(minutos-enQueVoy)))));
 				enQueVoy+= minutos-enQueVoy;
 			}
@@ -100,6 +111,12 @@ public class ActividadHorarioSemanal2 extends Activity {
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+			a.setOnClickListener(this);
+			a.setClickable(true);
+			a.setModulo(m);}
+			
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -131,6 +148,12 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+				a.setOnClickListener(this);
+				a.setClickable(true);
+				a.setModulo(m);}
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -166,6 +189,12 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+				a.setOnClickListener(this);
+				a.setClickable(true);
+				a.setModulo(m);}
+			
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -195,6 +224,12 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+				a.setOnClickListener(this);
+				a.setClickable(true);
+				a.setModulo(m);}
+			
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -225,6 +260,12 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+				a.setOnClickListener(this);
+				a.setClickable(true);
+				a.setModulo(m);}
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -255,6 +296,12 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+				a.setOnClickListener(this);
+				a.setClickable(true);
+				a.setModulo(m);}
+			
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			if(duracionEnMinutos>=45) a.setNombre(curso.obtenerNombre().substring(0,3));
@@ -285,6 +332,12 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			ViewModulo a = new ViewModulo(this);
 			//a.setHoraInicio(m.obtenerStringInicio());
 			//a.setHoraFin(m.obtenerStringFin());
+			if(new Curso(this,m.obtenerIdCurso()).esEditable()){
+				a.setOnClickListener(this);
+				a.setClickable(true);
+				a.setModulo(m);}
+			
+			
 			if(duracionEnMinutos>=120)  a.setSala(m.obtenerNombre());
 			
 			
@@ -295,6 +348,191 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 			enQueVoy+=duracionEnMinutos;
 		}
 		
+	}
+
+
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		moduloAEditar = ((ViewModulo)v).getModulo();
+		Bundle b = new Bundle();
+		showDialog(obtenerIdUnica(),b);
+		
+	}
+	
+	
+	protected Dialog onCreateDialog(int id, Bundle b)
+	{
+		
+		final Dialog d = new Dialog(this);
+    	
+		
+				String []diasDeLaSemana = {"Domingo","Lunes","Martes","Mi閞coles","Jueves","Viernes","S醔ado"};//CORRERSE EN UN INDICE...DOMINGO ==1
+		
+		d.setContentView(R.layout.dialogo_modulo_bkn);
+		d.setTitle(new Curso(this,moduloAEditar.obtenerIdCurso()).obtenerNombre());
+		Button boton_cancelar = (Button) d.findViewById(R.id.button2);
+		Button boton_aceptar = (Button) d.findViewById(R.id.button1);
+		Button boton_eliminar = (Button)  d.findViewById(R.id.button3);
+		Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+		TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+		
+		EditText campoTextoLugar = (EditText) d.findViewById(R.id.salaModuloAEditar);
+
+        String salaOriginal = moduloAEditar.obtenerNombre();
+       campoTextoLugar.setText(salaOriginal);
+        //campoTextoLugar.setText(moduloAEditar.obtenerNombreDiaDeLaSemana());
+
+        
+		///Agregando datos
+		spinnerDias.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,diasDeLaSemana));
+		spinnerDias.setSelection(Integer.parseInt(moduloAEditar.obtenerDiaDeLaSemana())-1);
+		tPInicio.setIs24HourView(true);
+		tPInicio.setCurrentHour(moduloAEditar.obtenerInicio().get(Calendar.HOUR_OF_DAY));
+		tPInicio.setCurrentMinute(moduloAEditar.obtenerInicio().get(Calendar.MINUTE));
+		tPFin.setIs24HourView(true);
+		tPFin.setCurrentHour(moduloAEditar.obtenerFin().get(Calendar.HOUR_OF_DAY));
+		tPFin.setCurrentMinute(moduloAEditar.obtenerFin().get(Calendar.MINUTE));
+		///Agregando datos
+		
+        
+        		
+		boton_cancelar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+            	
+        		d.dismiss(); //Cierra el di谩logo
+
+            	}
+
+		});
+		
+		boton_aceptar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	
+            	/*TODO, recoger en el Buble la id del M贸dulo y eliminar el m贸dulo*
+            	 * Adem谩s actualizar la lista de los m贸dulos*/
+            	Spinner spinnerDias = (Spinner) d.findViewById(R.id.spinner1);
+            	TimePicker tPInicio = (TimePicker) d.findViewById(R.id.timePicker1);
+        		TimePicker tPFin = (TimePicker) d.findViewById(R.id.timePicker2);
+        		
+        		EditText campoTextoLugar = (EditText) d.findViewById(R.id.salaModuloAEditar);
+
+        		
+        		String nuevoLugar = campoTextoLugar.getText().toString();
+        		moduloAEditar.establecerNombre(v.getContext(), nuevoLugar);
+        		
+            	moduloAEditar.establecerDiaDeLaSemana(v.getContext(), spinnerDias.getSelectedItemPosition()+1);
+            	Calendar inicio = moduloAEditar.obtenerInicio();
+            	inicio.set(Calendar.HOUR_OF_DAY, tPInicio.getCurrentHour());
+            	inicio.set(Calendar.MINUTE,tPInicio.getCurrentMinute());
+            	
+            	Calendar fin = moduloAEditar.obtenerFin();
+            	fin.set(Calendar.HOUR_OF_DAY, tPFin.getCurrentHour());
+            	fin.set(Calendar.MINUTE,tPFin.getCurrentMinute());
+            	if(inicio.before(fin))
+            	{
+            		if(Controlador.puedoCambiarModulo(v.getContext(), spinnerDias.getSelectedItemPosition()+1, inicio, fin,moduloAEditar))
+            		{
+            			moduloAEditar.establecerInicio(v.getContext(), inicio);
+            			moduloAEditar.establecerFin(v.getContext(), fin);
+            			actualizarModulos();
+            			d.dismiss();
+            			//Cierra el di谩logo
+            		}
+            		else{
+            			Toast.makeText(v.getContext(), "Modulo ocupado", Toast.LENGTH_LONG).show();
+            		}
+            	}
+            	else
+            	{
+            		Toast.makeText(v.getContext(), "Inicio debe ser antes de Fin", Toast.LENGTH_LONG).show();
+            	}
+
+            	}
+
+		});
+		
+		boton_eliminar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	/*TODO: Controlador.eliminarModulo(id_modulo);*/
+            	moduloAEditar.borrarModulo(v.getContext());
+            	actualizarModulos();
+            	d.dismiss();
+        		
+            	}
+
+		});
+		
+		
+		//ESTO ES PARA QUE LOS PICKER NO SE PASEN DE LISTOS
+		tPInicio.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
+
+			public void onTimeChanged(TimePicker view, int hourOfDay,int minute) {
+				// TODO Auto-generated method stub
+				if(hourOfDay> 22)
+					view.setCurrentHour(8);
+				if(hourOfDay<8)
+					view.setCurrentHour(22);
+			}
+			
+			
+		});
+		tPFin.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
+
+			public void onTimeChanged(TimePicker view, int hourOfDay,
+					int minute) {
+				// TODO Auto-generated method stub
+				if(hourOfDay> 22)
+					view.setCurrentHour(8);
+				if(hourOfDay<8)
+					view.setCurrentHour(22);
+			}
+			
+			
+		});
+		//ESTO ES PARA QUE LOS PICKER NO SE PASEN DE LISTOS
+		
+		return d;
+		/*TODO: Crear un layout para la edici贸n de m贸dulo
+		 * recoger todos los datos del m贸dulo
+		 * colocarlos y permitir su edici贸n
+		 * recopilar los cambios
+		 * hacer los cambios a trav茅s del controlador
+		 * actualizar la lista de m贸dulos*/
+		
+		
+
+	}
+
+public static int obtenerIdUnica(){
+    	
+    	/*Entrega una id 煤nica. Vital para crear dialogos 煤nicos */
+    	Calendar now = Calendar.getInstance();
+		String year = String.valueOf(now.get(Calendar.YEAR));
+		String month = String.valueOf(now.get(Calendar.MONTH)); // Note: zero based!
+		String day = String.valueOf(now.get(Calendar.DAY_OF_MONTH)); //2
+		String hour = String.valueOf(now.get(Calendar.HOUR_OF_DAY));//2
+		String minute = String.valueOf(now.get(Calendar.MINUTE));//2
+		String second = String.valueOf(now.get(Calendar.SECOND));//2
+		String millis = String.valueOf(now.get(Calendar.MILLISECOND));//3
+		
+		//year + month + day +
+		//No puede quedar m谩s largo, porque el rango de n
+		String idunicaStr = hour + minute + second + millis;
+		 int idunicaInt	=  Integer.valueOf(idunicaStr);
+		return (idunicaInt);
+    }
+
+	protected void actualizarModulos() {
+		// TODO Auto-generated method stub
+		FrameLayout fl = new FrameLayout(this);  
+	        fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+	        setContentView(fl);
+	        
+	        dibujaLasLineas(fl);	
+			fl.addView(new ViewEstatica(this));
+			rellenarModulos();
 	}
 
 	 /*
