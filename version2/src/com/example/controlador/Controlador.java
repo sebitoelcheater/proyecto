@@ -503,7 +503,7 @@ public class Controlador  //NOTA: REVISAR BIEN LOS METODOS DEL CONTROLADOR....PE
 		return Integer.parseInt(color.substring(8, 11));
 	}
 	
-	private static String agregarCeros(int n, int i) {
+	public static String agregarCeros(int n, int i) {
 		// TODO Auto-generated method stub
 		String numero = i+"";
 		if(numero.length()<n)

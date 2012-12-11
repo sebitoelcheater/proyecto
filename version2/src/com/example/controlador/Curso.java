@@ -257,7 +257,7 @@ public class Curso
 			Cursor c = db.getRecordCURSOS(Long.parseLong(this.id));
 			if(db.updateRecordCURSOS(Long.parseLong(this.id), c.getString(1), c.getString(2), c.getString(3), Integer.parseInt(c.getString(4)),color))
 			{	
-				setIdP(idP);
+				setColor(color);
 				db.close();
 				return true;
 			}

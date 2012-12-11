@@ -59,6 +59,9 @@
     <string name="cancelar">Cancelar</string>
     <string name="configurar_nuevo_curso">Configurar Nuevo Curso</string>
     <string name="descargar_curso">Descargar Curso</string>
+    <string name="settings_bg_color_dialog">Elige un Color</string>
+    <string name="settings_bg_color_confirm">Aceptar</string>
+    <string name="settings_default_color_confirm">Color Defecto</string>
     
     
     

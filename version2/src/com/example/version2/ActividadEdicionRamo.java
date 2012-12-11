@@ -9,6 +9,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,10 +29,11 @@ import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
 import com.example.controlador.Modulo;
 import com.example.version2.ActividadRamos.MiArrayAdapter;
+import com.example.version2.ColorPickerDialog.OnColorChangedListener;
 
 
 
-public class ActividadEdicionRamo extends ListActivity implements OnItemClickListener {
+public class ActividadEdicionRamo extends ListActivity implements OnItemClickListener,OnColorChangedListener {
 	
 	public class MiModuloEditandoArrayAdapter extends ArrayAdapter<Modulo> {
 
@@ -135,6 +137,11 @@ public class ActividadEdicionRamo extends ListActivity implements OnItemClickLis
 
         campoTextoNombre.setText(nombreOriginal);
         
+        Button botonColor = (Button) findViewById(R.id.botonColor);
+        String color = cursoAEditar.obtenerColor();
+        botonColor.setBackgroundColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
+        
+        
         adaptador = new MiModuloEditandoArrayAdapter(this, R.layout.item_modulo_editando, array_modulos);
         setListAdapter(adaptador);
 
@@ -165,6 +172,15 @@ public static int obtenerIdUnica(){
 		 int idunicaInt	=  Integer.valueOf(idunicaStr);
 		return (idunicaInt);
     }
+
+public void actualizarColor()
+{
+	Button botonColor = (Button) findViewById(R.id.botonColor);
+    String color = cursoAEditar.obtenerColor();
+    botonColor.setBackgroundColor(Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color)));
+    
+  	
+}
 public void actualizarModulos()
 	{
 	
@@ -209,6 +225,20 @@ public void actualizarModulos()
         	showDialog(obtenerIdUnica(),bundle);
     	
     	
+    }
+    
+    public void cambiarColor(View view)
+    {
+    	
+    	String color = cursoAEditar.obtenerColor();
+    	int intColor = Color.rgb(Controlador.getRed(color), Controlador.getGreen(color), Controlador.getBlue(color));
+    	new ColorPickerDialog(this,this,"",intColor,intColor).show();
+    }
+    
+    public void colorChanged(String key, int color) {
+    	// TODO Auto-generated method stub
+    	cursoAEditar.establecerColor(this, Controlador.agregarCeros(3,Color.red(color))+"-"+Controlador.agregarCeros(3,Color.green(color))+"-"+Controlador.agregarCeros(3,Color.blue(color)));
+    	actualizarColor();
     }
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -561,6 +591,7 @@ protected Dialog onCreateDialog(int id, Bundle b) {
     	}
     	return d;
     	}
+
 	
 	
 	
