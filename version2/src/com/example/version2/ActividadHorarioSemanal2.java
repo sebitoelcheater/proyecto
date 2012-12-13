@@ -10,13 +10,21 @@ import com.example.controlador.Controlador;
 import com.example.controlador.Curso;
 import com.example.controlador.DisplaySupport;
 import com.example.controlador.Modulo;
+import com.example.controlador.TweetHelper;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -25,6 +33,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -49,9 +58,14 @@ public class ActividadHorarioSemanal2 extends Activity implements OnClickListene
 
 	
 	private Modulo moduloAEditar;
+	private TweetHelper tweet_hlp;
+	 private int TWITTER_AUTH=1;
+	 
 	 @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tweet_hlp = new TweetHelper(this);
+        
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         FrameLayout fl = new FrameLayout(this);  
         fl.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
@@ -70,8 +84,150 @@ public class ActividadHorarioSemanal2 extends Activity implements OnClickListene
         
         
     }
+	 private static final int SHARE = Menu.FIRST+1;
+	    
+	    
+	    @Override
+	    public boolean onCreateOptionsMenu(Menu menu) {
+
+	        super.onCreateOptionsMenu(menu);
+	        /*menu.add(Menu.NONE, NEW_ITEM, 1, R.string.menu_newitem).setIcon(
+	                android.R.drawable.ic_menu_add);
+	        menu.add(Menu.NONE, RESET_ALL, 2, R.string.menu_resetall).setIcon(
+	                android.R.drawable.ic_menu_revert);
+	        menu.add(Menu.NONE, SHARE, 3, R.string.menu_share).setIcon(
+	                android.R.drawable.ic_menu_share);
+	        menu.add(Menu.NONE, PREFERENCES, 4, R.string.menu_preferences).setIcon(
+	                android.R.drawable.ic_menu_preferences);*/
+	        menu.add(Menu.NONE,SHARE,5,"Compartir!").setIcon(R.drawable.ic_twitter);
+	        return true;
+	    }
+	    
+	    @Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+
+	        switch (item.getItemId()) {
+
+	        /*case NEW_ITEM:
+	            Intent call = new Intent(TallyphantActivity.this, ItemEdit.class);
+	            startActivityForResult(call, REQUEST_EDITITEM);
+	            return true;
+
+	        case RESET_ALL:
+	            db.resetAll();
+	            remoteNotifyAll();
+	            updateItemList();
+	            return true;
+
+	        case SHARE:
+	            Intent i = new Intent(android.content.Intent.ACTION_SEND);
+	            i.setType("text/plain");
+	            i.putExtra(Intent.EXTRA_SUBJECT, R.string.share_subject);
+	            Vector<DB.Item> items = db.getItems();
+	            String msg = "";
+	            for (DB.Item titem : items)
+	                msg += titem.getFormatted() + "\n";
+	            i.putExtra(Intent.EXTRA_TEXT, msg);
+	            startActivity(Intent.createChooser(i,
+	                    getString(R.string.share_title)));
+	            return true;
+
+	        case PREFERENCES:
+	            Intent prefs = new Intent(getBaseContext(), Preferences.class);
+	            startActivityForResult(prefs, REQUEST_PREFS);
+	            return true;*/
+
+	       
+	            
+	        case SHARE:
+	        	 LayoutInflater lis = LayoutInflater.from(this);
+	             View view1 = lis.inflate(R.layout.compartir, null);
+
+	             // Fill in the version...
+	            
+	             Builder p1 = new AlertDialog.Builder(this).setView(view1);
+	             final AlertDialog alrt1 = p1.create();
+	             alrt1.setIcon(R.drawable.ic_twitter);
+	             alrt1.setTitle("COMPARTIR MI HORARIO");//ACA HACER EL SWICTH SEGUN LA ACTIVIDAD
+	             alrt1.setButton(AlertDialog.BUTTON_NEUTRAL,
+	                     "COMPARTIR",
+	                     new DialogInterface.OnClickListener() {
+	                         public void onClick(DialogInterface dialog,
+	                                 int whichButton) {
+	                        	 try {
+	             					//validamos login de nuevo
+	                         		    
+	                         		validar_login();
+	             					// obtenemos texto de componente de texto
+	             					// enviamos tweet y obtenemos estado de envio
+	                         		boolean twt_snd_status = tweet_hlp.Send_Tweet(formatearComentario());
+	             					if (twt_snd_status)// OK enviado
+	             					{ // cambiamos imagen de estad a twitter_OK
+	             						Show_Toast("Tu tweet ha sido enviado");
+	             						
+	             					} else {
+	             						// cambiamos imagen de estad a twitter_fial
+	             						Show_Toast("Hubo un Error no se pudo enviar tu tweet.");
+	             						
+	             					}
+
+	             				} catch (Exception e) {
+	             					// TODO Auto-generated catch block
+	             					//System.out.println(e.getMessage());
+	             					e.printStackTrace();
+	             				}
+	                         }
+	                     });
+	             alrt1.setButton(AlertDialog.BUTTON_NEGATIVE, "Salir",
+	                     new DialogInterface.OnClickListener() {
+	                         public void onClick(DialogInterface dialog,
+	                                 int whichButton) {
+	                         }
+	                     });
+	             alrt1.show();
+	             return true;
+	        
+	        }
+	        return super.onOptionsItemSelected(item);
+	    }
     
    
+	    protected String formatearComentario() {
+			// TODO Auto-generated method stub
+			return "HorarioSemanal2";
+		}
+
+		public void Show_Toast(String txt){
+			
+			Toast.makeText(this,txt, Toast.LENGTH_SHORT).show();
+		}
+	    
+	    public void validar_login(){
+			//Verificar si existen claves alamacenadas en el telefono si no llamar al webview.
+					if(!tweet_hlp.verify_logindata())
+					{
+						Show_Toast("No se han encontrado claves en el telefono las descargaremos.");
+						//creamos intent y pasamos get_AuthenticationURL
+						Intent i = new Intent(ActividadHorarioSemanal2.this, TwitterWebActivity.class);
+						i.putExtra("URL", tweet_hlp.get_AuthenticationURL());
+						startActivityForResult(i, TWITTER_AUTH);
+						
+					} 
+		}
+	    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+			//si el codigo obtenido es ok
+			if (resultCode == Activity.RESULT_OK) {
+				// Obtenemos oauth_verifier pasado por el webview
+				String oauthVerifier = (String) data.getExtras().get("oauth_verifier");
+				Log.e("oauthVerifier ->", oauthVerifier);
+				// Grabamos el valor de oauthVerifier en el shared preferences
+				tweet_hlp.Store_OAuth_verifier(oauthVerifier);
+				
+			}
+
+		}
+
+	    
     private void dibujaLasLineas(FrameLayout fl) {
 		// TODO Auto-generated method stub
     	LinearLayout ln = new LinearLayout(this);

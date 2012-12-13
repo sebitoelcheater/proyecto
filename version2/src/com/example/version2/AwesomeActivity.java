@@ -98,6 +98,7 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
     //private static final int ABOUT = Menu.FIRST + 4;
     private static final int ABOUT = Menu.FIRST;
     
+    //NUEVO
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -186,6 +187,9 @@ public class AwesomeActivity extends TabActivity implements TabHost.OnTabChangeL
                     });
             alrt.show();
             return true;
+            
+        
+        
         }
         return super.onOptionsItemSelected(item);
     }

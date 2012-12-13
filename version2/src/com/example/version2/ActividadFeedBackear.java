@@ -9,12 +9,17 @@ import com.example.controlador.Curso;
 import com.example.controlador.Modulo;
 import com.example.version2.ActividadEdicionRamo.MiModuloEditandoArrayAdapter;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -134,13 +139,14 @@ public class ActividadFeedBackear extends Activity implements OnItemClickListene
         
         lista.setOnItemClickListener(this);
     }
-
+	
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_actividad_feed_backear, menu);
         return true;
     }
-
+*/
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent(this,ActividadFeedback.class);

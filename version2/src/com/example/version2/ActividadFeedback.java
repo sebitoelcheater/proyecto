@@ -53,6 +53,7 @@ public class ActividadFeedback extends Activity {
         //Spinner numeroDeNotas = (Spinner)findViewById(R.id.spinner1);
         //numeroDeNotas.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,cursos));
     }
+	 
 
 	 EditText comentario;
 	 
