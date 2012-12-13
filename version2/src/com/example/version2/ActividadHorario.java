@@ -205,7 +205,30 @@ public class ActividadHorario extends Activity{ //PONER COLORES :)
 	    
 	    protected String formatearComentario() {
 			// TODO Auto-generated method stub
-			return "Horario";
+			
+	    	//TRABAJO
+	    	String a = "";
+	    	if(hoy != viendo){
+	    	a = "Mira mi Horario de "+ stringDDS(viendo)+ " : ";
+	    	ArrayList<Modulo> modulos = Controlador.obtenerModulosSegunDia(this, viendo);
+	    	for(Modulo m : modulos)
+	    	{
+	    		a+= " "+new Curso(this,m.obtenerIdCurso()).obtenerNombre()+"("+m.obtenerStringInicio() +"-"+m.obtenerStringFin() +")" +" ";
+	    	}
+	    	}
+	    	else
+	    	{
+	    		ArrayList<Modulo> modulos = Controlador.obtenerLosSiguientesModulosDelDia(this, Calendar.getInstance(), 5);
+		    	if(modulos.size()!=0){
+	    		a = "Lo que me queda por hacer hoy "+ stringDDS(Calendar.getInstance().get(Calendar.DAY_OF_WEEK))+ " : ";
+		    	for(Modulo m : modulos)
+		    	{
+		    		a+= " "+new Curso(this,m.obtenerIdCurso()).obtenerNombre()+"("+m.obtenerStringInicio() +"-"+m.obtenerStringFin() +")" +" ";
+		    	}}
+		    	else{a="Terminaron las clases por hoy";}
+	    	}
+	    	a+= "- Desde Organizador";
+	    	return a;
 		}
 
 		public void Show_Toast(String txt){

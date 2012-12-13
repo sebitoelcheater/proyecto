@@ -194,7 +194,19 @@ public class ActividadHorarioSemanal2 extends Activity implements OnClickListene
    
 	    protected String formatearComentario() {
 			// TODO Auto-generated method stub
-			return "HorarioSemanal2";
+			//TRABAJO
+	    	String a = "";
+	    	ArrayList<Modulo> modulos = Controlador.obtenerLosSiguientesModulosDelDia(this, Calendar.getInstance(), 5);
+	    	if(modulos.size()!=0){
+    		a = "Lo que me queda por hacer hoy "+ stringDDS(Calendar.getInstance().get(Calendar.DAY_OF_WEEK))+ " : ";
+	    	for(Modulo m : modulos)
+	    	{
+	    		a+= " "+new Curso(this,m.obtenerIdCurso()).obtenerNombre()+"("+m.obtenerStringInicio() +"-"+m.obtenerStringFin() +")" +" ";
+	    	}}
+	    	else{a="Terminaron las clases por hoy";}
+	    	a+= "- Desde Organizador";
+	    	return a;
+	    	
 		}
 
 		public void Show_Toast(String txt){
@@ -659,6 +671,39 @@ Curso curso = new Curso(this,m.obtenerIdCurso());
 		
 		
 
+	}
+	
+	private String stringDDS(int dia)
+	{
+		if (dia==2){
+			return "Lunes";
+		}
+		else if (dia==3){
+			return "Martes";
+			
+		}
+		else if (dia==4){
+			return "Miércoles";
+			
+		}
+		else if (dia==5){
+			return "Jueves";
+		}
+		else if (dia==6){
+			return "Viernes";
+			
+		}
+		else if (dia ==7){
+			return "Sábado";
+			
+		}
+		else if (dia==1){
+			return "Domingo";
+			
+		}
+		else {
+			return "DIA "+dia+" ";
+		}
 	}
 
 public static int obtenerIdUnica(){
