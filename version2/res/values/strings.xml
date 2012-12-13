@@ -62,8 +62,6 @@
     <string name="settings_bg_color_dialog">Elige un Color</string>
     <string name="settings_bg_color_confirm">Aceptar</string>
     <string name="settings_default_color_confirm">Color Defecto</string>
-    
-    
-    
-    
+    <string name="title_activity_twitter_web">TwitterWebActivity</string>
+
 </resources>

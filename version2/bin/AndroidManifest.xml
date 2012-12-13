@@ -76,7 +76,6 @@
 
         <service android:name=".alarmChecker" />
 
-        
         <activity
             android:name=".ActividadEdicionRamo"
             android:label="@string/title_activity_actividad_edicion_ramo" >
@@ -105,6 +104,11 @@
         <activity
             android:name=".ActividadFeedBackear"
             android:label="@string/title_activity_actividad_feed_backear" >
+        </activity>
+        <activity
+            android:name=".TwitterWebActivity"
+            android:label="@string/title_activity_twitter_web" >
+            
         </activity>
     </application>
 
